@@ -1,7 +1,9 @@
+*.o
 /Chipmunk-*
 /Build
 /MYMETA.*
 /META.*
 /_build
 /blib
+/lib/**.c
 

@@ -1,2 +1,7 @@
-/Chipmunk*
-.build
+/Chipmunk-*
+/Build
+/MYMETA.*
+/META.*
+/_build
+/blib
+

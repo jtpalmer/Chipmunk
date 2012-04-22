@@ -5,6 +5,5 @@
 
 #include <chipmunk.h>
 
-MODULE = Chipmunk	PACKAGE = Chipmunk	PREFIX = chipmunk_
-PROTOTYPES: ENABLE
+MODULE = Chipmunk	PACKAGE = Chipmunk
 

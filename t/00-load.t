@@ -4,7 +4,7 @@ use warnings;
 use Test::More;
 
 BEGIN {
-    use_ok 'Chipmunk' or BAIL_OUT;
+    use_ok 'Chipmunk' or BAIL_OUT('Load failed!');
 }
 
 diag "Testing Chipmunk $Chipmunk::VERSION, Perl $], $^X";

@@ -1,0 +1,50 @@
+TYPEMAP
+int		T_IV
+float		T_NV
+cpSpace *	O_OBJECT
+cpVect		O_OBJ_VECT
+
+INPUT
+
+O_OBJECT
+	if (sv_isobject($arg) && (SvTYPE(SvRV($arg)) == SVt_PVMG)) {
+		$var = ($type)SvIV((SV *)SvRV($arg));
+	} else if ($arg == 0) {
+		XSRETURN(0);
+	} else {
+		XSRETURN_UNDEF;
+	}
+
+O_OBJ_VECT
+	if (SvTYPE(SvRV($arg)) == SVt_PVAV) {
+		AV *input = (AV *)SvRV($arg);
+		if (av_len(input) != 1) {
+			printf(\"av_len = %d\\n\", av_len(input));
+			XSRETURN_UNDEF;
+		}
+		float x, y;
+		x = (float)SvNV(*av_fetch(input, 0, 0));
+		y = (float)SvNV(*av_fetch(input, 1, 0));
+		printf(\"gravity: %f %f\\n\", x, y);
+		$var = cpv(x, y);
+	} else if ($arg == 0) {
+		XSRETURN(0);
+	} else {
+		XSRETURN_UNDEF;
+	}
+
+OUTPUT
+
+O_OBJECT
+	if ($var) {
+		sv_setref_pv( $arg, CLASS, (void*)$var );
+	} else {
+		XSRETURN_UNDEF;
+	}
+
+O_OBJ_VECT
+	AV *output = newAV();
+	av_push(output, newSVnv($var.x));
+	av_push(output, newSVnv($var.y));
+	$arg = newRV_inc((SV *)output);
+

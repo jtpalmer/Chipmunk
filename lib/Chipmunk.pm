@@ -28,7 +28,7 @@ Perl bindings for the Chipmunk Physics library.
 
 =head1 AUTHOR
 
-Jeffrey T. Palmer, E<lt>jtpalmer@cpan.org<gt>
+Jeffrey T. Palmer, E<lt>jtpalmer@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

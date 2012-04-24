@@ -1,6 +1,8 @@
 TYPEMAP
 int		T_IV
 float		T_NV
+cpFloat		T_NV
+cpShape *	O_OBJECT
 cpSpace *	O_OBJECT
 cpVect		O_OBJ_VECT
 

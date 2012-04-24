@@ -12,9 +12,6 @@ my $gravity = [ 1, 2 ];
 
 $space->set_gravity($gravity);
 
-use Data::Dumper;
-print Dumper($space->get_gravity);
-
 is_deeply( $space->get_gravity(), $gravity, 'get_gravity' );
 
 done_testing();

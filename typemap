@@ -2,6 +2,7 @@ TYPEMAP
 int		T_IV
 float		T_NV
 cpFloat		T_NV
+cpBody *	O_OBJECT
 cpShape *	O_OBJECT
 cpSpace *	O_OBJECT
 cpVect		O_OBJ_VECT

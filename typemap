@@ -1,6 +1,5 @@
 TYPEMAP
-int		T_IV
-float		T_NV
+cpBool		T_IV
 cpFloat		T_NV
 cpBody *	O_OBJECT
 cpShape *	O_OBJECT
@@ -24,9 +23,9 @@ O_OBJ_VECT
 		if (av_len(input) != 1) {
 			XSRETURN_UNDEF;
 		}
-		float x, y;
-		x = (float)SvNV(*av_fetch(input, 0, 0));
-		y = (float)SvNV(*av_fetch(input, 1, 0));
+		cpFloat x, y;
+		x = (cpFloat)SvNV(*av_fetch(input, 0, 0));
+		y = (cpFloat)SvNV(*av_fetch(input, 1, 0));
 		$var = cpv(x, y);
 	} else if ($arg == 0) {
 		XSRETURN(0);

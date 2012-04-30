@@ -5,11 +5,11 @@
 
 #include <chipmunk.h>
 
-MODULE = Chipmunk::Space	PACKAGE = Chipmunk::Space	PREFIX = cps_
+MODULE = Chipmunk::Space	PACKAGE = Chipmunk::Space	PREFIX = cpspace_
 PROTOTYPES: ENABLE
 
 cpSpace *
-cps_new(CLASS)
+cpspace_new(CLASS)
 		char *CLASS
 	CODE:
 		RETVAL = cpSpaceNew();
@@ -17,14 +17,14 @@ cps_new(CLASS)
 		RETVAL
 
 void
-cps_set_gravity(space, gravity)
+cpspace_set_gravity(space, gravity)
 		cpSpace *space
 		cpVect gravity
 	CODE:
 		cpSpaceSetGravity(space, gravity);
 
 cpVect
-cps_get_gravity(space)
+cpspace_get_gravity(space)
 		cpSpace *space
 	CODE:
 		RETVAL = cpSpaceGetGravity(space);

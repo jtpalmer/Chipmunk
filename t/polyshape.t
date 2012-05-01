@@ -13,7 +13,5 @@ my $poly
 
 isa_ok( $poly, 'Chipmunk::PolyShape' );
 
-my $gravity = [ 1, 2 ];
-
 done_testing();
 

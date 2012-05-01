@@ -13,5 +13,11 @@ my $poly
 
 isa_ok( $poly, 'Chipmunk::PolyShape' );
 
+my $friction = 3.0;
+
+$poly->set_friction($friction);
+
+is( $poly->get_friction(), $friction, 'get_friction' );
+
 done_testing();
 

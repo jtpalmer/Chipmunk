@@ -42,10 +42,7 @@ cpVect *sv_to_vect_array(SV *arg)
 		for (i = 0; i < length; i++) {
 			SV *vert = *av_fetch(input, i, 0);
 			cpVect *v = sv_to_vect(vert);
-			Copy(v, verts + i, 1, cpVect);
-			/*
-			Copy(v, verts[i], 1, cpVect);
-			 * */
+			Copy(v, &verts[i], 1, cpVect);
 		}
 		return verts;
 	} else {

@@ -36,7 +36,7 @@ cpVect *sv_to_vect_array(SV *arg)
 	cpVect *verts;
 	if (SvTYPE(SvRV(arg)) == SVt_PVAV) {
 		AV *input = (AV *)SvRV(arg);
-		int length = av_len(input);
+		int length = av_len(input) + 1;
 		Newx(verts, length + 1, cpVect);
 		int i;
 		for (i = 0; i < length; i++) {

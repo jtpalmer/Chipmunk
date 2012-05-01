@@ -25,6 +25,9 @@ cppoly_new(CLASS, body, verts, ...)
 		}
 		cpVect *_verts = sv_to_vect_array(verts);
 		int num_verts = av_len((AV *)SvRV(verts)) + 1;
+		if (!cpPolyValidate(_verts, num_verts)) {
+			croak("Vertices not clockwise and convex");
+		}
 		RETVAL = cpPolyShapeNew(body, num_verts, _verts, *offset);
 		Safefree(_verts);
 		Safefree(offset);

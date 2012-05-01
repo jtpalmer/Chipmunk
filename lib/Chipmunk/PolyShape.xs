@@ -24,9 +24,18 @@ cppoly_new(CLASS, body, verts, ...)
 			*offset = cpv((cpFloat)0.0, (cpFloat)0.0);
 		}
 		cpVect *_verts = sv_to_vect_array(verts);
-		int num_verts = av_len((AV *)SvRV(verts));
+		int num_verts = av_len((AV *)SvRV(verts)) + 1;
 		RETVAL = cpPolyShapeNew(body, num_verts, _verts, *offset);
 		Safefree(_verts);
 		Safefree(offset);
 	OUTPUT:
 		RETVAL
+
+int
+cppoly_get_num_verts(shape)
+		cpShape *shape
+	CODE:
+		RETVAL = cpPolyShapeGetNumVerts(shape);
+	OUTPUT:
+		RETVAL
+

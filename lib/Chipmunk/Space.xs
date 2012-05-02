@@ -30,6 +30,17 @@ cpspace_get_gravity(space)
 	OUTPUT:
 		RETVAL
 
+cpShape *
+cpspace_add_shape(space, shape)
+		cpSpace *space
+		cpShape *shape
+	PREINIT:
+		char *CLASS = "Chipmunk::Shape";
+	CODE:
+		RETVAL = cpSpaceAddShape(space, shape);
+	OUTPUT:
+		RETVAL
+
 void
 cpspace_DESTROY(space)
 		cpSpace *space

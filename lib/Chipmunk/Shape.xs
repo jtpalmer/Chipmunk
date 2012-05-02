@@ -22,3 +22,9 @@ cpshape_get_friction(shape)
 	OUTPUT:
 		RETVAL
 
+void
+cpshape_DESTROY(shape)
+		cpShape *shape
+	CODE:
+		cpShapeFree(shape);
+

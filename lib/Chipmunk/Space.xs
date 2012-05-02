@@ -30,3 +30,9 @@ cpspace_get_gravity(space)
 	OUTPUT:
 		RETVAL
 
+void
+cpspace_DESTROY(space)
+		cpSpace *space
+	CODE:
+		cpSpaceFree(space);
+

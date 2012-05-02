@@ -2,7 +2,6 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-
 #include <chipmunk.h>
 
 MODULE = Chipmunk::Shape	PACKAGE = Chipmunk::Shape	PREFIX = cpshape_

@@ -34,6 +34,17 @@ cpspace_add_shape(space, shape)
 	OUTPUT:
 		RETVAL
 
+cpShape *
+cpspace_add_static_shape(space, shape)
+		cpSpace *space
+		cpShape *shape
+	PREINIT:
+		char *CLASS = "Chipmunk::Shape";
+	CODE:
+		RETVAL = cpSpaceAddStaticShape(space, shape);
+	OUTPUT:
+		RETVAL
+
 void
 cpspace_set_gravity(space, gravity)
 		cpSpace *space

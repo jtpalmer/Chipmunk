@@ -9,6 +9,8 @@ use Chipmunk::Space;
 
     isa_ok( $space, 'Chipmunk::Space' );
 
+    is( $space->is_locked(), 0, 'is_locked' );
+
     my $gravity = [ 1, 2 ];
 
     $space->set_gravity($gravity);

@@ -15,6 +15,14 @@ cpspace_new(CLASS)
 	OUTPUT:
 		RETVAL
 
+cpBool
+cpspace_is_locked(space)
+		cpSpace *space
+	CODE:
+		RETVAL = cpSpaceIsLocked(space);
+	OUTPUT:
+		RETVAL
+
 void
 cpspace_set_gravity(space, gravity)
 		cpSpace *space

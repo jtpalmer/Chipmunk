@@ -23,6 +23,17 @@ cpspace_is_locked(space)
 	OUTPUT:
 		RETVAL
 
+cpShape *
+cpspace_add_shape(space, shape)
+		cpSpace *space
+		cpShape *shape
+	PREINIT:
+		char *CLASS = "Chipmunk::Shape";
+	CODE:
+		RETVAL = cpSpaceAddShape(space, shape);
+	OUTPUT:
+		RETVAL
+
 void
 cpspace_set_gravity(space, gravity)
 		cpSpace *space
@@ -35,17 +46,6 @@ cpspace_get_gravity(space)
 		cpSpace *space
 	CODE:
 		RETVAL = cpSpaceGetGravity(space);
-	OUTPUT:
-		RETVAL
-
-cpShape *
-cpspace_add_shape(space, shape)
-		cpSpace *space
-		cpShape *shape
-	PREINIT:
-		char *CLASS = "Chipmunk::Shape";
-	CODE:
-		RETVAL = cpSpaceAddShape(space, shape);
 	OUTPUT:
 		RETVAL
 

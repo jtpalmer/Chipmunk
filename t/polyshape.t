@@ -21,7 +21,8 @@ use Chipmunk::PolyShape;
 
     $poly->set_friction($friction);
 
-    is( $poly->get_friction(), $friction, 'get_friction' );
+    cmp_ok( abs $poly->get_friction() - $friction, '<', 1e-5,
+        'get_friction' );
 }
 
 pass('DESTORY');

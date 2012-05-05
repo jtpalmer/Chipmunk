@@ -15,7 +15,10 @@ use Chipmunk::Space;
 
     $space->set_gravity($gravity);
 
-    is_deeply( $space->get_gravity(), $gravity, 'get_gravity' );
+    cmp_ok( abs $space->get_gravity()->[0] - $gravity->[0],
+        '<', 1e-5, 'get_gravity x' );
+    cmp_ok( abs $space->get_gravity()->[1] - $gravity->[1],
+        '<', 1e-5, 'get_gravity y' );
 }
 
 pass('DESTROY');

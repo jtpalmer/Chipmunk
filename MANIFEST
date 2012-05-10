@@ -2,10 +2,23 @@ Build.PL
 Changes
 lib/Chipmunk.pm
 lib/Chipmunk.xs
+lib/Chipmunk/Body.pm
+lib/Chipmunk/Body.xs
+lib/Chipmunk/PolyShape.pm
+lib/Chipmunk/PolyShape.xs
+lib/Chipmunk/Shape.pm
+lib/Chipmunk/Shape.xs
+lib/Chipmunk/Space.pm
+lib/Chipmunk/Space.xs
 LICENSE
 MANIFEST			This list of files
 META.json
 META.yml
 README
+src/helper.h
 src/ppport.h
 t/00-load.t
+t/body.t
+t/polyshape.t
+t/space.t
+typemap

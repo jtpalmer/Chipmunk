@@ -4,12 +4,17 @@ use warnings;
 use Test::More;
 
 BEGIN {
-    use_ok 'Chipmunk'        or BAIL_OUT('Failed to load Chipmunk!');
-    use_ok 'Chipmunk::Space' or BAIL_OUT('Failed to load Chipmunk::Space!');
-    use_ok 'Chipmunk::Shape' or BAIL_OUT('Failed to load Chipmunk::Shape!');
-    use_ok 'Chipmunk::Body'  or BAIL_OUT('Failed to load Chipmunk::Body!');
-    use_ok 'Chipmunk::PolyShape'
-        or BAIL_OUT('Failed to load Chipmunk::PolyShape!');
+    my @modules = qw(
+        Chipmunk
+        Chipmunk::Body
+        Chipmunk::PolyShape
+        Chipmunk::Shape
+        Chipmunk::Space
+    );
+
+    for my $module (@modules) {
+        use_ok($module) or BAIL_OUT("Failed to load $module");
+    }
 }
 
 diag "Testing Chipmunk $Chipmunk::VERSION, Perl $], $^X";

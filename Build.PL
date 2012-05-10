@@ -17,7 +17,7 @@ my $builder = Module::Build->new(
     },
     build_requires => {
         'Test::More'      => 0,
-        'Alien::Chipmunk' => 0
+        'Alien::Chipmunk' => 0,
     },
     requires             => { perl => '5.8.1' },
     c_source             => 'src',

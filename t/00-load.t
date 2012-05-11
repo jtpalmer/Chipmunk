@@ -17,7 +17,11 @@ BEGIN {
     }
 }
 
-diag "Testing Chipmunk $Chipmunk::VERSION, Perl $], $^X";
+diag(
+    sprintf(
+        'Testing Chipmunk %f, Perl %f, %s', $Chipmunk::VERSION, $], $^X
+    )
+);
 
 done_testing();
 

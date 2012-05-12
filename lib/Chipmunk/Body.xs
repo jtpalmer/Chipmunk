@@ -23,3 +23,33 @@ cpbody_destroy(body)
 	CODE:
 		cpBodyFree(body);
 
+void
+cpbody_set_pos(body, pos)
+		cpBody *body
+		cpVect pos
+	CODE:
+		cpBodySetPos(body, pos);
+
+cpVect
+cpbody_get_pos(body)
+		cpBody *body
+	CODE:
+		RETVAL = cpBodyGetPos(body);
+	OUTPUT:
+		RETVAL
+
+void
+cpbody_set_vel(body, vel)
+		cpBody *body
+		cpVect vel
+	CODE:
+		cpBodySetVel(body, vel);
+
+cpVect
+cpbody_get_vel(body)
+		cpBody *body
+	CODE:
+		RETVAL = cpBodyGetVel(body);
+	OUTPUT:
+		RETVAL
+

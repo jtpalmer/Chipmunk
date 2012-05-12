@@ -51,6 +51,17 @@ cpspace_add_static_shape(space, shape)
 	OUTPUT:
 		RETVAL
 
+cpBody *
+cpspace_add_body(space, body)
+		cpSpace *space
+		cpBody *body
+	PREINIT:
+		char *CLASS = "Chipmunk::Body";
+	CODE:
+		RETVAL = cpSpaceAddBody(space, body);
+	OUTPUT:
+		RETVAL
+
 void
 cpspace_set_gravity(space, gravity)
 		cpSpace *space
@@ -66,7 +77,20 @@ cpspace_get_gravity(space)
 	OUTPUT:
 		RETVAL
 
-void
+cpBody *
+cpspace_static_body(space)
 		cpSpace *space
+	PREINIT:
+		char *CLASS = "Chipmunk::Body";
 	CODE:
+		RETVAL = space->staticBody;
+	OUTPUT:
+		RETVAL
+
+void
+cpspace_step(space, dt)
+		cpSpace *space
+		cpFloat dt
+	CODE:
+		cpSpaceStep(space, dt);
 

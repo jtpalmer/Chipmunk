@@ -15,6 +15,12 @@ cpspace_new(CLASS)
 	OUTPUT:
 		RETVAL
 
+void
+cpspace_DESTROY(space)
+		cpSpace *space
+	CODE:
+		cpSpaceFree(space);
+
 cpBool
 cpspace_is_locked(space)
 		cpSpace *space
@@ -61,8 +67,6 @@ cpspace_get_gravity(space)
 		RETVAL
 
 void
-cpspace_DESTROY(space)
 		cpSpace *space
 	CODE:
-		cpSpaceFree(space);
 

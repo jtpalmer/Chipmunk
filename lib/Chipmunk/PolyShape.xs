@@ -13,7 +13,6 @@ cppoly_new(CLASS, body, verts, ...)
 		char *CLASS
 		cpBody *body
 		SV *verts
-	PREINIT:
 	CODE:
 		cpVect *offset;
 		if (items > 3) {

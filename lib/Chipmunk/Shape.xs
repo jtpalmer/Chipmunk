@@ -8,6 +8,12 @@ MODULE = Chipmunk::Shape	PACKAGE = Chipmunk::Shape	PREFIX = cpshape_
 PROTOTYPES: ENABLE
 
 void
+cpshape_destroy(shape)
+		cpShape *shape
+	CODE:
+		cpShapeFree(shape);
+
+void
 cpshape_set_friction(shape, friction)
 		cpShape *shape
 		cpFloat friction
@@ -21,10 +27,4 @@ cpshape_get_friction(shape)
 		RETVAL = cpShapeGetFriction(shape);
 	OUTPUT:
 		RETVAL
-
-void
-cpshape_DESTROY(shape)
-		cpShape *shape
-	CODE:
-		cpShapeFree(shape);
 

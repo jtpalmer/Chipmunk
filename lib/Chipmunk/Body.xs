@@ -18,7 +18,7 @@ cpbody_new(CLASS, mass, inertia)
 		RETVAL
 
 void
-cpbody_DESTROY(body)
+cpbody_destroy(body)
 		cpBody *body
 	CODE:
 		cpBodyFree(body);

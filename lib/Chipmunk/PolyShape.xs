@@ -27,10 +27,11 @@ cppoly_new(CLASS, body, verts, ...)
 			croak("Vertices not clockwise and convex");
 		}
 		RETVAL = cpPolyShapeNew(body, num_verts, _verts, *offset);
-		Safefree(_verts);
-		Safefree(offset);
 	OUTPUT:
 		RETVAL
+	CLEANUP:
+		Safefree(_verts);
+		Safefree(offset);
 
 int
 cppoly_get_num_verts(shape)

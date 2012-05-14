@@ -18,7 +18,7 @@ __END__
 
 =head1 NAME
 
-
+Chipmunk::PolyShape
 
 =head1 SYNOPSIS
 

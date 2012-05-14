@@ -16,7 +16,7 @@ __END__
 
 =head1 NAME
 
-
+Chipmunk::Shape
 
 =head1 SYNOPSIS
 

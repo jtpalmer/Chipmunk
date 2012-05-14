@@ -19,7 +19,10 @@ my $builder = Module::Build->new(
         'Test::More'      => 0,
         'Alien::Chipmunk' => 0,
     },
-    requires             => { perl => '5.8.1' },
+    requires => {
+        'perl'   => '5.8.1',
+        'parent' => 0,
+    },
     c_source             => 'src',
     extra_compiler_flags => $alien->cflags,
     extra_linker_flags   => $alien->libs . ' -lm',

@@ -3,7 +3,7 @@ use warnings;
 use Module::Build;
 use Alien::Chipmunk;
 
-my $alien = Alien::Chipmunk->new;
+my $alien = Alien::Chipmunk->new();
 
 my $builder = Module::Build->new(
     module_name        => 'Chipmunk',

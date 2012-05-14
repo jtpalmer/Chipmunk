@@ -35,10 +35,11 @@ Jeffrey T. Palmer, E<lt>jtpalmer@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2012 by Jeffrey Palmer
+This software is Copyright (c) 2012 by Jeffrey T. Palmer.
 
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
+This is free software, licensed under:
+
+    The MIT License
 
 =cut
 

@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Alien::Chipmunk;
 
-use base qw(Chipmunk::Shape);
+use parent qw(Chipmunk::Shape);
 
 our $VERSION = '0.000001';
 $VERSION = eval $VERSION;

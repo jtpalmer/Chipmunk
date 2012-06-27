@@ -9,7 +9,7 @@ our $VERSION = '0.000001';
 $VERSION = eval $VERSION;
 
 require XSLoader;
-XSLoader::load('Chipmunk::CircleShape', $VERSION);
+XSLoader::load( 'Chipmunk::CircleShape', $VERSION );
 
 1;
 

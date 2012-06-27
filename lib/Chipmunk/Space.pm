@@ -7,7 +7,7 @@ our $VERSION = '0.000001';
 $VERSION = eval $VERSION;
 
 require XSLoader;
-XSLoader::load('Chipmunk::Space', $VERSION);
+XSLoader::load( 'Chipmunk::Space', $VERSION );
 
 1;
 

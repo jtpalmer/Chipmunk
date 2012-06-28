@@ -5,12 +5,27 @@ use Test::More;
 BEGIN {
     my @modules = qw(
         Chipmunk
+        Chipmunk::Arbiter
+        Chipmunk::BB
         Chipmunk::Body
         Chipmunk::CircleShape
+        Chipmunk::Constraint
+        Chipmunk::DampedRotarySpring
+        Chipmunk::DampedSpring
+        Chipmunk::GearJoint
+        Chipmunk::GrooveJoint
+        Chipmunk::PinJoint
+        Chipmunk::PivotJoint
         Chipmunk::PolyShape
+        Chipmunk::RatchetJoint
+        Chipmunk::RotaryLimitJoint
         Chipmunk::SegmentShape
         Chipmunk::Shape
+        Chipmunk::SimpleMotor
+        Chipmunk::SlideJoint
         Chipmunk::Space
+        Chipmunk::SpatialIndex
+        Chipmunk::Vect
     );
 
     for my $module (@modules) {

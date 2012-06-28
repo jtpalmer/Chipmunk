@@ -6,7 +6,9 @@ BEGIN {
     my @modules = qw(
         Chipmunk
         Chipmunk::Body
+        Chipmunk::CircleShape
         Chipmunk::PolyShape
+        Chipmunk::SegmentShape
         Chipmunk::Shape
         Chipmunk::Space
     );

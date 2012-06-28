@@ -38,7 +38,7 @@ This software is Copyright (c) 2012 by Jeffrey T. Palmer.
 
 This is free software, licensed under:
 
-    The MIT License
+  The MIT (X11) License
 
 =cut
 

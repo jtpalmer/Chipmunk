@@ -3,9 +3,6 @@ use strict;
 use warnings;
 use Alien::Chipmunk;
 
-our $VERSION = '0.000001';
-$VERSION = eval $VERSION;
-
 require XSLoader;
 XSLoader::load( 'Chipmunk::Space', $VERSION );
 

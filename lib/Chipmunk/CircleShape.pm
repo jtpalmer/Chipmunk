@@ -5,9 +5,6 @@ use Alien::Chipmunk;
 
 use parent qw(Chipmunk::Shape);
 
-our $VERSION = '0.000001';
-$VERSION = eval $VERSION;
-
 require XSLoader;
 XSLoader::load( 'Chipmunk::CircleShape', $VERSION );
 
@@ -21,11 +18,7 @@ Chipmunk::CircleShape
 
 =head1 SYNOPSIS
 
-
-
 =head1 DESCRIPTION
-
-
 
 =head1 AUTHOR
 

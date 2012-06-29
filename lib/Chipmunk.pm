@@ -18,13 +18,5 @@ __END__
 
 Perl bindings for the Chipmunk Physics library.
 
-=head1 COPYRIGHT AND LICENSE
-
-This software is Copyright (c) 2012 by Jeffrey T. Palmer.
-
-This is free software, licensed under:
-
-  The MIT (X11) License
-
 =cut
 

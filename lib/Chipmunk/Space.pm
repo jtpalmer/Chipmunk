@@ -21,13 +21,5 @@ __END__
 A C<Chipmunk::Space> is the basic unit of simulation in Chipmunk
 Physics.
 
-=head1 COPYRIGHT AND LICENSE
-
-This software is Copyright (c) 2012 by Jeffrey T. Palmer.
-
-This is free software, licensed under:
-
-  The MIT (X11) License
-
 =cut
 

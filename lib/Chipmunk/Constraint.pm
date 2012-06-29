@@ -1,4 +1,7 @@
 package Chipmunk::Constraint;
+
+# ABSTRACT: Opaque constraint
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

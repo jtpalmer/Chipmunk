@@ -1,4 +1,7 @@
 package Chipmunk::RatchetJoint;
+
+# ABSTRACT: Ratchet joint
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

@@ -1,4 +1,7 @@
 package Chipmunk;
+
+# ABSTRACT: 2D physics library
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

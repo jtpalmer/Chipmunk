@@ -1,4 +1,7 @@
 package Chipmunk::SpatialIndex;
+
+# ABSTRACT: Used to accelerate collision detection and spatial queries
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

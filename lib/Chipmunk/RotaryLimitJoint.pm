@@ -1,4 +1,7 @@
 package Chipmunk::RotaryLimitJoint;
+
+# ABSTRACT: Rotary limit joint
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

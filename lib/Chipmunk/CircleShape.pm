@@ -1,4 +1,7 @@
 package Chipmunk::CircleShape;
+
+# ABSTRACT: Circle shape
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

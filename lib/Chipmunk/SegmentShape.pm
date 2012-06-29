@@ -1,4 +1,7 @@
 package Chipmunk::SegmentShape;
+
+# ABSTRACT: Segment shape
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

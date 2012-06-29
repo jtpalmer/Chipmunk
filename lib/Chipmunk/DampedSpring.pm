@@ -1,4 +1,7 @@
 package Chipmunk::DampedSpring;
+
+# ABSTRACT: Damped spring
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

@@ -1,4 +1,7 @@
 package Chipmunk::GrooveJoint;
+
+# ABSTRACT: Groove joint
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

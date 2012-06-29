@@ -1,4 +1,7 @@
 package Chipmunk::BB;
+
+# ABSTRACT: Axis-aligned bounding box
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

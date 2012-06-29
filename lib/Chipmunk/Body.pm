@@ -1,4 +1,7 @@
 package Chipmunk::Body;
+
+# ABSTRACT: Rigid body type
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

@@ -1,4 +1,7 @@
 package Chipmunk::Arbiter;
+
+# ABSTRACT: Controls pairs of colliding shapes
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

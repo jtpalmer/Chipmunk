@@ -1,4 +1,7 @@
 package Chipmunk::Vect;
+
+# ABSTRACT: 2D vector type along with a handy 2D vector math lib
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

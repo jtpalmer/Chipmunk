@@ -1,4 +1,7 @@
 package Chipmunk::GearJoint;
+
+# ABSTRACT: Gear joint
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

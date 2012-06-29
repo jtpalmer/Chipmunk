@@ -1,4 +1,7 @@
 package Chipmunk::Space;
+
+# ABSTRACT: Basic unit of simulation in Chipmunk
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

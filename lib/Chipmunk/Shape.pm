@@ -1,4 +1,7 @@
 package Chipmunk::Shape;
+
+# ABSTRACT: Defines the shape of a rigid body
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

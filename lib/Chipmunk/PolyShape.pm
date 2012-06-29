@@ -1,4 +1,7 @@
 package Chipmunk::PolyShape;
+
+# ABSTRACT: Polygon shape
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

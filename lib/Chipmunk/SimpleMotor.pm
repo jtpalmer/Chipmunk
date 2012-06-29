@@ -1,4 +1,7 @@
 package Chipmunk::SimpleMotor;
+
+# ABSTRACT: Simple motor
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

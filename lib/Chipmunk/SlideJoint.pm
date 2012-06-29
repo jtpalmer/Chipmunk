@@ -1,4 +1,7 @@
 package Chipmunk::SlideJoint;
+
+# ABSTRACT: Slide joint
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

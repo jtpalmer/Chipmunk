@@ -1,4 +1,7 @@
 package Chipmunk::DampedRotarySpring;
+
+# ABSTRACT: Damped rotary spring
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

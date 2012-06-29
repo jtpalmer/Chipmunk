@@ -1,4 +1,7 @@
 package Chipmunk::PinJoint;
+
+# ABSTRACT: Pin joint
+
 use strict;
 use warnings;
 use Alien::Chipmunk;

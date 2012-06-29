@@ -18,10 +18,6 @@ Chipmunk::RotaryLimitJoint
 
 =head1 DESCRIPTION
 
-=head1 AUTHOR
-
-Jeffrey T. Palmer, E<lt>jtpalmer@cpan.orgE<gt>
-
 =head1 COPYRIGHT AND LICENSE
 
 This software is Copyright (c) 2012 by Jeffrey T. Palmer.

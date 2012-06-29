@@ -22,10 +22,6 @@ Chipmunk - Perl bindings for the Chipmunk Physics library
 
 Perl bindings for the Chipmunk Physics library.
 
-=head1 AUTHOR
-
-Jeffrey T. Palmer, E<lt>jtpalmer@cpan.orgE<gt>
-
 =head1 COPYRIGHT AND LICENSE
 
 This software is Copyright (c) 2012 by Jeffrey T. Palmer.

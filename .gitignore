@@ -1,11 +1,3 @@
-*.o
-*.bak
+/.build
 /Chipmunk-*
-/Build
-/MYMETA.*
-/META.*
-/_build
-/blib
-/lib/*.c
-/lib/Chipmunk/*.c
 

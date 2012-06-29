@@ -7,7 +7,7 @@ use warnings;
 use Alien::Chipmunk;
 
 require XSLoader;
-XSLoader::load( 'Chipmunk::PivotJoint', $VERSION );
+XSLoader::load( 'Chipmunk::PivotJoint', $Chipmunk::PivotJoint::VERSION );
 
 1;
 

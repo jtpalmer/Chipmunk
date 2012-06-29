@@ -9,7 +9,7 @@ use Alien::Chipmunk;
 use base qw(Chipmunk::Shape);
 
 require XSLoader;
-XSLoader::load( 'Chipmunk::SegmentShape', $VERSION );
+XSLoader::load( 'Chipmunk::SegmentShape', $Chipmunk::SegmentShape::VERSION );
 
 1;
 

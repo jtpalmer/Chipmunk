@@ -7,7 +7,8 @@ use warnings;
 use Alien::Chipmunk;
 
 require XSLoader;
-XSLoader::load( 'Chipmunk::RotaryLimitJoint', $VERSION );
+XSLoader::load( 'Chipmunk::RotaryLimitJoint',
+    $Chipmunk::RotaryLimitJoint::VERSION );
 
 1;
 

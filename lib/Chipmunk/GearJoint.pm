@@ -7,7 +7,7 @@ use warnings;
 use Alien::Chipmunk;
 
 require XSLoader;
-XSLoader::load( 'Chipmunk::GearJoint', $VERSION );
+XSLoader::load( 'Chipmunk::GearJoint', $Chipmunk::GearJoint::VERSION );
 
 1;
 

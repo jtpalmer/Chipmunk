@@ -7,7 +7,7 @@ use warnings;
 use Alien::Chipmunk;
 
 require XSLoader;
-XSLoader::load( 'Chipmunk::GrooveJoint', $VERSION );
+XSLoader::load( 'Chipmunk::GrooveJoint', $Chipmunk::GrooveJoint::VERSION );
 
 1;
 

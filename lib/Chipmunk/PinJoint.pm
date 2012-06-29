@@ -7,7 +7,7 @@ use warnings;
 use Alien::Chipmunk;
 
 require XSLoader;
-XSLoader::load( 'Chipmunk::PinJoint', $VERSION );
+XSLoader::load( 'Chipmunk::PinJoint', $Chipmunk::PinJoint::VERSION );
 
 1;
 

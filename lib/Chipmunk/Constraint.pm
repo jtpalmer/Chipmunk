@@ -7,7 +7,7 @@ use warnings;
 use Alien::Chipmunk;
 
 require XSLoader;
-XSLoader::load( 'Chipmunk::Constraint', $VERSION );
+XSLoader::load( 'Chipmunk::Constraint', $Chipmunk::Constraint::VERSION );
 
 1;
 

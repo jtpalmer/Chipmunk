@@ -7,7 +7,7 @@ use warnings;
 use Alien::Chipmunk;
 
 require XSLoader;
-XSLoader::load( 'Chipmunk::SpatialIndex', $VERSION );
+XSLoader::load( 'Chipmunk::SpatialIndex', $Chipmunk::SpatialIndex::VERSION );
 
 1;
 

@@ -9,7 +9,7 @@ use Alien::Chipmunk;
 use parent qw(Chipmunk::Shape);
 
 require XSLoader;
-XSLoader::load( 'Chipmunk::CircleShape', $VERSION );
+XSLoader::load( 'Chipmunk::CircleShape', $Chipmunk::CircleShape::VERSION );
 
 1;
 

@@ -7,7 +7,7 @@ use warnings;
 use Alien::Chipmunk;
 
 require XSLoader;
-XSLoader::load( 'Chipmunk::RatchetJoint', $VERSION );
+XSLoader::load( 'Chipmunk::RatchetJoint', $Chipmunk::RatchetJoint::VERSION );
 
 1;
 

@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk::GearJoint', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::GearJoint
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

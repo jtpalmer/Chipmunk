@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk - Perl bindings for the Chipmunk Physics library
-
 =head1 SYNOPSIS
 
     use Chipmunk;

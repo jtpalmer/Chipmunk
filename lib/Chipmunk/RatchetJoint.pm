@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk::RatchetJoint', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::RatchetJoint
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

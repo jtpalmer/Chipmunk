@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk::GrooveJoint', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::GrooveJoint
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

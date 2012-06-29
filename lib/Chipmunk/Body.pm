@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk::Body', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::Body
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

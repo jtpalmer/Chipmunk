@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk::RotaryLimitJoint', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::RotaryLimitJoint
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

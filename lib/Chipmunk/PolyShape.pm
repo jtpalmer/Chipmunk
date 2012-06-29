@@ -12,10 +12,6 @@ XSLoader::load( 'Chipmunk::PolyShape', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::PolyShape
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk::Constraint', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::Constraint
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

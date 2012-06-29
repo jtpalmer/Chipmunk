@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk::SlideJoint', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::SlideJoint
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

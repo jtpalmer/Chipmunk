@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk::PinJoint', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::PinJoint
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

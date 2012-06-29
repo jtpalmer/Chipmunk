@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk::SpatialIndex', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::SpatialIndex
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk::DampedRotarySpring', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::DampedRotarySpring
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

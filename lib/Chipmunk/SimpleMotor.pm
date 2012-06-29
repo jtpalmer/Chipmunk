@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk::SimpleMotor', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::SimpleMotor
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

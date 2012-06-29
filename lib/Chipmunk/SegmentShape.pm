@@ -12,10 +12,6 @@ XSLoader::load( 'Chipmunk::SegmentShape', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::SegmentShape
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

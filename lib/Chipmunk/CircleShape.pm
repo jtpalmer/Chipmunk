@@ -12,10 +12,6 @@ XSLoader::load( 'Chipmunk::CircleShape', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::CircleShape
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk::PivotJoint', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::PivotJoint
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

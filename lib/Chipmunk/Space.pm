@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk::Space', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::Space - The basic unit of simulation
-
 =head1 SYNOPSIS
 
     use Chipmunk::Space;

@@ -10,10 +10,6 @@ XSLoader::load( 'Chipmunk::Arbiter', $VERSION );
 
 __END__
 
-=head1 NAME
-
-Chipmunk::Arbiter
-
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION

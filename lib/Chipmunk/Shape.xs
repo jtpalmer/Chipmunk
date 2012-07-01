@@ -8,7 +8,7 @@ MODULE = Chipmunk::Shape	PACKAGE = Chipmunk::Shape	PREFIX = cpshape_
 PROTOTYPES: ENABLE
 
 void
-cpshape_destroy(shape)
+cpshape_free(shape)
 		cpShape *shape
 	CODE:
 		cpShapeFree(shape);

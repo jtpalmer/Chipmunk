@@ -16,7 +16,7 @@ cpspace_new(CLASS)
 		RETVAL
 
 void
-cpspace_DESTROY(space)
+cpspace_free(space)
 		cpSpace *space
 	CODE:
 		cpSpaceFree(space);

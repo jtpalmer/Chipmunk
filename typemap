@@ -5,6 +5,7 @@ cpBody *	O_OBJECT
 cpShape *	O_OBJECT
 cpSpace *	O_OBJECT
 cpVect		O_OBJ_VECT
+cpBB		T_PACKED
 
 INPUT
 

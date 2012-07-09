@@ -37,7 +37,7 @@ OUTPUT
 
 O_OBJECT
 	if ($var) {
-		sv_setref_pv( $arg, CLASS, (void*)$var );
+		sv_setref_pv( $arg, CLASS, (void *)$var );
 	} else {
 		XSRETURN_UNDEF;
 	}

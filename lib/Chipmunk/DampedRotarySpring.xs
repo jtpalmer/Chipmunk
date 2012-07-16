@@ -7,7 +7,7 @@
 MODULE = Chipmunk::DampedRotarySpring	PACKAGE = Chipmunk::DampedRotarySpring	PREFIX = cpdampedrotaryspring_
 PROTOTYPES: ENABLE
 
-cpDampedRotarySpring *
+cpConstraint *
 cpdampedrotaryspring_new(CLASS, a, b, restAngle, stiffness, damping)
 		char *CLASS
 		cpBody *a

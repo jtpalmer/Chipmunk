@@ -2,6 +2,7 @@ TYPEMAP
 cpBool		T_IV
 cpFloat		T_NV
 cpBody *	O_OBJECT
+cpConstraint *	O_OBJECT
 cpShape *	O_OBJECT
 cpSpace *	O_OBJECT
 cpVect		O_OBJ_VECT

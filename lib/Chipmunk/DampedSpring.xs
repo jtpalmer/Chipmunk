@@ -7,7 +7,7 @@
 MODULE = Chipmunk::DampedSpring	PACKAGE = Chipmunk::DampedSpring	PREFIX = cpdampedspring_
 PROTOTYPES: ENABLE
 
-cpDampedSpring *
+cpConstraint *
 cpdampedspring_new(CLASS, a, b, anchr1, anchr2, restLength, stiffness, damping)
 		char *CLASS
 		cpBody *a

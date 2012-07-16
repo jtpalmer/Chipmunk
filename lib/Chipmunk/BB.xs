@@ -62,6 +62,8 @@ cpBB
 cpbb_merge(a, b)
 		cpBB a
 		cpBB b
+	PREINIT:
+		char *CLASS = "Chipmunk::BB";
 	CODE:
 		RETVAL = cpBBMerge(a, b);
 	OUTPUT:
@@ -71,6 +73,8 @@ cpBB
 cpbb_expand(bb, v)
 		cpBB bb
 		cpVect v
+	PREINIT:
+		char *CLASS = "Chipmunk::BB";
 	CODE:
 		RETVAL = cpBBExpand(bb, v);
 	OUTPUT:

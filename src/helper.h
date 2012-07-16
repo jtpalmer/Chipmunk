@@ -3,21 +3,6 @@
 
 #include <chipmunk.h>
 
-XS_pack_cpBB(SV *out, cpBB in)
-{
-	dTHX;
-	cpBB *bb;
-	Newx(bb, 1, cpBB);
-	Copy(&in, bb, 1, cpBB);
-	sv_setref_pv( out, "Chipmunk::BB", (void *)bb );
-}
-
-cpBB XS_unpack_cpBB(SV *in)
-{
-	dTHX;
-	return *(cpBB *)SvIV((SV *)SvRV(in));
-}
-
 cpVect *sv_to_vect(SV *arg)
 {
 	if (SvTYPE(SvRV(arg)) == SVt_PVAV) {

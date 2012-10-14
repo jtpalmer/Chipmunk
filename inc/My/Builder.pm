@@ -1,8 +1,8 @@
 package My::Builder;
 use strict;
 use warnings;
+use parent qw(Module::Build);
 use Alien::Chipmunk;
-use base qw(Module::Build);
 
 sub new {
     my $class = shift;

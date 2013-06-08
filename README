@@ -10,6 +10,11 @@ SYNOPSIS
 DESCRIPTION
     Perl bindings for the Chipmunk Physics library.
 
+SEE ALSO
+    *   Chipmunk2D Physics <http://chipmunk-physics.net/>
+
+    *   Alien::Chipmunk
+
 AUTHOR
     Jeffrey T. Palmer <jtpalmer@cpan.org>
 

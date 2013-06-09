@@ -15,26 +15,41 @@ use Chipmunk::Body;
 # Window dimensions.
 my ( $width, $height ) = ( 640, 480 );
 
-# Translate from world coordinates to screen coordinates.
-sub translate_coord {
-    my ($pos) = @_;
-    my ( $x, $y ) = @$pos;
-    return [ $x, $height - $y ];
+# Coordinate conversion factor (pixels per meter).
+my $ppm = 10;
+
+# Inverse conversion factor (meters per pixel).
+my $mpp = 1.0 / $ppm;
+
+# World to screen.
+sub w2s {
+    return $_[0] * $ppm unless ref $_[0];
+
+    return [ $_[0][0] * $ppm, $height - $_[0][1] * $ppm ];
 }
 
-my ( $ground_pos0, $ground_pos1 ) = ( [ 0, 0 ], [ $width, $height / 10 ] );
+# Screen to world.
+sub s2w {
+    return $_[0] * $mpp unless ref $_[0];
+
+    return [ $_[0][0] * $mpp, ( $height - $_[0][1] ) * $mpp ];
+}
+
+# Ground screen coordinates.
+my ( $ground_pos0, $ground_pos1 )
+    = ( [ 0, $height ], [ $width, $height * 0.9 ] );
 
 my $time_step = 1.0 / 30.0;
 
 # Circle size and mass.
-my $radius = 5;
+my $radius = s2w(15);
 my $mass   = 1;
 
 my $space = Chipmunk::Space->new();
-$space->set_gravity( [ 0, -100 ] );
+$space->set_gravity( [ 0, -10 ] );
 
-my $ground = Chipmunk::SegmentShape->new( $space->static_body, $ground_pos0,
-    $ground_pos1, 0 );
+my $ground = Chipmunk::SegmentShape->new( $space->static_body,
+    s2w($ground_pos0), s2w($ground_pos1), 0 );
 $ground->set_friction(1);
 
 $space->add_shape($ground);
@@ -43,7 +58,7 @@ my $moment = Chipmunk::moment_for_circle( $mass, 0, $radius, [ 0, 0 ] );
 
 my $ball_body = Chipmunk::Body->new( $mass, $moment );
 $space->add_body($ball_body);
-$ball_body->set_pos( [ $width / 2, $height ] );
+$ball_body->set_pos( s2w( [ $width / 2, 0 ] ) );
 
 my $ball_shape = Chipmunk::CircleShape->new( $ball_body, $radius, [ 0, 0 ] );
 $space->add_shape($ball_shape);
@@ -70,11 +85,9 @@ $app->add_show_handler(
 
         $app->draw_rect( undef, undef );
 
-        $app->draw_line( translate_coord($ground_pos0),
-            translate_coord($ground_pos1), 0xffffffff );
+        $app->draw_line( $ground_pos0, $ground_pos1, 0xffffffff );
 
-        $app->draw_circle_filled( translate_coord($pos),
-            $radius, 0xffffffff );
+        $app->draw_circle_filled( w2s($pos), w2s($radius), 0x448822ff );
 
         $app->update();
     }

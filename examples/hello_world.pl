@@ -27,20 +27,21 @@ my $mass   = 1;
 
 my $moment = Chipmunk::moment_for_circle( $mass, 0, $radius, [ 0, 0 ] );
 
-my $ballBody = Chipmunk::Body->new( $mass, $moment );
-$space->add_body($ballBody);
-$ballBody->set_pos( [ 0, 15 ] );
+my $ball_body = Chipmunk::Body->new( $mass, $moment );
+$space->add_body($ball_body);
+$ball_body->set_pos( [ 0, 15 ] );
 
-my $ballShape = Chipmunk::CircleShape->new( $ballBody, $radius, [ 0, 0 ] );
-$space->add_shape($ballShape);
-$ballShape->set_friction(0.7);
+my $ball_shape = Chipmunk::CircleShape->new( $ball_body, $radius, [ 0, 0 ] );
+$space->add_shape($ball_shape);
+$ball_shape->set_friction(0.7);
 
 my $time_step = 1.0 / 60.0;
 
 for ( my $time = 0; $time < 2; $time += $time_step ) {
-    my $pos = $ballBody->get_pos();
-    my $vel = $ballBody->get_vel();
-    printf( "Time is %5.2f. ballBody is at (%5.2f, %5.2f). "
+    my $pos = $ball_body->get_pos();
+    my $vel = $ball_body->get_vel();
+
+    printf( "Time is %5.2f. ball_body is at (%5.2f, %5.2f). "
             . "It's velocity is (%5.2f, %5.2f)\n",
         $time, $pos->[0], $pos->[1], $vel->[0], $vel->[1] );
 

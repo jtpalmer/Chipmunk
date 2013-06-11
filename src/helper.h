@@ -2,6 +2,7 @@
 #define CHIPMUNK_PERL_HELPER_H
 
 #include <chipmunk.h>
+#include "func_wrappers.h"
 
 cpVect *sv_to_vect(SV *arg)
 {

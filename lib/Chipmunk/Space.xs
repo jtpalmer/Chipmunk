@@ -3,6 +3,7 @@
 #include "XSUB.h"
 #include "ppport.h"
 #include <chipmunk.h>
+#include "helper.h"
 
 MODULE = Chipmunk::Space	PACKAGE = Chipmunk::Space	PREFIX = cpspace_
 PROTOTYPES: ENABLE
@@ -93,4 +94,26 @@ cpspace_step(space, dt)
 		cpFloat dt
 	CODE:
 		cpSpaceStep(space, dt);
+
+cpBool
+cpspace_add_post_step_callback(space, func, key, data)
+		cpSpace *space
+		SV *func
+		SV *key
+		SV *data
+	CODE:
+		cp_func_data *func_data = new_func_data(func, data);
+
+		RETVAL = cpSpaceAddPostStepCallback(
+			space,
+			(cpPostStepFunc)cp_post_step_func,
+			key,
+			func_data
+		);
+
+		if (!RETVAL) {
+			free_func_data(func_data);
+		}
+	OUTPUT:
+		RETVAL
 

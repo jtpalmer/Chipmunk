@@ -2,7 +2,6 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include "helper.h"
 #include <chipmunk.h>
 
 MODULE = Chipmunk::BB	PACKAGE = Chipmunk::BB	PREFIX = cpbb_

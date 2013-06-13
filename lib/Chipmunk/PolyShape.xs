@@ -13,19 +13,27 @@ cppoly_new(CLASS, body, verts, ...)
 		char *CLASS
 		cpBody *body
 		SV *verts
-	CODE:
+	INIT:
 		cpVect *offset;
-		if (items > 3) {
+		cpVect *_verts;
+		int num_verts;
+	CODE:
+		if (items == 4) {
 			offset = sv_to_vect(ST(3));
-		} else {
+		} else if (items == 3) {
 			Newx(offset, 1, cpVect);
 			*offset = cpv((cpFloat)0.0, (cpFloat)0.0);
+		} else {
+			croak("Wrong number of arguments");
 		}
-		cpVect *_verts = sv_to_vect_array(verts);
-		int num_verts = av_len((AV *)SvRV(verts)) + 1;
+
+		_verts = sv_to_vect_array(verts);
+		num_verts = av_len((AV *)SvRV(verts)) + 1;
+
 		if (!cpPolyValidate(_verts, num_verts)) {
 			croak("Vertices not clockwise and convex");
 		}
+
 		RETVAL = cpPolyShapeNew(body, num_verts, _verts, *offset);
 	OUTPUT:
 		RETVAL

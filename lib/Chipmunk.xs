@@ -7,15 +7,6 @@
 MODULE = Chipmunk	PACKAGE = Chipmunk	PREFIX = cp_
 
 cpFloat
-cp_area_for_circle(r1, r2)
-		cpFloat r1
-		cpFloat r2
-	CODE:
-		RETVAL = cpAreaForCircle(r1, r2);
-	OUTPUT:
-		RETVAL
-
-cpFloat
 cp_moment_for_circle(m, r1, r2, offset)
 		cpFloat m
 		cpFloat r1
@@ -23,6 +14,15 @@ cp_moment_for_circle(m, r1, r2, offset)
 		cpVect offset
 	CODE:
 		RETVAL = cpMomentForCircle(m, r1, r2, offset);
+	OUTPUT:
+		RETVAL
+
+cpFloat
+cp_area_for_circle(r1, r2)
+		cpFloat r1
+		cpFloat r2
+	CODE:
+		RETVAL = cpAreaForCircle(r1, r2);
 	OUTPUT:
 		RETVAL
 

@@ -26,3 +26,23 @@ cp_area_for_circle(r1, r2)
 	OUTPUT:
 		RETVAL
 
+cpFloat
+cp_moment_for_segment(m, a, b)
+		cpFloat m
+		cpVect a
+		cpVect b
+	CODE:
+		RETVAL = cpMomentForSegment(m, a, b);
+	OUTPUT:
+		RETVAL
+
+cpFloat
+cp_area_for_segment(a, b, r)
+		cpVect a
+		cpVect b
+		cpFloat r
+	CODE:
+		RETVAL = cpAreaForSegment(a, b, r);
+	OUTPUT:
+		RETVAL
+

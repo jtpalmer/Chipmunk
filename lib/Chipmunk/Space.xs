@@ -101,8 +101,10 @@ cpspace_add_post_step_callback(space, func, key, data)
 		SV *func
 		SV *key
 		SV *data
+	INIT:
+		cp_func_data *func_data;
 	CODE:
-		cp_func_data *func_data = new_func_data(func, data);
+		func_data = new_func_data(func, data);
 
 		RETVAL = cpSpaceAddPostStepCallback(
 			space,

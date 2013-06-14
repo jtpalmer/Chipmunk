@@ -33,6 +33,7 @@ void free_func_data(cp_func_data *combined)
 /* typedef void(*cpPostStepFunc)(cpSpace *space, void *key, void *data) */
 void cp_post_step_func(cpSpace *space, SV *key, cp_func_data *combined)
 {
+	dSP;
 	SV *func, *data, *space_sv;
 
 	space_sv = sv_newmortal();
@@ -41,7 +42,6 @@ void cp_post_step_func(cpSpace *space, SV *key, cp_func_data *combined)
 	func = combined->func;
 	data = combined->data;
 
-	dSP;
 	ENTER;
 	SAVETMPS;
 
@@ -51,11 +51,8 @@ void cp_post_step_func(cpSpace *space, SV *key, cp_func_data *combined)
 	XPUSHs(data);
 	PUTBACK;
 
-	call_sv(func, G_VOID);
+	call_sv(func, G_VOID|G_DISCARD);
 
-	SPAGAIN;
-
-	PUTBACK;
 	FREETMPS;
 	LEAVE;
 }

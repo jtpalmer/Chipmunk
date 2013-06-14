@@ -29,27 +29,24 @@ eval {
 $space = Chipmunk::Space->new();
 $space->set_gravity($gravity);
 
-my $called = 0;
-my $key    = 'key';
-my $data   = 'data';
+my $count = 0;
+my $key   = 'key';
+my $data  = 'data';
 
-$space->add_post_step_callback(
-    sub {
+my $callback = sub {
         my ( $s, $k, $d ) = @_;
 
-        $called = 1;
+        $count++;
 
         isa_ok( $s, 'Chipmunk::Space', 'space in callback' );
         is( $k, $key,  'key in callback' );
         is( $d, $data, 'data in callback' );
-    },
-    $key,
-    $data
-);
+    };
 
+$space->add_post_step_callback($callback, $key, $data);
 $space->step(0.01);
 
-ok( $called, 'post step callback was called' );
+is( $count, 1, 'post step callback was called once' );
 
 done_testing();
 

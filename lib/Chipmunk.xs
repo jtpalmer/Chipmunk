@@ -64,8 +64,10 @@ cp_moment_for_poly(m, verts, ...)
 		} else {
 			croak("Wrong number of arguments");
 		}
+
 		_verts = sv_to_vect_array(verts);
 		num_verts = av_len((AV *)SvRV(verts)) + 1;
+
 		RETVAL = cpMomentForPoly(m, num_verts, _verts, *offset);
 	OUTPUT:
 		RETVAL

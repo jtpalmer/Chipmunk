@@ -17,8 +17,8 @@ cp_func_data *new_func_data(SV *func, SV *data)
 
 	Newx(combined, 1, cp_func_data);
 
-	combined->func = SvREFCNT_inc(func);
-	combined->data = SvREFCNT_inc(data);
+	combined->func = newSVsv(func);
+	combined->data = newSVsv(data);
 
 	return combined;
 }
@@ -34,7 +34,9 @@ void free_func_data(cp_func_data *combined)
 void cp_post_step_func(cpSpace *space, SV *key, cp_func_data *combined)
 {
 	dSP;
-	SV *func, *data, *space_sv;
+	SV *func;
+	SV *data;
+	SV *space_sv;
 
 	space_sv = sv_newmortal();
 	sv_setref_pv(space_sv, "Chipmunk::Space", (void *)space);
@@ -55,6 +57,8 @@ void cp_post_step_func(cpSpace *space, SV *key, cp_func_data *combined)
 
 	FREETMPS;
 	LEAVE;
+
+	free_func_data(combined);
 }
 
 /* typedef void(*cpSpacePointQueryFunc)(cpShape *shape, void *data) */

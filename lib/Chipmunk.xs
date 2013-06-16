@@ -99,3 +99,22 @@ cp_area_for_poly(verts)
 	CLEANUP:
 		Safefree(_verts);
 
+cpFloat
+cp_moment_for_box(m, width, height)
+		cpFloat m
+		cpFloat width
+		cpFloat height
+	CODE:
+		RETVAL = cpMomentForBox(m, width, height);
+	OUTPUT:
+		RETVAL
+
+cpFloat
+cp_moment_for_box2(m, box)
+		cpFloat m
+		cpBB box
+	CODE:
+		RETVAL = cpMomentForBox2(m, box);
+	OUTPUT:
+		RETVAL
+

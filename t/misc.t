@@ -2,6 +2,7 @@ use strict;
 use warnings;
 use Test::More;
 use Chipmunk;
+use Chipmunk::BB;
 use Math::Trig qw(:pi);
 
 {
@@ -30,6 +31,26 @@ use Math::Trig qw(:pi);
 
     my $area = Chipmunk::area_for_poly($verts);
     cmp_ok( abs $area - ( $w * $h ), '<', 1e-5, 'area_for_poly' );
+}
+
+{
+    my $m = 4.0;
+    my ( $w, $h ) = ( 2.0, 3.0 );
+
+    my $moment = Chipmunk::moment_for_box( $m, $w, $h );
+    cmp_ok( abs $moment - ( $m * ( $w * $w + $h * $h ) / 12.0 ),
+        '<', 1e-5, 'moment_for_box' );
+}
+
+{
+    my $m = 4.0;
+    my ( $w, $h ) = ( 2.0, 3.0 );
+
+    my $bb = Chipmunk::BB->new( 0.0, 0.0, $w, $h );
+
+    my $moment = Chipmunk::moment_for_box2( $m, $bb );
+    cmp_ok( abs $moment - ( $m * ( $w * $w + $h * $h) / 3.0 ),
+        '<', 1e-5, 'moment_for_box2' );
 }
 
 done_testing();

@@ -21,6 +21,29 @@ use Math::Trig qw(:pi);
 
 {
     my $m = 5.0;
+    my ( $a, $b ) = ( [ 1.0, 2.0 ], [ 5.0, 6.0 ] );
+    my $r = 2.0;
+
+    my ( $dx, $dy ) = ( $b->[0] - $a->[0], $b->[1] - $a->[1] );
+
+    my ( $ox, $oy )
+        = ( ( $b->[0] + $a->[0] ) / 2.0, ( $b->[1] + $a->[1] ) / 2.0 );
+
+    my $moment = Chipmunk::moment_for_segment( $m, $a, $b );
+    cmp_ok(
+        abs $moment - $m
+            * ( ( $dx * $dx + $dy * $dy ) / 12.0 + $ox * $ox + $oy * $oy ),
+        '<', 1e-5, 'moment_for_segment'
+    );
+
+    my $area = Chipmunk::area_for_segment( $a, $b, $r );
+    cmp_ok(
+        abs $area - $r * ( pi * $r + 2.0 * sqrt( $dx * $dx + $dy * $dy ) ),
+        '<', 1e-5, 'area_for_segment' );
+}
+
+{
+    my $m = 5.0;
     my ( $w, $h ) = ( 2.0, 3.0 );
     my $verts = [ [ 0.0, 0.0 ], [ 0.0, $h ], [ $w, $h ], [ $w, 0.0 ] ];
     my $offset = [ 0.0, 0.0 ];

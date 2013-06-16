@@ -18,5 +18,19 @@ use Math::Trig qw(:pi);
         '<', 1e-5, 'area_for_circle' );
 }
 
+{
+    my $m = 5.0;
+    my ( $w, $h ) = ( 2.0, 3.0 );
+    my $verts = [ [ 0.0, 0.0 ], [ 0.0, $h ], [ $w, $h ], [ $w, 0.0 ] ];
+    my $offset = [ 0.0, 0.0 ];
+
+    my $moment = Chipmunk::moment_for_poly( $m, $verts, $offset );
+    cmp_ok( abs $moment - ( $m * ( $w * $w + $h * $h ) / 3.0 ),
+        '<', 1e-5, 'moment_for_poly' );
+
+    my $area = Chipmunk::area_for_poly($verts);
+    cmp_ok( abs $area - ( $w * $h ), '<', 1e-5, 'area_for_poly' );
+}
+
 done_testing();
 

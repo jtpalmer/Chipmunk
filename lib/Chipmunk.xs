@@ -56,9 +56,9 @@ cp_moment_for_poly(m, verts, ...)
 		cpVect *_verts;
 		int num_verts;
 	CODE:
-		if (items == 2) {
+		if (items == 3) {
 			offset = sv_to_vect(ST(2));
-		} else if (items == 1) {
+		} else if (items == 2) {
 			Newx(offset, 1, cpVect);
 			*offset = cpv((cpFloat)0.0, (cpFloat)0.0);
 		} else {
@@ -68,10 +68,34 @@ cp_moment_for_poly(m, verts, ...)
 		_verts = sv_to_vect_array(verts);
 		num_verts = av_len((AV *)SvRV(verts)) + 1;
 
+		if (!cpPolyValidate(_verts, num_verts)) {
+			croak("Vertices not clockwise and convex");
+		}
+
 		RETVAL = cpMomentForPoly(m, num_verts, _verts, *offset);
 	OUTPUT:
 		RETVAL
 	CLEANUP:
 		Safefree(_verts);
 		Safefree(offset);
+
+cpFloat
+cp_area_for_poly(verts)
+		SV *verts
+	INIT:
+		cpVect *_verts;
+		int num_verts;
+	CODE:
+		_verts = sv_to_vect_array(verts);
+		num_verts = av_len((AV *)SvRV(verts)) + 1;
+
+		if (!cpPolyValidate(_verts, num_verts)) {
+			croak("Vertices not clockwise and convex");
+		}
+
+		RETVAL = cpAreaForPoly(num_verts, _verts);
+	OUTPUT:
+		RETVAL
+	CLEANUP:
+		Safefree(_verts);
 

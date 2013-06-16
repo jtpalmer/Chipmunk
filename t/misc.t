@@ -49,7 +49,7 @@ use Math::Trig qw(:pi);
     my $bb = Chipmunk::BB->new( 0.0, 0.0, $w, $h );
 
     my $moment = Chipmunk::moment_for_box2( $m, $bb );
-    cmp_ok( abs $moment - ( $m * ( $w * $w + $h * $h) / 3.0 ),
+    cmp_ok( abs $moment - ( $m * ( $w * $w + $h * $h ) / 3.0 ),
         '<', 1e-5, 'moment_for_box2' );
 }
 

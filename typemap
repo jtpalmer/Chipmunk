@@ -42,11 +42,11 @@ O_OBJ_BB
 			XSRETURN_UNDEF;
 		}
 		$var = cpBBNew(
-		    (cpFloat)SvNV(*av_fetch(input, 0, 0)),
-		    (cpFloat)SvNV(*av_fetch(input, 1, 0)),
-		    (cpFloat)SvNV(*av_fetch(input, 2, 0)),
-		    (cpFloat)SvNV(*av_fetch(input, 3, 0))
-                );
+			(cpFloat)SvNV(*av_fetch(input, 0, 0)),
+			(cpFloat)SvNV(*av_fetch(input, 1, 0)),
+			(cpFloat)SvNV(*av_fetch(input, 2, 0)),
+			(cpFloat)SvNV(*av_fetch(input, 3, 0))
+		);
 	} else if ($arg == 0) {
 		XSRETURN(0);
 	} else {

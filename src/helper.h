@@ -66,5 +66,20 @@ cpVect *sv_to_vect_array(SV *arg)
 	}
 }
 
+SV *vect_array_to_sv(int size, cpVect* var)
+{
+        int i;
+        AV *output = newAV();
+
+        for (i = 0; i < size; i++) {
+                AV *vect = newAV();
+                av_push(vect, newSVnv(var[i].x));
+                av_push(vect, newSVnv(var[i].y));
+                av_push(output, newRV_inc((SV *)vect));
+        }
+
+        return newRV_inc((SV *)output);
+}
+
 #endif
 

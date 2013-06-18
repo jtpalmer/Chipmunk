@@ -63,6 +63,14 @@ use Math::Trig qw(:pi);
 
     cmp_ok( abs $centroid->[0] - $w / 2.0, '<', 1e-5, 'centroid_for_poly x' );
     cmp_ok( abs $centroid->[1] - $h / 2.0, '<', 1e-5, 'centroid_for_poly y' );
+
+    my $recentered = Chipmunk::recenter_poly($verts);
+    use Data::Dumper;
+    diag Dumper($recentered);
+    cmp_ok( abs $recentered->[0][0] - ( $verts->[0][0] - $w / 2.0 ),
+        '<', 1e-5, 'recentered v0 x' );
+    cmp_ok( abs $recentered->[0][1] - ( $verts->[0][1] - $h / 2.0 ),
+        '<', 1e-5, 'recentered v0 y' );
 }
 
 {

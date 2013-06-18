@@ -115,6 +115,23 @@ cp_centroid_for_poly(verts)
 	CLEANUP:
 		Safefree(_verts);
 
+SV *
+cp_recenter_poly(verts)
+		SV *verts
+	INIT:
+		cpVect *_verts;
+		int size_RETVAL;
+		int i;
+	CODE:
+		_verts = sv_to_vect_array(verts);
+		size_RETVAL = av_len((AV *)SvRV(verts)) + 1;
+
+		cpRecenterPoly(size_RETVAL, _verts);
+
+		RETVAL = vect_array_to_sv(size_RETVAL, _verts);
+	OUTPUT:
+		RETVAL
+
 cpFloat
 cp_moment_for_box(m, width, height)
 		cpFloat m

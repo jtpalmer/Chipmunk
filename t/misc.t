@@ -59,8 +59,8 @@ use Math::Trig qw(:pi);
 {
     my ( $w, $h ) = ( 2.0, 3.0 );
     my $verts = [ [ 0.0, 0.0 ], [ 0.0, $h ], [ $w, $h ], [ $w, 0.0 ] ];
-    my $centroid = Chipmunk::centroid_for_poly($verts);
 
+    my $centroid = Chipmunk::centroid_for_poly($verts);
     cmp_ok( abs $centroid->[0] - $w / 2.0, '<', 1e-5, 'centroid_for_poly x' );
     cmp_ok( abs $centroid->[1] - $h / 2.0, '<', 1e-5, 'centroid_for_poly y' );
 

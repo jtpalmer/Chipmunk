@@ -125,17 +125,18 @@ cp_recenter_poly(verts)
 		SV *verts
 	INIT:
 		cpVect *_verts;
-		int size_RETVAL;
-		int i;
+		int size;
 	CODE:
 		_verts = sv_to_vect_array(verts);
-		size_RETVAL = av_len((AV *)SvRV(verts)) + 1;
+		size = av_len((AV *)SvRV(verts)) + 1;
 
-		cpRecenterPoly(size_RETVAL, _verts);
+		cpRecenterPoly(size, _verts);
 
-		RETVAL = vect_array_to_sv(size_RETVAL, _verts);
+		RETVAL = vect_array_to_sv(size, _verts);
 	OUTPUT:
 		RETVAL
+	CLEANUP:
+		Safefree(_verts);
 
 cpFloat
 cp_moment_for_box(m, width, height)

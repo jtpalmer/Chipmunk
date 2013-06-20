@@ -7,6 +7,11 @@
 
 MODULE = Chipmunk	PACKAGE = Chipmunk	PREFIX = cp_
 
+void
+cp_enable_segment_to_segment_collisions()
+	CODE:
+		cpEnableSegmentToSegmentCollisions();
+
 cpFloat
 cp_moment_for_circle(m, r1, r2, offset)
 		cpFloat m

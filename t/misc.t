@@ -5,6 +5,14 @@ use Chipmunk;
 use Chipmunk::BB;
 use Math::Trig qw(:pi);
 
+eval {
+    Chipmunk::enable_segment_to_segment_collisions();
+    pass('enable_segment_to_segment_collisions');
+    1;
+} or do {
+    fail('enable_segment_to_segment_collisions');
+};
+
 {
     my $m = 4.0;
     my ( $r1, $r2 ) = ( 2.0, 3.0 );

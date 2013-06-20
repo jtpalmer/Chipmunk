@@ -10,6 +10,11 @@ use Chipmunk::Body;
 
     isa_ok( $body, 'Chipmunk::Body' );
 
+    my $pos = [ 5.0, 6.0 ];
+    $body->set_pos($pos);
+    cmp_ok( abs $body->get_pos()->[0] - $pos->[0], '<', 1e-5, 'get_pos x' );
+    cmp_ok( abs $body->get_pos()->[1] - $pos->[1], '<', 1e-5, 'get_pos y' );
+
     eval {
         $body->free();
         pass('free');

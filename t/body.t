@@ -15,6 +15,10 @@ use Chipmunk::Body;
     cmp_ok( abs $body->get_pos()->[0] - $pos->[0], '<', 1e-5, 'get_pos x' );
     cmp_ok( abs $body->get_pos()->[1] - $pos->[1], '<', 1e-5, 'get_pos y' );
 
+    my $angle = 1.1;
+    $body->set_angle($angle);
+    cmp_ok( abs $body->get_angle() - $angle, '<', 1e-5, 'get_angle' );
+
     eval {
         $body->free();
         pass('free');

@@ -53,3 +53,18 @@ cpbody_get_vel(body)
 	OUTPUT:
 		RETVAL
 
+void
+cpbody_set_angle(body, angle)
+		cpBody *body
+		cpFloat angle
+	CODE:
+		cpBodySetAngle(body, angle);
+
+cpFloat
+cpbody_get_angle(body)
+		cpBody *body
+	CODE:
+		RETVAL = cpBodyGetAngle(body);
+	OUTPUT:
+		RETVAL
+

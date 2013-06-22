@@ -99,5 +99,37 @@ eval {
         '<', 1e-5, 'moment_for_box2' );
 }
 
+{
+    my ( $w, $h ) = ( 2.0, 3.0 );
+    my $concave = [
+        [ 0.0,      0.0 ],
+        [ 0.0,      $h ],
+        [ $w / 2.0, $h / 2.0 ],
+        [ $w,       $h ],
+        [ $w,       0.0 ],
+    ];
+
+    my $convex = Chipmunk::convex_hull($concave);
+
+    is( scalar @$convex, 4, 'convex_hull correct number of vertices' );
+
+    cmp_ok( abs $convex->[0][0] - $concave->[0][0],
+        '<', 1e-5, 'convex_hull v0 x' );
+    cmp_ok( abs $convex->[0][1] - $concave->[0][1],
+        '<', 1e-5, 'convex_hull v0 y' );
+    cmp_ok( abs $convex->[1][0] - $concave->[1][0],
+        '<', 1e-5, 'convex_hull v1 x' );
+    cmp_ok( abs $convex->[1][1] - $concave->[1][1],
+        '<', 1e-5, 'convex_hull v1 y' );
+    cmp_ok( abs $convex->[2][0] - $concave->[3][0],
+        '<', 1e-5, 'convex_hull v2 x' );
+    cmp_ok( abs $convex->[2][1] - $concave->[3][1],
+        '<', 1e-5, 'convex_hull v2 y' );
+    cmp_ok( abs $convex->[3][0] - $concave->[4][0],
+        '<', 1e-5, 'convex_hull v3 x' );
+    cmp_ok( abs $convex->[3][1] - $concave->[4][1],
+        '<', 1e-5, 'convex_hull v3 y' );
+}
+
 done_testing();
 

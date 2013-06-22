@@ -157,3 +157,30 @@ cp_moment_for_box2(m, box)
 	OUTPUT:
 		RETVAL
 
+SV *
+cp_convex_hull(verts, ...)
+		SV *verts
+	INIT:
+		int size;
+		cpFloat tol;
+		cpVect *_verts;
+	CODE:
+		if (items == 2) {
+			tol = SvNV(ST(2));
+		} else if (items == 1) {
+			tol = 0.0;
+		} else {
+			croak("Wrong number of arguments");
+		}
+
+		_verts = sv_to_vect_array(verts);
+		size = av_len((AV *)SvRV(verts)) + 1;
+
+		size = cpConvexHull(size, _verts, NULL, NULL, tol);
+
+		RETVAL = vect_array_to_sv(size, _verts);
+	OUTPUT:
+		RETVAL
+	CLEANUP:
+		Safefree(_verts);
+

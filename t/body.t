@@ -7,7 +7,6 @@ use Chipmunk::Body;
     my ( $mass, $inertia ) = ( 1.0, 2.0 );
 
     my $body = Chipmunk::Body->new( $mass, $inertia );
-
     isa_ok( $body, 'Chipmunk::Body' );
 
     my $pos = [ 5.0, 6.0 ];
@@ -25,6 +24,19 @@ use Chipmunk::Body;
         1;
     } or do {
         fail('free');
+    };
+}
+
+{
+    my $body = Chipmunk::Body->new_static();
+    isa_ok( $body, 'Chipmunk::Body', 'new_static' );
+
+    eval {
+        $body->free();
+        pass('free (static)');
+        1;
+    } or do {
+        fail('free (static)');
     };
 }
 

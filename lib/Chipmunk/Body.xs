@@ -17,6 +17,14 @@ cpbody_new(CLASS, mass, inertia)
 	OUTPUT:
 		RETVAL
 
+cpBody *
+cpbody_new_static(CLASS)
+		char *CLASS
+	CODE:
+		RETVAL = cpBodyNewStatic();
+	OUTPUT:
+		RETVAL
+
 void
 cpbody_free(body)
 		cpBody *body

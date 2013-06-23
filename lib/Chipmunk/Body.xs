@@ -31,6 +31,14 @@ cpbody_free(body)
 	CODE:
 		cpBodyFree(body);
 
+cpBool
+cpbody_is_static(body)
+		cpBody *body
+	CODE:
+		RETVAL = cpBodyIsStatic(body);
+	OUTPUT:
+		RETVAL
+
 void
 cpbody_set_pos(body, pos)
 		cpBody *body

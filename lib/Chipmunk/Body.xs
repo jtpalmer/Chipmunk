@@ -31,6 +31,20 @@ cpbody_free(body)
 	CODE:
 		cpBodyFree(body);
 
+void
+cpbody_sleep(body)
+		cpBody *body
+	CODE:
+		cpBodySleep(body);
+
+cpBool
+cpbody_is_sleeping(body)
+		cpBody *body
+	CODE:
+		RETVAL = cpBodyIsSleeping(body);
+	OUTPUT:
+		RETVAL
+
 cpBool
 cpbody_is_static(body)
 		cpBody *body

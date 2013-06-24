@@ -19,6 +19,9 @@ use Chipmunk::Space;
 
     ok( !$body->is_rogue(), 'is_roque (not rogue)' );
 
+    $body->sleep();
+    ok( $body->is_sleeping(), 'is_sleeping' );
+
     my $pos = [ 5.0, 6.0 ];
     $body->set_pos($pos);
     cmp_ok( abs $body->get_pos()->[0] - $pos->[0], '<', 1e-5, 'get_pos x' );

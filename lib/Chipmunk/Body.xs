@@ -39,6 +39,14 @@ cpbody_is_static(body)
 	OUTPUT:
 		RETVAL
 
+cpBool
+cpbody_is_rogue(body)
+		cpBody *body
+	CODE:
+		RETVAL = cpBodyIsRogue(body);
+	OUTPUT:
+		RETVAL
+
 void
 cpbody_set_pos(body, pos)
 		cpBody *body

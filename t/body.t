@@ -2,6 +2,7 @@ use strict;
 use warnings;
 use Test::More;
 use Chipmunk::Body;
+use Chipmunk::Space;
 
 {
     my ( $mass, $inertia ) = ( 1.0, 2.0 );
@@ -10,6 +11,13 @@ use Chipmunk::Body;
     isa_ok( $body, 'Chipmunk::Body' );
 
     ok( !$body->is_static(), 'is_static (not static)' );
+
+    ok( $body->is_rogue(), 'is_roque' );
+
+    my $space = Chipmunk::Space->new();
+    $space->add_body($body);
+
+    ok( !$body->is_rogue(), 'is_roque (not rogue)' );
 
     my $pos = [ 5.0, 6.0 ];
     $body->set_pos($pos);

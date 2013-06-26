@@ -22,6 +22,9 @@ use Chipmunk::Space;
     $body->sleep();
     ok( $body->is_sleeping(), 'is_sleeping' );
 
+    $body->activate();
+    ok( !$body->is_sleeping(), 'is_sleeping (not sleeping)' );
+
     my $pos = [ 5.0, 6.0 ];
     $body->set_pos($pos);
     cmp_ok( abs $body->get_pos()->[0] - $pos->[0], '<', 1e-5, 'get_pos x' );

@@ -32,6 +32,12 @@ cpbody_free(body)
 		cpBodyFree(body);
 
 void
+cpbody_activate(body)
+		cpBody *body
+	CODE:
+		cpBodyActivate(body);
+
+void
 cpbody_sleep(body)
 		cpBody *body
 	CODE:

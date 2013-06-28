@@ -92,6 +92,21 @@ cpbody_set_mass(body, m)
 	CODE:
 		cpBodySetMass(body, m);
 
+cpFloat
+cpbody_get_moment(body)
+		cpBody *body
+	CODE:
+		RETVAL = cpBodyGetMoment(body);
+	OUTPUT:
+		RETVAL
+
+void
+cpbody_set_moment(body, i)
+		cpBody *body
+		cpFloat i
+	CODE:
+		cpBodySetMoment(body, i);
+
 void
 cpbody_set_pos(body, pos)
 		cpBody *body

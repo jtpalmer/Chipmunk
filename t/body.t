@@ -33,6 +33,12 @@ use Chipmunk::Space;
     $body->set_mass($mass);
     cmp_ok( abs $body->get_mass() - $mass, '<', 1e-5, 'set_mass' );
 
+    cmp_ok( abs $body->get_moment() - $inertia, '<', 1e-5, 'get_moment' );
+
+    $inertia = 3.0;
+    $body->set_moment($inertia);
+    cmp_ok( abs $body->get_moment() - $inertia, '<', 1e-5, 'set_moment' );
+
     my $pos = [ 5.0, 6.0 ];
     $body->set_pos($pos);
     cmp_ok( abs $body->get_pos()->[0] - $pos->[0], '<', 1e-5, 'get_pos x' );

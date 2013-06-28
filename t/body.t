@@ -8,7 +8,7 @@ use Chipmunk::Space;
     my ( $mass, $inertia ) = ( 1.0, 2.0 );
 
     my $body = Chipmunk::Body->new( $mass, $inertia );
-    isa_ok( $body, 'Chipmunk::Body' );
+    isa_ok( $body, 'Chipmunk::Body', 'new' );
 
     ok( !$body->is_static(), 'is_static (not static)' );
 

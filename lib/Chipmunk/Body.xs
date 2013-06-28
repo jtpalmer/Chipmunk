@@ -67,6 +67,16 @@ cpbody_is_rogue(body)
 	OUTPUT:
 		RETVAL
 
+cpSpace *
+cpbody_get_space(body)
+		cpBody *body
+	PREINIT:
+		char *CLASS = "Chipmunk::Space";
+	CODE:
+		RETVAL = cpBodyGetSpace(body);
+	OUTPUT:
+		RETVAL
+
 void
 cpbody_set_pos(body, pos)
 		cpBody *body

@@ -77,6 +77,21 @@ cpbody_get_space(body)
 	OUTPUT:
 		RETVAL
 
+cpFloat
+cpbody_get_mass(body)
+		cpBody *body
+	CODE:
+		RETVAL = cpBodyGetMass(body);
+	OUTPUT:
+		RETVAL
+
+void
+cpbody_set_mass(body, m)
+		cpBody *body
+		cpFloat m
+	CODE:
+		cpBodySetMass(body, m);
+
 void
 cpbody_set_pos(body, pos)
 		cpBody *body

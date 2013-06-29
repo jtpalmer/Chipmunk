@@ -107,13 +107,6 @@ cpbody_set_moment(body, i)
 	CODE:
 		cpBodySetMoment(body, i);
 
-void
-cpbody_set_pos(body, pos)
-		cpBody *body
-		cpVect pos
-	CODE:
-		cpBodySetPos(body, pos);
-
 cpVect
 cpbody_get_pos(body)
 		cpBody *body
@@ -123,11 +116,11 @@ cpbody_get_pos(body)
 		RETVAL
 
 void
-cpbody_set_vel(body, vel)
+cpbody_set_pos(body, pos)
 		cpBody *body
-		cpVect vel
+		cpVect pos
 	CODE:
-		cpBodySetVel(body, vel);
+		cpBodySetPos(body, pos);
 
 cpVect
 cpbody_get_vel(body)
@@ -136,6 +129,13 @@ cpbody_get_vel(body)
 		RETVAL = cpBodyGetVel(body);
 	OUTPUT:
 		RETVAL
+
+void
+cpbody_set_vel(body, vel)
+		cpBody *body
+		cpVect vel
+	CODE:
+		cpBodySetVel(body, vel);
 
 cpVect
 cpbody_get_force(body)
@@ -152,13 +152,6 @@ cpbody_set_force(body, force)
 	CODE:
 		cpBodySetForce(body, force);
 
-void
-cpbody_set_angle(body, angle)
-		cpBody *body
-		cpFloat angle
-	CODE:
-		cpBodySetAngle(body, angle);
-
 cpFloat
 cpbody_get_angle(body)
 		cpBody *body
@@ -166,6 +159,13 @@ cpbody_get_angle(body)
 		RETVAL = cpBodyGetAngle(body);
 	OUTPUT:
 		RETVAL
+
+void
+cpbody_set_angle(body, angle)
+		cpBody *body
+		cpFloat angle
+	CODE:
+		cpBodySetAngle(body, angle);
 
 cpFloat
 cpbody_get_ang_vel(body)

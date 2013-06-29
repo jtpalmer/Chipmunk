@@ -39,10 +39,21 @@ use Chipmunk::Space;
     $body->set_moment($inertia);
     cmp_ok( abs $body->get_moment() - $inertia, '<', 1e-5, 'set_moment' );
 
+    cmp_ok( abs $body->get_pos()->[0] - 0.0, '<', 1e-5, 'get_pos x' );
+    cmp_ok( abs $body->get_pos()->[1] - 0.0, '<', 1e-5, 'get_pos y' );
+
     my $pos = [ 5.0, 6.0 ];
     $body->set_pos($pos);
-    cmp_ok( abs $body->get_pos()->[0] - $pos->[0], '<', 1e-5, 'get_pos x' );
-    cmp_ok( abs $body->get_pos()->[1] - $pos->[1], '<', 1e-5, 'get_pos y' );
+    cmp_ok( abs $body->get_pos()->[0] - $pos->[0], '<', 1e-5, 'set_pos x' );
+    cmp_ok( abs $body->get_pos()->[1] - $pos->[1], '<', 1e-5, 'set_pos y' );
+
+    cmp_ok( abs $body->get_vel()->[0] - 0.0, '<', 1e-5, 'get_vel x' );
+    cmp_ok( abs $body->get_vel()->[1] - 0.0, '<', 1e-5, 'get_vel y' );
+
+    my $vel = [ 7.0, 8.0 ];
+    $body->set_vel($vel);
+    cmp_ok( abs $body->get_vel()->[0] - $vel->[0], '<', 1e-5, 'set_vel x' );
+    cmp_ok( abs $body->get_vel()->[1] - $vel->[1], '<', 1e-5, 'set_vel y' );
 
     my $angle = 1.1;
     $body->set_angle($angle);

@@ -65,9 +65,11 @@ use Chipmunk::Space;
     cmp_ok( abs $body->get_force()->[1] - $force->[1],
         '<', 1e-5, 'set_force y' );
 
+    cmp_ok( abs $body->get_angle() - 0.0, '<', 1e-5, 'get_angle' );
+
     my $angle = 1.1;
     $body->set_angle($angle);
-    cmp_ok( abs $body->get_angle() - $angle, '<', 1e-5, 'get_angle' );
+    cmp_ok( abs $body->get_angle() - $angle, '<', 1e-5, 'set_angle' );
 
     cmp_ok( abs $body->get_ang_vel() - 0.0, '<', 1e-5, 'get_ang_vel' );
 

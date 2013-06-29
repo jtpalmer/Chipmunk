@@ -137,6 +137,21 @@ cpbody_get_vel(body)
 	OUTPUT:
 		RETVAL
 
+cpVect
+cpbody_get_force(body)
+		cpBody *body
+	CODE:
+		RETVAL = cpBodyGetForce(body);
+	OUTPUT:
+		RETVAL
+
+void
+cpbody_set_force(body, force)
+		cpBody *body
+		cpVect force
+	CODE:
+		cpBodySetForce(body, force);
+
 void
 cpbody_set_angle(body, angle)
 		cpBody *body

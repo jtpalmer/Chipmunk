@@ -182,3 +182,18 @@ cpbody_set_ang_vel(body, vel)
 	CODE:
 		cpBodySetAngVel(body, vel);
 
+cpFloat
+cpbody_get_torque(body)
+		cpBody *body
+	CODE:
+		RETVAL = cpBodyGetTorque(body);
+	OUTPUT:
+		RETVAL
+
+void
+cpbody_set_torque(body, torque)
+		cpBody *body
+		cpFloat torque
+	CODE:
+		cpBodySetTorque(body, torque);
+

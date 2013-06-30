@@ -77,6 +77,12 @@ use Chipmunk::Space;
     $body->set_ang_vel($ang_vel);
     cmp_ok( abs $body->get_ang_vel() - $ang_vel, '<', 1e-5, 'set_ang_vel' );
 
+    cmp_ok( abs $body->get_torque() - 0.0, '<', 1e-5, 'get_torque' );
+
+    my $torque = 13.0;
+    $body->set_torque($torque);
+    cmp_ok( abs $body->get_torque() - $torque, '<', 1e-5, 'set_torque' );
+
     eval {
         $body->free();
         pass('free');

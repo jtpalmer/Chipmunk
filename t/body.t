@@ -92,6 +92,11 @@ use Chipmunk::Space;
     cmp_ok( abs $body->get_rot()->[0] - 0.0, '<', 1e-5, 'get_rot x (pi/2)' );
     cmp_ok( abs $body->get_rot()->[1] - 1.0, '<', 1e-5, 'get_rot y (pi/2)' );
 
+    my $vel_limit = 100.0;
+    $body->set_vel_limit($vel_limit);
+    cmp_ok( abs $body->get_vel_limit() - $vel_limit,
+        '<', 1e-5, 'set_vel_limit' );
+
     eval {
         $body->free();
         pass('free');

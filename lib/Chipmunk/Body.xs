@@ -205,3 +205,18 @@ cpbody_get_rot(body)
 	OUTPUT:
 		RETVAL
 
+cpFloat
+cpbody_get_vel_limit(body)
+		cpBody *body
+	CODE:
+		RETVAL = cpBodyGetVelLimit(body);
+	OUTPUT:
+		RETVAL
+
+void
+cpbody_set_vel_limit(body, vel_limit)
+		cpBody *body
+		cpFloat vel_limit
+	CODE:
+		cpBodySetVelLimit(body, vel_limit);
+

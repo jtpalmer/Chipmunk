@@ -1,6 +1,7 @@
 use strict;
 use warnings;
 use Test::More;
+use Math::Trig qw(:pi);
 use Chipmunk::Body;
 use Chipmunk::Space;
 
@@ -82,6 +83,14 @@ use Chipmunk::Space;
     my $torque = 13.0;
     $body->set_torque($torque);
     cmp_ok( abs $body->get_torque() - $torque, '<', 1e-5, 'set_torque' );
+
+    $body->set_angle(0.0);
+    cmp_ok( abs $body->get_rot()->[0] - 1.0, '<', 1e-5, 'get_rot x' );
+    cmp_ok( abs $body->get_rot()->[1] - 0.0, '<', 1e-5, 'get_rot y' );
+
+    $body->set_angle( pi / 2.0 );
+    cmp_ok( abs $body->get_rot()->[0] - 0.0, '<', 1e-5, 'get_rot x (pi/2)' );
+    cmp_ok( abs $body->get_rot()->[1] - 1.0, '<', 1e-5, 'get_rot y (pi/2)' );
 
     eval {
         $body->free();

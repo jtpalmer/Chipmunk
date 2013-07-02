@@ -197,3 +197,11 @@ cpbody_set_torque(body, torque)
 	CODE:
 		cpBodySetTorque(body, torque);
 
+cpVect
+cpbody_get_rot(body)
+		cpBody *body
+	CODE:
+		RETVAL = cpBodyGetRot(body);
+	OUTPUT:
+		RETVAL
+

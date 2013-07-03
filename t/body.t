@@ -97,6 +97,11 @@ use Chipmunk::Space;
     cmp_ok( abs $body->get_vel_limit() - $vel_limit,
         '<', 1e-5, 'set_vel_limit' );
 
+    my $ang_vel_limit = 101.0;
+    $body->set_ang_vel_limit($ang_vel_limit);
+    cmp_ok( abs $body->get_ang_vel_limit() - $ang_vel_limit,
+        '<', 1e-5, 'set_ang_vel_limit' );
+
     eval {
         $body->free();
         pass('free');

@@ -38,10 +38,33 @@ cpbody_activate(body)
 		cpBodyActivate(body);
 
 void
+cpbody_activate_static(body, ...)
+		cpBody *body
+	INIT:
+		cpShape *filter;
+	CODE:
+		if (items == 2) {
+			filter = (cpShape *)SvIV((SV *)SvRV(ST(1)));
+		} else if (items == 1) {
+			filter = NULL;
+		} else {
+			croak("Wrong number of arguments");
+		}
+
+		cpBodyActivateStatic(body, filter);
+
+void
 cpbody_sleep(body)
 		cpBody *body
 	CODE:
 		cpBodySleep(body);
+
+void
+cpbody_sleep_with_group(body, group)
+		cpBody *body
+		cpBody *group
+	CODE:
+		cpBodySleepWithGroup(body, group);
 
 cpBool
 cpbody_is_sleeping(body)
@@ -219,4 +242,109 @@ cpbody_set_vel_limit(body, vel_limit)
 		cpFloat vel_limit
 	CODE:
 		cpBodySetVelLimit(body, vel_limit);
+
+cpFloat
+cpbody_get_ang_vel_limit(body)
+		cpBody *body
+	CODE:
+		RETVAL = cpBodyGetAngVelLimit(body);
+	OUTPUT:
+		RETVAL
+
+void
+cpbody_set_ang_vel_limit(body, ang_vel_limit)
+		cpBody *body
+		cpFloat ang_vel_limit
+	CODE:
+		cpBodySetAngVelLimit(body, ang_vel_limit);
+
+SV *
+cpbody_get_user_data(body)
+		cpBody *body
+	CODE:
+		RETVAL = (SV *)cpBodyGetUserData(body);
+	OUTPUT:
+		RETVAL
+
+void
+cpbody_set_user_data(body, data)
+		cpBody *body
+		SV *data
+	CODE:
+		cpBodySetUserData(body, (cpDataPointer)data);
+
+cpVect
+cpbody_local_to_world(body, v)
+		cpBody *body
+		cpVect v
+	CODE:
+		RETVAL = cpBodyLocal2World(body, v);
+	OUTPUT:
+		RETVAL
+
+cpVect
+cpbody_world_to_local(body, v)
+		cpBody *body
+		cpVect v
+	CODE:
+		RETVAL = cpBodyWorld2Local(body, v);
+	OUTPUT:
+		RETVAL
+
+void
+cpbody_reset_forces(body)
+		cpBody *body
+	CODE:
+		cpBodyResetForces(body);
+
+void
+cpbody_apply_force(body, f, r)
+		cpBody *body
+		cpVect f
+		cpVect r
+	CODE:
+		cpBodyApplyForce(body, f, r);
+
+void
+cpbody_apply_impulse(body, j, r)
+		cpBody *body
+		cpVect j
+		cpVect r
+	CODE:
+		cpBodyApplyImpulse(body, j, r);
+
+cpVect
+cpbody_get_vel_at_world_point(body, point)
+		cpBody *body
+		cpVect point
+	CODE:
+		RETVAL = cpBodyGetVelAtWorldPoint(body, point);
+	OUTPUT:
+		RETVAL
+
+cpVect
+cpbody_get_vel_at_local_point(body, point)
+		cpBody *body
+		cpVect point
+	CODE:
+		RETVAL = cpBodyGetVelAtLocalPoint(body, point);
+	OUTPUT:
+		RETVAL
+
+cpFloat
+cpbody_kinetic_energy(body )
+		cpBody *body
+	CODE:
+		RETVAL = cpBodyKineticEnergy(body);
+	OUTPUT:
+		RETVAL
+
+#typedef void (*cpBodyShapeIteratorFunc)(cpBody *body, cpShape *shape, void *data);
+#void cpBodyEachShape(cpBody *body, cpBodyShapeIteratorFunc func, void *data);
+
+#typedef void (*cpBodyConstraintIteratorFunc)(cpBody *body, cpConstraint *constraint, void *data);
+#void cpBodyEachConstraint(cpBody *body, cpBodyConstraintIteratorFunc func, void *data);
+
+#typedef void (*cpBodyArbiterIteratorFunc)(cpBody *body, cpArbiter *arbiter, void *data);
+#void cpBodyEachArbiter(cpBody *body, cpBodyArbiterIteratorFunc func, void *data);
 

@@ -5,6 +5,10 @@ use Math::Trig qw(:pi);
 use Chipmunk::Body;
 use Chipmunk::Space;
 
+# TODO: activate_static, sleep_with_group, get/set_user_data,
+#       reset_forces, apply_force, apply_impulse,
+#       get_vel_at_world_point, get_vel_at_local_point, kinetic_energy
+
 {
     my ( $mass, $inertia ) = ( 1.0, 2.0 );
 

@@ -108,6 +108,11 @@ use Chipmunk::Space;
     cmp_ok( abs $body->local_to_world( [ 0.0, 0.0 ] )->[1] - $pos->[1],
         '<', 1e-5, 'local_to_world y' );
 
+    cmp_ok( abs $body->world_to_local($pos)->[0],
+        '<', 1e-5, 'world_to_local x' );
+    cmp_ok( abs $body->world_to_local($pos)->[1],
+        '<', 1e-5, 'world_to_local y' );
+
     eval {
         $body->free();
         pass('free');

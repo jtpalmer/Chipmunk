@@ -102,6 +102,12 @@ use Chipmunk::Space;
     cmp_ok( abs $body->get_ang_vel_limit() - $ang_vel_limit,
         '<', 1e-5, 'set_ang_vel_limit' );
 
+    $body->set_angle(0.0);
+    cmp_ok( abs $body->local_to_world( [ 0.0, 0.0 ] )->[0] - $pos->[0],
+        '<', 1e-5, 'local_to_world x' );
+    cmp_ok( abs $body->local_to_world( [ 0.0, 0.0 ] )->[1] - $pos->[1],
+        '<', 1e-5, 'local_to_world y' );
+
     eval {
         $body->free();
         pass('free');

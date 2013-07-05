@@ -16,13 +16,6 @@ use Chipmunk::SegmentShape;
     ok( $segment, 'new' );
     isa_ok( $segment, 'Chipmunk::SegmentShape' );
 
-    my $friction = 3.0;
-
-    $segment->set_friction($friction);
-
-    cmp_ok( abs $segment->get_friction() - $friction,
-        '<', 1e-5, 'get_friction' );
-
     eval {
         $segment->free();
         pass('free');

@@ -16,13 +16,6 @@ use Chipmunk::PolyShape;
 
     is( $poly->get_num_verts(), scalar @$verts, 'get_num_verts' );
 
-    my $friction = 3.0;
-
-    $poly->set_friction($friction);
-
-    cmp_ok( abs $poly->get_friction() - $friction, '<', 1e-5,
-        'get_friction' );
-
     eval {
         $poly->free();
         pass('free');

@@ -41,7 +41,15 @@ cpshape_cache_bb(shape)
 
 #void cpShapeSetBody(cpShape *shape, cpBody *body);
 
-#cpBB cpShapeGetBB(const cpShape *shape)
+cpBB
+cpshape_get_bb(shape)
+		cpShape *shape
+	PREINIT:
+		char *CLASS = "Chipmunk::BB";
+	CODE:
+		RETVAL = cpShapeGetBB(shape);
+	OUTPUT:
+		RETVAL
 
 #cpBool cpShapeGetSensor(const cpShape *shape)
 

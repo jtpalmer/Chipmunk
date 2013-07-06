@@ -13,7 +13,15 @@ cpshape_free(shape)
 	CODE:
 		cpShapeFree(shape);
 
-#cpBB cpShapeCacheBB(cpShape *shape);
+cpBB
+cpshape_cache_bb(shape)
+		cpShape *shape
+	PREINIT:
+		char *CLASS = "Chipmunk::BB";
+	CODE:
+		RETVAL = cpShapeCacheBB(shape);
+	OUTPUT:
+		RETVAL
 
 #cpBB cpShapeUpdate(cpShape *shape, cpVect pos, cpVect rot);
 

@@ -39,6 +39,18 @@ use Chipmunk::SegmentShape;
 
         isa_ok( $shape, 'Chipmunk::Shape', "new ($type)" );
 
+        {
+            my $bb = $shape->cache_bb();
+            ok( $bb, "cache_bb ($type)" );
+            isa_ok( $bb, 'Chipmunk::BB', "cache_bb ($type)" );
+        }
+
+        {
+            my $bb = $shape->get_bb();
+            ok( $bb, "get_bb ($type)" );
+            isa_ok( $bb, 'Chipmunk::BB', "get_bb ($type)" );
+        }
+
         my $friction = 3.0;
         $shape->set_friction($friction);
         cmp_ok( abs $shape->get_friction() - $friction,

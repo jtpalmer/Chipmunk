@@ -2,6 +2,7 @@ use strict;
 use warnings;
 use Test::More;
 use Chipmunk::BB;
+use List::Util qw( max min );
 
 {
     my ( $left, $bottom, $right, $top ) = ( 0, 10, 20, 30 );
@@ -24,6 +25,20 @@ use Chipmunk::BB;
     ok( $bb->contains_bb($circle_bb), 'contains_bb' );
 
     ok( $bb->contains_vect( [ 10, 20 ] ), 'contains_vect' );
+
+    my $p      = [ [ 10.0, 20.0, 30.0, 40.0 ], [ 15.0, 25.0, 35.0, 45.0 ] ];
+    my $bb1    = Chipmunk::BB->new( @{ $p->[0] } );
+    my $bb2    = Chipmunk::BB->new( @{ $p->[1] } );
+    my $merged = $bb1->merge($bb2);
+    isa_ok( $bb, 'Chipmunk::BB', 'merged' );
+    cmp_ok( abs $merged->[0] - min( $p->[0][0], $p->[1][0] ),
+        '<', 1e-5, 'merged left' );
+    cmp_ok( abs $merged->[1] - min( $p->[0][1], $p->[1][1] ),
+        '<', 1e-5, 'merged bottom' );
+    cmp_ok( abs $merged->[2] - max( $p->[0][2], $p->[1][2] ),
+        '<', 1e-5, 'merged right' );
+    cmp_ok( abs $merged->[3] - max( $p->[0][3], $p->[1][3] ),
+        '<', 1e-5, 'merged top' );
 }
 
 done_testing();

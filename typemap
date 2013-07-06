@@ -75,5 +75,6 @@ O_OBJ_BB
 	av_push(output, newSVnv($var.r));
 	av_push(output, newSVnv($var.t));
 	$arg = newRV_inc((SV *)output);
+	load_module((U32)0, newSVpv(CLASS, 0), NULL, NULL);
 	sv_bless($arg, gv_stashpv(CLASS, (I32)0));
 

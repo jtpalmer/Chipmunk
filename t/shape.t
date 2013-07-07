@@ -43,6 +43,18 @@ use Chipmunk::SegmentShape;
             my $bb = $shape->cache_bb();
             ok( $bb, "cache_bb ($type)" );
             isa_ok( $bb, 'Chipmunk::BB', "cache_bb ($type)" );
+
+            my $pos = [ 1.0, 2.0 ];
+            my $rot = [ 1.0, 0.0 ];
+            my $bb2 = $shape->update( $pos, $rot );
+            cmp_ok( abs $bb2->[0] - $bb->[0] - $pos->[0],
+                '<', 1e-5, "update left ($type)" );
+            cmp_ok( abs $bb2->[1] - $bb->[1] - $pos->[1],
+                '<', 1e-5, "update bottom ($type)" );
+            cmp_ok( abs $bb2->[2] - $bb->[2] - $pos->[0],
+                '<', 1e-5, "update right ($type)" );
+            cmp_ok( abs $bb2->[3] - $bb->[3] - $pos->[1],
+                '<', 1e-5, "update top ($type)" );
         }
 
         {

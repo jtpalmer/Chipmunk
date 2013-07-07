@@ -23,9 +23,26 @@ cpshape_cache_bb(shape)
 	OUTPUT:
 		RETVAL
 
-#cpBB cpShapeUpdate(cpShape *shape, cpVect pos, cpVect rot);
+cpBB
+cpshape_update(shape, pos, rot)
+		cpShape *shape
+		cpVect pos
+		cpVect rot
+	PREINIT:
+		char *CLASS = "Chipmunk::BB";
+	CODE:
+		RETVAL = cpShapeUpdate(shape, pos, rot);
+	OUTPUT:
+		RETVAL
 
-#cpBool cpShapePointQuery(cpShape *shape, cpVect p);
+cpBool
+cpshape_point_query(shape, p)
+		cpShape *shape
+		cpVect p
+	CODE:
+		RETVAL = cpShapePointQuery(shape, p);
+	OUTPUT:
+		RETVAL
 
 #cpFloat cpShapeNearestPointQuery(cpShape *shape, cpVect p, cpNearestPointQueryInfo *out);
 
@@ -35,11 +52,32 @@ cpshape_cache_bb(shape)
 
 #cpFloat cpSegmentQueryHitDist(const cpVect start, const cpVect end, const cpSegmentQueryInfo info)
 
-#cpSpace* cpShapeGetSpace(const cpShape *shape)
+cpSpace *
+cpshape_get_space(shape)
+		cpShape *shape
+	PREINIT:
+		char *CLASS = "Chipmunk::Space";
+	CODE:
+		RETVAL = cpShapeGetSpace(shape);
+	OUTPUT:
+		RETVAL
 
-#cpBody* cpShapeGetBody(const cpShape *shape)
+cpBody *
+cpshape_get_body(shape)
+		cpShape *shape
+	PREINIT:
+		char *CLASS = "Chipmunk::Body";
+	CODE:
+		RETVAL = cpShapeGetBody(shape);
+	OUTPUT:
+		RETVAL
 
-#void cpShapeSetBody(cpShape *shape, cpBody *body);
+void
+cpshape_set_body(shape, body)
+		cpShape *shape
+		cpBody *body
+	CODE:
+		cpShapeSetBody(shape, body);
 
 cpBB
 cpshape_get_bb(shape)
@@ -51,11 +89,28 @@ cpshape_get_bb(shape)
 	OUTPUT:
 		RETVAL
 
-#cpBool cpShapeGetSensor(const cpShape *shape)
+cpBool
+cpshape_get_sensor(shape)
+		cpShape *shape
+	CODE:
+		RETVAL = cpShapeGetSensor(shape);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpShapeGetElasticity(const cpShape *shape)
+cpFloat
+cpshape_get_elasticity(shape)
+		cpShape *shape
+	CODE:
+		RETVAL = cpShapeGetElasticity(shape);
+	OUTPUT:
+		RETVAL
 
-#void cpShapeSetElasticity(cpShape *shape, cpFloat value)
+void
+cpshape_set_elasticity(shape, value)
+		cpShape *shape
+		cpFloat value
+	CODE:
+		cpShapeSetElasticity(shape, value);
 
 void
 cpshape_set_friction(shape, friction)

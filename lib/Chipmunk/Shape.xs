@@ -112,13 +112,6 @@ cpshape_set_elasticity(shape, value)
 	CODE:
 		cpShapeSetElasticity(shape, value);
 
-void
-cpshape_set_friction(shape, friction)
-		cpShape *shape
-		cpFloat friction
-	CODE:
-		cpShapeSetFriction(shape, friction);
-
 cpFloat
 cpshape_get_friction(shape)
 		cpShape *shape
@@ -126,4 +119,11 @@ cpshape_get_friction(shape)
 		RETVAL = cpShapeGetFriction(shape);
 	OUTPUT:
 		RETVAL
+
+void
+cpshape_set_friction(shape, friction)
+		cpShape *shape
+		cpFloat friction
+	CODE:
+		cpShapeSetFriction(shape, friction);
 

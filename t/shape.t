@@ -6,6 +6,9 @@ use Chipmunk::CircleShape;
 use Chipmunk::PolyShape;
 use Chipmunk::SegmentShape;
 
+# TODO: point_query, get_space, get_body, set_body, get_sensor,
+#       get_elasticity, set_elasticity
+
 {
     my ( $mass, $inertia ) = ( 1.0, 2.0 );
 

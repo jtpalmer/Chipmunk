@@ -44,12 +44,16 @@ cpshape_point_query(shape, p)
 	OUTPUT:
 		RETVAL
 
+# TODO: cpshape_nearest_point_query
 #cpFloat cpShapeNearestPointQuery(cpShape *shape, cpVect p, cpNearestPointQueryInfo *out);
 
+# TODO: cpshape_segment_query
 #cpBool cpShapeSegmentQuery(cpShape *shape, cpVect a, cpVect b, cpSegmentQueryInfo *info);
 
+# TODO: 
 #cpVect cpSegmentQueryHitPoint(const cpVect start, const cpVect end, const cpSegmentQueryInfo info)
 
+# TODO: 
 #cpFloat cpSegmentQueryHitDist(const cpVect start, const cpVect end, const cpSegmentQueryInfo info)
 
 cpSpace *

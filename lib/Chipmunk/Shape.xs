@@ -101,6 +101,13 @@ cpshape_get_sensor(shape)
 	OUTPUT:
 		RETVAL
 
+void
+cpshape_set_sensor(shape, value)
+		cpShape *shape
+		cpBool value
+	CODE:
+		cpShapeSetSensor(shape, value);
+
 cpFloat
 cpshape_get_elasticity(shape)
 		cpShape *shape

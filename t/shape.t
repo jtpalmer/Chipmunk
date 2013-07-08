@@ -6,8 +6,8 @@ use Chipmunk::CircleShape;
 use Chipmunk::PolyShape;
 use Chipmunk::SegmentShape;
 
-# TODO: point_query, get_space, get_body, set_body, get_sensor,
-#       get_elasticity, set_elasticity
+# TODO: point_query, get_space, get_body, set_body, get_elasticity,
+#       set_elasticity
 
 {
     my ( $mass, $inertia ) = ( 1.0, 2.0 );
@@ -65,6 +65,11 @@ use Chipmunk::SegmentShape;
             ok( $bb, "get_bb ($type)" );
             isa_ok( $bb, 'Chipmunk::BB', "get_bb ($type)" );
         }
+
+        $shape->set_sensor(1);
+        ok( $shape->get_sensor(), "get/set_sensor true ($type)" );
+        $shape->set_sensor(0);
+        ok( !$shape->get_sensor(), "get/set_sensor false ($type)" );
 
         my $friction = 3.0;
         $shape->set_friction($friction);

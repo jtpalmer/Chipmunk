@@ -18,3 +18,19 @@ cpcircle_new(CLASS, body, radius, offset)
 	OUTPUT:
 		RETVAL
 
+cpVect
+cpcircle_get_offset(shape)
+		cpShape *shape
+	CODE:
+		RETVAL = cpCircleShapeGetOffset(shape);
+	OUTPUT:
+		RETVAL
+
+cpFloat
+cpcircle_get_radius(shape);
+		cpShape *shape
+	CODE:
+		RETVAL = cpCircleShapeGetRadius(shape);
+	OUTPUT:
+		RETVAL
+

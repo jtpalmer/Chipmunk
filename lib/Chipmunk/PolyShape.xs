@@ -49,3 +49,16 @@ cppoly_get_num_verts(shape)
 	OUTPUT:
 		RETVAL
 
+cpVect
+cppoly_get_vert(shape, idx)
+		cpShape *shape
+		int idx
+	CODE:
+		if (idx >= cpPolyShapeGetNumVerts(shape)) {
+			croak("Vert index too large");
+		}
+
+		RETVAL = cpPolyShapeGetVert(shape, idx);
+	OUTPUT:
+		RETVAL
+

@@ -4,7 +4,7 @@ use Test::More;
 use Chipmunk::Body;
 use Chipmunk::SegmentShape;
 
-# TODO: set_neighbors, get_normal, get_radius
+# TODO: set_neighbors, get_normal
 
 {
     my ( $mass, $inertia ) = ( 1.0, 2.0 );
@@ -27,6 +27,8 @@ use Chipmunk::SegmentShape;
         'get_b x' );
     cmp_ok( abs $segment->get_b()->[1] - $point_b->[1], '<', 1e-5,
         'get_b y' );
+
+    cmp_ok( abs $segment->get_radius() - $radius, '<', 1e-5, 'get_radius' );
 
     eval {
         $segment->free();

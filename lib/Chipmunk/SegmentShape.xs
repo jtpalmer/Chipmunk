@@ -19,3 +19,19 @@ cpsegment_new(CLASS, body, a, b, radius)
 	OUTPUT:
 		RETVAL
 
+cpVect
+cpsegment_get_a(shape)
+		cpShape *shape
+	CODE:
+		RETVAL = cpSegmentShapeGetA(shape);
+	OUTPUT:
+		RETVAL
+
+cpVect
+cpsegment_get_b(shape)
+		cpShape *shape
+	CODE:
+		RETVAL = cpSegmentShapeGetB(shape);
+	OUTPUT:
+		RETVAL
+

@@ -14,12 +14,12 @@ use Chipmunk::CircleShape;
     ok( $circle, 'new' );
     isa_ok( $circle, 'Chipmunk::CircleShape' );
 
-    cmp_ok( $circle->get_offset()->[0] - $offset->[0],
+    cmp_ok( abs $circle->get_offset()->[0] - $offset->[0],
         '<', 1e-5, 'get_offset x' );
-    cmp_ok( $circle->get_offset()->[1] - $offset->[1],
+    cmp_ok( abs $circle->get_offset()->[1] - $offset->[1],
         '<', 1e-5, 'get_offset y' );
 
-    cmp_ok( $circle->get_radius() - $radius, '<', 1e-5, 'get_radius' );
+    cmp_ok( abs $circle->get_radius() - $radius, '<', 1e-5, 'get_radius' );
 
     eval {
         $circle->free();

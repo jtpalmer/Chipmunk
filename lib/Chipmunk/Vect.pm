@@ -6,8 +6,14 @@ use strict;
 use warnings;
 use Alien::Chipmunk;
 
+use parent qw(Exporter);
+
 require XSLoader;
 XSLoader::load( 'Chipmunk::Vect', $Chipmunk::Vect::VERSION );
+
+our @EXPORT = qw(
+    cpvlerp
+);
 
 1;
 

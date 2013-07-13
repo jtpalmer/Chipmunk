@@ -1,6 +1,7 @@
 use strict;
 use warnings;
 use Test::More;
+use Math::Trig qw( atan :pi );
 use Chipmunk::Body;
 use Chipmunk::SegmentShape;
 
@@ -29,6 +30,18 @@ use Chipmunk::SegmentShape;
         'get_b y' );
 
     cmp_ok( abs $segment->get_radius() - $radius, '<', 1e-5, 'get_radius' );
+
+    my $angle
+        = atan(
+        ( $point_a->[1] - $point_b->[1] ) / ( $point_a->[0] - $point_b->[0] )
+        );
+
+    my $normal = [ cos( $angle + pi / 2 ), sin( $angle + pi / 2 ), ];
+
+    cmp_ok( abs $segment->get_normal()->[0] - $normal->[0],
+        '<', 1e-5, 'get_normal x' );
+    cmp_ok( abs $segment->get_normal()->[1] - $normal->[1],
+        '<', 1e-5, 'get_normal y' );
 
     eval {
         $segment->free();

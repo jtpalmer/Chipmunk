@@ -35,6 +35,14 @@ cpsegment_get_b(shape)
 	OUTPUT:
 		RETVAL
 
+cpVect
+cpsegment_get_normal(shape)
+		cpShape *shape
+	CODE:
+		RETVAL = cpSegmentShapeGetNormal(shape);
+	OUTPUT:
+		RETVAL
+
 cpFloat
 cpsegment_get_radius(shape)
 		cpShape *shape

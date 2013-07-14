@@ -8,13 +8,13 @@ use Alien::Chipmunk;
 
 use parent qw(Exporter);
 
-require XSLoader;
-XSLoader::load( 'Chipmunk::Vect', $Chipmunk::Vect::VERSION );
-
 our @EXPORT = qw(
     cpvslerp
     cpvlerp
 );
+
+require XSLoader;
+XSLoader::load( 'Chipmunk::Vect', $Chipmunk::Vect::VERSION );
 
 1;
 
@@ -23,6 +23,8 @@ __END__
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION
+
+=head1 FUNCTIONS
 
 =cut
 

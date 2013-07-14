@@ -6,6 +6,7 @@ cpConstraint *	O_OBJECT
 cpShape *	O_OBJECT
 cpSpace *	O_OBJECT
 cpVect		O_OBJ_VECT
+cpMat2x2	O_OBJ_MAT2X2
 cpBB		O_OBJ_BB
 
 INPUT
@@ -29,6 +30,24 @@ O_OBJ_VECT
 		x = (cpFloat)SvNV(*av_fetch(input, 0, 0));
 		y = (cpFloat)SvNV(*av_fetch(input, 1, 0));
 		$var = cpv(x, y);
+	} else if ($arg == 0) {
+		XSRETURN(0);
+	} else {
+		XSRETURN_UNDEF;
+	}
+
+O_OBJ_MAT2X2
+	if (SvTYPE(SvRV($arg)) == SVt_PVAV) {
+		AV *input = (AV *)SvRV($arg);
+		if (av_len(input) != 3) {
+			XSRETURN_UNDEF;
+		}
+		$var = cpMat2x2New(
+			(cpFloat)SvNV(*av_fetch(input, 0, 0)),
+			(cpFloat)SvNV(*av_fetch(input, 1, 0)),
+			(cpFloat)SvNV(*av_fetch(input, 2, 0)),
+			(cpFloat)SvNV(*av_fetch(input, 3, 0))
+		);
 	} else if ($arg == 0) {
 		XSRETURN(0);
 	} else {
@@ -66,6 +85,14 @@ O_OBJ_VECT
 	AV *output = newAV();
 	av_push(output, newSVnv($var.x));
 	av_push(output, newSVnv($var.y));
+	$arg = newRV_inc((SV *)output);
+
+O_OBJ_MAT2X2
+	AV *output = newAV();
+	av_push(output, newSVnv($var.a));
+	av_push(output, newSVnv($var.b));
+	av_push(output, newSVnv($var.c));
+	av_push(output, newSVnv($var.d));
 	$arg = newRV_inc((SV *)output);
 
 O_OBJ_BB

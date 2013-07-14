@@ -6,6 +6,10 @@ use strict;
 use warnings;
 use Alien::Chipmunk;
 
+use parent qw(Exporter);
+
+our @EXPORT = qw(transform);
+
 require XSLoader;
 XSLoader::load( 'Chipmunk::Mat2x2', $Chipmunk::Mat2x2::VERSION );
 

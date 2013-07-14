@@ -12,6 +12,7 @@ require XSLoader;
 XSLoader::load( 'Chipmunk::Vect', $Chipmunk::Vect::VERSION );
 
 our @EXPORT = qw(
+    cpvslerp
     cpvlerp
 );
 

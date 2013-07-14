@@ -3,6 +3,8 @@ use warnings;
 use Test::More;
 use Chipmunk::Vect;
 
+# TODO: cpvect_cpvslerp
+
 {
     my $v1 = [ 1.1, 2.2 ];
     my $v2 = [ 3.3, 4.4 ];

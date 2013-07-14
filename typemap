@@ -26,10 +26,10 @@ O_OBJ_VECT
 		if (av_len(input) != 1) {
 			XSRETURN_UNDEF;
 		}
-		cpFloat x, y;
-		x = (cpFloat)SvNV(*av_fetch(input, 0, 0));
-		y = (cpFloat)SvNV(*av_fetch(input, 1, 0));
-		$var = cpv(x, y);
+		$var = cpv(
+			(cpFloat)SvNV(*av_fetch(input, 0, 0)),
+			(cpFloat)SvNV(*av_fetch(input, 1, 0))
+		);
 	} else if ($arg == 0) {
 		XSRETURN(0);
 	} else {

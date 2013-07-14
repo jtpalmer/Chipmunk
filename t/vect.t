@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::More;
-use Chipmunk::Vect;
+use Chipmunk::Vect qw(:all);
 
 # TODO: cpvect_cpvslerp
 

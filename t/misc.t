@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::More;
-use Chipmunk;
+use Chipmunk qw(:all);
 use Chipmunk::BB;
 use Math::Trig qw(:pi);
 

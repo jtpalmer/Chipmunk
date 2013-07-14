@@ -8,10 +8,18 @@ use Alien::Chipmunk;
 
 use parent qw(Exporter);
 
-our @EXPORT = qw(
-    cpvslerp
-    cpvlerp
+our %EXPORT_TAGS = (
+    all => [
+        qw(
+            cpvslerp
+            cpvlerp
+            )
+    ]
 );
+
+our @EXPORT_OK = @{ $EXPORT_TAGS{all} };
+
+our @EXPORT = qw();
 
 require XSLoader;
 XSLoader::load( 'Chipmunk::Vect', $Chipmunk::Vect::VERSION );

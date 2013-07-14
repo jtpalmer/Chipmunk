@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::More;
-use Chipmunk::Mat2x2 qw(transform);
+use Chipmunk::Mat2x2 qw(:all);
 
 {
     my $m = [ 1.1, 2.2, 3.3, 4.4 ];

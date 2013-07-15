@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 use Chipmunk;
+use Chipmunk::Vect qw(cpvstr);
 use Chipmunk::Space;
 use Chipmunk::SegmentShape;
 use Chipmunk::CircleShape;
@@ -41,9 +42,8 @@ for ( my $time = 0; $time < 2; $time += $time_step ) {
     my $pos = $ball_body->get_pos();
     my $vel = $ball_body->get_vel();
 
-    printf( "Time is %5.2f. ball_body is at (%5.2f, %5.2f). "
-            . "It's velocity is (%5.2f, %5.2f)\n",
-        $time, $pos->[0], $pos->[1], $vel->[0], $vel->[1] );
+    printf( "Time is %5.2f. ball_body is at %s. It's velocity is %s\n",
+        $time, cpvstr($pos), cpvstr($vel) );
 
     $space->step($time_step);
 }

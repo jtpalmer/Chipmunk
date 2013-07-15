@@ -6,6 +6,14 @@ use Chipmunk::Vect qw(:all);
 # TODO: cpvslerp
 
 {
+    my $v = [ 1.1, 2.2 ];
+    my $str = cpvstr($v);
+    my ( $x, $y ) = $str =~ m/^\( ([^,]*) , ([^,]*) \)$/msx;
+    cmp_ok( abs $x - $v->[0], '<', 1e-2, 'cpstr x' );
+    cmp_ok( abs $y - $v->[1], '<', 1e-2, 'cpstr y' );
+}
+
+{
     my $v1 = [ 1.1, 2.2 ];
     my $v2 = [ 3.3, 4.4 ];
     my $sum = cpvadd( $v1, $v2 );

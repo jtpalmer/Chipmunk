@@ -12,6 +12,7 @@ our %EXPORT_TAGS = (
     all => [
         qw(
             cpvslerp
+            cpvstr
             cpvadd
             cpvsub
             cpvneg

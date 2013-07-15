@@ -15,6 +15,15 @@ use Chipmunk::Vect qw(:all);
 
 {
     my $v1 = [ 1.1, 2.2 ];
+    my $v2 = [ 1.1, 2.2 ];
+    my $v3 = [ 3.3, 4.4 ];
+
+    ok( cpveql( $v1, $v2 ), 'cpveql' );
+    ok( !cpveql( $v1, $v3 ), 'cpveql (not equal)' );
+}
+
+{
+    my $v1 = [ 1.1, 2.2 ];
     my $v2 = [ 3.3, 4.4 ];
     my $sum = cpvadd( $v1, $v2 );
     cmp_ok( abs $sum->[0] - ( $v1->[0] + $v2->[0] ), '<', 1e-5, 'cpvadd x' );

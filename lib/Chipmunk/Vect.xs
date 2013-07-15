@@ -25,6 +25,15 @@ cpvect_cpvstr(v)
 	OUTPUT:
 		RETVAL
 
+cpBool
+cpvect_cpveql(v1, v2)
+		cpVect v1
+		cpVect v2
+	CODE:
+		RETVAL = cpveql(v1, v2);
+	OUTPUT:
+		RETVAL
+
 cpVect
 cpvect_cpvadd(v1, v2)
 		cpVect v1

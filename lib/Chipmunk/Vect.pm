@@ -13,6 +13,7 @@ our %EXPORT_TAGS = (
         qw(
             cpvslerp
             cpvstr
+            cpveql
             cpvadd
             cpvsub
             cpvneg

@@ -18,6 +18,14 @@ cpvect_cpvslerp(v1, v2, t)
 		RETVAL
 
 cpVect
+cpvect_cpvneg(v)
+		cpVect v
+	CODE:
+		RETVAL = cpvneg(v);
+	OUTPUT:
+		RETVAL
+
+cpVect
 cpvect_cpvlerp(v1, v2, t)
 		cpVect v1
 		cpVect v2

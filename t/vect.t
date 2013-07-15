@@ -3,7 +3,15 @@ use warnings;
 use Test::More;
 use Chipmunk::Vect qw(:all);
 
-# TODO: cpvect_cpvslerp
+# TODO: cpvslerp
+
+{
+    my $v1 = [ 1.1, 2.2 ];
+    my $v2 = cpvneg($v1);
+    cmp_ok( abs $v2->[0] - ( -$v1->[0] ), '<', 1e-5, 'cpvneg x' );
+    cmp_ok( abs $v2->[1] - ( -$v1->[1] ), '<', 1e-5, 'cpvneg y' );
+
+}
 
 {
     my $v1 = [ 1.1, 2.2 ];
@@ -17,13 +25,6 @@ use Chipmunk::Vect qw(:all);
         '<', 1e-5, 'cpvlerp y' );
 }
 
-{
-    my $v1 = [ 1.1, 2.2 ];
-    my $v2 = cpvneg($v1);
-    cmp_ok( abs $v2->[0] - ( -$v1->[0] ), '<', 1e-5, 'cpvneg x' );
-    cmp_ok( abs $v2->[1] - ( -$v1->[1] ), '<', 1e-5, 'cpvneg y' );
-
-}
 
 done_testing();
 

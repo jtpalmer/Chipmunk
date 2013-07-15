@@ -61,6 +61,15 @@ cpvect_cpvneg(v)
 		RETVAL
 
 cpVect
+cpvect_cpvmult(v, s)
+		cpVect v
+		cpFloat s
+	CODE:
+		RETVAL = cpvmult(v, s);
+	OUTPUT:
+		RETVAL
+
+cpVect
 cpvect_cpvlerp(v1, v2, t)
 		cpVect v1
 		cpVect v2

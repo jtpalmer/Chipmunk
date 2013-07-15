@@ -15,6 +15,14 @@ use Chipmunk::Vect qw(:all);
 
 {
     my $v1 = [ 1.1, 2.2 ];
+    my $v2 = [ 3.3, 4.4 ];
+    my $diff = cpvsub( $v1, $v2 );
+    cmp_ok( abs $diff->[0] - ( $v1->[0] - $v2->[0] ), '<', 1e-5, 'cpvsub x' );
+    cmp_ok( abs $diff->[1] - ( $v1->[1] - $v2->[1] ), '<', 1e-5, 'cpvsub y' );
+}
+
+{
+    my $v1 = [ 1.1, 2.2 ];
     my $v2 = cpvneg($v1);
     cmp_ok( abs $v2->[0] - ( -$v1->[0] ), '<', 1e-5, 'cpvneg x' );
     cmp_ok( abs $v2->[1] - ( -$v1->[1] ), '<', 1e-5, 'cpvneg y' );

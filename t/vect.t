@@ -57,6 +57,14 @@ use Chipmunk::Vect qw(:all);
 {
     my $v1 = [ 1.1, 2.2 ];
     my $v2 = [ 3.3, 4.4 ];
+    my $dot = cpvdot( $v1, $v2 );
+    cmp_ok( abs $dot - ( $v1->[0] * $v2->[0] + $v1->[1] * $v2->[1] ),
+        '<', 1e-5, 'cpvdot' );
+}
+
+{
+    my $v1 = [ 1.1, 2.2 ];
+    my $v2 = [ 3.3, 4.4 ];
     my $t  = 0.5;
 
     my $lerp = cpvlerp( $v1, $v2, $t );

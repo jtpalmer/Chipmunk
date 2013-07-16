@@ -18,6 +18,7 @@ our %EXPORT_TAGS = (
             cpvsub
             cpvneg
             cpvmult
+            cpvdot
             cpvlerp
             )
     ]

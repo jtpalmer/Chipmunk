@@ -1,9 +1,43 @@
 use strict;
 use warnings;
 use Test::More;
+use Math::Trig qw(acos);
+use List::Util qw( min max );
 use Chipmunk::Vect qw(:all);
 
-# TODO: cpvslerp
+{
+    my $v1 = [ 1.1, 2.2 ];
+    my $v2 = [ 3.3, 4.4 ];
+    my $t  = 0.5;
+    my $slerp = cpvslerp( $v1, $v2, $t );
+
+    my $dot = cpvdot( cpvnormalize($v1), cpvnormalize($v2) );
+    my $omega = acos( min( max( $dot, -1.0 ), 1.0 ) );
+
+    my $denom = 1.0 / sin($omega);
+    my $v3    = cpvadd(
+        cpvmult( $v1, sin( ( 1.0 - $t ) * $omega ) * $denom ),
+        cpvmult( $v2, sin( $t * $omega ) * $denom )
+    );
+
+    cmp_ok( abs $slerp->[0] - $v3->[0], '<', 1e-5, 'cpvslerp x' );
+    cmp_ok( abs $slerp->[1] - $v3->[1], '<', 1e-5, 'cpvslerp y' );
+}
+
+{
+    my $v1 = [ 1.1, 2.2 ];
+    my $v2 = [ 3.3, 4.4 ];
+    my $a  = 0.5;
+    my $slerp = cpvslerpconst( $v1, $v2, $a );
+
+    my $dot = cpvdot( cpvnormalize($v1), cpvnormalize($v2) );
+    my $omega = acos( min( max( $dot, -1.0 ), 1.0 ) );
+
+    my $v3 = cpvslerp( $v1, $v2, min( $a, $omega ) / $omega );
+
+    cmp_ok( abs $slerp->[0] - $v3->[0], '<', 1e-5, 'cpvslerpconst x' );
+    cmp_ok( abs $slerp->[1] - $v3->[1], '<', 1e-5, 'cpvslerpconst y' );
+}
 
 {
     my $v = [ 1.1, 2.2 ];

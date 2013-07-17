@@ -17,6 +17,16 @@ cpvect_cpvslerp(v1, v2, t)
 	OUTPUT:
 		RETVAL
 
+cpVect
+cpvect_cpvslerpconst(v1, v2, a)
+		cpVect v1
+		cpVect v2
+		cpFloat a
+	CODE:
+		RETVAL = cpvslerpconst(v1, v2, a);
+	OUTPUT:
+		RETVAL
+
 char *
 cpvect_cpvstr(v)
 		cpVect v

@@ -47,11 +47,11 @@ use Chipmunk::Vect qw(:all);
 }
 
 {
-    my $v1 = [ 1.1, 2.2 ];
-    my $s  = 3.3;
-    my $v2 = cpvmult( $v1, $s );
-    cmp_ok( abs $v2->[0] - ( $s * $v1->[0] ), '<', 1e-5, 'cpvmult x' );
-    cmp_ok( abs $v2->[1] - ( $s * $v1->[1] ), '<', 1e-5, 'cpvmult y' );
+    my $v       = [ 1.1, 2.2 ];
+    my $s       = 3.3;
+    my $product = cpvmult( $v, $s );
+    cmp_ok( abs $product->[0] - ( $s * $v->[0] ), '<', 1e-5, 'cpvmult x' );
+    cmp_ok( abs $product->[1] - ( $s * $v->[1] ), '<', 1e-5, 'cpvmult y' );
 }
 
 {

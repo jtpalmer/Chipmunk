@@ -21,6 +21,7 @@ our %EXPORT_TAGS = (
             cpvmult
             cpvdot
             cpvcross
+            cpvperp
             cpvlerp
             )
     ]

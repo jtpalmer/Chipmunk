@@ -105,6 +105,14 @@ use Chipmunk::Vect qw(:all);
 }
 
 {
+    my $v = [ 1.1, 2.2 ];
+    my $perp = cpvperp($v);
+    cmp_ok( abs $perp->[0] - ( -$v->[1] ), '<', 1e-5, 'cpvperp x' );
+    cmp_ok( abs $perp->[1] - $v->[0], '<', 1e-5, 'cpvperp y' );
+}
+
+
+{
     my $v1 = [ 1.1, 2.2 ];
     my $v2 = [ 3.3, 4.4 ];
     my $t  = 0.5;

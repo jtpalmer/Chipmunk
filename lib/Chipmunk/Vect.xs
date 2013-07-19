@@ -106,6 +106,14 @@ cpvect_cpvperp(v)
 		RETVAL
 
 cpVect
+cpvect_cpvrperp(v)
+		cpVect v
+	CODE:
+		RETVAL = cpvrperp(v);
+	OUTPUT:
+		RETVAL
+
+cpVect
 cpvect_cpvlerp(v1, v2, t)
 		cpVect v1
 		cpVect v2

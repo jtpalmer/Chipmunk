@@ -7,6 +7,22 @@
 
 MODULE = Chipmunk	PACKAGE = Chipmunk	PREFIX = cp_
 
+# TODO
+
+#cpFloat cpfmax(cpFloat a, cpFloat b)
+
+#cpFloat cpfmin(cpFloat a, cpFloat b)
+
+#cpFloat cpfabs(cpFloat f)
+
+#cpFloat cpfclamp(cpFloat f, cpFloat min, cpFloat max)
+
+#cpFloat cpfclamp01(cpFloat f)
+
+#cpFloat cpflerp(cpFloat f1, cpFloat f2, cpFloat t)
+
+#cpFloat cpflerpconst(cpFloat f1, cpFloat f2, cpFloat d)
+
 void
 cp_enable_segment_to_segment_collisions()
 	CODE:

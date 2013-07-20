@@ -23,7 +23,21 @@ our %EXPORT_TAGS = (
             cpvcross
             cpvperp
             cpvrperp
+            cpvproject
+            cpvforangle
+            cpvtoangle
+            cpvrotate
+            cpvunrotate
+            cpvlengthsq
+            cpvlength
             cpvlerp
+            cpvnormalize
+            cpvnormalize_safe
+            cpvclamp
+            cpvlerpconst
+            cpvdist
+            cpvdistsq
+            cpvnear
             )
     ]
 );

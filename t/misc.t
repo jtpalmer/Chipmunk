@@ -5,6 +5,18 @@ use Chipmunk qw(:all);
 use Chipmunk::BB;
 use Math::Trig qw(:pi);
 
+cmp_ok( abs cpfmax( 1.1, 2.2 ) - 2.2, '<', 1e-5, 'cpfmax' );
+
+cmp_ok( abs cpfmin( 1.1, 2.2 ) - 1.1, '<', 1e-5, 'cpfmin' );
+
+cmp_ok( abs cpfabs(-1.1) - 1.1, '<', 1e-5, 'cpfabs' );
+
+cmp_ok( abs cpfclamp( 1.1, 2.2, 3.3 ) - 2.2, '<', 1e-5, 'cpfclamp' );
+
+cmp_ok( abs cpfclamp01(1.1) - 1.0, '<', 1e-5, 'cpfclamp01' );
+
+# TODO: cpflerp, cpflerpconst
+
 eval {
     enable_segment_to_segment_collisions();
     pass('enable_segment_to_segment_collisions');

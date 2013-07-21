@@ -11,6 +11,11 @@ use parent qw(Exporter);
 our %EXPORT_TAGS = (
     all => [
         qw(
+            cpfmax
+            cpfmin
+            cpfabs
+            cpfclamp
+            cpfclamp01
             enable_segment_to_segment_collisions
             moment_for_circle
             area_for_circle

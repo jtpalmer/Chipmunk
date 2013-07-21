@@ -7,17 +7,49 @@
 
 MODULE = Chipmunk	PACKAGE = Chipmunk	PREFIX = cp_
 
-# TODO
+cpFloat
+cpfmax(a, b)
+		cpFloat a
+		cpFloat b
+	CODE:
+		RETVAL = cpfmax(a, b);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpfmax(cpFloat a, cpFloat b)
+cpFloat
+cpfmin(a, b)
+		cpFloat a
+		cpFloat b
+	CODE:
+		RETVAL = cpfmin(a, b);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpfmin(cpFloat a, cpFloat b)
+cpFloat
+cpfabs(f)
+		cpFloat f
+	CODE:
+		RETVAL = cpfabs(f);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpfabs(cpFloat f)
+cpFloat
+cpfclamp(f, min, max)
+		cpFloat f
+		cpFloat min
+		cpFloat max
+	CODE:
+		RETVAL = cpfclamp(f, min, max);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpfclamp(cpFloat f, cpFloat min, cpFloat max)
-
-#cpFloat cpfclamp01(cpFloat f)
+cpFloat
+cpfclamp01(f)
+		cpFloat f
+	CODE:
+		RETVAL = cpfclamp01(f);
+	OUTPUT:
+		RETVAL
 
 #cpFloat cpflerp(cpFloat f1, cpFloat f2, cpFloat t)
 

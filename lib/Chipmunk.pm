@@ -16,6 +16,8 @@ our %EXPORT_TAGS = (
             cpfabs
             cpfclamp
             cpfclamp01
+            cpflerp
+            cpflerpconst
             enable_segment_to_segment_collisions
             moment_for_circle
             area_for_circle

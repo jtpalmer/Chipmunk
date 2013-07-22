@@ -51,9 +51,25 @@ cpfclamp01(f)
 	OUTPUT:
 		RETVAL
 
-#cpFloat cpflerp(cpFloat f1, cpFloat f2, cpFloat t)
+cpFloat
+cpflerp(f1, f2, t)
+		cpFloat f1
+		cpFloat f2
+		cpFloat t
+	CODE:
+		RETVAL = cpflerp(f1, f2, t);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpflerpconst(cpFloat f1, cpFloat f2, cpFloat d)
+cpFloat
+cpflerpconst(f1, f2, d)
+		cpFloat f1
+		cpFloat f2
+		cpFloat d
+	CODE:
+		RETVAL = cpflerpconst(f1, f2, d);
+	OUTPUT:
+		RETVAL
 
 void
 cp_enable_segment_to_segment_collisions()

@@ -32,6 +32,33 @@ our %EXPORT_TAGS = (
             convex_hull
             )
     ],
+    cpf => [
+        qw(
+            cpfmax
+            cpfmin
+            cpfabs
+            cpfclamp
+            cpfclamp01
+            cpflerp
+            cpflerpconst
+            )
+    ],
+    moment => [
+        qw(
+            moment_for_circle
+            moment_for_segment
+            moment_for_poly
+            moment_for_box
+            moment_for_box2
+            )
+    ],
+    area => [
+        qw(
+            area_for_circle
+            area_for_segment
+            area_for_poly
+            )
+    ],
 );
 
 our @EXPORT_OK = @{ $EXPORT_TAGS{all} };

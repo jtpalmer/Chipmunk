@@ -15,7 +15,16 @@ cmp_ok( abs cpfclamp( 1.1, 2.2, 3.3 ) - 2.2, '<', 1e-5, 'cpfclamp' );
 
 cmp_ok( abs cpfclamp01(1.1) - 1.0, '<', 1e-5, 'cpfclamp01' );
 
-# TODO: cpflerp, cpflerpconst
+{
+    my $f1   = 1.1;
+    my $f2   = 2.2;
+    my $t    = 0.3;
+    my $lerp = cpflerp( $f1, $f2, $t );
+    my $f3   = $f1 * ( 1.0 - $t ) + $f2 * $t;
+    cmp_ok( abs $lerp - $f3, '<', 1e-5, 'cpflerp' );
+}
+
+# TODO: cpflerpconst
 
 eval {
     enable_segment_to_segment_collisions();

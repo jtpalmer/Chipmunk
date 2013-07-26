@@ -138,3 +138,26 @@ cpshape_set_friction(shape, friction)
 	CODE:
 		cpShapeSetFriction(shape, friction);
 
+# TODO:
+#cpVect cpShapeGetSurfaceVelocity(const cpShape *shape)
+#void cpShapeSetSurfaceVelocity(cpShape *shape, cpVect value)
+
+# TODO:
+#cpDataPointer cpShapeGetUserData(const cpShape *shape)
+#void cpShapeSetUserData(cpShape *shape, cpDataPointer value)
+
+# TODO:
+#cpCollisionType cpShapeGetCollisionType(const cpShape *shape)
+#void cpShapeSetCollisionType(cpShape *shape, cpCollisionType value)
+
+# TODO:
+#cpGroup cpShapeGetGroup(const cpShape *shape)
+#void cpShapeSetGroup(cpShape *shape, cpGroup value)
+
+# TODO:
+#cpLayers cpShapeGetLayers(const cpShape *shape)
+#void cpShapeSetLayers(cpShape *shape, cpLayers value)
+
+# TODO: Move to Chipumunk.xs?
+#void cpResetShapeIdCounter(void);
+

@@ -6,9 +6,6 @@ use Chipmunk::CircleShape;
 use Chipmunk::PolyShape;
 use Chipmunk::SegmentShape;
 
-# TODO: point_query, get_space, get_body, set_body, get_elasticity,
-#       set_elasticity
-
 {
     my ( $mass, $inertia ) = ( 1.0, 2.0 );
 
@@ -66,6 +63,9 @@ use Chipmunk::SegmentShape;
             isa_ok( $bb, 'Chipmunk::BB', "get_bb ($type)" );
         }
 
+        # TODO: point_query, get_space, get_body, set_body, get_elasticity,
+        #       set_elasticity
+
         $shape->set_sensor(1);
         ok( $shape->get_sensor(), "get/set_sensor true ($type)" );
         $shape->set_sensor(0);
@@ -87,11 +87,15 @@ use Chipmunk::SegmentShape;
             '<', 1e-5, "get_surface_velocity y ($type)"
         );
 
+        # TODO: set_user_data, get_user_data
+
         my $collision_type = 7;
 
         $shape->set_collision_type($collision_type);
         is( $shape->get_collision_type(),
             $collision_type, "get_collision_type ($type)" );
+
+        # TODO: get_group, set_group, set_layers, get_layers
 
         eval {
             $shape->free();

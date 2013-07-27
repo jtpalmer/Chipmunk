@@ -76,6 +76,17 @@ use Chipmunk::SegmentShape;
         cmp_ok( abs $shape->get_friction() - $friction,
             '<', 1e-5, "get_friction ($type)" );
 
+        my $surface_velocity = [ 4.4, 5.5 ];
+        $shape->set_surface_velocity($surface_velocity);
+        cmp_ok(
+            abs $shape->get_surface_velocity()->[0] - $surface_velocity->[0],
+            '<', 1e-5, "get_surface_velocity x ($type)"
+        );
+        cmp_ok(
+            abs $shape->get_surface_velocity()->[1] - $surface_velocity->[1],
+            '<', 1e-5, "get_surface_velocity y ($type)"
+        );
+
         eval {
             $shape->free();
             pass("free ($type)");

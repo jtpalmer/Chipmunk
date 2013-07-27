@@ -138,9 +138,20 @@ cpshape_set_friction(shape, friction)
 	CODE:
 		cpShapeSetFriction(shape, friction);
 
-# TODO:
-#cpVect cpShapeGetSurfaceVelocity(const cpShape *shape)
-#void cpShapeSetSurfaceVelocity(cpShape *shape, cpVect value)
+cpVect
+cpshape_get_surface_velocity(shape)
+		cpShape *shape
+	CODE:
+		RETVAL = cpShapeGetSurfaceVelocity(shape);
+	OUTPUT:
+		RETVAL
+
+void
+cpshape_set_surface_velocity(shape, value)
+		cpShape *shape
+		cpVect value
+	CODE:
+		cpShapeSetSurfaceVelocity(shape, value);
 
 # TODO:
 #cpDataPointer cpShapeGetUserData(const cpShape *shape)

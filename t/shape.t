@@ -87,6 +87,12 @@ use Chipmunk::SegmentShape;
             '<', 1e-5, "get_surface_velocity y ($type)"
         );
 
+        my $collision_type = 7;
+
+        $shape->set_collision_type($collision_type);
+        is( $shape->get_collision_type(),
+            $collision_type, "get_collision_type ($type)" );
+
         eval {
             $shape->free();
             pass("free ($type)");

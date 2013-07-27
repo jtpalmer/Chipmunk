@@ -1,6 +1,7 @@
 TYPEMAP
 char *		T_PV
 cpBool		T_IV
+cpCollisionType	T_IV
 cpFloat		T_NV
 cpBody *	O_OBJECT
 cpConstraint *	O_OBJECT

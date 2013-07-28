@@ -180,9 +180,6 @@ cpshape_get_group(shape)
 	OUTPUT:
 		RETVAL
 
-# TODO:
-#cpLayers cpShapeGetLayers(const cpShape *shape)
-#void cpShapeSetLayers(cpShape *shape, cpLayers value)
 void
 cpshape_set_group(shape, value)
 		cpShape *shape
@@ -190,7 +187,24 @@ cpshape_set_group(shape, value)
 	CODE:
 		cpShapeSetGroup(shape, value);
 
+cpLayers
+cpshape_get_layers(shape)
+		cpShape *shape
+	CODE:
+		RETVAL = cpShapeGetLayers(shape);
+	OUTPUT:
+		RETVAL
+
+void
+cpshape_set_layers(shape, value)
+		cpShape *shape
+		cpLayers value
+	CODE:
+		cpShapeSetLayers(shape, value);
 
 # TODO: Move to Chipumunk.xs?
-#void cpResetShapeIdCounter(void);
+void
+cpshape_reset_shape_id_counter()
+	CODE:
+		cpResetShapeIdCounter();
 

@@ -172,13 +172,24 @@ cpshape_set_collision_type(shape, value)
 	CODE:
 		cpShapeSetCollisionType(shape, value);
 
-# TODO:
-#cpGroup cpShapeGetGroup(const cpShape *shape)
-#void cpShapeSetGroup(cpShape *shape, cpGroup value)
+cpGroup
+cpshape_get_group(shape)
+		cpShape *shape
+	CODE:
+		RETVAL = cpShapeGetGroup(shape);
+	OUTPUT:
+		RETVAL
 
 # TODO:
 #cpLayers cpShapeGetLayers(const cpShape *shape)
 #void cpShapeSetLayers(cpShape *shape, cpLayers value)
+void
+cpshape_set_group(shape, value)
+		cpShape *shape
+		cpGroup value
+	CODE:
+		cpShapeSetGroup(shape, value);
+
 
 # TODO: Move to Chipumunk.xs?
 #void cpResetShapeIdCounter(void);

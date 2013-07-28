@@ -90,12 +90,15 @@ use Chipmunk::SegmentShape;
         # TODO: set_user_data, get_user_data
 
         my $collision_type = 7;
-
         $shape->set_collision_type($collision_type);
         is( $shape->get_collision_type(),
             $collision_type, "get_collision_type ($type)" );
 
-        # TODO: get_group, set_group, set_layers, get_layers
+        my $group = 8;
+        $shape->set_group($group);
+        is( $shape->get_group(), $group, "get_group ($type)" );
+
+        # TODO: set_layers, get_layers
 
         eval {
             $shape->free();

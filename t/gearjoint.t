@@ -14,6 +14,12 @@ use Chipmunk::Body;
     my $joint = Chipmunk::GearJoint->new( $a, $b, $phase, $ratio );
 
     isa_ok( $joint, 'Chipmunk::GearJoint', 'new' );
+
+    cmp_ok( abs $joint->get_phase() - $phase, '<', 1e-5, 'get_phase' );
+
+    $phase = 3.3;
+    $joint->set_phase($phase);
+    cmp_ok( abs $joint->get_phase() - $phase, '<', 1e-5, 'get_phase' );
 }
 
 done_testing();

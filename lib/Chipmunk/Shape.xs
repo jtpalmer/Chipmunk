@@ -202,9 +202,3 @@ cpshape_set_layers(shape, value)
 	CODE:
 		cpShapeSetLayers(shape, value);
 
-# TODO: Move to Chipumunk.xs?
-void
-cpshape_reset_shape_id_counter()
-	CODE:
-		cpResetShapeIdCounter();
-

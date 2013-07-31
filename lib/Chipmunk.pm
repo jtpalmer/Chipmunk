@@ -30,6 +30,7 @@ our %EXPORT_TAGS = (
             moment_for_box
             moment_for_box2
             convex_hull
+            reset_shape_id_counter
             )
     ],
     cpf => [

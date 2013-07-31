@@ -248,3 +248,8 @@ cp_convex_hull(verts, ...)
 	CLEANUP:
 		Safefree(_verts);
 
+void
+cp_reset_shape_id_counter()
+	CODE:
+		cpResetShapeIdCounter();
+

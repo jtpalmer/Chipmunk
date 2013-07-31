@@ -9,7 +9,7 @@ use Chipmunk::Body;
     my $a = Chipmunk::Body->new( $mass, $inertia );
     my $b = Chipmunk::Body->new( $mass, $inertia );
 
-    my ($phase, $ratio) = (1.1, 2.2);
+    my ( $phase, $ratio ) = ( 1.1, 2.2 );
 
     my $joint = Chipmunk::GearJoint->new( $a, $b, $phase, $ratio );
 

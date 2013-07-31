@@ -19,3 +19,13 @@ cpgearjoint_new(CLASS, a, b, phase, ratio)
 	OUTPUT:
 		RETVAL
 
+# TODO
+
+#cpFloat cpGearJointGetPhase(const cpConstraint *constraint)
+
+#void cpGearJointSetPhase(cpConstraint *constraint, cpFloat value)
+
+#cpFloat cpGearJointGetRatio(const cpConstraint *constraint)
+
+#void cpGearJointSetRatio(cpConstraint *constraint, cpFloat value);
+

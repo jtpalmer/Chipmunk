@@ -20,6 +20,12 @@ use Chipmunk::Body;
     $phase = 3.3;
     $joint->set_phase($phase);
     cmp_ok( abs $joint->get_phase() - $phase, '<', 1e-5, 'get_phase' );
+
+    cmp_ok( abs $joint->get_ratio() - $ratio, '<', 1e-5, 'get_ratio' );
+
+    $ratio = 4.4;
+    $joint->set_ratio($ratio);
+    cmp_ok( abs $joint->get_ratio() - $ratio, '<', 1e-5, 'get_ratio' );
 }
 
 done_testing();

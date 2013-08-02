@@ -34,9 +34,18 @@ cpgearjoint_set_phase(constraint, value)
 	CODE:
 		cpGearJointSetPhase(constraint, value);
 
-# TODO
+cpFloat
+cpgearjoint_get_ratio(constraint)
+		cpConstraint *constraint
+	CODE:
+		RETVAL = cpGearJointGetRatio(constraint);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpGearJointGetRatio(const cpConstraint *constraint)
-
-#void cpGearJointSetRatio(cpConstraint *constraint, cpFloat value);
+void
+cpgearjoint_set_ratio(constraint, value)
+		cpConstraint *constraint
+		cpFloat value
+	CODE:
+		cpGearJointSetRatio(constraint, value);
 

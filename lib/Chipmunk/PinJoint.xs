@@ -7,9 +7,18 @@
 MODULE = Chipmunk::PinJoint	PACKAGE = Chipmunk::PinJoint	PREFIX = cppinjoint_
 PROTOTYPES: ENABLE
 
-# TODO
+cpConstraint *
+cppinjoint_new(a, b, anchr1, anchr2)
+		cpBody *a
+		cpBody *b
+		cpVect anchr1
+		cpVect anchr2
+	CODE:
+		RETVAL = cpPinJointNew(a, b, anchr1, anchr2);
+	OUTPUT:
+		RETVAL
 
-#cpConstraint* cpPinJointNew(cpBody *a, cpBody *b, cpVect anchr1, cpVect anchr2)
+# TODO
 
 #cpVect cpPinJointGetAnchr1(const cpConstraint *constraint)
 

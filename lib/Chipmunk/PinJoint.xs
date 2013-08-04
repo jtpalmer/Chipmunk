@@ -8,7 +8,8 @@ MODULE = Chipmunk::PinJoint	PACKAGE = Chipmunk::PinJoint	PREFIX = cppinjoint_
 PROTOTYPES: ENABLE
 
 cpConstraint *
-cppinjoint_new(a, b, anchr1, anchr2)
+cppinjoint_new(CLASS, a, b, anchr1, anchr2)
+		char *CLASS
 		cpBody *a
 		cpBody *b
 		cpVect anchr1

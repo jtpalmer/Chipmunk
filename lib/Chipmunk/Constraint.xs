@@ -58,15 +58,36 @@ ccConstraint_set_max_force(constraint, value)
 	CODE:
 		cpConstraintSetMaxForce(constraint, value);
 
-#void cpConstraintSetMaxForce(cpConstraint *constraint, cpFloat value)
+cpFloat
+cpconstraint_get_error_bias(constraint)
+		cpConstraint *constraint
+	CODE:
+		RETVAL = cpConstraintGetErrorBias(constraint);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpConstraintGetErrorBias(const cpConstraint *constraint)
+void
+cpconstraint_set_error_bias(constraint, value)
+		cpConstraint *constraint
+		cpFloat value
+	CODE:
+		cpConstraintSetErrorBias(constraint, value);
 
-#void cpConstraintSetErrorBias(cpConstraint *constraint, cpFloat value)
+cpFloat
+cpconstraint_get_max_bias(constraint)
+		cpConstraint *constraint
+	CODE:
+		RETVAL = cpConstraintGetMaxBias(constraint);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpConstraintGetMaxBias(const cpConstraint *constraint)
+void
+cpconstraint_set_max_bias(constraint, value)
+		cpConstraint *constraint
+		cpFloat value
+	CODE:
+		cpConstraintSetMaxBias(constraint, value);
 
-#void cpConstraintSetMaxBias(cpConstraint *constraint, cpFloat value)
 # TODO
 
 #cpConstraintPreSolveFunc cpConstraintGetPreSolveFunc(const cpConstraint *constraint)

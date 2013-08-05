@@ -43,9 +43,20 @@ cpconstraint_get_b(constraint)
 	OUTPUT:
 		RETVAL
 
-# TODO
+cpFloat
+cpconstraint_get_max_force(constraint)
+		cpConstraint *constraint
+	CODE:
+		RETVAL = cpConstraintGetMaxForce(constraint);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpConstraintGetMaxForce(const cpConstraint *constraint)
+void
+ccConstraint_set_max_force(constraint, value)
+		cpConstraint *constraint
+		cpFloat value
+	CODE:
+		cpConstraintSetMaxForce(constraint, value);
 
 #void cpConstraintSetMaxForce(cpConstraint *constraint, cpFloat value)
 
@@ -56,6 +67,7 @@ cpconstraint_get_b(constraint)
 #cpFloat cpConstraintGetMaxBias(const cpConstraint *constraint)
 
 #void cpConstraintSetMaxBias(cpConstraint *constraint, cpFloat value)
+# TODO
 
 #cpConstraintPreSolveFunc cpConstraintGetPreSolveFunc(const cpConstraint *constraint)
 

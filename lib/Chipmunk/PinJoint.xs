@@ -19,17 +19,48 @@ cppinjoint_new(CLASS, a, b, anchr1, anchr2)
 	OUTPUT:
 		RETVAL
 
-# TODO
+cpVect
+cppinjoint_get_anchr1(constraint)
+		cpConstraint *constraint
+	CODE:
+		RETVAL = cpPinJointGetAnchr1(constraint);
+	OUTPUT:
+		RETVAL
 
-#cpVect cpPinJointGetAnchr1(const cpConstraint *constraint)
+void
+cppinjoint_set_anchr1(constraint, value)
+		cpConstraint *constraint
+		cpVect value
+	CODE:
+		cpPinJointSetAnchr1(constraint, value);
 
-#void cpPinJointSetAnchr1(cpConstraint *constraint, cpVect value)
+cpVect
+cppinjoint_get_anchr2(constraint)
+		cpConstraint *constraint
+	CODE:
+		RETVAL = cpPinJointGetAnchr2(constraint);
+	OUTPUT:
+		RETVAL
 
-#cpVect cpPinJointGetAnchr2(const cpConstraint *constraint)
+void
+cppinjoint_set_anchr2(constraint, value)
+		cpConstraint *constraint
+		cpVect value
+	CODE:
+		cpPinJointSetAnchr2(constraint, value);
 
-#void cpPinJointSetAnchr2(cpConstraint *constraint, cpVect value)
+cpFloat
+cppinjoint_get_dist(constraint)
+		cpConstraint *constraint
+	CODE:
+		RETVAL = cpPinJointGetDist(constraint);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpPinJointGetDist(const cpConstraint *constraint)
-
-#void cpPinJointSetDist(cpConstraint *constraint, cpFloat value)
+void
+cppinjoint_set_dist(constraint, value)
+		cpConstraint *constraint
+		cpFloat value
+	CODE:
+		cpPinJointSetDist(constraint, value);
 

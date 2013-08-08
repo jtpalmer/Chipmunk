@@ -102,5 +102,11 @@ cpconstraint_set_max_bias(constraint, value)
 
 #void cpConstraintSetUserData(cpConstraint *constraint, cpDataPointer value)
 
-#cpFloat cpConstraintGetImpulse(cpConstraint *constraint)
+cpFloat
+cpconstraint_get_impulse(constraint)
+		cpConstraint *constraint
+	CODE:
+		RETVAL = cpConstraintGetImpulse(constraint);
+	OUTPUT:
+		RETVAL
 

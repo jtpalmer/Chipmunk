@@ -10,6 +10,8 @@ use Chipmunk::Body;
     my $b = Chipmunk::Body->new( $mass, $inertia );
 
     ok( 1, 'TODO' );
+
+    # TODO: new, new2, get_anchr1, set_anchr1, get_anchr2, set_anchr2
 }
 
 done_testing();

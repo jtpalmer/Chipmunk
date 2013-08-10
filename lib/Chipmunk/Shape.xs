@@ -50,10 +50,10 @@ cpshape_point_query(shape, p)
 # TODO: cpshape_segment_query
 #cpBool cpShapeSegmentQuery(cpShape *shape, cpVect a, cpVect b, cpSegmentQueryInfo *info);
 
-# TODO: 
+# TODO: cpsegment_query_hit_point
 #cpVect cpSegmentQueryHitPoint(const cpVect start, const cpVect end, const cpSegmentQueryInfo info)
 
-# TODO: 
+# TODO: cpsegment_query_hit_dist
 #cpFloat cpSegmentQueryHitDist(const cpVect start, const cpVect end, const cpSegmentQueryInfo info)
 
 cpSpace *
@@ -153,7 +153,7 @@ cpshape_set_surface_velocity(shape, value)
 	CODE:
 		cpShapeSetSurfaceVelocity(shape, value);
 
-# TODO:
+# TODO: User data.
 #cpDataPointer cpShapeGetUserData(const cpShape *shape)
 #void cpShapeSetUserData(cpShape *shape, cpDataPointer value)
 

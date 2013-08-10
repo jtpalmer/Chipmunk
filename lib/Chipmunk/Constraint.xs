@@ -88,7 +88,7 @@ cpconstraint_set_max_bias(constraint, value)
 	CODE:
 		cpConstraintSetMaxBias(constraint, value);
 
-# TODO
+# TODO: Callbacks.
 
 #cpConstraintPreSolveFunc cpConstraintGetPreSolveFunc(const cpConstraint *constraint)
 
@@ -97,6 +97,8 @@ cpconstraint_set_max_bias(constraint, value)
 #cpConstraintPostSolveFunc cpConstraintGetPostSolveFunc(const cpConstraint *constraint)
 
 #void cpConstraintSetPostSolveFunc(cpConstraint *constraint, cpConstraintPostSolveFunc value)
+
+# TODO: User data.
 
 #cpDataPointer cpConstraintGetUserData(const cpConstraint *constraint)
 

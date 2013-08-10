@@ -7,7 +7,7 @@
 MODULE = Chipmunk::GearJoint	PACKAGE = Chipmunk::GearJoint	PREFIX = cpgearjoint_
 PROTOTYPES: ENABLE
 
-cpConstraint*
+cpConstraint *
 cpgearjoint_new(CLASS, a, b, phase, ratio)
 		char *CLASS
 		cpBody *a

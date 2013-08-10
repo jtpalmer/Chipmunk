@@ -7,7 +7,7 @@
 MODULE = Chipmunk::CircleShape	PACKAGE = Chipmunk::CircleShape	PREFIX = cpcircle_
 PROTOTYPES: ENABLE
 
-cpShape*
+cpShape *
 cpcircle_new(CLASS, body, radius, offset)
 		char *CLASS
 		cpBody *body

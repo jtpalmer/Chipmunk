@@ -9,7 +9,7 @@ PROTOTYPES: ENABLE
 
 # TODO: Combine constructors.
 
-cpConstraint*
+cpConstraint *
 cppivotjoint_new(CLASS, a, b, pivot)
 		char *CLASS
 		cpBody *a
@@ -20,7 +20,7 @@ cppivotjoint_new(CLASS, a, b, pivot)
 	OUTPUT:
 		RETVAL
 
-cpConstraint*
+cpConstraint *
 cppivotjoint_new2(CLASS, a, b, anchr1, anchr2)
 		char *CLASS
 		cpBody *a

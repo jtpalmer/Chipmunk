@@ -7,7 +7,7 @@
 MODULE = Chipmunk::SegmentShape	PACKAGE = Chipmunk::SegmentShape	PREFIX = cpsegment_
 PROTOTYPES: ENABLE
 
-cpShape*
+cpShape *
 cpsegment_new(CLASS, body, a, b, radius)
 		char *CLASS
 		cpBody *body

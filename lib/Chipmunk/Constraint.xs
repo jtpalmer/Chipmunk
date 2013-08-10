@@ -13,7 +13,7 @@ cpconstraint_activate_bodies(constraint)
 	CODE:
 		cpConstraintActivateBodies(constraint);
 
-cpSpace*
+cpSpace *
 cpconstraint_get_space(constraint)
 		cpConstraint *constraint
 	PREINIT:
@@ -23,7 +23,7 @@ cpconstraint_get_space(constraint)
 	OUTPUT:
 		RETVAL
 
-cpBody*
+cpBody *
 cpconstraint_get_a(constraint)
 		cpConstraint *constraint
 	PREINIT:
@@ -33,7 +33,7 @@ cpconstraint_get_a(constraint)
 	OUTPUT:
 		RETVAL
 
-cpBody*
+cpBody *
 cpconstraint_get_b(constraint)
 		cpConstraint *constraint
 	PREINIT:

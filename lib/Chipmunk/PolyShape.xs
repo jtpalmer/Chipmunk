@@ -8,7 +8,7 @@
 MODULE = Chipmunk::PolyShape	PACKAGE = Chipmunk::PolyShape	PREFIX = cppoly_
 PROTOTYPES: ENABLE
 
-cpShape*
+cpShape *
 cppoly_new(CLASS, body, verts, ...)
 		char *CLASS
 		cpBody *body

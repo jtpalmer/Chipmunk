@@ -7,19 +7,60 @@
 MODULE = Chipmunk::RatchetJoint	PACKAGE = Chipmunk::RatchetJoint	PREFIX = cpratchetjoint_
 PROTOTYPES: ENABLE
 
-# TODO
+cpConstraint *
+cpratchetjoint_new(CLASS, a, b, phase, ratchet)
+		char *CLASS
+		cpBody *a
+		cpBody *b
+		cpFloat phase
+		cpFloat ratchet
+	CODE:
+		RETVAL = cpRatchetJointNew(a, b, phase, ratchet);
+	OUTPUT:
+		RETVAL
 
-#cpConstraint* cpRatchetJointNew(cpBody *a, cpBody *b, cpFloat phase, cpFloat ratchet)
+cpFloat
+cpratchetjoint_get_angle(constraint)
+		cpConstraint *constraint
+	CODE:
+		RETVAL = cpRatchetJointGetAngle(constraint);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpRatchetJointGetAngle(const cpConstraint *constraint)
+void
+cpratchetjoint_set_angle(constraint, value)
+		cpConstraint *constraint
+		cpFloat value
+	CODE:
+		cpRatchetJointSetAngle(constraint, value);
 
-#void cpRatchetJointSetAngle(cpConstraint *constraint, cpFloat value)
+cpFloat
+cpratchetjoint_get_phase(constraint)
+		cpConstraint *constraint
+	CODE:
+		RETVAL = cpRatchetJointGetPhase(constraint);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpRatchetJointGetPhase(const cpConstraint *constraint)
+void
+cpratchetjoint_set_phase(constraint, value)
+		cpConstraint *constraint
+		cpFloat value
+	CODE:
+		cpRatchetJointSetPhase(constraint, value);
 
-#void cpRatchetJointSetPhase(cpConstraint *constraint, cpFloat value)
+cpFloat
+cpratchetjoint_get_ratchet(constraint)
+		cpConstraint *constraint
+	CODE:
+		RETVAL = cpRatchetJointGetRatchet(constraint);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpRatchetJointGetRatchet(const cpConstraint *constraint)
-
-#void cpRatchetJointSetRatchet(cpConstraint *constraint, cpFloat value)
+void
+cpratchetjoint_set_ratchet(constraint, value)
+		cpConstraint *constraint
+		cpFloat value
+	CODE:
+		cpRatchetJointSetRatchet(constraint, value);
 

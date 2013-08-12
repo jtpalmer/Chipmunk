@@ -7,15 +7,45 @@
 MODULE = Chipmunk::RotaryLimitJoint	PACKAGE = Chipmunk::RotaryLimitJoint	PREFIX = cprotarylimitjoint_
 PROTOTYPES: ENABLE
 
-# TODO
+cpConstraint *
+cprotarylimithoint_new(CLASS, a, b, min, max)
+		char *CLASS
+		cpBody *a
+		cpBody *b
+		cpFloat min
+		cpFloat max
+	CODE:
+		RETVAL = cpRotaryLimitJointNew(a, b, min, max);
+	OUTPUT:
+		RETVAL
 
-#cpConstraint* cpRotaryLimitJointNew(cpBody *a, cpBody *b, cpFloat min, cpFloat max)
+cpFloat
+cprotarylimitjoint_get_min(constraint)
+		cpConstraint *constraint
+	CODE:
+		RETVAL = cpRotaryLimitJointGetMin(constraint);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpRotaryLimitJointGetMin(const cpConstraint *constraint)
+void
+cprotarylimitjoint_set_min(constraint, value)
+		cpConstraint *constraint
+		cpFloat value
+	CODE:
+		cpRotaryLimitJointSetMin(constraint, value);
 
-#void cpRotaryLimitJointSetMin(cpConstraint *constraint, cpFloat value)
+cpFloat
+cprotarylimitjoint_get_max(constraint)
+		cpConstraint *constraint
+	CODE:
+		RETVAL = cpRotaryLimitJointGetMax(constraint);
+	OUTPUT:
+		RETVAL
 
-#cpFloat cpRotaryLimitJointGetMax(const cpConstraint *constraint)
-
-#void cpRotaryLimitJointSetMax(cpConstraint *constraint, cpFloat value)
+void
+cprotarylimitjoint_set_max(constraint, value)
+		cpConstraint *constraint
+		cpFloat value
+	CODE:
+		cpRotaryLimitJointSetMax(constraint, value);
 

@@ -10,6 +10,9 @@ use Chipmunk::Body;
     my $b = Chipmunk::Body->new( $mass, $inertia );
 
     ok( 1, 'TODO' );
+
+    # TODO: new, get_angle, set_angle, get_phase, set_phase, get_ratchet,
+    #       set_ratchet
 }
 
 done_testing();

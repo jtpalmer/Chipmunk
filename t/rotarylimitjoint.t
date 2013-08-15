@@ -10,6 +10,8 @@ use Chipmunk::Body;
     my $b = Chipmunk::Body->new( $mass, $inertia );
 
     ok( 1, 'TODO' );
+
+    # TODO: new, get_min, set_min, get_max, set_max
 }
 
 done_testing();

@@ -16,8 +16,33 @@ use Chipmunk::Body;
 
     isa_ok( $joint, 'Chipmunk::PinJoint', 'new' );
 
-    # TODO: get_anchr1, set_anchr1, get_anchr2, set_anchr2, get_dist,
-    #       set_dist
+    cmp_ok( abs $joint->get_anchr1()->[0] - $anchr1->[0],
+        '<', 1e-5, 'get_anchr1 x' );
+    cmp_ok( abs $joint->get_anchr1()->[1] - $anchr1->[1],
+        '<', 1e-5, 'get_anchr1 y' );
+
+    cmp_ok( abs $joint->get_anchr2()->[0] - $anchr2->[0],
+        '<', 1e-5, 'get_anchr2 x' );
+    cmp_ok( abs $joint->get_anchr2()->[1] - $anchr2->[1],
+        '<', 1e-5, 'get_anchr2 y' );
+
+    ( $anchr1, $anchr2 ) = ( [ 7.7, 8.8 ], [ 9.9, 10.1 ] );
+
+    $joint->set_anchr1($anchr1);
+
+    cmp_ok( abs $joint->get_anchr1()->[0] - $anchr1->[0],
+        '<', 1e-5, 'set_anchr1 x' );
+    cmp_ok( abs $joint->get_anchr1()->[1] - $anchr1->[1],
+        '<', 1e-5, 'set_anchr1 y' );
+
+    $joint->set_anchr2($anchr2);
+
+    cmp_ok( abs $joint->get_anchr2()->[0] - $anchr2->[0],
+        '<', 1e-5, 'set_anchr2 x' );
+    cmp_ok( abs $joint->get_anchr2()->[1] - $anchr2->[1],
+        '<', 1e-5, 'set_anchr2 y' );
+
+    # TODO: get_dist, set_dist
 }
 
 done_testing();

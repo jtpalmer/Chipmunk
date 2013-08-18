@@ -4,33 +4,33 @@
 #include "ppport.h"
 #include <chipmunk.h>
 
-MODULE = Chipmunk::CircleShape   PACKAGE = Chipmunk::CircleShape   PREFIX = cpcircle_
+MODULE = Chipmunk::CircleShape    PACKAGE = Chipmunk::CircleShape    PREFIX = cpcircle_
 PROTOTYPES: ENABLE
 
 cpShape *
 cpcircle_new(CLASS, body, radius, offset)
-      char *CLASS
-      cpBody *body
-      cpFloat radius
-      cpVect offset
-   CODE:
-      RETVAL = cpCircleShapeNew(body, radius, offset);
-   OUTPUT:
-      RETVAL
+        char *CLASS
+        cpBody *body
+        cpFloat radius
+        cpVect offset
+    CODE:
+        RETVAL = cpCircleShapeNew(body, radius, offset);
+    OUTPUT:
+        RETVAL
 
 cpVect
 cpcircle_get_offset(shape)
-      cpShape *shape
-   CODE:
-      RETVAL = cpCircleShapeGetOffset(shape);
-   OUTPUT:
-      RETVAL
+        cpShape *shape
+    CODE:
+        RETVAL = cpCircleShapeGetOffset(shape);
+    OUTPUT:
+        RETVAL
 
 cpFloat
 cpcircle_get_radius(shape);
-      cpShape *shape
-   CODE:
-      RETVAL = cpCircleShapeGetRadius(shape);
-   OUTPUT:
-      RETVAL
+        cpShape *shape
+    CODE:
+        RETVAL = cpCircleShapeGetRadius(shape);
+    OUTPUT:
+        RETVAL
 

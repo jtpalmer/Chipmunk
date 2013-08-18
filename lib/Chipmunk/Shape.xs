@@ -4,45 +4,45 @@
 #include "ppport.h"
 #include <chipmunk.h>
 
-MODULE = Chipmunk::Shape	PACKAGE = Chipmunk::Shape	PREFIX = cpshape_
+MODULE = Chipmunk::Shape   PACKAGE = Chipmunk::Shape   PREFIX = cpshape_
 PROTOTYPES: ENABLE
 
 void
 cpshape_free(shape)
-		cpShape *shape
-	CODE:
-		cpShapeFree(shape);
+      cpShape *shape
+   CODE:
+      cpShapeFree(shape);
 
 cpBB
 cpshape_cache_bb(shape)
-		cpShape *shape
-	PREINIT:
-		char *CLASS = "Chipmunk::BB";
-	CODE:
-		RETVAL = cpShapeCacheBB(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   PREINIT:
+      char *CLASS = "Chipmunk::BB";
+   CODE:
+      RETVAL = cpShapeCacheBB(shape);
+   OUTPUT:
+      RETVAL
 
 cpBB
 cpshape_update(shape, pos, rot)
-		cpShape *shape
-		cpVect pos
-		cpVect rot
-	PREINIT:
-		char *CLASS = "Chipmunk::BB";
-	CODE:
-		RETVAL = cpShapeUpdate(shape, pos, rot);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+      cpVect pos
+      cpVect rot
+   PREINIT:
+      char *CLASS = "Chipmunk::BB";
+   CODE:
+      RETVAL = cpShapeUpdate(shape, pos, rot);
+   OUTPUT:
+      RETVAL
 
 cpBool
 cpshape_point_query(shape, p)
-		cpShape *shape
-		cpVect p
-	CODE:
-		RETVAL = cpShapePointQuery(shape, p);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+      cpVect p
+   CODE:
+      RETVAL = cpShapePointQuery(shape, p);
+   OUTPUT:
+      RETVAL
 
 # TODO: cpshape_nearest_point_query
 #cpFloat cpShapeNearestPointQuery(cpShape *shape, cpVect p, cpNearestPointQueryInfo *out);
@@ -58,100 +58,100 @@ cpshape_point_query(shape, p)
 
 cpSpace *
 cpshape_get_space(shape)
-		cpShape *shape
-	PREINIT:
-		char *CLASS = "Chipmunk::Space";
-	CODE:
-		RETVAL = cpShapeGetSpace(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   PREINIT:
+      char *CLASS = "Chipmunk::Space";
+   CODE:
+      RETVAL = cpShapeGetSpace(shape);
+   OUTPUT:
+      RETVAL
 
 cpBody *
 cpshape_get_body(shape)
-		cpShape *shape
-	PREINIT:
-		char *CLASS = "Chipmunk::Body";
-	CODE:
-		RETVAL = cpShapeGetBody(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   PREINIT:
+      char *CLASS = "Chipmunk::Body";
+   CODE:
+      RETVAL = cpShapeGetBody(shape);
+   OUTPUT:
+      RETVAL
 
 void
 cpshape_set_body(shape, body)
-		cpShape *shape
-		cpBody *body
-	CODE:
-		cpShapeSetBody(shape, body);
+      cpShape *shape
+      cpBody *body
+   CODE:
+      cpShapeSetBody(shape, body);
 
 cpBB
 cpshape_get_bb(shape)
-		cpShape *shape
-	PREINIT:
-		char *CLASS = "Chipmunk::BB";
-	CODE:
-		RETVAL = cpShapeGetBB(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   PREINIT:
+      char *CLASS = "Chipmunk::BB";
+   CODE:
+      RETVAL = cpShapeGetBB(shape);
+   OUTPUT:
+      RETVAL
 
 cpBool
 cpshape_get_sensor(shape)
-		cpShape *shape
-	CODE:
-		RETVAL = cpShapeGetSensor(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   CODE:
+      RETVAL = cpShapeGetSensor(shape);
+   OUTPUT:
+      RETVAL
 
 void
 cpshape_set_sensor(shape, value)
-		cpShape *shape
-		cpBool value
-	CODE:
-		cpShapeSetSensor(shape, value);
+      cpShape *shape
+      cpBool value
+   CODE:
+      cpShapeSetSensor(shape, value);
 
 cpFloat
 cpshape_get_elasticity(shape)
-		cpShape *shape
-	CODE:
-		RETVAL = cpShapeGetElasticity(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   CODE:
+      RETVAL = cpShapeGetElasticity(shape);
+   OUTPUT:
+      RETVAL
 
 void
 cpshape_set_elasticity(shape, value)
-		cpShape *shape
-		cpFloat value
-	CODE:
-		cpShapeSetElasticity(shape, value);
+      cpShape *shape
+      cpFloat value
+   CODE:
+      cpShapeSetElasticity(shape, value);
 
 cpFloat
 cpshape_get_friction(shape)
-		cpShape *shape
-	CODE:
-		RETVAL = cpShapeGetFriction(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   CODE:
+      RETVAL = cpShapeGetFriction(shape);
+   OUTPUT:
+      RETVAL
 
 void
 cpshape_set_friction(shape, friction)
-		cpShape *shape
-		cpFloat friction
-	CODE:
-		cpShapeSetFriction(shape, friction);
+      cpShape *shape
+      cpFloat friction
+   CODE:
+      cpShapeSetFriction(shape, friction);
 
 cpVect
 cpshape_get_surface_velocity(shape)
-		cpShape *shape
-	CODE:
-		RETVAL = cpShapeGetSurfaceVelocity(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   CODE:
+      RETVAL = cpShapeGetSurfaceVelocity(shape);
+   OUTPUT:
+      RETVAL
 
 void
 cpshape_set_surface_velocity(shape, value)
-		cpShape *shape
-		cpVect value
-	CODE:
-		cpShapeSetSurfaceVelocity(shape, value);
+      cpShape *shape
+      cpVect value
+   CODE:
+      cpShapeSetSurfaceVelocity(shape, value);
 
 # TODO: User data.
 #cpDataPointer cpShapeGetUserData(const cpShape *shape)
@@ -159,46 +159,46 @@ cpshape_set_surface_velocity(shape, value)
 
 cpCollisionType
 cpshape_get_collision_type(shape)
-		cpShape *shape
-	CODE:
-		RETVAL = cpShapeGetCollisionType(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   CODE:
+      RETVAL = cpShapeGetCollisionType(shape);
+   OUTPUT:
+      RETVAL
 
 void
 cpshape_set_collision_type(shape, value)
-		cpShape *shape
-		cpCollisionType value
-	CODE:
-		cpShapeSetCollisionType(shape, value);
+      cpShape *shape
+      cpCollisionType value
+   CODE:
+      cpShapeSetCollisionType(shape, value);
 
 cpGroup
 cpshape_get_group(shape)
-		cpShape *shape
-	CODE:
-		RETVAL = cpShapeGetGroup(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   CODE:
+      RETVAL = cpShapeGetGroup(shape);
+   OUTPUT:
+      RETVAL
 
 void
 cpshape_set_group(shape, value)
-		cpShape *shape
-		cpGroup value
-	CODE:
-		cpShapeSetGroup(shape, value);
+      cpShape *shape
+      cpGroup value
+   CODE:
+      cpShapeSetGroup(shape, value);
 
 cpLayers
 cpshape_get_layers(shape)
-		cpShape *shape
-	CODE:
-		RETVAL = cpShapeGetLayers(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   CODE:
+      RETVAL = cpShapeGetLayers(shape);
+   OUTPUT:
+      RETVAL
 
 void
 cpshape_set_layers(shape, value)
-		cpShape *shape
-		cpLayers value
-	CODE:
-		cpShapeSetLayers(shape, value);
+      cpShape *shape
+      cpLayers value
+   CODE:
+      cpShapeSetLayers(shape, value);
 

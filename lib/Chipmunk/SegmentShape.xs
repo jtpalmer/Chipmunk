@@ -4,59 +4,59 @@
 #include "ppport.h"
 #include <chipmunk.h>
 
-MODULE = Chipmunk::SegmentShape	PACKAGE = Chipmunk::SegmentShape	PREFIX = cpsegment_
+MODULE = Chipmunk::SegmentShape   PACKAGE = Chipmunk::SegmentShape   PREFIX = cpsegment_
 PROTOTYPES: ENABLE
 
 cpShape *
 cpsegment_new(CLASS, body, a, b, radius)
-		char *CLASS
-		cpBody *body
-		cpVect a
-		cpVect b
-		cpFloat radius
-	CODE:
-		RETVAL = cpSegmentShapeNew(body, a, b, radius);
-	OUTPUT:
-		RETVAL
+      char *CLASS
+      cpBody *body
+      cpVect a
+      cpVect b
+      cpFloat radius
+   CODE:
+      RETVAL = cpSegmentShapeNew(body, a, b, radius);
+   OUTPUT:
+      RETVAL
 
 # TODO: Check if this is part of the public interface.
 void
 cpsegment_set_neighbors(shape, prev, next)
-		cpShape *shape
-		cpVect prev
-		cpVect next
-	CODE:
-		cpSegmentShapeSetNeighbors(shape, prev, next);
+      cpShape *shape
+      cpVect prev
+      cpVect next
+   CODE:
+      cpSegmentShapeSetNeighbors(shape, prev, next);
 
 cpVect
 cpsegment_get_a(shape)
-		cpShape *shape
-	CODE:
-		RETVAL = cpSegmentShapeGetA(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   CODE:
+      RETVAL = cpSegmentShapeGetA(shape);
+   OUTPUT:
+      RETVAL
 
 cpVect
 cpsegment_get_b(shape)
-		cpShape *shape
-	CODE:
-		RETVAL = cpSegmentShapeGetB(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   CODE:
+      RETVAL = cpSegmentShapeGetB(shape);
+   OUTPUT:
+      RETVAL
 
 cpVect
 cpsegment_get_normal(shape)
-		cpShape *shape
-	CODE:
-		RETVAL = cpSegmentShapeGetNormal(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   CODE:
+      RETVAL = cpSegmentShapeGetNormal(shape);
+   OUTPUT:
+      RETVAL
 
 cpFloat
 cpsegment_get_radius(shape)
-		cpShape *shape
-	CODE:
-		RETVAL = cpSegmentShapeGetRadius(shape);
-	OUTPUT:
-		RETVAL
+      cpShape *shape
+   CODE:
+      RETVAL = cpSegmentShapeGetRadius(shape);
+   OUTPUT:
+      RETVAL
 

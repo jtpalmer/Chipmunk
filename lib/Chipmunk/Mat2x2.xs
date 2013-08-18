@@ -9,10 +9,10 @@ PROTOTYPES: ENABLE
 
 cpVect
 cpmat2x2_transform(m, v)
-		cpMat2x2 m
-		cpVect v
-	CODE:
-		RETVAL = cpMat2x2Transform(m, v);
-	OUTPUT:
-		RETVAL
+      cpMat2x2 m
+      cpVect v
+   CODE:
+      RETVAL = cpMat2x2Transform(m, v);
+   OUTPUT:
+      RETVAL
 

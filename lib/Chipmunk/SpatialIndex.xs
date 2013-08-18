@@ -4,7 +4,7 @@
 #include "ppport.h"
 #include <chipmunk.h>
 
-MODULE = Chipmunk::SpatialIndex	PACKAGE = Chipmunk::SpatialIndex	PREFIX = cpspatialindex_
+MODULE = Chipmunk::SpatialIndex   PACKAGE = Chipmunk::SpatialIndex   PREFIX = cpspatialindex_
 PROTOTYPES: ENABLE
 
 # TODO

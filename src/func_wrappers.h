@@ -7,58 +7,58 @@
  */
 
 typedef struct cp_func_data {
-   SV *func;
-   SV *data;
+    SV *func;
+    SV *data;
 } cp_func_data;
 
 cp_func_data *new_func_data(SV *func, SV *data)
 {
-   cp_func_data *combined;
+    cp_func_data *combined;
 
-   Newx(combined, 1, cp_func_data);
+    Newx(combined, 1, cp_func_data);
 
-   combined->func = newSVsv(func);
-   combined->data = newSVsv(data);
+    combined->func = newSVsv(func);
+    combined->data = newSVsv(data);
 
-   return combined;
+    return combined;
 }
 
 void free_func_data(cp_func_data *combined)
 {
-   SvREFCNT_dec(combined->func);
-   SvREFCNT_dec(combined->data);
-   Safefree(combined);
+    SvREFCNT_dec(combined->func);
+    SvREFCNT_dec(combined->data);
+    Safefree(combined);
 }
 
 /* typedef void(*cpPostStepFunc)(cpSpace *space, void *key, void *data) */
 void cp_post_step_func(cpSpace *space, SV *key, cp_func_data *combined)
 {
-   dSP;
-   SV *func;
-   SV *data;
-   SV *space_sv;
+    dSP;
+    SV *func;
+    SV *data;
+    SV *space_sv;
 
-   space_sv = sv_newmortal();
-   sv_setref_pv(space_sv, "Chipmunk::Space", (void *)space);
+    space_sv = sv_newmortal();
+    sv_setref_pv(space_sv, "Chipmunk::Space", (void *)space);
 
-   func = combined->func;
-   data = combined->data;
+    func = combined->func;
+    data = combined->data;
 
-   ENTER;
-   SAVETMPS;
+    ENTER;
+    SAVETMPS;
 
-   PUSHMARK(SP);
-   XPUSHs(space_sv);
-   XPUSHs(key);
-   XPUSHs(data);
-   PUTBACK;
+    PUSHMARK(SP);
+    XPUSHs(space_sv);
+    XPUSHs(key);
+    XPUSHs(data);
+    PUTBACK;
 
-   call_sv(func, G_VOID|G_DISCARD);
+    call_sv(func, G_VOID | G_DISCARD);
 
-   FREETMPS;
-   LEAVE;
+    FREETMPS;
+    LEAVE;
 
-   free_func_data(combined);
+    free_func_data(combined);
 }
 
 /* typedef void(*cpSpacePointQueryFunc)(cpShape *shape, void *data) */

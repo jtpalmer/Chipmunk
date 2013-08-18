@@ -10,6 +10,26 @@ SYNOPSIS
 DESCRIPTION
     Perl bindings for the Chipmunk Physics library.
 
+METHODS
+  cpfmax
+  cpfmin
+  cpfabs
+  cpfclamp
+  cpfclamp01
+  cpflerp
+  cpflerpconst
+  segment_to_segment_collisions
+  moment_for_circle
+  area_for_circle
+  moment_for_segment
+  area_for_segment
+  moment_for_poly
+  area_for_poly
+  centroid_for_poly
+  recenter_poly
+  moment_for_box
+  moment_for_box2
+  convex_hull
 SEE ALSO
     *   Chipmunk2D Physics <http://chipmunk-physics.net/>
 

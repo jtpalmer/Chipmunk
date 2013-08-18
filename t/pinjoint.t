@@ -26,6 +26,11 @@ use Chipmunk::Body;
     cmp_ok( abs $joint->get_anchr2()->[1] - $anchr2->[1],
         '<', 1e-5, 'get_anchr2 y' );
 
+    my ( $dx, $dy )
+        = ( $anchr1->[0] - $anchr2->[0], $anchr1->[1] - $anchr2->[1] );
+    cmp_ok( abs $joint->get_dist() - sqrt( $dx * $dx + $dy * $dy ),
+        '<', 1e-5, 'get_dist' );
+
     ( $anchr1, $anchr2 ) = ( [ 7.7, 8.8 ], [ 9.9, 10.1 ] );
 
     $joint->set_anchr1($anchr1);
@@ -42,7 +47,9 @@ use Chipmunk::Body;
     cmp_ok( abs $joint->get_anchr2()->[1] - $anchr2->[1],
         '<', 1e-5, 'set_anchr2 y' );
 
-    # TODO: get_dist, set_dist
+    my $dist = 7.7;
+    $joint->set_dist($dist);
+    cmp_ok( abs $joint->get_dist() - $dist, '<', 1e-5, 'set_dist' );
 }
 
 done_testing();

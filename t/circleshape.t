@@ -11,8 +11,7 @@ use Chipmunk::CircleShape;
     my ( $radius, $offset ) = ( 3.0, [ 4.0, 5.0 ] );
     my $circle = Chipmunk::CircleShape->new( $body, $radius, $offset );
 
-    ok( $circle, 'new' );
-    isa_ok( $circle, 'Chipmunk::CircleShape' );
+    isa_ok( $circle, 'Chipmunk::CircleShape', 'new' );
 
     cmp_ok( abs $circle->get_offset()->[0] - $offset->[0],
         '<', 1e-5, 'get_offset x' );

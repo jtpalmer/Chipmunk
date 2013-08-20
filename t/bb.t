@@ -10,8 +10,7 @@ use List::Util qw( max min );
 {
     my ( $left, $bottom, $right, $top ) = ( 0, 10, 20, 30 );
     my $bb = Chipmunk::BB->new( $left, $bottom, $right, $top );
-    ok( $bb, 'new' );
-    isa_ok( $bb, 'Chipmunk::BB' );
+    isa_ok( $bb, 'Chipmunk::BB', 'new' );
 
     cmp_ok( abs $bb->[0] - $left,   '<', 1e-5, '->[0]' );
     cmp_ok( abs $bb->[1] - $bottom, '<', 1e-5, '->[1]' );
@@ -20,8 +19,7 @@ use List::Util qw( max min );
 
     my ( $point, $radius ) = ( [ 10, 20 ], 5 );
     my $circle_bb = Chipmunk::BB->new_for_circle( $point, $radius );
-    ok( $circle_bb, 'new_for_circle' );
-    isa_ok( $circle_bb, 'Chipmunk::BB' );
+    isa_ok( $circle_bb, 'Chipmunk::BB', 'new_for_circle' );
 
     ok( $bb->intersects($circle_bb), 'intersects' );
 

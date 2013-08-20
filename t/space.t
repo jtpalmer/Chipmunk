@@ -8,7 +8,7 @@ my $gravity = [ 1, 2 ];
 {
     my $space = Chipmunk::Space->new();
 
-    isa_ok( $space, 'Chipmunk::Space' );
+    isa_ok( $space, 'Chipmunk::Space', 'new' );
 
     is( $space->is_locked(), 0, 'is_locked' );
 

@@ -11,8 +11,7 @@ use Chipmunk::PolyShape;
     my $verts = [ [ 0, 0 ], [ 0, 1 ], [ 1, 0 ] ];
     my $poly = Chipmunk::PolyShape->new( $body, $verts );
 
-    ok( $poly, 'new' );
-    isa_ok( $poly, 'Chipmunk::PolyShape' );
+    isa_ok( $poly, 'Chipmunk::PolyShape', 'new' );
 
     is( $poly->get_num_verts(), scalar @$verts, 'get_num_verts' );
 

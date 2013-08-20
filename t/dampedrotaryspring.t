@@ -13,9 +13,7 @@ use Chipmunk::DampedRotarySpring;
         = Chipmunk::DampedRotarySpring->new( $a, $b, $restAngle, $stiffness,
         $damping );
 
-    ok( $spring, 'new' );
-
-    isa_ok( $spring, 'Chipmunk::DampedRotarySpring' );
+    isa_ok( $spring, 'Chipmunk::DampedRotarySpring', 'new' );
 }
 
 done_testing();

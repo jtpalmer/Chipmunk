@@ -14,9 +14,7 @@ use Chipmunk::DampedSpring;
         = Chipmunk::DampedSpring->new( $a, $b, $anchr1, $anchr2, $restLength,
         $stiffness, $damping );
 
-    ok( $spring, 'new' );
-
-    isa_ok( $spring, 'Chipmunk::DampedSpring' );
+    isa_ok( $spring, 'Chipmunk::DampedSpring', 'new' );
 }
 
 done_testing();

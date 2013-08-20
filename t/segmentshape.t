@@ -16,8 +16,7 @@ use Chipmunk::SegmentShape;
     my $segment
         = Chipmunk::SegmentShape->new( $body, $point_a, $point_b, $radius );
 
-    ok( $segment, 'new' );
-    isa_ok( $segment, 'Chipmunk::SegmentShape' );
+    isa_ok( $segment, 'Chipmunk::SegmentShape', 'new' );
 
     cmp_ok( abs $segment->get_a()->[0] - $point_a->[0], '<', 1e-5,
         'get_a x' );

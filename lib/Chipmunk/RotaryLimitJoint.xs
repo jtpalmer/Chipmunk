@@ -8,7 +8,7 @@ MODULE = Chipmunk::RotaryLimitJoint    PACKAGE = Chipmunk::RotaryLimitJoint    P
 PROTOTYPES: ENABLE
 
 cpConstraint *
-cprotarylimithoint_new(CLASS, a, b, min, max)
+cprotarylimitjoint_new(CLASS, a, b, min, max)
         char *CLASS
         cpBody *a
         cpBody *b

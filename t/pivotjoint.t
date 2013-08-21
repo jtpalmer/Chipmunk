@@ -13,7 +13,7 @@ use Chipmunk::Body;
 
     my $joint = Chipmunk::PivotJoint->new( $a, $b, $pivot );
 
-    isa_ok( $joint, 'Chipmunk::PivotJoint', 'new' );
+    isa_ok( $joint, 'Chipmunk::PivotJoint', 'new (3 args)' );
 }
 
 {
@@ -24,9 +24,9 @@ use Chipmunk::Body;
     my $anchr1 = [ 3.3, 4.4 ];
     my $anchr2 = [ 5.5, 6.6 ];
 
-    my $joint = Chipmunk::PivotJoint->new2( $a, $b, $anchr1, $anchr2 );
+    my $joint = Chipmunk::PivotJoint->new( $a, $b, $anchr1, $anchr2 );
 
-    isa_ok( $joint, 'Chipmunk::PivotJoint', 'new2' );
+    isa_ok( $joint, 'Chipmunk::PivotJoint', 'new (4 args)' );
 
     cmp_ok( abs $joint->get_anchr1()->[0] - $anchr1->[0],
         '<', 1e-5, 'get_anchr1 x' );

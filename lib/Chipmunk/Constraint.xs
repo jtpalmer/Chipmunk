@@ -98,11 +98,20 @@ cpconstraint_set_max_bias(constraint, value)
 
 #void cpConstraintSetPostSolveFunc(cpConstraint *constraint, cpConstraintPostSolveFunc value)
 
-# TODO: User data.
+SV *
+cpconstraint_get_user_data(constraint)
+        cpConstraint *constraint
+    CODE:
+        RETVAL = (SV *)cpConstraintGetUserData(constraint);
+    OUTPUT:
+        RETVAL
 
-#cpDataPointer cpConstraintGetUserData(const cpConstraint *constraint)
-
-#void cpConstraintSetUserData(cpConstraint *constraint, cpDataPointer value)
+void
+cpconstraint_set_user_data(constraint, data)
+        cpConstraint *constraint
+        SV *data
+    CODE:
+        cpConstraintSetUserData(constraint, (cpDataPointer)data);
 
 cpFloat
 cpconstraint_get_impulse(constraint)

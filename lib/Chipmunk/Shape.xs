@@ -153,9 +153,20 @@ cpshape_set_surface_velocity(shape, value)
     CODE:
         cpShapeSetSurfaceVelocity(shape, value);
 
-# TODO: User data.
-#cpDataPointer cpShapeGetUserData(const cpShape *shape)
-#void cpShapeSetUserData(cpShape *shape, cpDataPointer value)
+SV *
+cpshape_get_user_data(shape)
+        cpShape *shape
+    CODE:
+        RETVAL = (SV *)cpShapeGetUserData(shape);
+    OUTPUT:
+        RETVAL
+
+void
+cpshape_set_user_data(shape, data)
+        cpShape *shape
+        SV *data
+    CODE:
+        cpShapeSetUserData(shape, (cpDataPointer)data);
 
 cpCollisionType
 cpshape_get_collision_type(shape)

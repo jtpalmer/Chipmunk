@@ -88,7 +88,7 @@ for (@constraints) {
 
     isa_ok( $constraint, 'Chipmunk::Constraint', "new ($type)" );
 
-    # TODO: activite_bodies, get_space, get_a, get_b, get_max_force,
+    # TODO: activate_bodies, get_space, get_a, get_b, get_max_force,
     #       set_max_force, get_error_bias, set_error_bias, get_max_bias,
     #       set_max_bias, set_pre_solve_func, set_post_solve_func,
     #       get_user_data, set_user_data, get_impulse

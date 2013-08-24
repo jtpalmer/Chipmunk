@@ -52,7 +52,7 @@ cpconstraint_get_max_force(constraint)
         RETVAL
 
 void
-ccConstraint_set_max_force(constraint, value)
+cpconstraint_set_max_force(constraint, value)
         cpConstraint *constraint
         cpFloat value
     CODE:

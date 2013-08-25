@@ -88,6 +88,8 @@ for (@constraints) {
 
     isa_ok( $constraint, 'Chipmunk::Constraint', "new ($type)" );
 
+    # TODO: activate_bodies, get_space,
+
     #isa_ok( $constraint->get_space(), 'Chipmunk::Space',
     #    "get_space ($type)" );
 
@@ -96,15 +98,21 @@ for (@constraints) {
     isa_ok( $constraint->get_b(), 'Chipmunk::Body', "get_b ($type)" );
 
     my $max_force = 11.11;
-
     $constraint->set_max_force($max_force);
-
     cmp_ok( abs $constraint->get_max_force() - $max_force,
         '<', 1e-5, "get_max_force ($type)" );
 
-    # TODO: activate_bodies, get_space, get_a, get_b, get_max_force,
-    #       set_max_force, get_error_bias, set_error_bias, get_max_bias,
-    #       set_max_bias, set_pre_solve_func, set_post_solve_func,
+    my $error_bias = 12.12;
+    $constraint->set_error_bias($error_bias);
+    cmp_ok( abs $constraint->get_error_bias() - $error_bias,
+        '<', 1e-5, "get_error_bias ($type)" );
+
+    my $max_bias = 13.13;
+    $constraint->set_max_bias($max_bias);
+    cmp_ok( abs $constraint->get_max_bias() - $max_bias,
+        '<', 1e-5, "get_max_bias ($type)" );
+
+    #       TODO: set_pre_solve_func, set_post_solve_func,
     #       get_user_data, set_user_data, get_impulse
 }
 

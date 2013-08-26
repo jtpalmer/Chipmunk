@@ -5,6 +5,7 @@ cpCollisionType	T_IV
 cpGroup		T_IV
 cpLayers	T_IV
 cpFloat		T_NV
+cpArbiter *	O_OBJECT
 cpBody *	O_OBJECT
 cpConstraint *	O_OBJECT
 cpShape *	O_OBJECT

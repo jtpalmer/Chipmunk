@@ -112,8 +112,8 @@ for (@constraints) {
     cmp_ok( abs $constraint->get_max_bias() - $max_bias,
         '<', 1e-5, "get_max_bias ($type)" );
 
-    #       TODO: set_pre_solve_func, set_post_solve_func,
-    #       get_user_data, set_user_data, get_impulse
+    # TODO: set_pre_solve_func, set_post_solve_func, get_user_data,
+    #       set_user_data, get_impulse
 }
 
 done_testing();

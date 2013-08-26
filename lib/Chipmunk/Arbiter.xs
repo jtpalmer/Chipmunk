@@ -7,19 +7,52 @@
 MODULE = Chipmunk::Arbiter    PACKAGE = Chipmunk::Arbiter    PREFIX = cparbiter_
 PROTOTYPES: ENABLE
 
+cpFloat
+cparbiter_get_elasticity(arb)
+        cpArbiter *arb
+    CODE:
+        RETVAL = cpArbiterGetElasticity(arb);
+    OUTPUT:
+        RETVAL
+
+void
+cparbiter_set_elasticity(arb, value)
+        cpArbiter *arb
+        cpFloat value
+    CODE:
+        cpArbiterSetElasticity(arb, value);
+
+cpFloat
+cparbiter_get_friction(arb)
+        cpArbiter *arb
+    CODE:
+        RETVAL = cpArbiterGetFriction(arb);
+    OUTPUT:
+        RETVAL
+
+void
+cparbiter_set_friction(arb, value)
+        cpArbiter *arb
+        cpFloat value
+    CODE:
+        cpArbiterSetFriction(arb, value);
+
+cpVect
+cparbiter_get_surface_velocity(arb)
+        cpArbiter *arb
+    CODE:
+        RETVAL = cpArbiterGetSurfaceVelocity(arb);
+    OUTPUT:
+        RETVAL
+
+void
+cparbiter_set_surface_velocity(arb, vr)
+        cpArbiter *arb
+        cpVect vr
+    CODE:
+        cpArbiterSetSurfaceVelocity(arb, vr);
+
 # TODO
-
-#cpFloat cpArbiterGetElasticity(const cpArbiter *arb)
-
-#void cpArbiterSetElasticity(cpArbiter *arb, cpFloat value)
-
-#cpFloat cpArbiterGetFriction(const cpArbiter *arb)
-
-#void cpArbiterSetFriction(cpArbiter *arb, cpFloat value)
-
-#cpVect cpArbiterGetSurfaceVelocity(cpArbiter *arb)
-
-#void cpArbiterSetSurfaceVelocity(cpArbiter *arb, cpVect vr)
 
 #cpDataPointer cpArbiterGetUserData(const cpArbiter *arb)
 

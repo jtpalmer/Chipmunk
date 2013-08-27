@@ -52,11 +52,22 @@ cparbiter_set_surface_velocity(arb, vr)
     CODE:
         cpArbiterSetSurfaceVelocity(arb, vr);
 
+SV *
+cparbiter_get_user_data(arb)
+        cpArbiter *arb
+    CODE:
+        RETVAL = (SV *)cpArbiterGetUserData(arb);
+    OUTPUT:
+        RETVAL
+
+void
+cparbiter_set_user_data(arb, data)
+        cpArbiter *arb
+        SV *data
+    CODE:
+        cpArbiterSetUserData(arb, (cpDataPointer)data);
+
 # TODO
-
-#cpDataPointer cpArbiterGetUserData(const cpArbiter *arb)
-
-#void cpArbiterSetUserData(cpArbiter *arb, cpDataPointer value)
 
 #cpVect cpArbiterTotalImpulse(const cpArbiter *arb)
 

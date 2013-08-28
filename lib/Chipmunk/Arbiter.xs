@@ -67,15 +67,37 @@ cparbiter_set_user_data(arb, data)
     CODE:
         cpArbiterSetUserData(arb, (cpDataPointer)data);
 
+cpVect
+cparbiter_total_impulse(arb)
+        cpArbiter *arb
+    CODE:
+        RETVAL = cpArbiterTotalImpulse(arb);
+    OUTPUT:
+        RETVAL
+
+cpVect
+cparbiter_total_impulse_with_friction(arb)
+        cpArbiter *arb
+    CODE:
+        RETVAL = cpArbiterTotalImpulseWithFriction(arb);
+    OUTPUT:
+        RETVAL
+
+cpFloat
+cparbiter_total_ke(arb)
+        cpArbiter *arb
+    CODE:
+        RETVAL = cpArbiterTotalKE(arb);
+    OUTPUT:
+        RETVAL
+
+void
+cparbiter_ignore(arb)
+        cpArbiter *arb
+    CODE:
+        cpArbiterIgnore(arb);
+
 # TODO
-
-#cpVect cpArbiterTotalImpulse(const cpArbiter *arb)
-
-#cpVect cpArbiterTotalImpulseWithFriction(const cpArbiter *arb)
-
-#cpFloat cpArbiterTotalKE(const cpArbiter *arb)
-
-#void cpArbiterIgnore(cpArbiter *arb)
 
 #void cpArbiterGetShapes(const cpArbiter *arb, cpShape **a, cpShape **b)
 

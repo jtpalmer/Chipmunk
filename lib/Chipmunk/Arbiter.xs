@@ -107,13 +107,46 @@ cparbiter_ignore(arb)
 
 #void cpArbiterSetContactPointSet(cpArbiter *arb, cpContactPointSet *set)
 
-#cpBool cpArbiterIsFirstContact(const cpArbiter *arb)
+cpBool
+cparbiter_is_first_contact(arb)
+        cpArbiter *arb
+    CODE:
+        RETVAL = cpArbiterIsFirstContact(arb);
+    OUTPUT:
+        RETVAL
 
-#int cpArbiterGetCount(const cpArbiter *arb)
+int
+cparbiter_get_count(arb)
+        cpArbiter *arb
+    CODE:
+        RETVAL = cpArbiterGetCount(arb);
+    OUTPUT:
+        RETVAL
 
-#cpVect cpArbiterGetNormal(const cpArbiter *arb, int i)
+cpVect
+cparbiter_get_normal(arb, i)
+        cpArbiter *arb
+        int i
+    CODE:
+        RETVAL = cpArbiterGetNormal(arb, i);
+    OUTPUT:
+        RETVAL
 
-#cpVect cpArbiterGetPoint(const cpArbiter *arb, int i)
+cpVect
+cparbiter_get_point(arb, i)
+        cpArbiter *arb
+        int i
+    CODE:
+        cpArbiterGetPoint(arb, i);
+    OUTPUT:
+        RETVAL
 
-#cpFloat cpArbiterGetDepth(const cpArbiter *arb, int i)
+cpFloat
+cparbiter_get_depth(arb, i)
+        cpArbiter *arb
+        int i
+    CODE:
+        RETVAL = cpArbiterGetDepth(arb, i);
+    OUTPUT:
+        RETVAL
 

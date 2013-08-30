@@ -99,7 +99,24 @@ cparbiter_ignore(arb)
 
 # TODO
 
-#void cpArbiterGetShapes(const cpArbiter *arb, cpShape **a, cpShape **b)
+AV *
+cparbiter_get_shapes(arb)
+        cpArbiter *arb
+    INIT:
+        cpShape **a;
+        cpShape **b;
+        SV *shape_a;
+        SV *shape_b;
+    CODE:
+        cpArbiterGetShapes(arb, a, b);
+        load_module((U32)0, newSVpv("Chipmunk::Shape", 0), NULL, NULL);
+        sv_setref_pv(shape_a, "Chipmunk::Shape", (void *)*a);
+        sv_setref_pv(shape_b, "Chipmunk::Shape", (void *)*b);
+        RETVAL = newAV();
+        av_push(RETVAL, newRV_inc(shape_a));
+        av_push(RETVAL, newRV_inc(shape_b));
+    OUTPUT:
+        RETVAL
 
 #void cpArbiterGetBodies(const cpArbiter *arb, cpBody **a, cpBody **b)
 

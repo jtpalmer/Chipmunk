@@ -4,12 +4,11 @@
 #include <chipmunk.h>
 #include "func_wrappers.h"
 
-cpVect *sv_to_vect(SV *arg)
+cpVect sv_to_vect(SV *arg)
 {
     AV *input;
     int length;
     cpFloat x, y;
-    cpVect *vect;
 
     if (SvTYPE(SvRV(arg)) == SVt_PVAV) {
         input = (AV *)SvRV(arg);
@@ -22,11 +21,7 @@ cpVect *sv_to_vect(SV *arg)
         x = (cpFloat)SvNV(*av_fetch(input, 0, 0));
         y = (cpFloat)SvNV(*av_fetch(input, 1, 0));
 
-        Newx(vect, 1, cpVect);
-
-        *vect = cpv(x, y);
-
-        return vect;
+        return cpv(x, y);
     }
     else {
         croak("Expected array reference");
@@ -46,7 +41,7 @@ cpVect *sv_to_vect_array(SV *arg)
     AV *input;
     int length, i;
     SV *vert;
-    cpVect *v;
+    cpVect v;
     cpVect *verts;
 
     if (SvTYPE(SvRV(arg)) == SVt_PVAV) {
@@ -57,8 +52,7 @@ cpVect *sv_to_vect_array(SV *arg)
         for (i = 0; i < length; i++) {
             vert = *av_fetch(input, i, 0);
             v = sv_to_vect(vert);
-            Copy(v, &verts[i], 1, cpVect);
-            Safefree(v);
+            Copy(&v, &verts[i], 1, cpVect);
         }
 
         return verts;

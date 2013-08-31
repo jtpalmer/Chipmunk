@@ -14,15 +14,14 @@ cppoly_new(CLASS, body, verts, ...)
         cpBody *body
         SV *verts
     INIT:
-        cpVect *offset;
+        cpVect offset;
         cpVect *_verts;
         int num_verts;
     CODE:
         if (items == 4) {
             offset = sv_to_vect(ST(3));
         } else if (items == 3) {
-            Newx(offset, 1, cpVect);
-            *offset = cpv((cpFloat)0.0, (cpFloat)0.0);
+            offset = cpv((cpFloat)0.0, (cpFloat)0.0);
         } else {
             croak("Wrong number of arguments");
         }
@@ -34,12 +33,11 @@ cppoly_new(CLASS, body, verts, ...)
             croak("Vertices not clockwise and convex");
         }
 
-        RETVAL = cpPolyShapeNew(body, num_verts, _verts, *offset);
+        RETVAL = cpPolyShapeNew(body, num_verts, _verts, offset);
     OUTPUT:
         RETVAL
     CLEANUP:
         Safefree(_verts);
-        Safefree(offset);
 
 int
 cppoly_get_num_verts(shape)

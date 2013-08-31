@@ -121,15 +121,14 @@ cp_moment_for_poly(m, verts, ...)
         cpFloat m
         SV *verts
     INIT:
-        cpVect *offset;
+        cpVect offset;
         cpVect *_verts;
         int num_verts;
     CODE:
         if (items == 3) {
             offset = sv_to_vect(ST(2));
         } else if (items == 2) {
-            Newx(offset, 1, cpVect);
-            *offset = cpv((cpFloat)0.0, (cpFloat)0.0);
+            offset = cpv((cpFloat)0.0, (cpFloat)0.0);
         } else {
             croak("Wrong number of arguments");
         }
@@ -141,12 +140,11 @@ cp_moment_for_poly(m, verts, ...)
             croak("Vertices not clockwise and convex");
         }
 
-        RETVAL = cpMomentForPoly(m, num_verts, _verts, *offset);
+        RETVAL = cpMomentForPoly(m, num_verts, _verts, offset);
     OUTPUT:
         RETVAL
     CLEANUP:
         Safefree(_verts);
-        Safefree(offset);
 
 cpFloat
 cp_area_for_poly(verts)

@@ -14,26 +14,22 @@ cppivotjoint_new(CLASS, a, b, ...)
         cpBody *a
         cpBody *b
     INIT:
-        cpVect *pivot = NULL;
-        cpVect *anchr1 = NULL;
-        cpVect *anchr2 = NULL;
+        cpVect pivot;
+        cpVect anchr1;
+        cpVect anchr2;
     CODE:
         if (items == 4) {
             pivot = sv_to_vect(ST(3));
-            RETVAL = cpPivotJointNew(a, b, *pivot);
+            RETVAL = cpPivotJointNew(a, b, pivot);
         } else if (items == 5) {
             anchr1 = sv_to_vect(ST(3));
             anchr2 = sv_to_vect(ST(4));
-            RETVAL = cpPivotJointNew2(a, b, *anchr1, *anchr2);
+            RETVAL = cpPivotJointNew2(a, b, anchr1, anchr2);
         } else {
             croak("Wrong number of arguments");
         }
     OUTPUT:
         RETVAL
-    CLEANUP:
-        if (pivot) { Safefree(pivot); }
-        if (anchr1) { Safefree(anchr1); }
-        if (anchr2) { Safefree(anchr2); }
 
 cpVect
 cppivotjoint_get_anchr1(constraint)

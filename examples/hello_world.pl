@@ -16,7 +16,7 @@ my $space = Chipmunk::Space->new();
 $space->set_gravity( [ 0, -100 ] );
 
 my $ground = Chipmunk::SegmentShape->new(
-    $space->static_body,
+    $space->get_static_body(),
     [ -20, 5 ],
     [ 20,  -5 ], 0
 );

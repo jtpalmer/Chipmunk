@@ -48,7 +48,7 @@ my $mass   = 1;
 my $space = Chipmunk::Space->new();
 $space->set_gravity( [ 0, -10 ] );
 
-my $ground = Chipmunk::SegmentShape->new( $space->static_body,
+my $ground = Chipmunk::SegmentShape->new( $space->get_static_body(),
     s2w($ground_pos0), s2w($ground_pos1), 0 );
 $ground->set_friction(1);
 

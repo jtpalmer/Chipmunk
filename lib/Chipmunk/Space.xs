@@ -146,9 +146,18 @@ cpspace_add_body(space, body)
     OUTPUT:
         RETVAL
 
-# TODO
+cpConstraint *
+cpspace_add_constraint(space, constraint)
+        cpSpace *space
+        cpConstraint *constraint
+    PREINIT:
+        char *CLASS = "Chipmunk::Constraint";
+    CODE:
+        RETVAL = cpSpaceAddConstraint(space, constraint);
+    OUTPUT:
+        RETVAL
 
-#cpConstraint* cpSpaceAddConstraint(cpSpace *space, cpConstraint *constraint);
+# TODO
 
 #void cpSpaceRemoveShape(cpSpace *space, cpShape *shape);
 

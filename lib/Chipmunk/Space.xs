@@ -22,6 +22,16 @@ cpspace_free(space)
     CODE:
         cpSpaceFree(space);
 
+cpBody *
+cpspace_get_static_body(space)
+        cpSpace *space
+    PREINIT:
+        char *CLASS = "Chipmunk::Body";
+    CODE:
+        RETVAL = cpSpaceGetStaticBody(space);
+    OUTPUT:
+        RETVAL
+
 cpBool
 cpspace_is_locked(space)
         cpSpace *space
@@ -78,15 +88,6 @@ cpspace_get_gravity(space)
     OUTPUT:
         RETVAL
 
-cpBody *
-cpspace_static_body(space)
-        cpSpace *space
-    PREINIT:
-        char *CLASS = "Chipmunk::Body";
-    CODE:
-        RETVAL = space->staticBody;
-    OUTPUT:
-        RETVAL
 
 void
 cpspace_step(space, dt)

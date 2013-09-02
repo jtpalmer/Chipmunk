@@ -22,10 +22,20 @@ cpspace_free(space)
     CODE:
         cpSpaceFree(space);
 
-# TODO
+int
+cpspace_get_iterations(space)
+        cpSpace *space
+    CODE:
+        RETVAL = cpSpaceGetIterations(space);
+    OUTPUT:
+        RETVAL
 
-#int cpSpaceGetIterations(const cpSpace *space)
-#void cpSpaceSetIterations(cpSpace *space, int value)
+void
+cpspace_set_iterations(space, value)
+        cpSpace *space
+        int value
+    CODE:
+        cpSpaceSetIterations(space, value);
 
 void
 cpspace_set_gravity(space, gravity)

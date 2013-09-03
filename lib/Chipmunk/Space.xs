@@ -52,16 +52,52 @@ cpspace_get_gravity(space)
     OUTPUT:
         RETVAL
 
+cpFloat
+cpspace_get_damping(space)
+        cpSpace *space
+    CODE:
+        RETVAL = cpSpaceGetDamping(space);
+    OUTPUT:
+        RETVAL
+
+void
+cpspace_set_damping(space, value)
+        cpSpace *space
+        cpFloat value
+    CODE:
+        cpSpaceSetDamping(space, value);
+
+cpFloat
+cpspace_get_idle_speed_threshold(space)
+        cpSpace *space
+    CODE:
+        RETVAL = cpSpaceGetIdleSpeedThreshold(space);
+    OUTPUT:
+        RETVAL
+
+void
+cpspace_set_idle_speed_threshold(space, value)
+        cpSpace *space
+        cpFloat value
+    CODE:
+        cpSpaceSetIdleSpeedThreshold(space, value);
+
+cpFloat
+cpspace_get_sleep_time_threshold(space)
+        cpSpace *space
+    CODE:
+        RETVAL = cpSpaceGetSleepTimeThreshold(space);
+    OUTPUT:
+        RETVAL
+
+void
+cpspace_set_sleep_time_threshold(space, value)
+        cpSpace *space
+        cpFloat value
+    CODE:
+        cpSpaceSetSleepTimeThreshold(space, value);
+
 # TODO
-
-#cpFloat cpSpaceGetDamping(const cpSpace *space)
-#void cpSpaceSetDamping(cpSpace *space, cpFloat value)
-
-#cpFloat cpSpaceGetIdleSpeedThreshold(const cpSpace *space)
-#void cpSpaceSetIdleSpeedThreshold(cpSpace *space, cpFloat value)
-
-#cpFloat cpSpaceGetSleepTimeThreshold(const cpSpace *space)
-#void cpSpaceSetSleepTimeThreshold(cpSpace *space, cpFloat value)
 
 #cpFloat cpSpaceGetCollisionSlop(const cpSpace *space)
 #void cpSpaceSetCollisionSlop(cpSpace *space, cpFloat value)

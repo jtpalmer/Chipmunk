@@ -97,13 +97,37 @@ cpspace_set_sleep_time_threshold(space, value)
     CODE:
         cpSpaceSetSleepTimeThreshold(space, value);
 
+cpFloat
+cpspace_get_collisionSlop(space)
+        cpSpace *space
+    CODE:
+        RETVAL = cpSpaceGetCollisionSlop(space);
+    OUTPUT:
+        RETVAL
+
+void
+cpspace_set_collision_slop(space, value)
+        cpSpace *space
+        cpFloat value
+    CODE:
+        cpSpaceSetCollisionSlop(space, value);
+
+cpFloat
+cpspace_get_collision_bias(space)
+        cpSpace *space
+    CODE:
+        RETVAL = cpSpaceGetCollisionBias(space);
+    OUTPUT:
+        RETVAL
+
+void
+cpspace_set_collision_bias(space, value)
+        cpSpace *space
+        cpFloat value
+    CODE:
+        cpSpaceSetCollisionBias(space, value);
+
 # TODO
-
-#cpFloat cpSpaceGetCollisionSlop(const cpSpace *space)
-#void cpSpaceSetCollisionSlop(cpSpace *space, cpFloat value)
-
-#cpFloat cpSpaceGetCollisionBias(const cpSpace *space)
-#void cpSpaceSetCollisionBias(cpSpace *space, cpFloat value)
 
 #cpTimestamp cpSpaceGetCollisionPersistence(const cpSpace *space)
 #void cpSpaceSetCollisionPersistence(cpSpace *space, cpTimestamp value)

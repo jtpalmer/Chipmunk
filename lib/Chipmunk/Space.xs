@@ -127,13 +127,37 @@ cpspace_set_collision_bias(space, value)
     CODE:
         cpSpaceSetCollisionBias(space, value);
 
+cpTimestamp
+cpspace_get_collision_persistence(space)
+        cpSpace *space
+    CODE:
+        RETVAL = cpSpaceGetCollisionPersistence(space);
+    OUTPUT:
+        RETVAL
+
+void
+cpspace_set_collision_persistence(space, value)
+        cpSpace *space
+        cpTimestamp value
+    CODE:
+        cpSpaceSetCollisionPersistence(space, value);
+
+cpBool
+cpspace_get_enable_contact_graph(space)
+        cpSpace *space
+    CODE:
+        RETVAL = cpSpaceGetEnableContactGraph(space);
+    OUTPUT:
+        RETVAL
+
+void
+cpspace_set_enable_contact_graph(space, value)
+        cpSpace *space
+        cpBool value
+    CODE:
+        cpSpaceSetEnableContactGraph(space, value);
+
 # TODO
-
-#cpTimestamp cpSpaceGetCollisionPersistence(const cpSpace *space)
-#void cpSpaceSetCollisionPersistence(cpSpace *space, cpTimestamp value)
-
-#cpBool cpSpaceGetEnableContactGraph(const cpSpace *space)
-#void cpSpaceSetEnableContactGraph(cpSpace *space, cpBool value)
 
 #cpDataPointer cpSpaceGetUserData(const cpSpace *space)
 #void cpSpaceSetUserData(cpSpace *space, cpDataPointer value)

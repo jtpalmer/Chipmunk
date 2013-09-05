@@ -4,6 +4,7 @@ cpBool		T_IV
 cpCollisionType	T_IV
 cpGroup		T_IV
 cpLayers	T_IV
+cpTimestamp	T_IV
 cpFloat		T_NV
 cpArbiter *	O_OBJECT
 cpBody *	O_OBJECT

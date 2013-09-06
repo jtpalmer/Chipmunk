@@ -172,9 +172,13 @@ cpspace_get_static_body(space)
     OUTPUT:
         RETVAL
 
-# TODO
-
-#cpFloat cpSpaceGetCurrentTimeStep(const cpSpace *space)
+cpFloat
+cpspace_get_current_time_step(space)
+        cpSpace *space
+    CODE:
+        RETVAL = cpSpaceGetCurrentTimeStep(space);
+    OUTPUT:
+        RETVAL
 
 cpBool
 cpspace_is_locked(space)

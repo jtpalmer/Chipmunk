@@ -98,7 +98,7 @@ cpspace_set_sleep_time_threshold(space, value)
         cpSpaceSetSleepTimeThreshold(space, value);
 
 cpFloat
-cpspace_get_collisionSlop(space)
+cpspace_get_collision_slop(space)
         cpSpace *space
     CODE:
         RETVAL = cpSpaceGetCollisionSlop(space);

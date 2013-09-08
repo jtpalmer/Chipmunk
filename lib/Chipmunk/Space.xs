@@ -265,11 +265,21 @@ cpspace_add_constraint(space, constraint)
     OUTPUT:
         RETVAL
 
+void
+cpspace_remove_shape(space, shape)
+        cpSpace *space
+        cpShape *shape
+    CODE:
+        cpSpaceRemoveShape(space, shape);
+
+void
+cpspace_remove_static_shape(space, shape)
+        cpSpace *space
+        cpShape *shape
+    CODE:
+        cpSpaceRemoveStaticShape(space, shape);
+
 # TODO
-
-#void cpSpaceRemoveShape(cpSpace *space, cpShape *shape);
-
-#void cpSpaceRemoveStaticShape(cpSpace *space, cpShape *shape);
 
 #void cpSpaceRemoveBody(cpSpace *space, cpBody *body);
 

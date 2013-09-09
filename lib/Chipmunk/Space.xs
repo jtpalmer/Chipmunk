@@ -279,11 +279,21 @@ cpspace_remove_static_shape(space, shape)
     CODE:
         cpSpaceRemoveStaticShape(space, shape);
 
+void
+cpspace_remove_body(space, body)
+        cpSpace *space
+        cpBody *body
+    CODE:
+        cpSpaceRemoveBody(space, body);
+
+void
+cpspace_remove_constraint(space, constraint)
+        cpSpace *space
+        cpConstraint *constraint
+    CODE:
+        cpSpaceRemoveConstraint(space, constraint);
+
 # TODO
-
-#void cpSpaceRemoveBody(cpSpace *space, cpBody *body);
-
-#void cpSpaceRemoveConstraint(cpSpace *space, cpConstraint *constraint);
 
 #cpBool cpSpaceContainsShape(cpSpace *space, cpShape *shape);
 

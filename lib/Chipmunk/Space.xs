@@ -293,13 +293,34 @@ cpspace_remove_constraint(space, constraint)
     CODE:
         cpSpaceRemoveConstraint(space, constraint);
 
+cpBool
+cpspace_contains_shape(space, shape)
+        cpSpace *space
+        cpShape *shape
+    CODE:
+        RETVAL = cpSpaceContainsShape(space, shape);
+    OUTPUT:
+        RETVAL
+
+cpBool
+cpspace_contains_body(space, body)
+        cpSpace *space
+        cpBody *body
+    CODE:
+        RETVAL = cpSpaceContainsBody(space, body);
+    OUTPUT:
+        RETVAL
+
+cpBool
+cpspace_contains_constraint(space, constraint)
+        cpSpace *space
+        cpConstraint *constraint
+    CODE:
+        RETVAL = cpSpaceContainsConstraint(space, constraint);
+    OUTPUT:
+        RETVAL
+
 # TODO
-
-#cpBool cpSpaceContainsShape(cpSpace *space, cpShape *shape);
-
-#cpBool cpSpaceContainsBody(cpSpace *space, cpBody *body);
-
-#cpBool cpSpaceContainsConstraint(cpSpace *space, cpConstraint *constraint);
 
 #void cpSpaceConvertBodyToStatic(cpSpace *space, cpBody *body);
 

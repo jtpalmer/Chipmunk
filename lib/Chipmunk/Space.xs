@@ -320,11 +320,21 @@ cpspace_contains_constraint(space, constraint)
     OUTPUT:
         RETVAL
 
-# TODO
+void
+cpspace_convert_body_to_static(space, body)
+        cpSpace *space
+        cpBody *body
+    CODE:
+        cpSpaceConvertBodyToStatic(space, body);
 
-#void cpSpaceConvertBodyToStatic(cpSpace *space, cpBody *body);
-
-#void cpSpaceConvertBodyToDynamic(cpSpace *space, cpBody *body, cpFloat mass, cpFloat moment);
+void
+cpspace_convert_body_to_dynamic(space, body, mass, moment)
+        cpSpace *space
+        cpBody *body
+        cpFloat mass
+        cpFloat moment
+    CODE:
+        cpSpaceConvertBodyToDynamic(space, body, mass, moment);
 
 cpBool
 cpspace_add_post_step_callback(space, func, key, data)

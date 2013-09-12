@@ -391,9 +391,20 @@ cpspace_add_post_step_callback(space, func, key, data)
 #typedef void (*cpSpaceConstraintIteratorFunc)(cpConstraint *constraint, void *data);
 #void cpSpaceEachConstraint(cpSpace *space, cpSpaceConstraintIteratorFunc func, void *data);
 
-#void cpSpaceReindexStatic(cpSpace *space);
+void
+cpspace_reindex_static(space)
+        cpSpace *space
+    CODE:
+        cpSpaceReindexStatic(space);
 
-#void cpSpaceReindexShape(cpSpace *space, cpShape *shape);
+void
+cpspace_reindex_shape(space, shape)
+        cpSpace *space
+        cpShape *shape
+    CODE:
+        cpSpaceReindexShape(space, shape);
+
+# TODO
 
 #void cpSpaceReindexShapesForBody(cpSpace *space, cpBody *body);
 

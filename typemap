@@ -7,6 +7,7 @@ cpLayers	T_IV
 cpTimestamp	T_IV
 cpFloat		T_NV
 cpArbiter *	O_OBJECT
+const cpArbiter *	O_OBJECT
 cpBody *	O_OBJECT
 cpConstraint *	O_OBJECT
 cpShape *	O_OBJECT

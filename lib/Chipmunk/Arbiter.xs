@@ -9,7 +9,7 @@ PROTOTYPES: ENABLE
 
 cpFloat
 cparbiter_get_elasticity(arb)
-        cpArbiter *arb
+        const cpArbiter *arb
     CODE:
         RETVAL = cpArbiterGetElasticity(arb);
     OUTPUT:
@@ -24,7 +24,7 @@ cparbiter_set_elasticity(arb, value)
 
 cpFloat
 cparbiter_get_friction(arb)
-        cpArbiter *arb
+        const cpArbiter *arb
     CODE:
         RETVAL = cpArbiterGetFriction(arb);
     OUTPUT:
@@ -39,7 +39,7 @@ cparbiter_set_friction(arb, value)
 
 cpVect
 cparbiter_get_surface_velocity(arb)
-        cpArbiter *arb
+        const cpArbiter *arb
     CODE:
         RETVAL = cpArbiterGetSurfaceVelocity(arb);
     OUTPUT:
@@ -54,7 +54,7 @@ cparbiter_set_surface_velocity(arb, vr)
 
 SV *
 cparbiter_get_user_data(arb)
-        cpArbiter *arb
+        const cpArbiter *arb
     CODE:
         RETVAL = (SV *)cpArbiterGetUserData(arb);
     OUTPUT:
@@ -69,7 +69,7 @@ cparbiter_set_user_data(arb, data)
 
 cpVect
 cparbiter_total_impulse(arb)
-        cpArbiter *arb
+        const cpArbiter *arb
     CODE:
         RETVAL = cpArbiterTotalImpulse(arb);
     OUTPUT:
@@ -77,7 +77,7 @@ cparbiter_total_impulse(arb)
 
 cpVect
 cparbiter_total_impulse_with_friction(arb)
-        cpArbiter *arb
+        const cpArbiter *arb
     CODE:
         RETVAL = cpArbiterTotalImpulseWithFriction(arb);
     OUTPUT:
@@ -101,7 +101,7 @@ cparbiter_ignore(arb)
 
 AV *
 cparbiter_get_shapes(arb)
-        cpArbiter *arb
+        const cpArbiter *arb
     INIT:
         cpShape **a;
         cpShape **b;
@@ -126,7 +126,7 @@ cparbiter_get_shapes(arb)
 
 cpBool
 cparbiter_is_first_contact(arb)
-        cpArbiter *arb
+        const cpArbiter *arb
     CODE:
         RETVAL = cpArbiterIsFirstContact(arb);
     OUTPUT:
@@ -134,7 +134,7 @@ cparbiter_is_first_contact(arb)
 
 int
 cparbiter_get_count(arb)
-        cpArbiter *arb
+        const cpArbiter *arb
     CODE:
         RETVAL = cpArbiterGetCount(arb);
     OUTPUT:
@@ -142,7 +142,7 @@ cparbiter_get_count(arb)
 
 cpVect
 cparbiter_get_normal(arb, i)
-        cpArbiter *arb
+        const cpArbiter *arb
         int i
     CODE:
         RETVAL = cpArbiterGetNormal(arb, i);
@@ -151,7 +151,7 @@ cparbiter_get_normal(arb, i)
 
 cpVect
 cparbiter_get_point(arb, i)
-        cpArbiter *arb
+        const cpArbiter *arb
         int i
     CODE:
         cpArbiterGetPoint(arb, i);
@@ -160,7 +160,7 @@ cparbiter_get_point(arb, i)
 
 cpFloat
 cparbiter_get_depth(arb, i)
-        cpArbiter *arb
+        const cpArbiter *arb
         int i
     CODE:
         RETVAL = cpArbiterGetDepth(arb, i);

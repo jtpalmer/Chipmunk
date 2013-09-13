@@ -404,11 +404,20 @@ cpspace_reindex_shape(space, shape)
     CODE:
         cpSpaceReindexShape(space, shape);
 
-# TODO
+void
+cpspace_reindex_shapes_for_body(space, body)
+        cpSpace *space
+        cpBody *body
+    CODE:
+        cpSpaceReindexShapesForBody(space, body);
 
-#void cpSpaceReindexShapesForBody(cpSpace *space, cpBody *body);
-
-#void cpSpaceUseSpatialHash(cpSpace *space, cpFloat dim, int count);
+void
+cpspace_use_spatial_hash(space, dim, count)
+        cpSpace *space
+        cpFloat dim
+        int count
+    CODE:
+        cpSpaceUseSpatialHash(space, dim, count);
 
 void
 cpspace_step(space, dt)

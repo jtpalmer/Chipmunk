@@ -97,7 +97,7 @@ cparbiter_ignore(arb)
     CODE:
         cpArbiterIgnore(arb);
 
-# TODO
+# TODO: Does this actually work?
 
 AV *
 cparbiter_get_shapes(arb)

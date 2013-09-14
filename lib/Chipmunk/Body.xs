@@ -273,11 +273,24 @@ cpbody_set_user_data(body, data)
     CODE:
         cpBodySetUserData(body, (cpDataPointer)data);
 
-# TODO: cpbody_update_velocity
-#void cpBodyUpdateVelocity(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt);
+# NOTE: update_velocity and update_position are the default functions,
+#       these should be overridable by subclasses?
 
-# TODO: cpbody_update_position
-#void cpBodyUpdatePosition(cpBody *body, cpFloat dt);
+void
+cpbody_update_velocity(body, gravity, damping, dt)
+        cpBody *body
+        cpVect gravity
+        cpFloat damping
+        cpFloat dt
+    CODE:
+        cpBodyUpdateVelocity(body, gravity, damping, dt);
+
+void
+cbBody_update_position(body, dt)
+        cpBody *body
+        cpFloat dt
+    CODE:
+        cpBodyUpdatePosition(body, dt);
 
 cpVect
 cpbody_local_to_world(body, v)

@@ -37,10 +37,24 @@ use List::Util qw( max min );
         '<', 1e-5, 'merged right' );
     cmp_ok( abs $merged->[3] - max( $p->[0][3], $p->[1][3] ),
         '<', 1e-5, 'merged top' );
-
-    # TODO: expand, area, merged_area, segment_query,
-    #       intersects_segment, clamp_vect, wrap_vect
 }
+
+{
+    my ( $l, $b, $r, $t ) = ( 1.1, 2.2, 3.3, 4.4 );
+
+    my $bb = Chipmunk::BB->new( $l, $b, $r, $t );
+    my $v = [ 5.5, 6.6 ];
+
+    my $expanded = $bb->expand($v);
+
+    cmp_ok( abs $expanded->[0] - $l,      '<', 1e-5, 'expand l' );
+    cmp_ok( abs $expanded->[1] - $b,      '<', 1e-5, 'expand b' );
+    cmp_ok( abs $expanded->[2] - $v->[0], '<', 1e-5, 'expand r' );
+    cmp_ok( abs $expanded->[3] - $v->[1], '<', 1e-5, 'expand t' );
+}
+
+# TODO: area, merged_area, segment_query, intersects_segment,
+#       clamp_vect, wrap_vect
 
 done_testing();
 

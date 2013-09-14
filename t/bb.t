@@ -4,9 +4,6 @@ use Test::More;
 use Chipmunk::BB;
 use List::Util qw( max min );
 
-# TODO: expand, area, merged_area, segment_query, intersects_segment,
-#       clamp_vect, wrap_vect
-
 {
     my ( $left, $bottom, $right, $top ) = ( 0, 10, 20, 30 );
     my $bb = Chipmunk::BB->new( $left, $bottom, $right, $top );
@@ -40,6 +37,9 @@ use List::Util qw( max min );
         '<', 1e-5, 'merged right' );
     cmp_ok( abs $merged->[3] - max( $p->[0][3], $p->[1][3] ),
         '<', 1e-5, 'merged top' );
+
+    # TODO: expand, area, merged_area, segment_query,
+    #       intersects_segment, clamp_vect, wrap_vect
 }
 
 done_testing();

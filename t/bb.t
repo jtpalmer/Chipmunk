@@ -56,6 +56,23 @@ use List::Util qw( max min );
     cmp_ok( abs( ( $r - $l ) * ( $t - $b ) - $area ), '<', 1e-5, 'area' );
 }
 
+{
+    my ( $l_a, $b_a, $r_a, $t_a ) = ( 1.1, 3.3, 5.5, 7.7 );
+    my $bb_a = Chipmunk::BB->new( $l_a, $b_a, $r_a, $t_a );
+
+    my ( $l_b, $b_b, $r_b, $t_b ) = ( 2.2, 4.4, 6.6, 8.8 );
+    my $bb_b = Chipmunk::BB->new( $l_b, $b_b, $r_b, $t_b );
+
+    my $area = $bb_a->merged_area($bb_b);
+    cmp_ok(
+        abs(  ( max( $r_a, $r_b ) - min( $l_a, $l_b ) )
+            * ( max( $t_a, $t_b ) - min( $b_a, $b_b ) ) - $area
+        ),
+        '<', 1e-5,
+        'merged_area'
+    );
+}
+
 # TODO: merged_area, segment_query, intersects_segment, clamp_vect,
 #       wrap_vect
 

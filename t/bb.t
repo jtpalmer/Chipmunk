@@ -73,8 +73,7 @@ use List::Util qw( max min );
     );
 }
 
-# TODO: merged_area, segment_query, intersects_segment, clamp_vect,
-#       wrap_vect
+# TODO: segment_query, intersects_segment, clamp_vect, wrap_vect
 
 done_testing();
 

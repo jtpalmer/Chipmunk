@@ -53,7 +53,7 @@ use List::Util qw( max min );
     cmp_ok( abs $expanded->[3] - $v->[1], '<', 1e-5, 'expand t' );
 
     my $area = $bb->area();
-    cmp_ok( abs( $r - $l ) * ( $t - $b ) - $area, '<', 1e-5, 'area' );
+    cmp_ok( abs( ( $r - $l ) * ( $t - $b ) - $area ), '<', 1e-5, 'area' );
 }
 
 # TODO: merged_area, segment_query, intersects_segment, clamp_vect,

@@ -73,7 +73,20 @@ use List::Util qw( max min );
     );
 }
 
-# TODO: segment_query, intersects_segment, clamp_vect, wrap_vect
+{
+    my ( $l, $b, $r, $t ) = ( 1.0, 2.0, 3.0, 4.0 );
+    my $bb = Chipmunk::BB->new( $l, $b, $r, $t );
+
+    # Segment that is half inside the bounding box.
+    my $v_a = [ 0.0, 3.5 ];
+    my $v_b = [ 2.0, 3.5 ];
+
+    my $result = $bb->segment_query( $v_a, $v_b );
+
+    cmp_ok( abs $result - 0.5, '<', 1e-5, 'segment_query' );
+}
+
+# TODO: intersects_segment, clamp_vect, wrap_vect
 
 done_testing();
 

@@ -47,10 +47,10 @@ use List::Util qw( max min );
 
     my $expanded = $bb->expand($v);
 
-    cmp_ok( abs $expanded->[0] - $l,      '<', 1e-5, 'expand l' );
-    cmp_ok( abs $expanded->[1] - $b,      '<', 1e-5, 'expand b' );
-    cmp_ok( abs $expanded->[2] - $v->[0], '<', 1e-5, 'expand r' );
-    cmp_ok( abs $expanded->[3] - $v->[1], '<', 1e-5, 'expand t' );
+    cmp_ok( abs $expanded->[0] - $l,      '<', 1e-5, 'expand left' );
+    cmp_ok( abs $expanded->[1] - $b,      '<', 1e-5, 'expand bottom' );
+    cmp_ok( abs $expanded->[2] - $v->[0], '<', 1e-5, 'expand right' );
+    cmp_ok( abs $expanded->[3] - $v->[1], '<', 1e-5, 'expand top' );
 
     my $area = $bb->area();
     cmp_ok( abs( ( $r - $l ) * ( $t - $b ) - $area ), '<', 1e-5, 'area' );

@@ -84,9 +84,17 @@ use List::Util qw( max min );
     my $result = $bb->segment_query( $v_a, $v_b );
 
     cmp_ok( abs $result - 0.5, '<', 1e-5, 'segment_query' );
+
+    my $intersects = $bb->intersects_segment( $v_a, $v_b );
+
+    ok( $intersects, 'intersects_segment' );
+
+    $intersects = $bb->intersects_segment( [ 5.5, 6.6 ], [ 7.7, 8.8 ] );
+
+    ok( !$intersects, "intersects_segment (doesn't intersect)" );
 }
 
-# TODO: intersects_segment, clamp_vect, wrap_vect
+# TODO: clamp_vect, wrap_vect
 
 done_testing();
 

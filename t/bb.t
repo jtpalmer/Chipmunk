@@ -30,13 +30,13 @@ use List::Util qw( max min );
     my $merged = $bb1->merge($bb2);
     isa_ok( $bb, 'Chipmunk::BB', 'merged' );
     cmp_ok( abs $merged->[0] - min( $p->[0][0], $p->[1][0] ),
-        '<', 1e-5, 'merged left' );
+        '<', 1e-5, 'merge left' );
     cmp_ok( abs $merged->[1] - min( $p->[0][1], $p->[1][1] ),
-        '<', 1e-5, 'merged bottom' );
+        '<', 1e-5, 'merge bottom' );
     cmp_ok( abs $merged->[2] - max( $p->[0][2], $p->[1][2] ),
-        '<', 1e-5, 'merged right' );
+        '<', 1e-5, 'merge right' );
     cmp_ok( abs $merged->[3] - max( $p->[0][3], $p->[1][3] ),
-        '<', 1e-5, 'merged top' );
+        '<', 1e-5, 'merge top' );
 }
 
 {

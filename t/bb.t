@@ -90,7 +90,17 @@ use List::Util qw( max min );
     ok( !$intersects, "intersects_segment (doesn't intersect)" );
 }
 
-# TODO: clamp_vect, wrap_vect
+{
+    my ( $l, $b, $r, $t ) = ( 1.1, 2.2, 3.3, 4.4 );
+    my $bb = Chipmunk::BB->new( $l, $b, $r, $t );
+    my $v = [ 5.5, 6.6 ];
+
+    my $clamped = $bb->clamp_vect($v);
+    cmp_ok( abs $clamped->[0] - $bb->[2], '<', 1e-5, 'clamp x' );
+    cmp_ok( abs $clamped->[1] - $bb->[3], '<', 1e-5, 'clamp y' );
+}
+
+# TODO: wrap_vect
 
 done_testing();
 

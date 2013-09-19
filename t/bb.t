@@ -24,9 +24,10 @@ use List::Util qw( max min );
 
     ok( $bb->contains_vect( [ 10, 20 ] ), 'contains_vect' );
 
-    my $p      = [ [ 10.0, 20.0, 30.0, 40.0 ], [ 15.0, 25.0, 35.0, 45.0 ] ];
-    my $bb1    = Chipmunk::BB->new( @{ $p->[0] } );
-    my $bb2    = Chipmunk::BB->new( @{ $p->[1] } );
+    my $p   = [ [ 10.0, 20.0, 30.0, 40.0 ], [ 15.0, 25.0, 35.0, 45.0 ] ];
+    my $bb1 = Chipmunk::BB->new( @{ $p->[0] } );
+    my $bb2 = Chipmunk::BB->new( @{ $p->[1] } );
+
     my $merged = $bb1->merge($bb2);
     isa_ok( $bb, 'Chipmunk::BB', 'merged' );
     cmp_ok( abs $merged->[0] - min( $p->[0][0], $p->[1][0] ),
@@ -41,12 +42,10 @@ use List::Util qw( max min );
 
 {
     my ( $l, $b, $r, $t ) = ( 1.1, 2.2, 3.3, 4.4 );
-
     my $bb = Chipmunk::BB->new( $l, $b, $r, $t );
     my $v = [ 5.5, 6.6 ];
 
     my $expanded = $bb->expand($v);
-
     cmp_ok( abs $expanded->[0] - $l,      '<', 1e-5, 'expand left' );
     cmp_ok( abs $expanded->[1] - $b,      '<', 1e-5, 'expand bottom' );
     cmp_ok( abs $expanded->[2] - $v->[0], '<', 1e-5, 'expand right' );
@@ -82,15 +81,12 @@ use List::Util qw( max min );
     my $v_b = [ 2.0, 3.5 ];
 
     my $result = $bb->segment_query( $v_a, $v_b );
-
     cmp_ok( abs $result - 0.5, '<', 1e-5, 'segment_query' );
 
     my $intersects = $bb->intersects_segment( $v_a, $v_b );
-
     ok( $intersects, 'intersects_segment' );
 
     $intersects = $bb->intersects_segment( [ 5.5, 6.6 ], [ 7.7, 8.8 ] );
-
     ok( !$intersects, "intersects_segment (doesn't intersect)" );
 }
 

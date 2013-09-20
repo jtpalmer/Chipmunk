@@ -96,8 +96,8 @@ use List::Util qw( max min );
     my $v = [ 5.5, 6.6 ];
 
     my $clamped = $bb->clamp_vect($v);
-    cmp_ok( abs $clamped->[0] - $bb->[2], '<', 1e-5, 'clamp x' );
-    cmp_ok( abs $clamped->[1] - $bb->[3], '<', 1e-5, 'clamp y' );
+    cmp_ok( abs $clamped->[0] - $bb->[2], '<', 1e-5, 'clamp_vect x' );
+    cmp_ok( abs $clamped->[1] - $bb->[3], '<', 1e-5, 'clamp_vect y' );
 }
 
 # TODO: wrap_vect

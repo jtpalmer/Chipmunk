@@ -98,9 +98,17 @@ use List::Util qw( max min );
     my $clamped = $bb->clamp_vect($v);
     cmp_ok( abs $clamped->[0] - $bb->[2], '<', 1e-5, 'clamp_vect x' );
     cmp_ok( abs $clamped->[1] - $bb->[3], '<', 1e-5, 'clamp_vect y' );
-}
 
-# TODO: wrap_vect
+    my $wrapped = $bb->wrap_vect($v);
+    my ( $x_mod,  $y_mod )  = ( $v->[0] - $bb->[0],  $v->[1] - $bb->[1] );
+    my ( $x_diff, $y_diff ) = ( $bb->[2] - $bb->[0], $bb->[3] - $bb->[1] );
+    while ( $x_mod > $x_diff ) { $x_mod -= $x_diff; }
+    while ( $y_mod > $y_diff ) { $y_mod -= $y_diff; }
+    cmp_ok( abs $wrapped->[0] - ( $bb->[0] + $x_mod ),
+        '<', 1e-5, 'wrap_vect x' );
+    cmp_ok( abs $wrapped->[1] - ( $bb->[1] + $y_mod ),
+        '<', 1e-5, 'wrap_vect y' );
+}
 
 done_testing();
 

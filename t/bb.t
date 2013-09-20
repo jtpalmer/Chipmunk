@@ -91,7 +91,7 @@ use List::Util qw( max min );
 }
 
 {
-    my ( $l, $b, $r, $t ) = ( 1.1, 2.2, 3.3, 4.4 );
+    my ( $l, $b, $r, $t ) = ( 1.1, 2.4, 3.9, 4.6 );
     my $bb = Chipmunk::BB->new( $l, $b, $r, $t );
     my $v = [ 5.5, 6.6 ];
 

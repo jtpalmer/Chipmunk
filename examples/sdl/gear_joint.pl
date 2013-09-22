@@ -145,7 +145,7 @@ sub draw_gear {
         my $angle = $i / $count * 2 * pi + $gear->{body}->get_angle();
         my $x     = $center->[0] + $r * cos($angle);
         my $y     = $center->[1] + $r * sin($angle);
-        $app->draw_circle_filled( [ $x, $y ], $r / 10, $color );
+        $app->draw_circle_filled( [ $x, $y ], 10, $color );
     }
 }
 

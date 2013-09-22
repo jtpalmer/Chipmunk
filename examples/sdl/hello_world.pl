@@ -24,14 +24,12 @@ my $mpp = 1.0 / $ppm;
 # World to screen.
 sub w2s {
     return $_[0] * $ppm unless ref $_[0];
-
     return [ $_[0][0] * $ppm, $height - $_[0][1] * $ppm ];
 }
 
 # Screen to world.
 sub s2w {
     return $_[0] * $mpp unless ref $_[0];
-
     return [ $_[0][0] * $mpp, ( $height - $_[0][1] ) * $mpp ];
 }
 

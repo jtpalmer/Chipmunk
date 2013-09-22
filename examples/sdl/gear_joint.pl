@@ -5,7 +5,6 @@ use SDL;
 use SDLx::App;
 use Chipmunk;
 use Chipmunk::Space;
-use Chipmunk::SegmentShape;
 use Chipmunk::CircleShape;
 use Chipmunk::Body;
 use Chipmunk::PivotJoint;

@@ -56,8 +56,13 @@ my $gear2 = make_gear(
     teeth  => 10,
 );
 
-my $joint = Chipmunk::GearJoint->new( $gear1->{body}, $gear2->{body}, 0,
-    -( $gear2->{radius} / $gear1->{radius} ) );
+my $phase = -2 * pi / $gear2->{teeth} / 4;
+my $ratio = -( $gear2->{radius} / $gear1->{radius} );
+
+$gear2->{body}->set_angle( $phase * $ratio );
+
+my $joint = Chipmunk::GearJoint->new( $gear1->{body}, $gear2->{body}, $phase,
+    $ratio );
 $space->add_constraint($joint);
 
 $gear1->{body}->set_ang_vel(0.5);

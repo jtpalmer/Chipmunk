@@ -79,14 +79,10 @@ $app->add_move_handler(
 
 $app->add_show_handler(
     sub {
-        my $pos = $ball_body->get_pos();
-
         $app->draw_rect( undef, undef );
-
         $app->draw_line( $ground_pos0, $ground_pos1, 0xffffffff );
-
+        my $pos = $ball_body->get_pos();
         $app->draw_circle_filled( w2s($pos), w2s($radius), 0x448822ff );
-
         $app->update();
     }
 );

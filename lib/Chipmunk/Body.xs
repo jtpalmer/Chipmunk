@@ -351,7 +351,7 @@ cpbody_get_vel_at_local_point(body, point)
         RETVAL
 
 cpFloat
-cpbody_kinetic_energy(body )
+cpbody_kinetic_energy(body)
         cpBody *body
     CODE:
         RETVAL = cpBodyKineticEnergy(body);

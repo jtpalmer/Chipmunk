@@ -9,6 +9,9 @@ use Chipmunk::RatchetJoint;
 use Chipmunk::RotaryLimitJoint;
 use Chipmunk::SlideJoint;
 use Chipmunk::Body;
+use Chipmunk::Space;
+
+my $space = Chipmunk::Space->new();
 
 my @constraints;
 
@@ -20,6 +23,7 @@ my @constraints;
     my $anchr2 = [ 5.5, 6.6 ];
     my ( $phase, $ratio ) = ( 1.1, 2.2 );
     my $joint = Chipmunk::GearJoint->new( $a, $b, $phase, $ratio );
+    $space->add_constraint($joint);
     push @constraints, { type => 'gearjoint', constraint => $joint };
 }
 
@@ -31,6 +35,7 @@ my @constraints;
     my $anchr2 = [ 7.7, 8.8 ];
     my $joint
         = Chipmunk::GrooveJoint->new( $a, $b, $groove_a, $groove_b, $anchr2 );
+    $space->add_constraint($joint);
     push @constraints, { type => 'groovejoint', constraint => $joint };
 }
 
@@ -41,6 +46,7 @@ my @constraints;
     my $anchr1 = [ 3.3, 4.4 ];
     my $anchr2 = [ 5.5, 6.6 ];
     my $joint = Chipmunk::PinJoint->new( $a, $b, $anchr1, $anchr2 );
+    $space->add_constraint($joint);
     push @constraints, { type => 'pinjoint', constraint => $joint };
 }
 
@@ -50,6 +56,7 @@ my @constraints;
     my $b = Chipmunk::Body->new( $mass, $inertia );
     my $pivot = [ 3.3, 4.4 ];
     my $joint = Chipmunk::PivotJoint->new( $a, $b, $pivot );
+    $space->add_constraint($joint);
     push @constraints, { type => 'pivotjoint', constraint => $joint };
 }
 
@@ -59,6 +66,7 @@ my @constraints;
     my $b = Chipmunk::Body->new( $mass, $inertia );
     my ( $phase, $ratchet ) = ( 3.3, 4.4 );
     my $joint = Chipmunk::RatchetJoint->new( $a, $b, $phase, $ratchet );
+    $space->add_constraint($joint);
     push @constraints, { type => 'ratchetjoint', constraint => $joint };
 }
 
@@ -68,6 +76,7 @@ my @constraints;
     my $b = Chipmunk::Body->new( $mass, $inertia );
     my ( $min, $max ) = ( 3.3, 4.4 );
     my $joint = Chipmunk::RotaryLimitJoint->new( $a, $b, $min, $max );
+    $space->add_constraint($joint);
     push @constraints, { type => 'rotarylimitjoint', constraint => $joint };
 }
 
@@ -80,6 +89,7 @@ my @constraints;
     my ( $min, $max ) = ( 0.7, 18.8 );
     my $joint
         = Chipmunk::SlideJoint->new( $a, $b, $anchr1, $anchr2, $min, $max );
+    $space->add_constraint($joint);
     push @constraints, { type => 'slidejoint', constraint => $joint };
 }
 
@@ -88,10 +98,10 @@ for (@constraints) {
 
     isa_ok( $constraint, 'Chipmunk::Constraint', "new ($type)" );
 
-    # TODO: activate_bodies, get_space,
+    # TODO: activate_bodies
 
-    #isa_ok( $constraint->get_space(), 'Chipmunk::Space',
-    #    "get_space ($type)" );
+    isa_ok( $constraint->get_space(), 'Chipmunk::Space',
+        "get_space ($type)" );
 
     isa_ok( $constraint->get_a(), 'Chipmunk::Body', "get_a ($type)" );
 

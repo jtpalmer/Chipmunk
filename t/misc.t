@@ -1,9 +1,9 @@
 use strict;
 use warnings;
 use Test::More;
+use Math::Trig qw(:pi);
 use Chipmunk qw(:all);
 use Chipmunk::BB;
-use Math::Trig qw(:pi);
 
 cmp_ok( abs cpfmax( 1.1, 2.2 ) - 2.2, '<', 1e-5, 'cpfmax' );
 

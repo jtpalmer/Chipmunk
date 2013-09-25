@@ -10,10 +10,11 @@ my $gravity = [ 1, 2 ];
 
     isa_ok( $space, 'Chipmunk::Space', 'new' );
 
-    # TODO: get_iterations, set_iterations
+    my $iterations = 11;
+    $space->set_iterations($iterations);
+    is( $space->get_iterations(), $iterations, 'get_iterations' );
 
     $space->set_gravity($gravity);
-
     cmp_ok( abs $space->get_gravity()->[0] - $gravity->[0],
         '<', 1e-5, 'get_gravity x' );
     cmp_ok( abs $space->get_gravity()->[1] - $gravity->[1],

@@ -5,7 +5,7 @@ VERSION
     version 0.000001
 
 SYNOPSIS
-        use Chipmunk;
+        use Chipmunk qw(:all);
 
 DESCRIPTION
     Perl bindings for the Chipmunk Physics library.

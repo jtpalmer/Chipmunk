@@ -75,7 +75,7 @@ __END__
 
 =head1 SYNOPSIS
 
-    use Chipmunk;
+    use Chipmunk qw(:all);
 
 =head1 DESCRIPTION
 
@@ -123,7 +123,7 @@ Perl bindings for the Chipmunk Physics library.
 
 =head1 SEE ALSO
 
-=over
+=over 4
 
 =item * L<Chipmunk2D Physics|http://chipmunk-physics.net/>
 

@@ -3,8 +3,6 @@ use warnings;
 use Test::More;
 use Chipmunk::Space;
 
-my $gravity = [ 1, 2 ];
-
 {
     my $space = Chipmunk::Space->new();
 
@@ -14,6 +12,7 @@ my $gravity = [ 1, 2 ];
     $space->set_iterations($iterations);
     is( $space->get_iterations(), $iterations, 'get_iterations' );
 
+    my $gravity = [ 1, 2 ];
     $space->set_gravity($gravity);
     cmp_ok( abs $space->get_gravity()->[0] - $gravity->[0],
         '<', 1e-5, 'get_gravity x' );

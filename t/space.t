@@ -19,6 +19,10 @@ use Chipmunk::Space;
     cmp_ok( abs $space->get_gravity()->[1] - $gravity->[1],
         '<', 1e-5, 'get_gravity y' );
 
+    my $damping = 2.2;
+    $space->set_damping($damping);
+    cmp_ok( abs $space->get_damping() - $damping, '<', 1e-5, 'get_damping' );
+
     # TODO: get_damping, set_damping, get_idle_speed_threshold,
     #       set_idle_speed_threshold, get_sleep_time_threshold,
     #       set_sleep_time_threshold, get_collision_slop,

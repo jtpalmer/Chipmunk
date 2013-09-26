@@ -23,8 +23,12 @@ use Chipmunk::Space;
     $space->set_damping($damping);
     cmp_ok( abs $space->get_damping() - $damping, '<', 1e-5, 'get_damping' );
 
-    # TODO: get_idle_speed_threshold, set_idle_speed_threshold,
-    #       get_sleep_time_threshold, set_sleep_time_threshold,
+    my $idle_speed_threshold = 0.01;
+    $space->set_idle_speed_threshold($idle_speed_threshold);
+    cmp_ok( abs $space->get_idle_speed_threshold() - $idle_speed_threshold,
+        '<', 1e-5, 'get_idle_speed_threshold' );
+
+    # TODO: get_sleep_time_threshold, set_sleep_time_threshold,
     #       get_collision_slop, set_collision_slop,
     #       get_collision_bias, set_collision_bias,
     #       get_collision_persistence, set_collision_persistence,

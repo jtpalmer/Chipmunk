@@ -23,10 +23,10 @@ use Chipmunk::Space;
     $space->set_damping($damping);
     cmp_ok( abs $space->get_damping() - $damping, '<', 1e-5, 'get_damping' );
 
-    # TODO: get_damping, set_damping, get_idle_speed_threshold,
-    #       set_idle_speed_threshold, get_sleep_time_threshold,
-    #       set_sleep_time_threshold, get_collision_slop,
-    #       set_collision_slop, get_collision_bias, set_collision_bias,
+    # TODO: get_idle_speed_threshold, set_idle_speed_threshold,
+    #       get_sleep_time_threshold, set_sleep_time_threshold,
+    #       get_collision_slop, set_collision_slop,
+    #       get_collision_bias, set_collision_bias,
     #       get_collision_persistence, set_collision_persistence,
     #       get_enable_contact_graph, set_enable_contact_graph,
     #       get_user_data, set_user_data, get_static_body,

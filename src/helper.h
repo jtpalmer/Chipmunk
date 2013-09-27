@@ -121,31 +121,37 @@ SV *cpPli_vect_array_to_sv(int size, cpVect *var)
 
 void cpPli_body_refcnt_dec(cpBody *obj)
 {
-    if (obj != NULL) {
-        SV *arg = (SV *)cpBodyGetUserData(obj);
-        SvREFCNT_inc(obj);
-    }
+    if (obj == NULL) { return; }
+    SV *arg = (SV *)cpBodyGetUserData(obj);
+    SvREFCNT_inc(obj);
 }
 
 void cpPli_body_refcnt_inc(cpBody *obj)
 {
+    if (obj == NULL) { return; }
     SV *arg = (SV *)cpBodyGetUserData(obj);
     SvREFCNT_inc(arg);
 }
 
 void cpPli_free_body(cpBody *obj)
 {
+    if (obj == NULL) { return; }
+
     SV *arg = (SV *)cpBodyGetUserData(obj);
 
-    PerlIO_printf(PerlIO_stderr(), "# Ref count: %u\n", SvREFCNT(arg));
+    warn("# Ref count: %u\n", SvREFCNT(arg));
 
     SvREFCNT_dec(arg);
 
     if (SvREFCNT(arg) == 0) {
-        //warn("# Freeing body");
-        PerlIO_printf(PerlIO_stderr(), "# Freeing body\n");
+        warn("# Freeing body\n");
         cpBodyFree(obj);
     }
+}
+
+void cpPli_free_body2(cpBody *obj, void *data)
+{
+    cpPli_free_body(obj);
 }
 
 #endif

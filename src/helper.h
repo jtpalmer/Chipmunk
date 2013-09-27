@@ -149,10 +149,5 @@ void cpPli_body_free(cpBody *obj)
     }
 }
 
-void cpPli_body_free2(cpBody *obj, void *data)
-{
-    cpPli_body_free(obj);
-}
-
 #endif
 

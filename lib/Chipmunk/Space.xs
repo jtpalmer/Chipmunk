@@ -19,7 +19,7 @@ void
 cpspace_free(space)
         cpSpace *space
     CODE:
-        cpSpaceEachBody(space, cpPli_body_free2, NULL);
+        cpSpaceEachBody(space, (cpSpaceBodyIteratorFunc)cpPli_body_free, NULL);
         cpSpaceFree(space);
 
 int

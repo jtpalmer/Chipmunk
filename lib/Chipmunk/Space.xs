@@ -2,7 +2,6 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
 #include "helper.h"
 
 MODULE = Chipmunk::Space    PACKAGE = Chipmunk::Space    PREFIX = cpspace_

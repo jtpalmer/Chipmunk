@@ -2,7 +2,7 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
+#include "helper.h"
 
 MODULE = Chipmunk::Constraint    PACKAGE = Chipmunk::Constraint    PREFIX = cpconstraint_
 PROTOTYPES: ENABLE

@@ -2,7 +2,7 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
+#include "helper.h"
 
 MODULE = Chipmunk::Mat2x2 PACKAGE = Chipmunk::Mat2x2          PREFIX = cpmat2x2_
 PROTOTYPES: ENABLE

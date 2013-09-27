@@ -2,7 +2,7 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
+#include "helper.h"
 
 MODULE = Chipmunk::RotaryLimitJoint    PACKAGE = Chipmunk::RotaryLimitJoint    PREFIX = cprotarylimitjoint_
 PROTOTYPES: ENABLE

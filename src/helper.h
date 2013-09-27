@@ -4,6 +4,24 @@
 #include <chipmunk.h>
 #include "func_wrappers.h"
 
+SV *cpPli_object_to_sv(SV *arg, void *obj, const char *classname)
+{
+    if (obj) {
+        sv_setref_pv(arg, classname, (void *)obj);
+    } else {
+        sv_setsv(arg, &PL_sv_undef);
+    }
+
+    return arg;
+}
+
+void *cpPli_sv_to_object(SV *arg)
+{
+    if (sv_isobject(arg) && (SvTYPE(SvRV(arg)) == SVt_PVMG)) {
+        return (void *)SvIV((SV *)SvRV(arg));
+    }
+}
+
 cpVect sv_to_vect(SV *arg)
 {
     AV *input;

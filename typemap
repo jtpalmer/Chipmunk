@@ -18,29 +18,10 @@ cpBB                    O_OBJ_BB
 INPUT
 
 O_OBJECT
-    if (sv_isobject($arg) && (SvTYPE(SvRV($arg)) == SVt_PVMG)) {
-        $var = ($type)SvIV((SV *)SvRV($arg));
-    } else if ($arg == 0) {
-        XSRETURN(0);
-    } else {
-        XSRETURN_UNDEF;
-    }
+    $var = ($type)cpPli_sv_to_object($arg);
 
 O_OBJ_VECT
-    if (SvTYPE(SvRV($arg)) == SVt_PVAV) {
-        AV *input = (AV *)SvRV($arg);
-        if (av_len(input) != 1) {
-            XSRETURN_UNDEF;
-        }
-        $var = cpv(
-            (cpFloat)SvNV(*av_fetch(input, 0, 0)),
-            (cpFloat)SvNV(*av_fetch(input, 1, 0))
-        );
-    } else if ($arg == 0) {
-        XSRETURN(0);
-    } else {
-        XSRETURN_UNDEF;
-    }
+    $var = sv_to_vect($arg);
 
 O_OBJ_MAT2X2
     if (SvTYPE(SvRV($arg)) == SVt_PVAV) {
@@ -81,17 +62,10 @@ O_OBJ_BB
 OUTPUT
 
 O_OBJECT
-    if ($var) {
-        sv_setref_pv($arg, CLASS, (void *)$var);
-    } else {
-        XSRETURN_UNDEF;
-    }
+    cpPli_object_to_sv($arg, $var, CLASS);
 
 O_OBJ_VECT
-    AV *output = newAV();
-    av_push(output, newSVnv($var.x));
-    av_push(output, newSVnv($var.y));
-    $arg = newRV_inc((SV *)output);
+    $arg = vect_to_sv($var);
 
 O_OBJ_MAT2X2
     AV *output = newAV();

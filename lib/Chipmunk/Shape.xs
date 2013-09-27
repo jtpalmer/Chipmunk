@@ -11,6 +11,7 @@ void
 cpshape_free(shape)
         cpShape *shape
     CODE:
+        cpPli_body_refcnt_dec(cpShapeGetBody(shape));
         cpShapeFree(shape);
 
 cpBB
@@ -81,6 +82,7 @@ cpshape_set_body(shape, body)
         cpShape *shape
         cpBody *body
     CODE:
+        cpPli_body_refcnt_dec(cpShapeGetBody(shape));
         cpShapeSetBody(shape, body);
         cpPli_body_refcnt_inc(body);
 

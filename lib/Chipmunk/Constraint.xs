@@ -11,6 +11,8 @@ void
 cpconstraint_activate_bodies(constraint)
         cpConstraint *constraint
     CODE:
+        cpPli_body_refcnt_dec(cpConstraintGetA(constraint));
+        cpPli_body_refcnt_dec(cpConstraintGetB(constraint));
         cpConstraintActivateBodies(constraint);
 
 cpSpace *

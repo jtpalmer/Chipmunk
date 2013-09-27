@@ -18,14 +18,14 @@ cppoly_new(CLASS, body, verts, ...)
         int num_verts;
     CODE:
         if (items == 4) {
-            offset = sv_to_vect(ST(3));
+            offset = cpPli_sv_to_vect(ST(3));
         } else if (items == 3) {
             offset = cpv((cpFloat)0.0, (cpFloat)0.0);
         } else {
             croak("Wrong number of arguments");
         }
 
-        _verts = sv_to_vect_array(verts);
+        _verts = cpPli_sv_to_vect_array(verts);
         num_verts = av_len((AV *)SvRV(verts)) + 1;
 
         if (!cpPolyValidate(_verts, num_verts)) {

@@ -18,11 +18,11 @@ cppivotjoint_new(CLASS, a, b, ...)
         cpVect anchr2;
     CODE:
         if (items == 4) {
-            pivot = sv_to_vect(ST(3));
+            pivot = cpPli_sv_to_vect(ST(3));
             RETVAL = cpPivotJointNew(a, b, pivot);
         } else if (items == 5) {
-            anchr1 = sv_to_vect(ST(3));
-            anchr2 = sv_to_vect(ST(4));
+            anchr1 = cpPli_sv_to_vect(ST(3));
+            anchr2 = cpPli_sv_to_vect(ST(4));
             RETVAL = cpPivotJointNew2(a, b, anchr1, anchr2);
         } else {
             croak("Wrong number of arguments");

@@ -21,7 +21,7 @@ O_OBJECT
     $var = ($type)cpPli_sv_to_object($arg);
 
 O_OBJ_VECT
-    $var = sv_to_vect($arg);
+    $var = cpPli_sv_to_vect($arg);
 
 O_OBJ_MAT2X2
     if (SvTYPE(SvRV($arg)) == SVt_PVAV) {
@@ -65,7 +65,7 @@ O_OBJECT
     cpPli_object_to_sv($arg, $var, CLASS);
 
 O_OBJ_VECT
-    $arg = vect_to_sv($var);
+    $arg = cpPli_vect_to_sv($var);
 
 O_OBJ_MAT2X2
     AV *output = newAV();

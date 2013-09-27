@@ -22,7 +22,7 @@ void *cpPli_sv_to_object(SV *arg)
     }
 }
 
-cpVect sv_to_vect(SV *arg)
+cpVect cpPli_sv_to_vect(SV *arg)
 {
     AV *input;
     int length;
@@ -46,7 +46,7 @@ cpVect sv_to_vect(SV *arg)
     }
 }
 
-SV *vect_to_sv(cpVect var)
+SV *cpPli_vect_to_sv(cpVect var)
 {
     AV *output = newAV();
     av_push(output, newSVnv(var.x));
@@ -54,7 +54,7 @@ SV *vect_to_sv(cpVect var)
     return newRV_inc((SV *)output);
 }
 
-cpVect *sv_to_vect_array(SV *arg)
+cpVect *cpPli_sv_to_vect_array(SV *arg)
 {
     AV *input;
     int length, i;
@@ -69,7 +69,7 @@ cpVect *sv_to_vect_array(SV *arg)
 
         for (i = 0; i < length; i++) {
             vert = *av_fetch(input, i, 0);
-            v = sv_to_vect(vert);
+            v = cpPli_sv_to_vect(vert);
             Copy(&v, &verts[i], 1, cpVect);
         }
 
@@ -80,7 +80,7 @@ cpVect *sv_to_vect_array(SV *arg)
     }
 }
 
-SV *vect_array_to_sv(int size, cpVect *var)
+SV *cpPli_vect_array_to_sv(int size, cpVect *var)
 {
     int i;
     AV *output = newAV();

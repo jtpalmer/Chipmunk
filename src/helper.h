@@ -100,54 +100,69 @@ SV *cpPli_vect_array_to_sv(int size, cpVect *var)
     return newRV_inc((SV *)output);
 }
 
-SV *cpPli_body_to_sv(SV *arg, cpBody *obj, const char *classname)
-{
-    if (obj) {
-        SV *var = (SV *)cpBodyGetUserData(obj);
-        if (var == NULL) {
-            var = newSV(0);
-            sv_setref_pv(var, classname, (void *)obj);
-            cpBodySetUserData(obj, (cpDataPointer)var);
-        } else {
-            SvREFCNT_inc(var);
-        }
-        SvSetSV(arg, var);
-    } else {
-        sv_setsv(arg, &PL_sv_undef);
-    }
+#define CPPLI_OBJ_TO_SV(name, type)                                          \
+SV *cpPli_##name##_to_sv(SV *arg, type *obj, const char *classname)          \
+{                                                                            \
+    if (obj) {                                                               \
+        SV *var = (SV *)type##GetUserData(obj);                              \
+        if (var == NULL) {                                                   \
+            var = newSV(0);                                                  \
+            sv_setref_pv(var, classname, (void *)obj);                       \
+            type##SetUserData(obj, (cpDataPointer)var);                      \
+        } else {                                                             \
+            SvREFCNT_inc(var);                                               \
+        }                                                                    \
+        SvSetSV(arg, var);                                                   \
+    } else {                                                                 \
+        sv_setsv(arg, &PL_sv_undef);                                         \
+    }                                                                        \
+                                                                             \
+    return arg;                                                              \
+}                                                                            \
 
-    return arg;
-}
+#define CPPLI_OBJ_REFCNT_INC(name, type)                                     \
+void cpPli_##name##_refcnt_inc(type *obj)                                    \
+{                                                                            \
+    if (obj == NULL) { return; }                                             \
+    SV *arg = (SV *)type##GetUserData(obj);                                  \
+    SvREFCNT_inc(arg);                                                       \
+}                                                                            \
 
-void cpPli_body_refcnt_inc(cpBody *obj)
-{
-    if (obj == NULL) { return; }
-    SV *arg = (SV *)cpBodyGetUserData(obj);
-    SvREFCNT_inc(arg);
-}
+#define CPPLI_OBJ_REFCNT_DEC(name, type)                                     \
+void cpPli_##name##_refcnt_dec(type *obj)                                    \
+{                                                                            \
+    if (obj == NULL) { return; }                                             \
+    SV *arg = (SV *)type##GetUserData(obj);                                  \
+    SvREFCNT_inc(obj);                                                       \
+}                                                                            \
 
-void cpPli_body_refcnt_dec(cpBody *obj)
-{
-    if (obj == NULL) { return; }
-    SV *arg = (SV *)cpBodyGetUserData(obj);
-    SvREFCNT_inc(obj);
-}
+#define CPPLI_OBJ_FREE(name, type)                                           \
+void cpPli_##name##_free(type *obj)                                          \
+{                                                                            \
+    if (obj == NULL) { return; }                                             \
+                                                                             \
+    SV *arg = (SV *)type##GetUserData(obj);                                  \
+                                                                             \
+    warn("# Ref count: %u\n", SvREFCNT(arg));                                \
+                                                                             \
+    SvREFCNT_dec(arg);                                                       \
+                                                                             \
+    if (SvREFCNT(arg) == 0) {                                                \
+        warn("# Freeing\n");                                                 \
+        type##Free(obj);                                                     \
+    }                                                                        \
+}                                                                            \
 
-void cpPli_body_free(cpBody *obj)
-{
-    if (obj == NULL) { return; }
+#define CPPLI_OBJ_FUNCS(name, type)                                          \
+CPPLI_OBJ_TO_SV(name, type)                                                  \
+CPPLI_OBJ_REFCNT_INC(name, type)                                             \
+CPPLI_OBJ_REFCNT_DEC(name, type)                                             \
+CPPLI_OBJ_FREE(name, type)                                                   \
 
-    SV *arg = (SV *)cpBodyGetUserData(obj);
-
-    warn("# Ref count: %u\n", SvREFCNT(arg));
-
-    SvREFCNT_dec(arg);
-
-    if (SvREFCNT(arg) == 0) {
-        warn("# Freeing body\n");
-        cpBodyFree(obj);
-    }
-}
+CPPLI_OBJ_FUNCS(body, cpBody)
+CPPLI_OBJ_FUNCS(shape, cpShape)
+CPPLI_OBJ_FUNCS(constraint, cpConstraint)
+CPPLI_OBJ_FUNCS(space, cpSpace)
 
 #endif
 

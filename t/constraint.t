@@ -15,6 +15,8 @@ my $space = Chipmunk::Space->new();
 
 my @constraints;
 
+# TODO: DampedRotarySpring, DampedSpring
+
 {
     my ( $mass, $inertia ) = ( 1.1, 2.2 );
     my $a = Chipmunk::Body->new( $mass, $inertia );
@@ -79,6 +81,8 @@ my @constraints;
     $space->add_constraint($joint);
     push @constraints, { type => 'rotarylimitjoint', constraint => $joint };
 }
+
+# TODO: SimpleMotor
 
 {
     my ( $mass, $inertia ) = ( 1.0, 2.0 );

@@ -82,6 +82,7 @@ cpshape_set_body(shape, body)
         cpBody *body
     CODE:
         cpShapeSetBody(shape, body);
+        cpPli_body_refcnt_inc(body);
 
 cpBB
 cpshape_get_bb(shape)

@@ -1,6 +1,11 @@
 #ifndef CHIPMUNK_PERL_HELPER_H
 #define CHIPMUNK_PERL_HELPER_H
 
+#include "EXTERN.h"
+#include "perl.h"
+#include "XSUB.h"
+#include "ppport.h"
+
 #include <chipmunk.h>
 #include "func_wrappers.h"
 
@@ -20,6 +25,25 @@ void *cpPli_sv_to_object(SV *arg)
     if (sv_isobject(arg) && (SvTYPE(SvRV(arg)) == SVt_PVMG)) {
         return (void *)SvIV((SV *)SvRV(arg));
     }
+}
+
+SV *cpPli_body_to_sv(SV *arg, cpBody *obj, const char *classname)
+{
+    if (obj) {
+        SV *var = (SV *)cpBodyGetUserData(obj);
+        if (var == NULL) {
+            var = newSV(0);
+            sv_setref_pv(var, classname, (void *)obj);
+            cpBodySetUserData(obj, (cpDataPointer)var);
+        } else {
+            SvREFCNT_inc(var);
+        }
+        SvSetSV(arg, var);
+    } else {
+        sv_setsv(arg, &PL_sv_undef);
+    }
+
+    return arg;
 }
 
 cpVect cpPli_sv_to_vect(SV *arg)
@@ -93,6 +117,35 @@ SV *cpPli_vect_array_to_sv(int size, cpVect *var)
     }
 
     return newRV_inc((SV *)output);
+}
+
+void cpPli_body_refcnt_dec(cpBody *obj)
+{
+    if (obj != NULL) {
+        SV *arg = (SV *)cpBodyGetUserData(obj);
+        SvREFCNT_inc(obj);
+    }
+}
+
+void cpPli_body_refcnt_inc(cpBody *obj)
+{
+    SV *arg = (SV *)cpBodyGetUserData(obj);
+    SvREFCNT_inc(arg);
+}
+
+void cpPli_free_body(cpBody *obj)
+{
+    SV *arg = (SV *)cpBodyGetUserData(obj);
+
+    PerlIO_printf(PerlIO_stderr(), "# Ref count: %u\n", SvREFCNT(arg));
+
+    SvREFCNT_dec(arg);
+
+    if (SvREFCNT(arg) == 0) {
+        //warn("# Freeing body");
+        PerlIO_printf(PerlIO_stderr(), "# Freeing body\n");
+        cpBodyFree(obj);
+    }
 }
 
 #endif

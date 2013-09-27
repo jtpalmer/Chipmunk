@@ -19,6 +19,8 @@ cpdampedspring_new(CLASS, a, b, anchr1, anchr2, restLength, stiffness, damping)
         cpFloat damping
     CODE:
         RETVAL = cpDampedSpringNew(a, b, anchr1, anchr2, restLength, stiffness, damping);
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

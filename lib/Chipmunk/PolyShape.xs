@@ -33,6 +33,7 @@ cppoly_new(CLASS, body, verts, ...)
         }
 
         RETVAL = cpPolyShapeNew(body, num_verts, _verts, offset);
+        cpPli_body_refcnt_inc(body);
     OUTPUT:
         RETVAL
     CLEANUP:

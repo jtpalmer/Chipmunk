@@ -26,10 +26,10 @@ cpbody_new_static(CLASS)
         RETVAL
 
 void
-cpbody_free(body)
+cpbody_DESTROY(body)
         cpBody *body
     CODE:
-        cpBodyFree(body);
+        cpPli_free_body(body);
 
 void
 cpbody_activate(body)

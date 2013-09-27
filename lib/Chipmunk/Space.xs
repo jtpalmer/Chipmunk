@@ -250,6 +250,7 @@ cpspace_add_body(space, body)
         char *CLASS = "Chipmunk::Body";
     CODE:
         RETVAL = cpSpaceAddBody(space, body);
+        cpPli_body_refcnt_inc(body);
     OUTPUT:
         RETVAL
 

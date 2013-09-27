@@ -16,6 +16,8 @@ cpratchetjoint_new(CLASS, a, b, phase, ratchet)
         cpFloat ratchet
     CODE:
         RETVAL = cpRatchetJointNew(a, b, phase, ratchet);
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

@@ -16,6 +16,8 @@ cprotarylimitjoint_new(CLASS, a, b, min, max)
         cpFloat max
     CODE:
         RETVAL = cpRotaryLimitJointNew(a, b, min, max);
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

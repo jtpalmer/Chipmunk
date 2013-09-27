@@ -16,6 +16,8 @@ cppinjoint_new(CLASS, a, b, anchr1, anchr2)
         cpVect anchr2
     CODE:
         RETVAL = cpPinJointNew(a, b, anchr1, anchr2);
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

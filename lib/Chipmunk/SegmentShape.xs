@@ -16,6 +16,7 @@ cpsegment_new(CLASS, body, a, b, radius)
         cpFloat radius
     CODE:
         RETVAL = cpSegmentShapeNew(body, a, b, radius);
+        cpPli_body_refcnt_inc(body);
     OUTPUT:
         RETVAL
 

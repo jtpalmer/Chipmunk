@@ -7,7 +7,7 @@ cpLayers                T_IV
 cpTimestamp             T_IV
 cpFloat                 T_NV
 cpArbiter *             O_OBJECT
-cpBody *                O_OBJECT
+cpBody *                O_OBJ_BODY
 cpConstraint *          O_OBJECT
 cpShape *               O_OBJECT
 cpSpace *               O_OBJECT
@@ -18,6 +18,9 @@ cpBB                    O_OBJ_BB
 INPUT
 
 O_OBJECT
+    $var = ($type)cpPli_sv_to_object($arg);
+
+O_OBJ_BODY
     $var = ($type)cpPli_sv_to_object($arg);
 
 O_OBJ_VECT
@@ -63,6 +66,9 @@ OUTPUT
 
 O_OBJECT
     cpPli_object_to_sv($arg, $var, CLASS);
+
+O_OBJ_BODY
+    cpPli_body_to_sv($arg, $var, CLASS);
 
 O_OBJ_VECT
     $arg = cpPli_vect_to_sv($var);

@@ -27,6 +27,8 @@ cppivotjoint_new(CLASS, a, b, ...)
         } else {
             croak("Wrong number of arguments");
         }
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

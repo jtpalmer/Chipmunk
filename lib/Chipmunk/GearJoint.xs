@@ -16,6 +16,8 @@ cpgearjoint_new(CLASS, a, b, phase, ratio)
         cpFloat ratio
     CODE:
         RETVAL = cpGearJointNew(a, b, phase, ratio);
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

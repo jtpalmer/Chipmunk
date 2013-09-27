@@ -15,6 +15,8 @@ cpsimplemotor_new(CLASS, a, b, rate)
         cpFloat rate
     CODE:
         RETVAL = cpSimpleMotorNew(a, b, rate);
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

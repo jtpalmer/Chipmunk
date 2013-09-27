@@ -15,6 +15,7 @@ cpcircle_new(CLASS, body, radius, offset)
         cpVect offset
     CODE:
         RETVAL = cpCircleShapeNew(body, radius, offset);
+        cpPli_body_refcnt_inc(body);
     OUTPUT:
         RETVAL
 

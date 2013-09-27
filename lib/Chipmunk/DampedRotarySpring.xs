@@ -17,6 +17,8 @@ cpdampedrotaryspring_new(CLASS, a, b, restAngle, stiffness, damping)
         cpFloat damping
     CODE:
         RETVAL = cpDampedRotarySpringNew(a, b, restAngle, stiffness, damping);
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

@@ -116,14 +116,6 @@ use Chipmunk::Space;
         '<', 1e-5, 'world_to_local x' );
     cmp_ok( abs $body->world_to_local($pos)->[1],
         '<', 1e-5, 'world_to_local y' );
-
-    eval {
-        $body->free();
-        pass('free');
-        1;
-    } or do {
-        fail('free');
-    };
 }
 
 {
@@ -131,14 +123,6 @@ use Chipmunk::Space;
     isa_ok( $body, 'Chipmunk::Body', 'new_static' );
 
     ok( $body->is_static(), 'is_static' );
-
-    eval {
-        $body->free();
-        pass('free (static)');
-        1;
-    } or do {
-        fail('free (static)');
-    };
 }
 
 done_testing();

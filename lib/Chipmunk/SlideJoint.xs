@@ -18,6 +18,8 @@ cpslidejoint_new(CLASS, a, b, anchr1, anchr2, min, max)
         cpFloat max
     CODE:
         RETVAL = cpSlideJointNew(a, b, anchr1, anchr2, min, max);
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

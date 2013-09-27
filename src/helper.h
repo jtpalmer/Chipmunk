@@ -133,7 +133,7 @@ void cpPli_body_refcnt_inc(cpBody *obj)
     SvREFCNT_inc(arg);
 }
 
-void cpPli_free_body(cpBody *obj)
+void cpPli_body_free(cpBody *obj)
 {
     if (obj == NULL) { return; }
 
@@ -149,9 +149,9 @@ void cpPli_free_body(cpBody *obj)
     }
 }
 
-void cpPli_free_body2(cpBody *obj, void *data)
+void cpPli_body_free2(cpBody *obj, void *data)
 {
-    cpPli_free_body(obj);
+    cpPli_body_free(obj);
 }
 
 #endif

@@ -29,7 +29,7 @@ void
 cpbody_DESTROY(body)
         cpBody *body
     CODE:
-        cpPli_free_body(body);
+        cpPli_body_free(body);
 
 void
 cpbody_activate(body)

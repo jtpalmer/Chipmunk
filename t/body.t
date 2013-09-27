@@ -17,12 +17,12 @@ use Chipmunk::Space;
 
     ok( !$body->is_static(), 'is_static (not static)' );
 
-    ok( $body->is_rogue(), 'is_roque' );
+    ok( $body->is_rogue(), 'is_rogue' );
 
     my $space = Chipmunk::Space->new();
     $space->add_body($body);
 
-    ok( !$body->is_rogue(), 'is_roque (not rogue)' );
+    ok( !$body->is_rogue(), 'is_rogue (not rogue)' );
 
     $body->sleep();
     ok( $body->is_sleeping(), 'is_sleeping' );

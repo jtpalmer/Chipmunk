@@ -27,25 +27,6 @@ void *cpPli_sv_to_object(SV *arg)
     }
 }
 
-SV *cpPli_body_to_sv(SV *arg, cpBody *obj, const char *classname)
-{
-    if (obj) {
-        SV *var = (SV *)cpBodyGetUserData(obj);
-        if (var == NULL) {
-            var = newSV(0);
-            sv_setref_pv(var, classname, (void *)obj);
-            cpBodySetUserData(obj, (cpDataPointer)var);
-        } else {
-            SvREFCNT_inc(var);
-        }
-        SvSetSV(arg, var);
-    } else {
-        sv_setsv(arg, &PL_sv_undef);
-    }
-
-    return arg;
-}
-
 cpVect cpPli_sv_to_vect(SV *arg)
 {
     AV *input;
@@ -119,11 +100,23 @@ SV *cpPli_vect_array_to_sv(int size, cpVect *var)
     return newRV_inc((SV *)output);
 }
 
-void cpPli_body_refcnt_dec(cpBody *obj)
+SV *cpPli_body_to_sv(SV *arg, cpBody *obj, const char *classname)
 {
-    if (obj == NULL) { return; }
-    SV *arg = (SV *)cpBodyGetUserData(obj);
-    SvREFCNT_inc(obj);
+    if (obj) {
+        SV *var = (SV *)cpBodyGetUserData(obj);
+        if (var == NULL) {
+            var = newSV(0);
+            sv_setref_pv(var, classname, (void *)obj);
+            cpBodySetUserData(obj, (cpDataPointer)var);
+        } else {
+            SvREFCNT_inc(var);
+        }
+        SvSetSV(arg, var);
+    } else {
+        sv_setsv(arg, &PL_sv_undef);
+    }
+
+    return arg;
 }
 
 void cpPli_body_refcnt_inc(cpBody *obj)
@@ -131,6 +124,13 @@ void cpPli_body_refcnt_inc(cpBody *obj)
     if (obj == NULL) { return; }
     SV *arg = (SV *)cpBodyGetUserData(obj);
     SvREFCNT_inc(arg);
+}
+
+void cpPli_body_refcnt_dec(cpBody *obj)
+{
+    if (obj == NULL) { return; }
+    SV *arg = (SV *)cpBodyGetUserData(obj);
+    SvREFCNT_inc(obj);
 }
 
 void cpPli_body_free(cpBody *obj)

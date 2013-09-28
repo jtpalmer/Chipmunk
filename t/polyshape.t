@@ -37,14 +37,6 @@ use Chipmunk::PolyShape;
     } or do {
         pass('get_vert 3');
     };
-
-    eval {
-        $poly->free();
-        pass('free');
-        1;
-    } or do {
-        fail('free');
-    };
 }
 
 eval {

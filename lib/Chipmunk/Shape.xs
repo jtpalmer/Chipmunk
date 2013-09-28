@@ -8,11 +8,11 @@ MODULE = Chipmunk::Shape    PACKAGE = Chipmunk::Shape    PREFIX = cpshape_
 PROTOTYPES: ENABLE
 
 void
-cpshape_free(shape)
+cpshape_DESTROY(shape)
         cpShape *shape
     CODE:
         cpPli_body_refcnt_dec(cpShapeGetBody(shape));
-        cpShapeFree(shape);
+        cpPli_shape_free(shape);
 
 cpBB
 cpshape_cache_bb(shape)

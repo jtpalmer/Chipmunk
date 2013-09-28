@@ -8,11 +8,17 @@ MODULE = Chipmunk::Constraint    PACKAGE = Chipmunk::Constraint    PREFIX = cpco
 PROTOTYPES: ENABLE
 
 void
-cpconstraint_activate_bodies(constraint)
-        cpConstraint *constraint
+cpconstraint_DESTROY(constraint)
+            cpConstraint *constraint
     CODE:
         cpPli_body_refcnt_dec(cpConstraintGetA(constraint));
         cpPli_body_refcnt_dec(cpConstraintGetB(constraint));
+        cpPli_constraint_free(constraint);
+
+void
+cpconstraint_activate_bodies(constraint)
+        cpConstraint *constraint
+    CODE:
         cpConstraintActivateBodies(constraint);
 
 cpSpace *

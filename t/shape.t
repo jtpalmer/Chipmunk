@@ -93,14 +93,6 @@ for (@shapes) {
     is( $shape->get_group(), $group, "get_group ($type)" );
 
     # TODO: set_layers, get_layers
-
-    eval {
-        $shape->free();
-        pass("free ($type)");
-        1;
-    } or do {
-        fail("free ($type)");
-    };
 }
 
 done_testing();

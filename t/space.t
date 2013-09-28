@@ -50,14 +50,6 @@ use Chipmunk::Space;
     #       activate_shapes_touching_shape, each_body, each_shape,
     #       each_constraint, reindex_static, reindex_shape,
     #       reindex_shapes_for_body, use_spatial_hash, step
-
-    eval {
-        $space->free();
-        pass('free');
-        1;
-    } or do {
-        fail('free');
-    };
 }
 
 done_testing();

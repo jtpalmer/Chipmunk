@@ -166,8 +166,6 @@ void cpPli_##name##_free(type *obj)                                          \
         type##SetUserData(obj, NULL);                                        \
     }                                                                        \
                                                                              \
-    warn("# " #type " ref count: %u (free)\n", SvREFCNT(arg));               \
-                                                                             \
     SvREFCNT_dec(arg);                                                       \
                                                                              \
     warn("# " #type " ref count: %u (free)\n", SvREFCNT(arg));               \

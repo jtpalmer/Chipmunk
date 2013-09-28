@@ -127,11 +127,10 @@ SV *cpPli_##name##_to_sv(SV *arg, type *obj, const char *classname)          \
     if (!var) {                                                              \
         var = newSV(0);                                                      \
         sv_setref_pv(var, classname, (void *)obj);                           \
-        type##SetUserData(obj, (cpDataPointer)var);                    \
-        SvSetSV_nosteal(arg, var);                                               \
-    } else {                                                                       \
-        SvSetSV_nosteal(arg, var);                                               \
+        type##SetUserData(obj, (cpDataPointer)var);                          \
     }                                                                        \
+                                                                             \
+    SvSetSV_nosteal(arg, var);                                               \
                                                                              \
     return arg;                                                              \
 }                                                                            \

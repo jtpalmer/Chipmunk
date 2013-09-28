@@ -150,7 +150,7 @@ void cpPli_##name##_refcnt_dec(type *obj)                                    \
 {                                                                            \
     if (!obj) { return; }                                                    \
     SV *arg = (SV *)type##GetUserData(obj);                                  \
-    SvREFCNT_inc(arg);                                                       \
+    SvREFCNT_dec(arg);                                                       \
     warn("# " #type " ref count: %u (dec)\n", SvREFCNT(arg));                \
 }                                                                            \
 

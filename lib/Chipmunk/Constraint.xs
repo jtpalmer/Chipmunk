@@ -9,7 +9,7 @@ PROTOTYPES: ENABLE
 
 void
 cpconstraint_DESTROY(constraint)
-            cpConstraint *constraint
+        cpConstraint *constraint
     CODE:
         cpPli_body_refcnt_dec(cpConstraintGetA(constraint));
         cpPli_body_refcnt_dec(cpConstraintGetB(constraint));

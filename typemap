@@ -32,6 +32,15 @@ O_OBJ_SHAPE
 O_OBJ_SPACE
     $var = ($type)cpPli_sv_to_space($arg);
 
+O_OBJ_CONSTRAINT
+    $var = ($type)cpPli_sv_to_object($arg);
+
+O_OBJ_SHAPE
+    $var = ($type)cpPli_sv_to_object($arg);
+
+O_OBJ_SPACE
+    $var = ($type)cpPli_sv_to_object($arg);
+
 O_OBJ_VECT
     $var = cpPli_sv_to_vect($arg);
 

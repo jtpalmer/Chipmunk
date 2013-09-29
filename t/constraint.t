@@ -1,6 +1,8 @@
 use strict;
 use warnings;
 use Test::More;
+use Chipmunk::DampedRotarySpring;
+use Chipmunk::DampedSpring;
 use Chipmunk::GearJoint;
 use Chipmunk::GrooveJoint;
 use Chipmunk::PinJoint;
@@ -15,7 +17,29 @@ my $space = Chipmunk::Space->new();
 
 my @constraints;
 
-# TODO: DampedRotarySpring, DampedSpring
+{
+    my $a = Chipmunk::Body->new( 1.0, 2.0 );
+    my $b = Chipmunk::Body->new( 2.0, 3.0 );
+    my ( $restAngle, $stiffness, $damping ) = ( 0.0, 1.0, 2.0 );
+    my $spring
+        = Chipmunk::DampedRotarySpring->new( $a, $b, $restAngle, $stiffness,
+        $damping );
+    $space->add_constraint($spring);
+    push @constraints,
+        { type => 'dampedrotaryspring', constraint => $spring };
+}
+
+{
+    my $a = Chipmunk::Body->new( 1.0, 2.0 );
+    my $b = Chipmunk::Body->new( 2.0, 3.0 );
+    my ( $anchr1, $anchr2 ) = ( [ 4.0, 5.0 ], [ 6.0, 7.0 ] );
+    my ( $restLength, $stiffness, $damping ) = ( 1.0, 2.0, 3.0 );
+    my $spring
+        = Chipmunk::DampedSpring->new( $a, $b, $anchr1, $anchr2, $restLength,
+        $stiffness, $damping );
+    $space->add_constraint($spring);
+    push @constraints, { type => 'dampedspring', constraint => $spring };
+}
 
 {
     my ( $mass, $inertia ) = ( 1.1, 2.2 );

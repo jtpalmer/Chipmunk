@@ -10,10 +10,15 @@ PROTOTYPES: ENABLE
 void
 cpconstraint_DESTROY(constraint)
         cpConstraint *constraint
+    PREINIT:
+        cpBody *a;
+        cpBody *b;
     CODE:
-        cpPli_body_refcnt_dec(cpConstraintGetA(constraint));
-        cpPli_body_refcnt_dec(cpConstraintGetB(constraint));
+        a = cpConstraintGetA(constraint);
+        b = cpConstraintGetB(constraint);
         cpPli_constraint_free(constraint);
+        cpPli_body_refcnt_dec(a);
+        cpPli_body_refcnt_dec(b);
 
 void
 cpconstraint_activate_bodies(constraint)

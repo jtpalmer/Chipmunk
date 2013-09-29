@@ -19,9 +19,10 @@ void
 cpspace_DESTROY(space)
         cpSpace *space
     CODE:
-        cpSpaceEachBody(space, (cpSpaceBodyIteratorFunc)cpPli_body_free, NULL);
-        cpSpaceEachShape(space, (cpSpaceShapeIteratorFunc)cpPli_shape_free, NULL);
-        cpSpaceEachConstraint(space, (cpSpaceConstraintIteratorFunc)cpPli_constraint_free, NULL);
+        /* TODO: Decrement ref counts after freeing space. */
+        cpSpaceEachBody(space, (cpSpaceBodyIteratorFunc)cpPli_body_refcnt_dec, NULL);
+        cpSpaceEachShape(space, (cpSpaceShapeIteratorFunc)cpPli_shape_refcnt_dec, NULL);
+        cpSpaceEachConstraint(space, (cpSpaceConstraintIteratorFunc)cpPli_constraint_refcnt_dec, NULL);
         cpPli_space_free(space);
 
 int

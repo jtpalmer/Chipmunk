@@ -9,6 +9,7 @@ use Chipmunk::PinJoint;
 use Chipmunk::PivotJoint;
 use Chipmunk::RatchetJoint;
 use Chipmunk::RotaryLimitJoint;
+use Chipmunk::SimpleMotor;
 use Chipmunk::SlideJoint;
 use Chipmunk::Body;
 use Chipmunk::Space;
@@ -106,7 +107,15 @@ my @constraints;
     push @constraints, { type => 'rotarylimitjoint', constraint => $joint };
 }
 
-# TODO: SimpleMotor
+{
+    my ( $mass, $inertia ) = ( 1.1, 2.2 );
+    my $a = Chipmunk::Body->new( $mass, $inertia );
+    my $b = Chipmunk::Body->new( $mass, $inertia );
+    my $rate = 3.3;
+    my $motor = Chipmunk::SimpleMotor->new( $a, $b, $rate );
+    $space->add_constraint($motor);
+    push @constraints, { type => 'simplemotor', constraint => $motor };
+}
 
 {
     my ( $mass, $inertia ) = ( 1.0, 2.0 );

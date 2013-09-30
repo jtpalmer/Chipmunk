@@ -5,8 +5,6 @@ use Math::Trig qw( atan :pi );
 use Chipmunk::Body;
 use Chipmunk::SegmentShape;
 
-# TODO: set_neighbors, get_normal
-
 {
     my ( $mass, $inertia ) = ( 1.0, 2.0 );
     my $body = Chipmunk::Body->new( $mass, $inertia );
@@ -18,6 +16,8 @@ use Chipmunk::SegmentShape;
 
     isa_ok( $segment, 'Chipmunk::SegmentShape', 'new' );
 
+    # TODO: set_neighbors
+
     cmp_ok( abs $segment->get_a()->[0] - $point_a->[0], '<', 1e-5,
         'get_a x' );
     cmp_ok( abs $segment->get_a()->[1] - $point_a->[1], '<', 1e-5,
@@ -27,8 +27,6 @@ use Chipmunk::SegmentShape;
         'get_b x' );
     cmp_ok( abs $segment->get_b()->[1] - $point_b->[1], '<', 1e-5,
         'get_b y' );
-
-    cmp_ok( abs $segment->get_radius() - $radius, '<', 1e-5, 'get_radius' );
 
     my $angle
         = atan(
@@ -41,6 +39,8 @@ use Chipmunk::SegmentShape;
         '<', 1e-5, 'get_normal x' );
     cmp_ok( abs $segment->get_normal()->[1] - $normal->[1],
         '<', 1e-5, 'get_normal y' );
+
+    cmp_ok( abs $segment->get_radius() - $radius, '<', 1e-5, 'get_radius' );
 
     eval {
         $segment->free();

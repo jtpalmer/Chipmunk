@@ -3,26 +3,34 @@ use warnings;
 use Test::More;
 use Chipmunk::Space;
 
-my $gravity = [ 1, 2 ];
-
 {
     my $space = Chipmunk::Space->new();
 
     isa_ok( $space, 'Chipmunk::Space', 'new' );
 
-    # TODO: get_iterations, set_iterations
+    my $iterations = 11;
+    $space->set_iterations($iterations);
+    is( $space->get_iterations(), $iterations, 'get_iterations' );
 
+    my $gravity = [ 1, 2 ];
     $space->set_gravity($gravity);
-
     cmp_ok( abs $space->get_gravity()->[0] - $gravity->[0],
         '<', 1e-5, 'get_gravity x' );
     cmp_ok( abs $space->get_gravity()->[1] - $gravity->[1],
         '<', 1e-5, 'get_gravity y' );
 
-    # TODO: get_damping, set_damping, get_idle_speed_threshold,
-    #       set_idle_speed_threshold, get_sleep_time_threshold,
-    #       set_sleep_time_threshold, get_collision_slop,
-    #       set_collision_slop, get_collision_bias, set_collision_bias,
+    my $damping = 2.2;
+    $space->set_damping($damping);
+    cmp_ok( abs $space->get_damping() - $damping, '<', 1e-5, 'get_damping' );
+
+    my $idle_speed_threshold = 0.01;
+    $space->set_idle_speed_threshold($idle_speed_threshold);
+    cmp_ok( abs $space->get_idle_speed_threshold() - $idle_speed_threshold,
+        '<', 1e-5, 'get_idle_speed_threshold' );
+
+    # TODO: get_sleep_time_threshold, set_sleep_time_threshold,
+    #       get_collision_slop, set_collision_slop,
+    #       get_collision_bias, set_collision_bias,
     #       get_collision_persistence, set_collision_persistence,
     #       get_enable_contact_graph, set_enable_contact_graph,
     #       get_user_data, set_user_data, get_static_body,

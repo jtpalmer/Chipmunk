@@ -6,7 +6,7 @@ use strict;
 use warnings;
 use Alien::Chipmunk;
 
-use base qw(Chipmunk::Shape);
+use parent qw(Chipmunk::Shape);
 
 require XSLoader;
 XSLoader::load( 'Chipmunk::SegmentShape', $Chipmunk::SegmentShape::VERSION );

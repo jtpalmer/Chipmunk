@@ -29,6 +29,7 @@ void
 cpbody_DESTROY(body)
         cpBody *body
     CODE:
+        warn("# cpBody ref count: %u (destroy)\n", SvREFCNT(ST(0)));
         cpPli_body_free(body);
 
 void

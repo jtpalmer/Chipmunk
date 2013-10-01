@@ -92,7 +92,9 @@ for (@shapes) {
     $shape->set_group($group);
     is( $shape->get_group(), $group, "get_group ($type)" );
 
-    # TODO: set_layers, get_layers
+    my $layers = 3;
+    $shape->set_layers($layers);
+    is( $shape->get_layers(), $layers, "get_layers ($type)" );
 
     eval {
         $shape->free();

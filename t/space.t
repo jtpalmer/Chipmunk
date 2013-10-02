@@ -28,8 +28,12 @@ use Chipmunk::Space;
     cmp_ok( abs $space->get_idle_speed_threshold() - $idle_speed_threshold,
         '<', 1e-5, 'get_idle_speed_threshold' );
 
-    # TODO: get_sleep_time_threshold, set_sleep_time_threshold,
-    #       get_collision_slop, set_collision_slop,
+    my $sleep_time_threshold = 0.005;
+    $space->set_sleep_time_threshold($sleep_time_threshold);
+    cmp_ok( abs $space->get_sleep_time_threshold() - $sleep_time_threshold,
+        '<', 1e-5, 'get_sleep_time_threshold' );
+
+    # TODO: get_collision_slop, set_collision_slop,
     #       get_collision_bias, set_collision_bias,
     #       get_collision_persistence, set_collision_persistence,
     #       get_enable_contact_graph, set_enable_contact_graph,

@@ -33,6 +33,11 @@ use Chipmunk::Space;
     cmp_ok( abs $space->get_sleep_time_threshold() - $sleep_time_threshold,
         '<', 1e-5, 'get_sleep_time_threshold' );
 
+    my $collision_slop = 0.5;
+    $space->set_collision_slop($collision_slop);
+    cmp_ok( abs $space->get_collision_slop() - $collision_slop,
+        '<', 1e-5, 'get_collision_slop' );
+
     # TODO: get_collision_slop, set_collision_slop,
     #       get_collision_bias, set_collision_bias,
     #       get_collision_persistence, set_collision_persistence,

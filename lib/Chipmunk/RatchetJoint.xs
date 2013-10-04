@@ -2,7 +2,7 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
+#include "helper.h"
 
 MODULE = Chipmunk::RatchetJoint    PACKAGE = Chipmunk::RatchetJoint    PREFIX = cpratchetjoint_
 PROTOTYPES: ENABLE
@@ -16,6 +16,8 @@ cpratchetjoint_new(CLASS, a, b, phase, ratchet)
         cpFloat ratchet
     CODE:
         RETVAL = cpRatchetJointNew(a, b, phase, ratchet);
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

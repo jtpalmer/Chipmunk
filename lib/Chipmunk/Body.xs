@@ -2,7 +2,7 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
+#include "helper.h"
 
 MODULE = Chipmunk::Body    PACKAGE = Chipmunk::Body    PREFIX = cpbody_
 PROTOTYPES: ENABLE
@@ -26,10 +26,10 @@ cpbody_new_static(CLASS)
         RETVAL
 
 void
-cpbody_free(body)
+cpbody_DESTROY(body)
         cpBody *body
     CODE:
-        cpBodyFree(body);
+        cpPli_body_free(body);
 
 void
 cpbody_activate(body)

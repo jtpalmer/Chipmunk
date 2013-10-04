@@ -2,16 +2,20 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
+#include "helper.h"
 
 MODULE = Chipmunk::Shape    PACKAGE = Chipmunk::Shape    PREFIX = cpshape_
 PROTOTYPES: ENABLE
 
 void
-cpshape_free(shape)
+cpshape_DESTROY(shape)
         cpShape *shape
+    PREINIT:
+        cpBody *body;
     CODE:
-        cpShapeFree(shape);
+        body = cpShapeGetBody(shape);
+        cpPli_shape_free(shape);
+        cpPli_body_refcnt_dec(body);
 
 cpBB
 cpshape_cache_bb(shape)
@@ -81,7 +85,9 @@ cpshape_set_body(shape, body)
         cpShape *shape
         cpBody *body
     CODE:
+        cpPli_body_refcnt_dec(cpShapeGetBody(shape));
         cpShapeSetBody(shape, body);
+        cpPli_body_refcnt_inc(body);
 
 cpBB
 cpshape_get_bb(shape)

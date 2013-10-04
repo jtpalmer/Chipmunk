@@ -17,12 +17,12 @@ use Chipmunk::Space;
 
     ok( !$body->is_static(), 'is_static (not static)' );
 
-    ok( $body->is_rogue(), 'is_roque' );
+    ok( $body->is_rogue(), 'is_rogue' );
 
     my $space = Chipmunk::Space->new();
     $space->add_body($body);
 
-    ok( !$body->is_rogue(), 'is_roque (not rogue)' );
+    ok( !$body->is_rogue(), 'is_rogue (not rogue)' );
 
     $body->sleep();
     ok( $body->is_sleeping(), 'is_sleeping' );
@@ -116,14 +116,6 @@ use Chipmunk::Space;
         '<', 1e-5, 'world_to_local x' );
     cmp_ok( abs $body->world_to_local($pos)->[1],
         '<', 1e-5, 'world_to_local y' );
-
-    eval {
-        $body->free();
-        pass('free');
-        1;
-    } or do {
-        fail('free');
-    };
 }
 
 {
@@ -131,14 +123,6 @@ use Chipmunk::Space;
     isa_ok( $body, 'Chipmunk::Body', 'new_static' );
 
     ok( $body->is_static(), 'is_static' );
-
-    eval {
-        $body->free();
-        pass('free (static)');
-        1;
-    } or do {
-        fail('free (static)');
-    };
 }
 
 done_testing();

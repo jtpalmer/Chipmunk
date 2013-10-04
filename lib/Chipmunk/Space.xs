@@ -2,8 +2,8 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
 #include "helper.h"
+#include "func_wrappers.h"
 
 MODULE = Chipmunk::Space    PACKAGE = Chipmunk::Space    PREFIX = cpspace_
 PROTOTYPES: ENABLE
@@ -17,10 +17,14 @@ cpspace_new(CLASS)
         RETVAL
 
 void
-cpspace_free(space)
+cpspace_DESTROY(space)
         cpSpace *space
     CODE:
-        cpSpaceFree(space);
+        /* TODO: Decrement ref counts after freeing space. */
+        cpSpaceEachBody(space, (cpSpaceBodyIteratorFunc)cpPli_body_refcnt_dec, NULL);
+        cpSpaceEachShape(space, (cpSpaceShapeIteratorFunc)cpPli_shape_refcnt_dec, NULL);
+        cpSpaceEachConstraint(space, (cpSpaceConstraintIteratorFunc)cpPli_constraint_refcnt_dec, NULL);
+        cpPli_space_free(space);
 
 int
 cpspace_get_iterations(space)
@@ -229,6 +233,7 @@ cpspace_add_shape(space, shape)
         char *CLASS = "Chipmunk::Shape";
     CODE:
         RETVAL = cpSpaceAddShape(space, shape);
+        cpPli_shape_refcnt_inc(shape);
     OUTPUT:
         RETVAL
 
@@ -240,6 +245,7 @@ cpspace_add_static_shape(space, shape)
         char *CLASS = "Chipmunk::Shape";
     CODE:
         RETVAL = cpSpaceAddStaticShape(space, shape);
+        cpPli_shape_refcnt_inc(shape);
     OUTPUT:
         RETVAL
 
@@ -251,6 +257,7 @@ cpspace_add_body(space, body)
         char *CLASS = "Chipmunk::Body";
     CODE:
         RETVAL = cpSpaceAddBody(space, body);
+        cpPli_body_refcnt_inc(body);
     OUTPUT:
         RETVAL
 
@@ -262,6 +269,7 @@ cpspace_add_constraint(space, constraint)
         char *CLASS = "Chipmunk::Constraint";
     CODE:
         RETVAL = cpSpaceAddConstraint(space, constraint);
+        cpPli_constraint_refcnt_inc(constraint);
     OUTPUT:
         RETVAL
 

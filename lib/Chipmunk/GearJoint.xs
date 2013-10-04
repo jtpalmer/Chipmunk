@@ -2,7 +2,7 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
+#include "helper.h"
 
 MODULE = Chipmunk::GearJoint    PACKAGE = Chipmunk::GearJoint    PREFIX = cpgearjoint_
 PROTOTYPES: ENABLE
@@ -16,6 +16,8 @@ cpgearjoint_new(CLASS, a, b, phase, ratio)
         cpFloat ratio
     CODE:
         RETVAL = cpGearJointNew(a, b, phase, ratio);
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

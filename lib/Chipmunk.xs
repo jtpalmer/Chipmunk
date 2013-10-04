@@ -3,7 +3,6 @@
 #include "XSUB.h"
 #include "ppport.h"
 #include "helper.h"
-#include <chipmunk.h>
 
 MODULE = Chipmunk    PACKAGE = Chipmunk    PREFIX = cp_
 
@@ -126,14 +125,14 @@ cp_moment_for_poly(m, verts, ...)
         int num_verts;
     CODE:
         if (items == 3) {
-            offset = sv_to_vect(ST(2));
+            offset = cpPli_sv_to_vect(ST(2));
         } else if (items == 2) {
             offset = cpv((cpFloat)0.0, (cpFloat)0.0);
         } else {
             croak("Wrong number of arguments");
         }
 
-        _verts = sv_to_vect_array(verts);
+        _verts = cpPli_sv_to_vect_array(verts);
         num_verts = av_len((AV *)SvRV(verts)) + 1;
 
         if (!cpPolyValidate(_verts, num_verts)) {
@@ -153,7 +152,7 @@ cp_area_for_poly(verts)
         cpVect *_verts;
         int num_verts;
     CODE:
-        _verts = sv_to_vect_array(verts);
+        _verts = cpPli_sv_to_vect_array(verts);
         num_verts = av_len((AV *)SvRV(verts)) + 1;
 
         if (!cpPolyValidate(_verts, num_verts)) {
@@ -173,7 +172,7 @@ cp_centroid_for_poly(verts)
         cpVect *_verts;
         int num_verts;
     CODE:
-        _verts = sv_to_vect_array(verts);
+        _verts = cpPli_sv_to_vect_array(verts);
         num_verts = av_len((AV *)SvRV(verts)) + 1;
 
         RETVAL = cpCentroidForPoly(num_verts, _verts);
@@ -189,12 +188,12 @@ cp_recenter_poly(verts)
         cpVect *_verts;
         int size;
     CODE:
-        _verts = sv_to_vect_array(verts);
+        _verts = cpPli_sv_to_vect_array(verts);
         size = av_len((AV *)SvRV(verts)) + 1;
 
         cpRecenterPoly(size, _verts);
 
-        RETVAL = vect_array_to_sv(size, _verts);
+        RETVAL = cpPli_vect_array_to_sv(size, _verts);
     OUTPUT:
         RETVAL
     CLEANUP:
@@ -235,12 +234,12 @@ cp_convex_hull(verts, ...)
             croak("Wrong number of arguments");
         }
 
-        _verts = sv_to_vect_array(verts);
+        _verts = cpPli_sv_to_vect_array(verts);
         size = av_len((AV *)SvRV(verts)) + 1;
 
         size = cpConvexHull(size, _verts, NULL, NULL, tol);
 
-        RETVAL = vect_array_to_sv(size, _verts);
+        RETVAL = cpPli_vect_array_to_sv(size, _verts);
     OUTPUT:
         RETVAL
     CLEANUP:

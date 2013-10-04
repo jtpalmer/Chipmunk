@@ -2,7 +2,7 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
+#include "helper.h"
 
 MODULE = Chipmunk::CircleShape    PACKAGE = Chipmunk::CircleShape    PREFIX = cpcircle_
 PROTOTYPES: ENABLE
@@ -15,6 +15,7 @@ cpcircle_new(CLASS, body, radius, offset)
         cpVect offset
     CODE:
         RETVAL = cpCircleShapeNew(body, radius, offset);
+        cpPli_body_refcnt_inc(body);
     OUTPUT:
         RETVAL
 

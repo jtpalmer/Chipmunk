@@ -2,7 +2,7 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
+#include "helper.h"
 
 MODULE = Chipmunk::GrooveJoint    PACKAGE = Chipmunk::GrooveJoint    PREFIX = cpgroovejoint_
 PROTOTYPES: ENABLE
@@ -17,6 +17,8 @@ cpgroovejoint_new(CLASS, a, b, groove_a, groove_b, anchr2)
         cpVect anchr2
     CODE:
         RETVAL = cpGrooveJointNew(a, b, groove_a, groove_b, anchr2);
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

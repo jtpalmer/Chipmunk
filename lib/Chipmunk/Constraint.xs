@@ -2,10 +2,23 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
+#include "helper.h"
 
 MODULE = Chipmunk::Constraint    PACKAGE = Chipmunk::Constraint    PREFIX = cpconstraint_
 PROTOTYPES: ENABLE
+
+void
+cpconstraint_DESTROY(constraint)
+        cpConstraint *constraint
+    PREINIT:
+        cpBody *a;
+        cpBody *b;
+    CODE:
+        a = cpConstraintGetA(constraint);
+        b = cpConstraintGetB(constraint);
+        cpPli_constraint_free(constraint);
+        cpPli_body_refcnt_dec(a);
+        cpPli_body_refcnt_dec(b);
 
 void
 cpconstraint_activate_bodies(constraint)

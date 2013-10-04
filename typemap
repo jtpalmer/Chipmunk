@@ -7,10 +7,10 @@ cpLayers                T_IV
 cpTimestamp             T_IV
 cpFloat                 T_NV
 cpArbiter *             O_OBJECT
-cpBody *                O_OBJECT
-cpConstraint *          O_OBJECT
-cpShape *               O_OBJECT
-cpSpace *               O_OBJECT
+cpBody *                O_OBJ_BODY
+cpConstraint *          O_OBJ_CONSTRAINT
+cpShape *               O_OBJ_SHAPE
+cpSpace *               O_OBJ_SPACE
 cpVect                  O_OBJ_VECT
 cpMat2x2                O_OBJ_MAT2X2
 cpBB                    O_OBJ_BB
@@ -18,29 +18,31 @@ cpBB                    O_OBJ_BB
 INPUT
 
 O_OBJECT
-    if (sv_isobject($arg) && (SvTYPE(SvRV($arg)) == SVt_PVMG)) {
-        $var = ($type)SvIV((SV *)SvRV($arg));
-    } else if ($arg == 0) {
-        XSRETURN(0);
-    } else {
-        XSRETURN_UNDEF;
-    }
+    $var = ($type)cpPli_sv_to_object($arg);
+
+O_OBJ_BODY
+    $var = ($type)cpPli_sv_to_body($arg);
+
+O_OBJ_CONSTRAINT
+    $var = ($type)cpPli_sv_to_constraint($arg);
+
+O_OBJ_SHAPE
+    $var = ($type)cpPli_sv_to_shape($arg);
+
+O_OBJ_SPACE
+    $var = ($type)cpPli_sv_to_space($arg);
+
+O_OBJ_CONSTRAINT
+    $var = ($type)cpPli_sv_to_object($arg);
+
+O_OBJ_SHAPE
+    $var = ($type)cpPli_sv_to_object($arg);
+
+O_OBJ_SPACE
+    $var = ($type)cpPli_sv_to_object($arg);
 
 O_OBJ_VECT
-    if (SvTYPE(SvRV($arg)) == SVt_PVAV) {
-        AV *input = (AV *)SvRV($arg);
-        if (av_len(input) != 1) {
-            XSRETURN_UNDEF;
-        }
-        $var = cpv(
-            (cpFloat)SvNV(*av_fetch(input, 0, 0)),
-            (cpFloat)SvNV(*av_fetch(input, 1, 0))
-        );
-    } else if ($arg == 0) {
-        XSRETURN(0);
-    } else {
-        XSRETURN_UNDEF;
-    }
+    $var = cpPli_sv_to_vect($arg);
 
 O_OBJ_MAT2X2
     if (SvTYPE(SvRV($arg)) == SVt_PVAV) {
@@ -81,17 +83,22 @@ O_OBJ_BB
 OUTPUT
 
 O_OBJECT
-    if ($var) {
-        sv_setref_pv($arg, CLASS, (void *)$var);
-    } else {
-        XSRETURN_UNDEF;
-    }
+    cpPli_object_to_sv($arg, $var, CLASS);
+
+O_OBJ_BODY
+    cpPli_body_to_sv($arg, $var, CLASS);
+
+O_OBJ_CONSTRAINT
+    cpPli_constraint_to_sv($arg, $var, CLASS);
+
+O_OBJ_SHAPE
+    cpPli_shape_to_sv($arg, $var, CLASS);
+
+O_OBJ_SPACE
+    cpPli_space_to_sv($arg, $var, CLASS);
 
 O_OBJ_VECT
-    AV *output = newAV();
-    av_push(output, newSVnv($var.x));
-    av_push(output, newSVnv($var.y));
-    $arg = newRV_inc((SV *)output);
+    $arg = cpPli_vect_to_sv($var);
 
 O_OBJ_MAT2X2
     AV *output = newAV();

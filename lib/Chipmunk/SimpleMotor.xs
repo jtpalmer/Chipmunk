@@ -2,7 +2,7 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
+#include "helper.h"
 
 MODULE = Chipmunk::SimpleMotor    PACKAGE = Chipmunk::SimpleMotor    PREFIX = cpsimplemotor_
 PROTOTYPES: ENABLE
@@ -15,6 +15,8 @@ cpsimplemotor_new(CLASS, a, b, rate)
         cpFloat rate
     CODE:
         RETVAL = cpSimpleMotorNew(a, b, rate);
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

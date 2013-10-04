@@ -19,14 +19,6 @@ use Chipmunk::CircleShape;
         '<', 1e-5, 'get_offset y' );
 
     cmp_ok( abs $circle->get_radius() - $radius, '<', 1e-5, 'get_radius' );
-
-    eval {
-        $circle->free();
-        pass('free');
-        1;
-    } or do {
-        fail('free');
-    };
 }
 
 done_testing();

@@ -2,7 +2,7 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
+#include "helper.h"
 
 MODULE = Chipmunk::SlideJoint    PACKAGE = Chipmunk::SlideJoint    PREFIX = cpslidejoint_
 PROTOTYPES: ENABLE
@@ -18,6 +18,8 @@ cpslidejoint_new(CLASS, a, b, anchr1, anchr2, min, max)
         cpFloat max
     CODE:
         RETVAL = cpSlideJointNew(a, b, anchr1, anchr2, min, max);
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

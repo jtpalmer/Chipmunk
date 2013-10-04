@@ -2,7 +2,7 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-#include <chipmunk.h>
+#include "helper.h"
 
 MODULE = Chipmunk::DampedRotarySpring    PACKAGE = Chipmunk::DampedRotarySpring    PREFIX = cpdampedrotaryspring_
 PROTOTYPES: ENABLE
@@ -17,6 +17,8 @@ cpdampedrotaryspring_new(CLASS, a, b, restAngle, stiffness, damping)
         cpFloat damping
     CODE:
         RETVAL = cpDampedRotarySpringNew(a, b, restAngle, stiffness, damping);
+        cpPli_body_refcnt_inc(a);
+        cpPli_body_refcnt_inc(b);
     OUTPUT:
         RETVAL
 

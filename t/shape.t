@@ -95,14 +95,6 @@ for (@shapes) {
     my $layers = 3;
     $shape->set_layers($layers);
     is( $shape->get_layers(), $layers, "get_layers ($type)" );
-
-    eval {
-        $shape->free();
-        pass("free ($type)");
-        1;
-    } or do {
-        fail("free ($type)");
-    };
 }
 
 done_testing();

@@ -41,14 +41,6 @@ use Chipmunk::SegmentShape;
         '<', 1e-5, 'get_normal y' );
 
     cmp_ok( abs $segment->get_radius() - $radius, '<', 1e-5, 'get_radius' );
-
-    eval {
-        $segment->free();
-        pass('free');
-        1;
-    } or do {
-        fail('free');
-    };
 }
 
 done_testing();

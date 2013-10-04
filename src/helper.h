@@ -143,7 +143,6 @@ void cpPli_##name##_refcnt_inc(type *obj)                                    \
     if (!obj) { return; }                                                    \
     SV *arg = (SV *)type##GetUserData(obj);                                  \
     SvREFCNT_inc(SvRV(arg));                                                 \
-    warn("# " #type " ref count: %u (inc)\n", SvREFCNT(SvRV(arg)));          \
 }                                                                            \
 
 #define CPPLI_OBJ_REFCNT_DEC(name, type)                                     \
@@ -152,7 +151,6 @@ void cpPli_##name##_refcnt_dec(type *obj)                                    \
     if (!obj) { return; }                                                    \
     SV *arg = (SV *)type##GetUserData(obj);                                  \
     SvREFCNT_dec(SvRV(arg));                                                 \
-    warn("# " #type " ref count: %u (dec)\n", SvREFCNT(SvRV(arg)));          \
 }                                                                            \
 
 #define CPPLI_OBJ_FREE(name, type)                                           \
@@ -164,9 +162,6 @@ void cpPli_##name##_free(type *obj)                                          \
                                                                              \
     if (!arg) { return; }                                                    \
                                                                              \
-    warn("# " #type " ref count: %u (free)\n", SvREFCNT(SvRV(arg)));         \
-                                                                             \
-    warn("# Freeing " #type "\n");                                       \
     type##Free(obj);                                                     \
 }                                                                            \
 

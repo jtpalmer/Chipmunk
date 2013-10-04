@@ -107,7 +107,7 @@ type *cpPli_sv_to_##name(SV *arg)                                            \
     if (!SvOK(arg)) { return NULL; }                                         \
                                                                              \
     if (sv_isobject(arg) && (SvTYPE(SvRV(arg)) == SVt_PVMG)) {               \
-        return (type *)SvIV((SV *)SvRV(arg));                                \
+        return (type *)SvIV(SvRV(arg));                                      \
     }                                                                        \
                                                                              \
     return NULL;                                                             \
@@ -116,20 +116,23 @@ type *cpPli_sv_to_##name(SV *arg)                                            \
 #define CPPLI_OBJ_TO_SV(name, type)                                          \
 SV *cpPli_##name##_to_sv(SV *arg, type *obj, const char *classname)          \
 {                                                                            \
+    SV *var;                                                                 \
+    SV *ref;                                                                 \
+                                                                             \
     if (!obj) {                                                              \
         sv_setsv(arg, &PL_sv_undef);                                         \
         return arg;                                                          \
     }                                                                        \
                                                                              \
-    SV *var = (SV *)type##GetUserData(obj);                                  \
+    var = (SV *)type##GetUserData(obj);                                      \
                                                                              \
     if (!var) {                                                              \
-        var = newSV(0);                                                      \
-        sv_setref_pv(var, classname, (void *)obj);                           \
-        type##SetUserData(obj, (cpDataPointer)var);                          \
+        sv_setref_pv(arg, classname, (void *)obj);                           \
+        ref = newRV_noinc(SvRV(arg));                                        \
+        type##SetUserData(obj, (cpDataPointer)ref);                          \
+    } else {                                                                 \
+        SvSetSV(arg, newRV_noinc(SvRV(var)));                                \
     }                                                                        \
-                                                                             \
-    SvSetSV_nosteal(arg, var);                                               \
                                                                              \
     return arg;                                                              \
 }                                                                            \
@@ -139,8 +142,8 @@ void cpPli_##name##_refcnt_inc(type *obj)                                    \
 {                                                                            \
     if (!obj) { return; }                                                    \
     SV *arg = (SV *)type##GetUserData(obj);                                  \
-    SvREFCNT_inc(arg);                                                       \
-    warn("# " #type " ref count: %u (inc)\n", SvREFCNT(arg));                \
+    SvREFCNT_inc(SvRV(arg));                                                 \
+    warn("# " #type " ref count: %u (inc)\n", SvREFCNT(SvRV(arg)));          \
 }                                                                            \
 
 #define CPPLI_OBJ_REFCNT_DEC(name, type)                                     \
@@ -148,12 +151,8 @@ void cpPli_##name##_refcnt_dec(type *obj)                                    \
 {                                                                            \
     if (!obj) { return; }                                                    \
     SV *arg = (SV *)type##GetUserData(obj);                                  \
-    SvREFCNT_dec(arg);                                                       \
-    warn("# " #type " ref count: %u (dec)\n", SvREFCNT(arg));                \
-    if (SvREFCNT(arg) == 0) {                                                \
-        warn("# Freeing " #type "\n");                                       \
-        type##Free(obj);                                                     \
-    }                                                                        \
+    SvREFCNT_dec(SvRV(arg));                                                 \
+    warn("# " #type " ref count: %u (dec)\n", SvREFCNT(SvRV(arg)));          \
 }                                                                            \
 
 #define CPPLI_OBJ_FREE(name, type)                                           \
@@ -165,20 +164,10 @@ void cpPli_##name##_free(type *obj)                                          \
                                                                              \
     if (!arg) { return; }                                                    \
                                                                              \
-    if (SvREFCNT(arg) == 1) {                                                \
-        type##SetUserData(obj, NULL);                                        \
-    }                                                                        \
+    warn("# " #type " ref count: %u (free)\n", SvREFCNT(SvRV(arg)));         \
                                                                              \
-    if (SvREFCNT(arg) > 0) {                                                 \
-        SvREFCNT_dec(arg);                                                   \
-    }                                                                        \
-                                                                             \
-    warn("# " #type " ref count: %u (free)\n", SvREFCNT(arg));               \
-                                                                             \
-    if (SvREFCNT(arg) == 0) {                                                \
-        warn("# Freeing " #type "\n");                                       \
-        type##Free(obj);                                                     \
-    }                                                                        \
+    warn("# Freeing " #type "\n");                                       \
+    type##Free(obj);                                                     \
 }                                                                            \
 
 #define CPPLI_OBJ_FUNCS(name, type)                                          \

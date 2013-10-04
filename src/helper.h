@@ -162,7 +162,7 @@ void cpPli_##name##_free(type *obj)                                          \
                                                                              \
     if (!arg) { return; }                                                    \
                                                                              \
-    type##Free(obj);                                                     \
+    type##Free(obj);                                                         \
 }                                                                            \
 
 #define CPPLI_OBJ_FUNCS(name, type)                                          \
@@ -177,5 +177,4 @@ CPPLI_OBJ_FUNCS(constraint, cpConstraint)
 CPPLI_OBJ_FUNCS(shape, cpShape)
 CPPLI_OBJ_FUNCS(space, cpSpace)
 
-#endif
-
+#endif /* CHIPMUNK_PERL_HELPER_H */

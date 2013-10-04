@@ -1,6 +1,8 @@
 #ifndef CHIPMUNK_PERL_FUNC_WRAPPERS_H
 #define CHIPMUNK_PERL_FUNC_WRAPPERS_H
 
+#include "helper.h"
+
 /**
  * Provides functions that can be used to wrap Perl subroutines in
  * Chipmunk callbacks.
@@ -39,7 +41,7 @@ void cp_post_step_func(cpSpace *space, SV *key, cp_func_data *combined)
     SV *space_sv;
 
     space_sv = sv_newmortal();
-    sv_setref_pv(space_sv, "Chipmunk::Space", (void *)space);
+    cpPli_space_to_sv(space_sv, space, "Chipmunk::Space");
 
     func = combined->func;
     data = combined->data;

@@ -7,7 +7,6 @@
 #include "ppport.h"
 
 #include <chipmunk.h>
-#include "func_wrappers.h"
 
 SV *cpPli_object_to_sv(SV *arg, void *obj, const char *classname)
 {

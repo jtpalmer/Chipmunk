@@ -22,7 +22,7 @@ SV *cpPli_object_to_sv(SV *arg, void *obj, const char *classname)
 void *cpPli_sv_to_object(SV *arg)
 {
     if (sv_isobject(arg) && (SvTYPE(SvRV(arg)) == SVt_PVMG)) {
-        return INT2PTR(void *, SvIV((SV *)SvRV(arg)));
+        return INT2PTR(void *, SvIV(SvRV(arg)));
     }
 
     return NULL;
@@ -89,10 +89,11 @@ cpVect *cpPli_sv_to_vect_array(SV *arg)
 SV *cpPli_vect_array_to_sv(int size, cpVect *var)
 {
     int i;
+    AV *vect;
     AV *output = newAV();
 
     for (i = 0; i < size; i++) {
-        AV *vect = newAV();
+        vect = newAV();
         av_push(vect, newSVnv(var[i].x));
         av_push(vect, newSVnv(var[i].y));
         av_push(output, newRV_inc((SV *)vect));
@@ -140,28 +141,28 @@ SV *cpPli_##name##_to_sv(SV *arg, type *obj, const char *classname)          \
 #define CPPLI_OBJ_REFCNT_INC(name, type)                                     \
 void cpPli_##name##_refcnt_inc(type *obj)                                    \
 {                                                                            \
+    SV *data;                                                                \
     if (!obj) { return; }                                                    \
-    SV *arg = (SV *)type##GetUserData(obj);                                  \
-    SvREFCNT_inc(SvRV(arg));                                                 \
+    data = (SV *)type##GetUserData(obj);                                     \
+    SvREFCNT_inc(SvRV(data));                                                \
 }                                                                            \
 
 #define CPPLI_OBJ_REFCNT_DEC(name, type)                                     \
 void cpPli_##name##_refcnt_dec(type *obj)                                    \
 {                                                                            \
+    SV *data;                                                                \
     if (!obj) { return; }                                                    \
-    SV *arg = (SV *)type##GetUserData(obj);                                  \
-    SvREFCNT_dec(SvRV(arg));                                                 \
+    data = (SV *)type##GetUserData(obj);                                     \
+    SvREFCNT_dec(SvRV(data));                                                \
 }                                                                            \
 
 #define CPPLI_OBJ_FREE(name, type)                                           \
 void cpPli_##name##_free(type *obj)                                          \
 {                                                                            \
+    SV *data;                                                                \
     if (!obj) { return; }                                                    \
-                                                                             \
-    SV *arg = (SV *)type##GetUserData(obj);                                  \
-                                                                             \
-    if (!arg) { return; }                                                    \
-                                                                             \
+    data = (SV *)type##GetUserData(obj);                                     \
+    if (!data) { return; }                                                   \
     type##Free(obj);                                                         \
 }                                                                            \
 

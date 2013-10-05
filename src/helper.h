@@ -36,10 +36,10 @@ cpVect cpPli_sv_to_vect(SV *arg)
 
     if (SvTYPE(SvRV(arg)) == SVt_PVAV) {
         input = (AV *)SvRV(arg);
-        length = av_len(input);
+        length = av_len(input) + 1;
 
-        if (length != 1) {
-            croak("Expected 2 elements, found %d", length + 1);
+        if (length != 2) {
+            croak("Expected 2 elements, found %d", length);
         }
 
         x = (cpFloat)SvNV(*av_fetch(input, 0, 0));

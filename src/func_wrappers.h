@@ -8,16 +8,16 @@
  * Chipmunk callbacks.
  */
 
-typedef struct cp_func_data {
+typedef struct cpPli_func_data {
     SV *func;
     SV *data;
-} cp_func_data;
+} cpPli_func_data;
 
-cp_func_data *new_func_data(SV *func, SV *data)
+cpPli_func_data *cpPli_func_data_new(SV *func, SV *data)
 {
-    cp_func_data *combined;
+    cpPli_func_data *combined;
 
-    Newx(combined, 1, cp_func_data);
+    Newx(combined, 1, cpPli_func_data);
 
     combined->func = newSVsv(func);
     combined->data = newSVsv(data);
@@ -25,7 +25,7 @@ cp_func_data *new_func_data(SV *func, SV *data)
     return combined;
 }
 
-void free_func_data(cp_func_data *combined)
+void cpPli_func_data_free(cpPli_func_data *combined)
 {
     SvREFCNT_dec(combined->func);
     SvREFCNT_dec(combined->data);
@@ -33,7 +33,7 @@ void free_func_data(cp_func_data *combined)
 }
 
 /* typedef void(*cpPostStepFunc)(cpSpace *space, void *key, void *data) */
-void cp_post_step_func(cpSpace *space, SV *key, cp_func_data *combined)
+void cpPli_post_step_func(cpSpace *space, SV *key, cpPli_func_data *combined)
 {
     dSP;
     SV *func;
@@ -60,7 +60,7 @@ void cp_post_step_func(cpSpace *space, SV *key, cp_func_data *combined)
     FREETMPS;
     LEAVE;
 
-    free_func_data(combined);
+    cpPli_func_data_free(combined);
 }
 
 /* cpSpace */

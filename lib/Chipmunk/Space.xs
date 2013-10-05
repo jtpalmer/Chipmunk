@@ -351,19 +351,19 @@ cpspace_add_post_step_callback(space, func, key, data)
         SV *key
         SV *data
     INIT:
-        cp_func_data *func_data;
+        cpPli_func_data *func_data;
     CODE:
-        func_data = new_func_data(func, data);
+        func_data = cpPli_func_data_new(func, data);
 
         RETVAL = cpSpaceAddPostStepCallback(
             space,
-            (cpPostStepFunc)cp_post_step_func,
+            (cpPostStepFunc)cpPli_post_step_func,
             key,
             func_data
         );
 
         if (!RETVAL) {
-            free_func_data(func_data);
+            cpPli_func_data_free(func_data);
         }
     OUTPUT:
         RETVAL

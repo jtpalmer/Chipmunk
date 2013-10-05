@@ -70,6 +70,7 @@ cpVect *cpPli_sv_to_vect_array(SV *arg)
     if (SvTYPE(SvRV(arg)) == SVt_PVAV) {
         input = (AV *)SvRV(arg);
         length = av_len(input) + 1;
+
         Newx(verts, length, cpVect);
 
         for (i = 0; i < length; i++) {

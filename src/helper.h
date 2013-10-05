@@ -102,6 +102,82 @@ SV *cpPli_vect_array_to_sv(int size, cpVect *var)
     return newRV_inc((SV *)output);
 }
 
+cpMat2x2 cpPli_sv_to_mat2x2(SV *arg)
+{
+    AV *input;
+    I32 length;
+
+    if (SvTYPE(SvRV(arg)) == SVt_PVAV) {
+        input = (AV *)SvRV(arg);
+        length = av_len(input) + 1;
+
+        if (length != 4) {
+            croak("Expected 4 elements, found %d", length);
+        }
+
+        return cpMat2x2New(
+                   (cpFloat)SvNV(*av_fetch(input, 0, 0)),
+                   (cpFloat)SvNV(*av_fetch(input, 1, 0)),
+                   (cpFloat)SvNV(*av_fetch(input, 2, 0)),
+                   (cpFloat)SvNV(*av_fetch(input, 3, 0))
+               );
+    } else {
+        croak("Expected array reference");
+    }
+
+    return cpMat2x2New(0.0, 0.0, 0.0, 0.0);
+}
+
+SV *cpPli_mat2x2_to_sv(cpMat2x2 var)
+{
+    AV *output = newAV();
+    av_push(output, newSVnv(var.a));
+    av_push(output, newSVnv(var.b));
+    av_push(output, newSVnv(var.c));
+    av_push(output, newSVnv(var.d));
+    return newRV_inc((SV *)output);
+}
+
+cpBB cpPli_sv_to_bb(SV *arg)
+{
+    AV *input;
+    I32 length;
+
+    if (SvTYPE(SvRV(arg)) == SVt_PVAV) {
+        input = (AV *)SvRV(arg);
+        length = av_len(input) + 1;
+
+        if (length != 4) {
+            croak("Expected 4 elements, found %d", length);
+        }
+
+        return cpBBNew(
+                   (cpFloat)SvNV(*av_fetch(input, 0, 0)),
+                   (cpFloat)SvNV(*av_fetch(input, 1, 0)),
+                   (cpFloat)SvNV(*av_fetch(input, 2, 0)),
+                   (cpFloat)SvNV(*av_fetch(input, 3, 0))
+               );
+    } else {
+        croak("Expected array reference");
+    }
+
+    return cpBBNew(0.0, 0.0, 0.0, 0.0);
+}
+
+SV *cpPli_bb_to_sv(cpBB var)
+{
+    SV *arg;
+    AV *output = newAV();
+    av_push(output, newSVnv(var.l));
+    av_push(output, newSVnv(var.b));
+    av_push(output, newSVnv(var.r));
+    av_push(output, newSVnv(var.t));
+    arg = newRV_inc((SV *)output);
+    load_module((U32)0, newSVpv("Chipmunk::BB", 0), NULL, NULL);
+    sv_bless(arg, gv_stashpv("Chipmunk::BB", (I32)0));
+    return arg;
+}
+
 #define CPPLI_SV_TO_OBJ(name, type)                                          \
 type *cpPli_sv_to_##name(SV *arg)                                            \
 {                                                                            \

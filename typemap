@@ -45,40 +45,10 @@ O_OBJ_VECT
     $var = cpPli_sv_to_vect($arg);
 
 O_OBJ_MAT2X2
-    if (SvTYPE(SvRV($arg)) == SVt_PVAV) {
-        AV *input = (AV *)SvRV($arg);
-        if (av_len(input) != 3) {
-            XSRETURN_UNDEF;
-        }
-        $var = cpMat2x2New(
-            (cpFloat)SvNV(*av_fetch(input, 0, 0)),
-            (cpFloat)SvNV(*av_fetch(input, 1, 0)),
-            (cpFloat)SvNV(*av_fetch(input, 2, 0)),
-            (cpFloat)SvNV(*av_fetch(input, 3, 0))
-        );
-    } else if ($arg == 0) {
-        XSRETURN(0);
-    } else {
-        XSRETURN_UNDEF;
-    }
+    $var = cpPli_sv_to_mat2x2($arg);
 
 O_OBJ_BB
-    if (SvTYPE(SvRV($arg)) == SVt_PVAV) {
-        AV *input = (AV *)SvRV($arg);
-        if (av_len(input) != 3) {
-            XSRETURN_UNDEF;
-        }
-        $var = cpBBNew(
-            (cpFloat)SvNV(*av_fetch(input, 0, 0)),
-            (cpFloat)SvNV(*av_fetch(input, 1, 0)),
-            (cpFloat)SvNV(*av_fetch(input, 2, 0)),
-            (cpFloat)SvNV(*av_fetch(input, 3, 0))
-        );
-    } else if ($arg == 0) {
-        XSRETURN(0);
-    } else {
-        XSRETURN_UNDEF;
-    }
+    $var = cpPli_sv_to_bb($arg);
 
 OUTPUT
 
@@ -101,20 +71,8 @@ O_OBJ_VECT
     $arg = cpPli_vect_to_sv($var);
 
 O_OBJ_MAT2X2
-    AV *output = newAV();
-    av_push(output, newSVnv($var.a));
-    av_push(output, newSVnv($var.b));
-    av_push(output, newSVnv($var.c));
-    av_push(output, newSVnv($var.d));
-    $arg = newRV_inc((SV *)output);
+    $arg = cpPli_mat2x2_to_sv($var);
 
 O_OBJ_BB
-    AV *output = newAV();
-    av_push(output, newSVnv($var.l));
-    av_push(output, newSVnv($var.b));
-    av_push(output, newSVnv($var.r));
-    av_push(output, newSVnv($var.t));
-    $arg = newRV_inc((SV *)output);
-    load_module((U32)0, newSVpv(CLASS, 0), NULL, NULL);
-    sv_bless($arg, gv_stashpv(CLASS, (I32)0));
+    $arg = cpPli_bb_to_sv($var);
 

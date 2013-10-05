@@ -46,8 +46,7 @@ cpVect cpPli_sv_to_vect(SV *arg)
         y = (cpFloat)SvNV(*av_fetch(input, 1, 0));
 
         return cpv(x, y);
-    }
-    else {
+    } else {
         croak("Expected array reference");
     }
 }
@@ -80,8 +79,7 @@ cpVect *cpPli_sv_to_vect_array(SV *arg)
         }
 
         return verts;
-    }
-    else {
+    } else {
         croak("Expected array reference");
     }
 }

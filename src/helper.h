@@ -31,7 +31,7 @@ void *cpPli_sv_to_object(SV *arg)
 cpVect cpPli_sv_to_vect(SV *arg)
 {
     AV *input;
-    int length;
+    I32 length;
     cpFloat x, y;
 
     if (SvTYPE(SvRV(arg)) == SVt_PVAV) {
@@ -62,7 +62,7 @@ SV *cpPli_vect_to_sv(cpVect var)
 cpVect *cpPli_sv_to_vect_array(SV *arg)
 {
     AV *input;
-    int length, i;
+    I32 length, i;
     SV *vert;
     cpVect v;
     cpVect *verts;
@@ -84,9 +84,9 @@ cpVect *cpPli_sv_to_vect_array(SV *arg)
     }
 }
 
-SV *cpPli_vect_array_to_sv(int size, cpVect *var)
+SV *cpPli_vect_array_to_sv(I32 size, cpVect *var)
 {
-    int i;
+    I32 i;
     AV *vect;
     AV *output = newAV();
 

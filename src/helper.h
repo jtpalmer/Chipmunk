@@ -179,13 +179,16 @@ SV *cpPli_bb_to_sv(cpBB var)
 {
     SV *arg;
     AV *output = newAV();
+
     av_push(output, newSVnv(var.l));
     av_push(output, newSVnv(var.b));
     av_push(output, newSVnv(var.r));
     av_push(output, newSVnv(var.t));
+
     arg = newRV_inc((SV *)output);
     load_module((U32)0, newSVpv("Chipmunk::BB", 0), NULL, NULL);
     sv_bless(arg, gv_stashpv("Chipmunk::BB", (I32)0));
+
     return arg;
 }
 

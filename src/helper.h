@@ -12,7 +12,8 @@ SV *cpPli_object_to_sv(SV *arg, void *obj, const char *classname)
 {
     if (obj) {
         sv_setref_pv(arg, classname, (void *)obj);
-    } else {
+    }
+    else {
         sv_setsv(arg, &PL_sv_undef);
     }
 
@@ -46,7 +47,8 @@ cpVect cpPli_sv_to_vect(SV *arg)
         y = (cpFloat)SvNV(*av_fetch(input, 1, 0));
 
         return cpv(x, y);
-    } else {
+    }
+    else {
         croak("Expected array reference");
     }
 }
@@ -80,7 +82,8 @@ cpVect *cpPli_sv_to_vect_array(SV *arg)
         }
 
         return verts;
-    } else {
+    }
+    else {
         croak("Expected array reference");
     }
 }
@@ -120,7 +123,8 @@ cpMat2x2 cpPli_sv_to_mat2x2(SV *arg)
                    (cpFloat)SvNV(*av_fetch(input, 2, 0)),
                    (cpFloat)SvNV(*av_fetch(input, 3, 0))
                );
-    } else {
+    }
+    else {
         croak("Expected array reference");
     }
 
@@ -156,7 +160,8 @@ cpBB cpPli_sv_to_bb(SV *arg)
                    (cpFloat)SvNV(*av_fetch(input, 2, 0)),
                    (cpFloat)SvNV(*av_fetch(input, 3, 0))
                );
-    } else {
+    }
+    else {
         croak("Expected array reference");
     }
 
@@ -206,7 +211,8 @@ SV *cpPli_##name##_to_sv(SV *arg, type *obj, const char *classname)          \
         sv_setref_pv(arg, classname, (void *)obj);                           \
         ref = newRV_noinc(SvRV(arg));                                        \
         type##SetUserData(obj, (cpDataPointer)ref);                          \
-    } else {                                                                 \
+    }                                                                        \
+    else {                                                                   \
         SvSetSV(arg, newRV_noinc(SvRV(var)));                                \
     }                                                                        \
                                                                              \

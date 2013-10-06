@@ -45,9 +45,11 @@ cpbody_activate_static(body, ...)
     CODE:
         if (items == 2) {
             filter = (cpShape *)SvIV((SV *)SvRV(ST(1)));
-        } else if (items == 1) {
+        }
+        else if (items == 1) {
             filter = NULL;
-        } else {
+        }
+        else {
             croak("Wrong number of arguments");
         }
 

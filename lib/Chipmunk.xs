@@ -126,9 +126,11 @@ cp_moment_for_poly(m, verts, ...)
     CODE:
         if (items == 3) {
             offset = cpPli_sv_to_vect(ST(2));
-        } else if (items == 2) {
+        }
+        else if (items == 2) {
             offset = cpv((cpFloat)0.0, (cpFloat)0.0);
-        } else {
+        }
+        else {
             croak("Wrong number of arguments");
         }
 
@@ -228,9 +230,11 @@ cp_convex_hull(verts, ...)
     CODE:
         if (items == 2) {
             tol = SvNV(ST(2));
-        } else if (items == 1) {
+        }
+        else if (items == 1) {
             tol = 0.0;
-        } else {
+        }
+        else {
             croak("Wrong number of arguments");
         }
 

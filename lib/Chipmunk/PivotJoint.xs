@@ -20,11 +20,13 @@ cppivotjoint_new(CLASS, a, b, ...)
         if (items == 4) {
             pivot = cpPli_sv_to_vect(ST(3));
             RETVAL = cpPivotJointNew(a, b, pivot);
-        } else if (items == 5) {
+        }
+        else if (items == 5) {
             anchr1 = cpPli_sv_to_vect(ST(3));
             anchr2 = cpPli_sv_to_vect(ST(4));
             RETVAL = cpPivotJointNew2(a, b, anchr1, anchr2);
-        } else {
+        }
+        else {
             croak("Wrong number of arguments");
         }
         cpPli_body_refcnt_inc(a);

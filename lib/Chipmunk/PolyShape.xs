@@ -19,9 +19,11 @@ cppoly_new(CLASS, body, verts, ...)
     CODE:
         if (items == 4) {
             offset = cpPli_sv_to_vect(ST(3));
-        } else if (items == 3) {
+        }
+        else if (items == 3) {
             offset = cpv((cpFloat)0.0, (cpFloat)0.0);
-        } else {
+        }
+        else {
             croak("Wrong number of arguments");
         }
 

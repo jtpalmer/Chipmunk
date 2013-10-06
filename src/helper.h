@@ -128,7 +128,7 @@ cpMat2x2 cpPli_sv_to_mat2x2(SV *arg)
         croak("Expected array reference");
     }
 
-    return cpMat2x2New(0.0, 0.0, 0.0, 0.0);
+    return cpMat2x2New(0.0f, 0.0f, 0.0f, 0.0f);
 }
 
 SV *cpPli_mat2x2_to_sv(cpMat2x2 var)
@@ -165,7 +165,7 @@ cpBB cpPli_sv_to_bb(SV *arg)
         croak("Expected array reference");
     }
 
-    return cpBBNew(0.0, 0.0, 0.0, 0.0);
+    return cpBBNew(0.0f, 0.0f, 0.0f, 0.0f);
 }
 
 SV *cpPli_bb_to_sv(cpBB var)

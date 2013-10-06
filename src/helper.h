@@ -187,7 +187,7 @@ type *cpPli_sv_to_##name(SV *arg)                                            \
     }                                                                        \
                                                                              \
     return NULL;                                                             \
-}                                                                            \
+}
 
 #define CPPLI_OBJ_TO_SV(name, type)                                          \
 SV *cpPli_##name##_to_sv(SV *arg, type *obj, const char *classname)          \
@@ -211,7 +211,7 @@ SV *cpPli_##name##_to_sv(SV *arg, type *obj, const char *classname)          \
     }                                                                        \
                                                                              \
     return arg;                                                              \
-}                                                                            \
+}
 
 #define CPPLI_OBJ_REFCNT_INC(name, type)                                     \
 void cpPli_##name##_refcnt_inc(type *obj)                                    \
@@ -220,7 +220,7 @@ void cpPli_##name##_refcnt_inc(type *obj)                                    \
     if (!obj) { return; }                                                    \
     data = (SV *)type##GetUserData(obj);                                     \
     SvREFCNT_inc(SvRV(data));                                                \
-}                                                                            \
+}
 
 #define CPPLI_OBJ_REFCNT_DEC(name, type)                                     \
 void cpPli_##name##_refcnt_dec(type *obj)                                    \
@@ -229,7 +229,7 @@ void cpPli_##name##_refcnt_dec(type *obj)                                    \
     if (!obj) { return; }                                                    \
     data = (SV *)type##GetUserData(obj);                                     \
     SvREFCNT_dec(SvRV(data));                                                \
-}                                                                            \
+}
 
 #define CPPLI_OBJ_FREE(name, type)                                           \
 void cpPli_##name##_free(type *obj)                                          \
@@ -239,14 +239,14 @@ void cpPli_##name##_free(type *obj)                                          \
     data = (SV *)type##GetUserData(obj);                                     \
     if (!data) { return; }                                                   \
     type##Free(obj);                                                         \
-}                                                                            \
+}
 
 #define CPPLI_OBJ_FUNCS(name, type)                                          \
 CPPLI_SV_TO_OBJ(name, type)                                                  \
 CPPLI_OBJ_TO_SV(name, type)                                                  \
 CPPLI_OBJ_REFCNT_INC(name, type)                                             \
 CPPLI_OBJ_REFCNT_DEC(name, type)                                             \
-CPPLI_OBJ_FREE(name, type)                                                   \
+CPPLI_OBJ_FREE(name, type)
 
 CPPLI_OBJ_FUNCS(body, cpBody)
 CPPLI_OBJ_FUNCS(constraint, cpConstraint)

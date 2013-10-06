@@ -133,12 +133,19 @@ cpMat2x2 cpPli_sv_to_mat2x2(SV *arg)
 
 SV *cpPli_mat2x2_to_sv(cpMat2x2 var)
 {
+    SV *arg;
     AV *output = newAV();
+
     av_push(output, newSVnv(var.a));
     av_push(output, newSVnv(var.b));
     av_push(output, newSVnv(var.c));
     av_push(output, newSVnv(var.d));
-    return newRV_inc((SV *)output);
+
+    arg = newRV_inc((SV *)output);
+    load_module((U32)0, newSVpv("Chipmunk::Mat2x2", 0), NULL, NULL);
+    sv_bless(arg, gv_stashpv("Chipmunk::Mat2x2", (I32)0));
+
+    return arg;
 }
 
 cpBB cpPli_sv_to_bb(SV *arg)

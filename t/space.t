@@ -38,8 +38,7 @@ use Chipmunk::Space;
     cmp_ok( abs $space->get_collision_slop() - $collision_slop,
         '<', 1e-5, 'get_collision_slop' );
 
-    # TODO: get_collision_slop, set_collision_slop,
-    #       get_collision_bias, set_collision_bias,
+    # TODO: get_collision_bias, set_collision_bias,
     #       get_collision_persistence, set_collision_persistence,
     #       get_enable_contact_graph, set_enable_contact_graph,
     #       get_user_data, set_user_data, get_static_body,

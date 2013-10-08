@@ -48,7 +48,7 @@ use Chipmunk::Space;
     #       get_user_data, set_user_data, get_static_body,
     #       get_current_time_step
 
-    is( $space->is_locked(), 0, 'is_locked' );
+    ok( !$space->is_locked(), 'is_locked' );
 
     # TODO: set_default_collision_handler, add_collision_handler,
     #       remove_collision_handler, add_shape, add_static_shape,

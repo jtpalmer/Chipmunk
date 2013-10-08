@@ -1,10 +1,10 @@
 TYPEMAP
 char *                  T_PV
-cpBool                  T_IV
-cpCollisionType         T_IV
+cpBool                  T_BOOL
+cpCollisionType         T_UV
 cpGroup                 T_IV
 cpLayers                T_IV
-cpTimestamp             T_IV
+cpTimestamp             T_UV
 cpFloat                 T_NV
 cpArbiter *             O_OBJECT
 cpBody *                O_OBJ_BODY

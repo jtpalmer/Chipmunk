@@ -48,6 +48,10 @@ use Chipmunk::Space;
     is( $space->get_collision_persistence(),
         $collision_persistence, 'get_collision_persistence' );
 
+    my $enable_contact_graph = 1;
+    $space->set_enable_contact_graph($enable_contact_graph);
+    ok( $space->get_enable_contact_graph(), 'get_enable_contact_graph' );
+
     # TODO: get_enable_contact_graph, set_enable_contact_graph,
     #       get_user_data, set_user_data, get_static_body,
     #       get_current_time_step

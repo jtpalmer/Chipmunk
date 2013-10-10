@@ -45,7 +45,8 @@ use Chipmunk::Space;
 
     my $collision_persistence = 2;
     $space->set_collision_persistence($collision_persistence);
-    is( $space->get_collision_persistence(), $collision_persistence, 'get_collision_persistence' );
+    is( $space->get_collision_persistence(),
+        $collision_persistence, 'get_collision_persistence' );
 
     # TODO: get_enable_contact_graph, set_enable_contact_graph,
     #       get_user_data, set_user_data, get_static_body,

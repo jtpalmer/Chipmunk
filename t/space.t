@@ -52,8 +52,9 @@ use Chipmunk::Space;
     $space->set_enable_contact_graph($enable_contact_graph);
     ok( $space->get_enable_contact_graph(), 'get_enable_contact_graph' );
 
-    # TODO: get_user_data, set_user_data, get_static_body,
-    #       get_current_time_step
+    isa_ok( $space->get_static_body(), 'Chipmunk::Body', 'get_static_body' );
+
+    # TODO: get_user_data, set_user_data, get_current_time_step
 
     ok( !$space->is_locked(), 'is_locked' );
 

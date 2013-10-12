@@ -80,11 +80,20 @@ $app->add_move_handler(
 
 $app->add_show_handler(
     sub {
+
+        # Clear surface.
         $app->draw_rect( undef, undef );
-        my $pos = $ball_body->get_pos();
-        $app->draw_circle_filled( w2s($pos), w2s($radius), 0x448822ff );
-        $pos = $anchor_body->get_pos();
-        $app->draw_circle_filled( w2s($pos), w2s($radius), 0x224488ff );
+
+        my $r          = w2s($radius);
+        my $ball_pos   = w2s( $ball_body->get_pos() );
+        my $anchor_pos = w2s( $anchor_body->get_pos() );
+
+        # Draw pendulum.
+        $app->draw_line( $anchor_pos, $ball_pos, 0xccccccff );
+        $app->draw_circle_filled( $anchor_pos, $r, 0x224488ff );
+        $app->draw_circle_filled( $ball_pos,   $r, 0x448822ff );
+
+        # Update surface.
         $app->update();
     }
 );

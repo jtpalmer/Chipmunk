@@ -81,10 +81,19 @@ $app->add_move_handler(
 
 $app->add_show_handler(
     sub {
+
+        # Clear surface.
         $app->draw_rect( undef, undef );
-        $app->draw_line( $ground_pos0, $ground_pos1, 0xffffffff );
+
+        # Draw ground.
+        $app->draw_polygon_filled(
+            [ $ground_pos0, $ground_pos1, [ $width, $height ] ], 0x964b00ff );
+
+        # Draw ball.
         my $pos = $ball_body->get_pos();
         $app->draw_circle_filled( w2s($pos), w2s($radius), 0x448822ff );
+
+        # Update surface.
         $app->update();
     }
 );

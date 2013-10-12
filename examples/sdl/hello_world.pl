@@ -48,7 +48,8 @@ $space->set_gravity( [ 0, -10 ] );
 
 my $ground = Chipmunk::SegmentShape->new( $space->get_static_body(),
     s2w($ground_pos0), s2w($ground_pos1), 0 );
-$ground->set_friction(1);
+$ground->set_friction(0.8);
+$ground->set_elasticity(0.8);
 
 $space->add_shape($ground);
 
@@ -60,7 +61,8 @@ $ball_body->set_pos( s2w( [ $width / 2, 0 ] ) );
 
 my $ball_shape = Chipmunk::CircleShape->new( $ball_body, $radius, [ 0, 0 ] );
 $space->add_shape($ball_shape);
-$ball_shape->set_friction(0.7);
+$ball_shape->set_friction(0.9);
+$ball_shape->set_elasticity(0.9);
 
 my $app = SDLx::App->new(
     title  => 'Hello World',

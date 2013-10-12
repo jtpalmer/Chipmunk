@@ -136,7 +136,8 @@ sub draw_gear {
     my $r      = w2s( $gear->{shape}->get_radius() );
     my $color  = $gear->{color};
 
-    $app->draw_circle_filled( $center, $r, $color );
+    $app->draw_circle_filled( $center, $r,     $color );
+    $app->draw_circle_filled( $center, $r / 8, 0x000000ff );
 
     my $count = $gear->{teeth};
 

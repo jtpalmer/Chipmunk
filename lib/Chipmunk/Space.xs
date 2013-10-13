@@ -161,20 +161,21 @@ cpspace_set_enable_contact_graph(space, value)
     CODE:
         cpSpaceSetEnableContactGraph(space, value);
 
-SV *
-cpspace_get_user_data(space)
-        cpSpace *space
-    CODE:
-        RETVAL = (SV *)cpSpaceGetUserData(space);
-    OUTPUT:
-        RETVAL
-
-void
-cpspace_set_user_data(space, data)
-        cpSpace *space
-        SV *data
-    CODE:
-        cpSpaceSetUserData(space, (cpDataPointer)data);
+# TODO
+#SV *
+#cpspace_get_user_data(space)
+#        cpSpace *space
+#    CODE:
+#        RETVAL = (SV *)cpSpaceGetUserData(space);
+#    OUTPUT:
+#        RETVAL
+#
+#void
+#cpspace_set_user_data(space, data)
+#        cpSpace *space
+#        SV *data
+#    CODE:
+#        cpSpaceSetUserData(space, (cpDataPointer)data);
 
 cpBody *
 cpspace_get_static_body(space)

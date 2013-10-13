@@ -260,20 +260,21 @@ cpbody_set_ang_vel_limit(body, ang_vel_limit)
     CODE:
         cpBodySetAngVelLimit(body, ang_vel_limit);
 
-SV *
-cpbody_get_user_data(body)
-        cpBody *body
-    CODE:
-        RETVAL = (SV *)cpBodyGetUserData(body);
-    OUTPUT:
-        RETVAL
-
-void
-cpbody_set_user_data(body, data)
-        cpBody *body
-        SV *data
-    CODE:
-        cpBodySetUserData(body, (cpDataPointer)data);
+# TODO
+#SV *
+#cpbody_get_user_data(body)
+#        cpBody *body
+#    CODE:
+#        RETVAL = (SV *)cpBodyGetUserData(body);
+#    OUTPUT:
+#        RETVAL
+#
+#void
+#cpbody_set_user_data(body, data)
+#        cpBody *body
+#        SV *data
+#    CODE:
+#        cpBodySetUserData(body, (cpDataPointer)data);
 
 # NOTE: update_velocity and update_position are the default functions,
 #       these should be overridable by subclasses?

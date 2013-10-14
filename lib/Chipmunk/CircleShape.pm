@@ -19,5 +19,11 @@ __END__
 
 =head1 DESCRIPTION
 
+=head1 METHODS
+
+=head2 get_offset
+
+=head2 get_radius
+
 =cut
 

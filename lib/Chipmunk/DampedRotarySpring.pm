@@ -20,5 +20,9 @@ __END__
 
 =head1 DESCRIPTION
 
+=head1 METHODS
+
+=head2 new
+
 =cut
 

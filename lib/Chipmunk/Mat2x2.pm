@@ -13,3 +13,15 @@ XSLoader::load( 'Chipmunk::Mat2x2', $Chipmunk::Mat2x2::VERSION );
 
 __END__
 
+=head1 SYNOPSIS
+
+=head1 DESCRIPTION
+
+=head1 METHODS
+
+=head2 new
+
+=head2 transform
+
+=cut
+

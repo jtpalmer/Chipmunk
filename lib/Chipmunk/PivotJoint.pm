@@ -19,5 +19,17 @@ __END__
 
 =head1 DESCRIPTION
 
+=head1 METHODS
+
+=head2 new
+
+=head2 get_anchr1
+
+=head2 set_anchr1
+
+=head2 get_anchr2
+
+=head2 set_anchr2
+
 =cut
 

@@ -20,7 +20,6 @@ cpsegment_new(CLASS, body, a, b, radius)
     OUTPUT:
         RETVAL
 
-# TODO: Check if this is part of the public interface.
 void
 cpsegment_set_neighbors(shape, prev, next)
         cpShape *shape

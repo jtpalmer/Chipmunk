@@ -19,5 +19,13 @@ __END__
 
 =head1 DESCRIPTION
 
+=head1 METHODS
+
+=head2 new
+
+=head2 get_num_verts
+
+=head2 get_vert
+
 =cut
 

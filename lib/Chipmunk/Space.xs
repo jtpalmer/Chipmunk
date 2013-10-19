@@ -3,7 +3,6 @@
 #include "XSUB.h"
 #include "ppport.h"
 #include "helper.h"
-#include "func_wrappers.h"
 
 MODULE = Chipmunk::Space    PACKAGE = Chipmunk::Space    PREFIX = cpspace_
 PROTOTYPES: ENABLE

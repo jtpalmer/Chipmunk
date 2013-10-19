@@ -40,13 +40,6 @@ cpspace_set_iterations(space, value)
     CODE:
         cpSpaceSetIterations(space, value);
 
-void
-cpspace_set_gravity(space, gravity)
-        cpSpace *space
-        cpVect gravity
-    CODE:
-        cpSpaceSetGravity(space, gravity);
-
 cpVect
 cpspace_get_gravity(space)
         cpSpace *space
@@ -54,6 +47,13 @@ cpspace_get_gravity(space)
         RETVAL = cpSpaceGetGravity(space);
     OUTPUT:
         RETVAL
+
+void
+cpspace_set_gravity(space, gravity)
+        cpSpace *space
+        cpVect gravity
+    CODE:
+        cpSpaceSetGravity(space, gravity);
 
 cpFloat
 cpspace_get_damping(space)

@@ -19,5 +19,21 @@ __END__
 
 =head1 DESCRIPTION
 
+=head1 METHODS
+
+=head2 new
+
+=head2 get_angle
+
+=head2 set_angle
+
+=head2 get_phase
+
+=head2 set_phase
+
+=head2 get_ratchet
+
+=head2 set_ratchet
+
 =cut
 

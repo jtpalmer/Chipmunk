@@ -19,5 +19,19 @@ __END__
 
 =head1 DESCRIPTION
 
+=head1 METHODS
+
+=head2 new
+
+=head2 set_neighbors
+
+=head2 get_a
+
+=head2 get_b
+
+=head2 get_normal
+
+=head2 get_radius
+
 =cut
 

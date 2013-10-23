@@ -19,5 +19,13 @@ __END__
 
 =head1 DESCRIPTION
 
+=head1 METHODS
+
+=head2 new
+
+=head2 get_rate
+
+=head2 set_rate
+
 =cut
 

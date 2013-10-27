@@ -293,7 +293,7 @@ void cpPli_func_data_free(cpPli_func_data *combined)
     Safefree(combined);
 }
 
-/* typedef void(*cpPostStepFunc)(cpSpace *space, void *key, void *data) */
+/* typedef void (*cpPostStepFunc)(cpSpace *space, void *key, void *data) */
 void cpPli_post_step_func(cpSpace *space, SV *key, cpPli_func_data *combined)
 {
     dSP;
@@ -326,28 +326,28 @@ void cpPli_post_step_func(cpSpace *space, SV *key, cpPli_func_data *combined)
 
 /* cpSpace */
 
-/* typedef void(*cpSpacePointQueryFunc)(cpShape *shape, void *data) */
+/* typedef void (*cpSpacePointQueryFunc)(cpShape *shape, void *data) */
 /* void (cpShape *shape, void *data) */
 
-/* typedef void(*cpSpaceNearestPointQueryFunc)(cpShape *shape, cpFloat distance, cpVect point, void *data) */
+/* typedef void (*cpSpaceNearestPointQueryFunc)(cpShape *shape, cpFloat distance, cpVect point, void *data) */
 /* void (cpShape *shape, cpFloat distance, cpVect point, void *data) */
 
-/* typedef void(*cpSpaceSegmentQueryFunc)(cpShape *shape, cpFloat t, cpVect n, void *data) */
+/* typedef void (*cpSpaceSegmentQueryFunc)(cpShape *shape, cpFloat t, cpVect n, void *data) */
 /* void (cpShape *shape, cpFloat t, cpVect n, void *data) */
 
-/* typedef void(*cpSpaceBBQueryFunc)(cpShape *shape, void *data) */
+/* typedef void (*cpSpaceBBQueryFunc)(cpShape *shape, void *data) */
 /* void (cpShape *shape, void *data) */
 
-/* typedef void(*cpSpaceShapeQueryFunc)(cpShape *shape, cpContactPointSet *points, void *data) */
+/* typedef void (*cpSpaceShapeQueryFunc)(cpShape *shape, cpContactPointSet *points, void *data) */
 /* void (cpShape *shape, cpContactPointSet *points, void *data) */
 
-/* typedef void(*cpSpaceBodyIteratorFunc)(cpBody *body, void *data) */
+/* typedef void (*cpSpaceBodyIteratorFunc)(cpBody *body, void *data) */
 /* void (cpBody *body, void *data) */
 
-/* typedef void(*cpSpaceShapeIteratorFunc)(cpShape *shape, void *data) */
+/* typedef void (*cpSpaceShapeIteratorFunc)(cpShape *shape, void *data) */
 /* void (cpShape *shape, void *data) */
 
-/* typedef void(*cpSpaceConstraintIteratorFunc)(cpConstraint *constraint, void *data) */
+/* typedef void (*cpSpaceConstraintIteratorFunc)(cpConstraint *constraint, void *data) */
 /* void (cpConstraint *constraint, void *data) */
 
 /* cpBody */
@@ -375,9 +375,11 @@ void cpPli_post_step_func(cpSpace *space, SV *key, cpPli_func_data *combined)
 
 /* typedef cpBool (*cpCollisionBeginFunc)(cpArbiter *arb, cpSpace *space, void *data) */
 /* cpBool (cpArbiter *arb, cpSpace *space, void *data) */
+/* NOTE: returns bool. */
 
 /* typedef cpBool (*cpCollisionPreSolveFunc)(cpArbiter *arb, cpSpace *space, void *data) */
 /* cpBool (cpArbiter *arb, cpSpace *space, void *data) */
+/* NOTE: returns bool. */
 
 /* typedef void (*cpCollisionPostSolveFunc)(cpArbiter *arb, cpSpace *space, void *data) */
 /* void (cpArbiter *arb, cpSpace *space, void *data) */
@@ -389,12 +391,12 @@ void cpPli_post_step_func(cpSpace *space, SV *key, cpPli_func_data *combined)
 
 /* typedef cpFloat (*cpDampedSpringForceFunc)(cpConstraint *spring, cpFloat dist) */
 /* cpFloat (cpConstraint *spring, cpFloat dist) */
-/* NOTE: no data. */
+/* NOTE: no data, returns float. */
 
 /* cpDampedSpring */
 
 /* typedef cpFloat (*cpDampedRotarySpringTorqueFunc)(struct cpConstraint *spring, cpFloat relativeAngle) */
 /* cpFloat (struct cpConstraint *spring, cpFloat relativeAngle) */
-/* NOTE: no data. */
+/* NOTE: no data, returns float. */
 
 #endif /* CHIPMUNK_PERL_HELPER_H */

@@ -365,9 +365,11 @@ void cpPli_post_step_func(cpSpace *space, SV *key, cpPli_func_data *combined)
 
 /* typedef void (*cpConstraintPreSolveFunc)(cpConstraint *constraint, cpSpace *space) */
 /* void (cpConstraint *constraint, cpSpace *space) */
+/* NOTE: no data. */
 
 /* typedef void (*cpConstraintPostSolveFunc)(cpConstraint *constraint, cpSpace *space) */
 /* void (cpConstraint *constraint, cpSpace *space) */
+/* NOTE: no data. */
 
 /* cpArbiter */
 
@@ -387,11 +389,12 @@ void cpPli_post_step_func(cpSpace *space, SV *key, cpPli_func_data *combined)
 
 /* typedef cpFloat (*cpDampedSpringForceFunc)(cpConstraint *spring, cpFloat dist) */
 /* cpFloat (cpConstraint *spring, cpFloat dist) */
+/* NOTE: no data. */
 
 /* cpDampedSpring */
 
 /* typedef cpFloat (*cpDampedRotarySpringTorqueFunc)(struct cpConstraint *spring, cpFloat relativeAngle) */
 /* cpFloat (struct cpConstraint *spring, cpFloat relativeAngle) */
-
+/* NOTE: no data. */
 
 #endif /* CHIPMUNK_PERL_HELPER_H */

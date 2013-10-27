@@ -280,16 +280,16 @@ cpPli_func_data *cpPli_func_data_new(SV *func, SV *data)
 
     Newx(combined, 1, cpPli_func_data);
 
-    combined->func = newSVsv(func);
-    combined->data = newSVsv(data);
+    combined->func = newRV_inc(func);
+    combined->data = newRV_inc(data);
 
     return combined;
 }
 
 void cpPli_func_data_free(cpPli_func_data *combined)
 {
-    SvREFCNT_dec(combined->func);
-    SvREFCNT_dec(combined->data);
+    SvREFCNT_dec(SvRV(combined->func));
+    SvREFCNT_dec(SvRV(combined->data));
     Safefree(combined);
 }
 
@@ -304,8 +304,8 @@ void cpPli_post_step_func(cpSpace *space, SV *key, cpPli_func_data *combined)
     space_sv = sv_newmortal();
     cpPli_space_to_sv(space_sv, space, "Chipmunk::Space");
 
-    func = combined->func;
-    data = combined->data;
+    func = SvRV(combined->func);
+    data = SvRV(combined->data);
 
     ENTER;
     SAVETMPS;

@@ -15,7 +15,23 @@ __END__
 
 =head1 SYNOPSIS
 
+    # Arbiters are not created directly, they are passed to callback
+    # functions.
+    $space->set_default_collision_handler(
+        sub {
+            my ( $arbiter, $space, $data ) = @_;
+
+            $arbiter->set_elasticity(0.5);
+        },
+        # ...
+    );
+
 =head1 DESCRIPTION
+
+The Arbiter class controls pairs of colliding shapes.
+
+They are also used in conjuction with collision handler callbacks
+allowing you to retrieve information on the collision and control it.
 
 =head1 METHODS
 
@@ -54,6 +70,10 @@ __END__
 =head2 get_point
 
 =head2 get_depth
+
+=head1 SEE ALSO
+
+L<Chipmunk::Body>, L<Chipmunk::Space>
 
 =cut
 

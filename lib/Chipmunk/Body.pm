@@ -15,13 +15,26 @@ __END__
 
 =head1 SYNOPSIS
 
+    my $body = Chipmunk::Body->new( $mass, $inertia );
+
 =head1 DESCRIPTION
+
+Chipmunk's rigid body type.
+
+Rigid bodies hold the physical properties of an object like it's mass,
+and position and velocity of it's center of gravity. They don't have an
+shape on their own. They are given a shape by creating collision shapes
+L<Chipmunk::Shape> that point to the body.
 
 =head1 METHODS
 
 =head2 new
 
+    my $body = Chipmunk::Body->new( $mass, $inertia );
+
 =head2 new_static
+
+    my $body = Chipmunk::Body->new_static();
 
 =head2 free
 
@@ -110,6 +123,10 @@ __END__
 =head2 each_constraint
 
 =head2 each_arbiter
+
+=head1 SEE ALSO
+
+L<Chipmunk::Shape>
 
 =cut
 

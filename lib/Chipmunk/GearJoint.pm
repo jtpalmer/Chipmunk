@@ -31,5 +31,9 @@ __END__
 
 =head2 set_ratio
 
+=head1 SEE ALSO
+
+L<Chipmunk::Constraint>
+
 =cut
 

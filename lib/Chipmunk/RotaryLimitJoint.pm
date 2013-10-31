@@ -32,5 +32,9 @@ __END__
 
 =head2 set_max
 
+=head1 SEE ALSO
+
+L<Chipmunk::Constraint>
+
 =cut
 

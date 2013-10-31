@@ -31,5 +31,9 @@ __END__
 
 =head2 set_anchr2
 
+=head1 SEE ALSO
+
+L<Chipmunk::Constraint>
+
 =cut
 

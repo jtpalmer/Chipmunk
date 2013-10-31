@@ -24,5 +24,9 @@ __END__
 
 =head2 new
 
+=head1 SEE ALSO
+
+L<Chipmunk::Constraint>
+
 =cut
 

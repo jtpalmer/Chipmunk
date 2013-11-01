@@ -45,5 +45,13 @@ __END__
 
 =head2 get_impulse
 
+=head1 SEE ALSO
+
+L<Chipmunk::DampedRotarySpring>, L<Chipmunk::DampedSpring>,
+L<Chipmunk::GearJoint>, L<Chipmunk::GrooveJoint>, L<Chipmunk::PinJoint>,
+L<Chipmunk::PivotJoint>, L<Chipmunk::RatchetJoint>,
+L<Chipmunk::RotaryLimitJoint>, L<Chipmunk::SimpleMotor>,
+L<Chipmunk::SlideJoint>
+
 =cut
 

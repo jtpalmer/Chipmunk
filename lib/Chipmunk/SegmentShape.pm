@@ -33,5 +33,9 @@ __END__
 
 =head2 get_radius
 
+=head1 SEE ALSO
+
+L<Chipmunk::Shape>
+
 =cut
 

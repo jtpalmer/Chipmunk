@@ -27,5 +27,9 @@ __END__
 
 =head2 get_vert
 
+=head1 SEE ALSO
+
+L<Chipmunk::Shape>
+
 =cut
 

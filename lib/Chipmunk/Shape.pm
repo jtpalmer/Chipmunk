@@ -61,5 +61,10 @@ __END__
 
 =head2 set_layers
 
+=head1 SEE ALSO
+
+L<Chipmunk::CircleShape>, L<Chipmunk::PolyShape>,
+L<Chipmunk::SegmentShape>
+
 =cut
 

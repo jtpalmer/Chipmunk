@@ -362,14 +362,11 @@ cpbody_kinetic_energy(body)
         RETVAL
 
 # TODO: cpbody_shape_iterator
-#typedef void (*cpBodyShapeIteratorFunc)(cpBody *body, cpShape *shape, void *data);
 #void cpBodyEachShape(cpBody *body, cpBodyShapeIteratorFunc func, void *data);
 
 # TODO: cpbody_each_constraint
-#typedef void (*cpBodyConstraintIteratorFunc)(cpBody *body, cpConstraint *constraint, void *data);
 #void cpBodyEachConstraint(cpBody *body, cpBodyConstraintIteratorFunc func, void *data);
 
 # TODO: cpbody_each_arbiter
-#typedef void (*cpBodyArbiterIteratorFunc)(cpBody *body, cpArbiter *arbiter, void *data);
 #void cpBodyEachArbiter(cpBody *body, cpBodyArbiterIteratorFunc func, void *data);
 

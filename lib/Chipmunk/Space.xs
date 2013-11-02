@@ -370,33 +370,27 @@ cpspace_add_post_step_callback(space, func, key, data)
 
 # TODO
 
-#typedef void (*cpSpacePointQueryFunc)(cpShape *shape, void *data);
 #void cpSpacePointQuery(cpSpace *space, cpVect point, cpLayers layers, cpGroup group, cpSpacePointQueryFunc func, void *data);
 #cpShape *cpSpacePointQueryFirst(cpSpace *space, cpVect point, cpLayers layers, cpGroup group);
 
-#typedef void (*cpSpaceNearestPointQueryFunc)(cpShape *shape, cpFloat distance, cpVect point, void *data);
 #void cpSpaceNearestPointQuery(cpSpace *space, cpVect point, cpFloat maxDistance, cpLayers layers, cpGroup group, cpSpaceNearestPointQueryFunc func, void *data);
+
 #cpShape *cpSpaceNearestPointQueryNearest(cpSpace *space, cpVect point, cpFloat maxDistance, cpLayers layers, cpGroup group, cpNearestPointQueryInfo *out);
 
-#typedef void (*cpSpaceSegmentQueryFunc)(cpShape *shape, cpFloat t, cpVect n, void *data);
 #void cpSpaceSegmentQuery(cpSpace *space, cpVect start, cpVect end, cpLayers layers, cpGroup group, cpSpaceSegmentQueryFunc func, void *data);
+
 #cpShape *cpSpaceSegmentQueryFirst(cpSpace *space, cpVect start, cpVect end, cpLayers layers, cpGroup group, cpSegmentQueryInfo *out);
 
-#typedef void (*cpSpaceBBQueryFunc)(cpShape *shape, void *data);
 #void cpSpaceBBQuery(cpSpace *space, cpBB bb, cpLayers layers, cpGroup group, cpSpaceBBQueryFunc func, void *data);
 
-#typedef void (*cpSpaceShapeQueryFunc)(cpShape *shape, cpContactPointSet *points, void *data);
 #cpBool cpSpaceShapeQuery(cpSpace *space, cpShape *shape, cpSpaceShapeQueryFunc func, void *data);
 
 #void cpSpaceActivateShapesTouchingShape(cpSpace *space, cpShape *shape);
 
-#typedef void (*cpSpaceBodyIteratorFunc)(cpBody *body, void *data);
 #void cpSpaceEachBody(cpSpace *space, cpSpaceBodyIteratorFunc func, void *data);
 
-#typedef void (*cpSpaceShapeIteratorFunc)(cpShape *shape, void *data);
 #void cpSpaceEachShape(cpSpace *space, cpSpaceShapeIteratorFunc func, void *data);
 
-#typedef void (*cpSpaceConstraintIteratorFunc)(cpConstraint *constraint, void *data);
 #void cpSpaceEachConstraint(cpSpace *space, cpSpaceConstraintIteratorFunc func, void *data);
 
 void

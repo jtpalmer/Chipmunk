@@ -64,7 +64,7 @@ my $joint
 $space->add_constraint($joint);
 
 my $app = SDLx::App->new(
-    title  => 'Pin Joint',
+    title  => 'Pendulum Example',
     width  => $width,
     height => $height,
     dt     => $time_step,

@@ -67,7 +67,7 @@ $space->add_constraint($joint);
 $gear1->{body}->set_ang_vel(0.5);
 
 my $app = SDLx::App->new(
-    title  => 'Gear Joint',
+    title  => 'Gears Example',
     width  => $width,
     height => $height,
     dt     => $time_step,

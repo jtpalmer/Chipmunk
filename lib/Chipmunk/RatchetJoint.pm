@@ -19,6 +19,10 @@ __END__
 
 =head1 DESCRIPTION
 
+Works like a socket wrench. C<$ratchet> is the distance between
+“clicks”, C<$phase> is the initial offset to use when deciding where the
+ratchet angles are.
+
 =head1 METHODS
 
 =head2 new

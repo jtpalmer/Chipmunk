@@ -19,6 +19,10 @@ __END__
 
 =head1 DESCRIPTION
 
+The groove goes from C<$groove_a> to C<$groove_b> on body C<$a>, and the
+pivot is attached to C<$anchr2> on body C<$b>. All coordinates are body
+local.
+
 =head1 METHODS
 
 =head2 new

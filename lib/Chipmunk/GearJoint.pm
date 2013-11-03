@@ -19,6 +19,11 @@ __END__
 
 =head1 DESCRIPTION
 
+Keeps the angular velocity ratio of a pair of bodies constant. C<$ratio>
+is always measured in absolute terms. It is currently not possible to
+set the ratio in relation to a third body’s angular velocity. C<$phase>
+is the initial angular offset of the two bodies.
+
 =head1 METHODS
 
 =head2 new

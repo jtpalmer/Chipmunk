@@ -293,7 +293,10 @@ void cpPli_func_data_free(cpPli_func_data *combined)
     Safefree(combined);
 }
 
+/* cpSpace */
+
 /* typedef void (*cpPostStepFunc)(cpSpace *space, void *key, void *data) */
+/* void (cpShape *shape, void *key, void *data) */
 void cpPli_post_step_func(cpSpace *space, SV *key, cpPli_func_data *combined)
 {
     dSP;
@@ -324,10 +327,36 @@ void cpPli_post_step_func(cpSpace *space, SV *key, cpPli_func_data *combined)
     cpPli_func_data_free(combined);
 }
 
-/* cpSpace */
-
 /* typedef void (*cpSpacePointQueryFunc)(cpShape *shape, void *data) */
 /* void (cpShape *shape, void *data) */
+void cpPli_point_query_func(cpShape *shape, cpPli_func_data *combined)
+{
+    dSP;
+    SV *func;
+    SV *data;
+    SV *shape_sv;
+
+    shape_sv = sv_newmortal();
+    cpPli_shape_to_sv(shape_sv, shape, "Chipmunk::Shape");
+
+    func = SvRV(combined->func);
+    data = SvRV(combined->data);
+
+    ENTER;
+    SAVETMPS;
+
+    PUSHMARK(SP);
+    XPUSHs(shape_sv);
+    XPUSHs(data);
+    PUTBACK;
+
+    call_sv(func, G_VOID | G_DISCARD);
+
+    FREETMPS;
+    LEAVE;
+
+    cpPli_func_data_free(combined);
+}
 
 /* typedef void (*cpSpaceNearestPointQueryFunc)(cpShape *shape, cpFloat distance, cpVect point, void *data) */
 /* void (cpShape *shape, cpFloat distance, cpVect point, void *data) */

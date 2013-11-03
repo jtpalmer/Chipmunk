@@ -371,6 +371,29 @@ cpspace_add_post_step_callback(space, func, key, data)
 # TODO
 
 #void cpSpacePointQuery(cpSpace *space, cpVect point, cpLayers layers, cpGroup group, cpSpacePointQueryFunc func, void *data);
+
+void
+cpshape_point_query(space, point, layers, group, func, data)
+        cpSpace *space
+        cpVect point
+        cpLayers layers
+        cpGroup group
+        SV *func
+        SV *data
+    INIT:
+        cpPli_func_data *func_data;
+    CODE:
+        func_data = cpPli_func_data_new(func, data);
+
+        cpSpacePointQuery(
+            space,
+            point,
+            layers,
+            group,
+            (cpSpacePointQueryFunc)cpPli_point_query_func,
+            func_data
+        );
+
 #cpShape *cpSpacePointQueryFirst(cpSpace *space, cpVect point, cpLayers layers, cpGroup group);
 
 #void cpSpaceNearestPointQuery(cpSpace *space, cpVect point, cpFloat maxDistance, cpLayers layers, cpGroup group, cpSpaceNearestPointQueryFunc func, void *data);

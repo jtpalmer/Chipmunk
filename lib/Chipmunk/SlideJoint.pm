@@ -19,6 +19,10 @@ __END__
 
 =head1 DESCRIPTION
 
+C<$a> and C<$b> are the two bodies to connect, C<$anchr1> and C<$anchr2>
+are the anchor points on those bodies, and C<$min> and C<$max> define
+the allowed distances of the anchor points.
+
 =head1 METHODS
 
 =head2 new

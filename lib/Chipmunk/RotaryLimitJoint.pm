@@ -20,6 +20,10 @@ __END__
 
 =head1 DESCRIPTION
 
+Constrains the relative rotations of two bodies. C<$min> and C<$max> are
+the angular limits in radians. It is implemented so that it’s possible
+to for the range to be greater than a full revolution.
+
 =head1 METHODS
 
 =head2 new

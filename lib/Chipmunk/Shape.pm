@@ -17,6 +17,30 @@ __END__
 
 =head1 DESCRIPTION
 
+There are currently 3 collision shape types:
+
+=over 4
+
+=item
+
+Circles: Fastest and simplest collision shape.
+
+=item
+
+Line segments: Meant mainly as a static shape. Can be beveled in order
+to give them a thickness.
+
+=item
+
+Convex polygons: Slowest, but most flexible collision shape.
+
+=back
+
+You can add as many shapes to a body as you wish. That is why the two
+types are separate. This should give you the flexibility to make any
+shape you want as well providing different areas of the same object with
+different friction, elasticity or callback values.
+
 =head1 METHODS
 
 =head2 cache_bb

@@ -2,7 +2,7 @@ use strict;
 use warnings;
 use Test::More;
 use Math::Trig qw(:pi);
-use Chipmunk qw(:all);
+use Chipmunk::Math qw(:all);
 use Chipmunk::BB;
 
 cmp_ok( abs cpfmax( 1.1, 2.2 ) - 2.2, '<', 1e-5, 'cpfmax' );
@@ -32,14 +32,6 @@ cmp_ok( abs cpfclamp01(1.1) - 1.0, '<', 1e-5, 'cpfclamp01' );
     my $f3        = $f1 + cpfclamp( $f2 - $f1, -$d, $d );
     cmp_ok( abs $lerpconst - $f3, '<', 1e-5, 'cpflerpconst' );
 }
-
-eval {
-    enable_segment_to_segment_collisions();
-    pass('enable_segment_to_segment_collisions');
-    1;
-} or do {
-    fail('enable_segment_to_segment_collisions');
-};
 
 {
     my $m = 4.0;

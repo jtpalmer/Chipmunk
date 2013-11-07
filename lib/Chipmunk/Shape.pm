@@ -45,7 +45,11 @@ different friction, elasticity or callback values.
 
 =head2 cache_bb
 
+Synchronizes the shape with the body its attached to.
+
 =head2 update
+
+Sets the position and rotation of the shape.
 
 =head2 point_query
 

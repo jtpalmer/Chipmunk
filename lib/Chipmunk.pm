@@ -123,13 +123,7 @@ Perl bindings for the Chipmunk Physics library.
 
 =head1 SEE ALSO
 
-=over 4
-
-=item * L<Chipmunk2D Physics|http://chipmunk-physics.net/>
-
-=item * L<Alien::Chipmunk>
-
-=back
+L<Chipmunk2D Physics|http://chipmunk-physics.net/>, L<Alien::Chipmunk>
 
 =cut
 

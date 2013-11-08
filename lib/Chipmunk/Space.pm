@@ -102,7 +102,25 @@ Physics.
 
 =head2 convert_body_to_static
 
+Convert a body to a static one. It’s mass and moment will be set to
+infinity and it’s velocity to 0.  The old mass, moment and velocity are
+not saved. This will effectively freeze a body and it’s shapes into
+place. This cannot be called on an active body, so you may need to call
+L</"remove_body"> first. Also, because it modifies collision detection
+data structures, you must use a post step callback if you want to use it
+from another callback or iterator.
+
+    my $static = $space->convert_body_to_static($body);
+
 =head2 convert_body_to_dynamic
+
+Convert a static to a dynamic one. This does not call L</"add_body"> to
+make the body active, so you will need to do that explicitly if you need
+it. Also, because it modifies collision detection data structures, you
+must use a post step callback if you want to use it from another
+callback or iterator.
+
+    my $dynamic = $space->convert_body_to_dynamic($body);
 
 =head2 add_post_step_callback
 

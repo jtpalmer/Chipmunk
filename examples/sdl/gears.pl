@@ -113,7 +113,6 @@ sub make_gear {
     $anchor_body->set_pos( [ $x, $y ] );
     my $anchor_shape
         = Chipmunk::CircleShape->new( $anchor_body, s2w(1), [ 0, 0 ] );
-    $space->add_static_shape($anchor_shape);
     $anchor_shape->set_sensor(1);
 
     # Pin the gear to the anchor.

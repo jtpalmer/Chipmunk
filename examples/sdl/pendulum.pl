@@ -56,7 +56,6 @@ my $anchor_pos = s2w( [ $width / 2, $height / 2 ] );
 $anchor_body->set_pos($anchor_pos);
 my $anchor_shape
     = Chipmunk::CircleShape->new( $anchor_body, $radius, [ 0, 0 ] );
-$space->add_static_shape($anchor_shape);
 
 my $joint
     = Chipmunk::PinJoint->new( $ball_body, $anchor_body, [ 0, 0 ], [ 0, 0 ] );

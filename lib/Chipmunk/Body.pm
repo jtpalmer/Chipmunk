@@ -36,8 +36,6 @@ L<Chipmunk::Shape> that point to the body.
 
     my $body = Chipmunk::Body->new_static();
 
-=head2 free
-
 =head2 activate
 
 =head2 activate_static
@@ -56,7 +54,15 @@ L<Chipmunk::Shape> that point to the body.
 
 =head2 get_mass
 
+Get the mass of the body.
+
+    my $mass = $body->get_mass();
+
 =head2 set_mass
+
+Set the mass of the body.
+
+    $body->set_mass($mass);
 
 =head2 get_moment
 

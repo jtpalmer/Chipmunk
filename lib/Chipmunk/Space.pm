@@ -82,6 +82,14 @@ Physics.
 
 =head2 add_static_shape
 
+DEPRECATED
+
+Shapes attached to static bodies are automatically treated as static.
+There isn’t really a good reason to explicitly add static shapes
+anymore.
+
+    $space->add_static_shape($shape);
+
 =head2 add_body
 
 =head2 add_constraint
@@ -89,6 +97,12 @@ Physics.
 =head2 remove_shape
 
 =head2 remove_static_shape
+
+DEPRECATED
+
+    $space->remove_static_shape($shape);
+
+See L</"add_static_shape">
 
 =head2 remove_body
 

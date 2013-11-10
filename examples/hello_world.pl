@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 use Chipmunk;
+use Chipmunk::Math;
 use Chipmunk::Vect qw(cpvstr);
 use Chipmunk::Space;
 use Chipmunk::SegmentShape;
@@ -26,7 +27,7 @@ $space->add_shape($ground);
 my $radius = 5;
 my $mass   = 1;
 
-my $moment = Chipmunk::moment_for_circle( $mass, 0, $radius, [ 0, 0 ] );
+my $moment = Chipmunk::Math::moment_for_circle( $mass, 0, $radius, [ 0, 0 ] );
 
 my $ball_body = Chipmunk::Body->new( $mass, $moment );
 $space->add_body($ball_body);

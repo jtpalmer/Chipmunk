@@ -4,11 +4,13 @@ use warnings;
 use SDL;
 use SDLx::App;
 use Chipmunk;
+use Chipmunk::Math;
 use Chipmunk::Space;
 use Chipmunk::CircleShape;
 use Chipmunk::Body;
 use Chipmunk::PivotJoint;
 use Chipmunk::GearJoint;
+use Chipmunk::SimpleMotor;
 use Math::Trig qw(pi);
 
 # Window dimensions.
@@ -64,7 +66,9 @@ my $joint = Chipmunk::GearJoint->new( $gear1->{body}, $gear2->{body}, $phase,
     $ratio );
 $space->add_constraint($joint);
 
-$gear1->{body}->set_ang_vel(0.5);
+my $motor
+    = Chipmunk::SimpleMotor->new( $gear1->{anchor}, $gear1->{body}, 0.5 );
+$space->add_constraint($motor);
 
 my $app = SDLx::App->new(
     title  => 'Gears Example',
@@ -98,7 +102,7 @@ sub make_gear {
     my %args = @_;
     my ( $x, $y, $r, $m, $c, $t ) = @args{qw( x y radius mass color teeth )};
 
-    my $i = Chipmunk::moment_for_circle( $m, 0, $r, [ 0, 0 ] );
+    my $i = Chipmunk::Math::moment_for_circle( $m, 0, $r, [ 0, 0 ] );
 
     my $body = Chipmunk::Body->new( $m, $i );
     $space->add_body($body);
@@ -121,6 +125,7 @@ sub make_gear {
 
     return {
         color  => $c,
+        anchor => $anchor_body,
         body   => $body,
         shape  => $shape,
         teeth  => $t,

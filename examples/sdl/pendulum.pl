@@ -4,6 +4,7 @@ use warnings;
 use SDL;
 use SDLx::App;
 use Chipmunk;
+use Chipmunk::Math;
 use Chipmunk::Space;
 use Chipmunk::CircleShape;
 use Chipmunk::Body;
@@ -39,7 +40,7 @@ my $mass   = 1;
 my $space = Chipmunk::Space->new();
 $space->set_gravity( [ 0, -10 ] );
 
-my $moment = Chipmunk::moment_for_circle( $mass, 0, $radius, [ 0, 0 ] );
+my $moment = Chipmunk::Math::moment_for_circle( $mass, 0, $radius, [ 0, 0 ] );
 
 my $ball_body = Chipmunk::Body->new( $mass, $moment );
 $space->add_body($ball_body);

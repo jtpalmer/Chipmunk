@@ -17,6 +17,9 @@ __END__
 
 =head1 SYNOPSIS
 
+    my $motor = Chipmunk::SimpleMotor->new( $body_a, $body_b, $rate );
+    $space->add_constraint($motor);
+
 =head1 DESCRIPTION
 
 Keeps the relative angular velocity of a pair of bodies constant.
@@ -28,9 +31,39 @@ able to apply a nearly infinite torque to keep the bodies moving.
 
 =head2 new
 
+=over 4
+
+=item Arguments: L<$body_a|Chipmunk::Body>, L<$body_b|Chipmunk::Body>, $rate
+
+=item Return Value: $motor
+
+=back
+
+    my $motor = Chipmunk::SimpleMotor->new( $body_a, $body_b, $rate );
+
 =head2 get_rate
 
+=over 4
+
+=item Arguments: none
+
+=item Return Value: $rate
+
+=back
+
+    my $rate = $motor->get_rate();
+
 =head2 set_rate
+
+=over 4
+
+=item Arguments: $rate
+
+=item Return Value: not defined
+
+=back
+
+    $motor->set_rate($rate);
 
 =head1 SEE ALSO
 

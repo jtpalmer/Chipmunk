@@ -4,6 +4,7 @@ use warnings;
 use SDL;
 use SDLx::App;
 use Chipmunk;
+use Chipmunk::Math;
 use Chipmunk::Space;
 use Chipmunk::CircleShape;
 use Chipmunk::Body;
@@ -98,7 +99,7 @@ sub make_gear {
     my %args = @_;
     my ( $x, $y, $r, $m, $c, $t ) = @args{qw( x y radius mass color teeth )};
 
-    my $i = Chipmunk::moment_for_circle( $m, 0, $r, [ 0, 0 ] );
+    my $i = Chipmunk::Math::moment_for_circle( $m, 0, $r, [ 0, 0 ] );
 
     my $body = Chipmunk::Body->new( $m, $i );
     $space->add_body($body);

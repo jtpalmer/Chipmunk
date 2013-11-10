@@ -11,8 +11,33 @@ DESCRIPTION
     Perl bindings for the Chipmunk Physics library.
 
 METHODS
-  segment_to_segment_collisions
+  enable_segment_to_segment_collisions
+    Arguments: none
+    Return value: not defined
+
+    Chipmunk didn't support segment/segment collisions until v6.1.2. For
+    compatibility reasons, you must explicitly and globally enable them.
+
+        enable_segment_to_segment_collisions();
+
   reset_shape_id_counter
+    Arguments: none
+    Return value: not defined
+
+    Chipmunk keeps a counter so that every new shape is given a unique hash
+    value to be used in the spatial index. Because this affects the order in
+    which the collisions are found and handled, you can reset the shape
+    counter every time you populate a space with new shapes. If you don't,
+    there might be (very) slight differences in the simulation.
+
+        reset_shape_id_counter();
+
+NOTICE
+    The documentation is taken from Chipmunk2D
+    <http://chipmunk-physics.net/release/ChipmunkLatest-Docs/>
+
+    Copyright (c) 2007-2013 Scott Lembcke and Howling Moon Software
+
 SEE ALSO
     Chipmunk2D Physics <http://chipmunk-physics.net/>, Alien::Chipmunk
 

@@ -19,25 +19,25 @@ my $space = Chipmunk::Space->new();
 my @constraints;
 
 {
-    my $a = Chipmunk::Body->new( 1.0, 2.0 );
-    my $b = Chipmunk::Body->new( 2.0, 3.0 );
-    my ( $restAngle, $stiffness, $damping ) = ( 0.0, 1.0, 2.0 );
+    my $body_a = Chipmunk::Body->new( 1.0, 2.0 );
+    my $body_b = Chipmunk::Body->new( 2.0, 3.0 );
+    my ( $rest_angle, $stiffness, $damping ) = ( 0.0, 1.0, 2.0 );
     my $spring
-        = Chipmunk::DampedRotarySpring->new( $a, $b, $restAngle, $stiffness,
-        $damping );
+        = Chipmunk::DampedRotarySpring->new( $body_a, $body_b, $rest_angle,
+        $stiffness, $damping );
     $space->add_constraint($spring);
     push @constraints,
         { type => 'dampedrotaryspring', constraint => $spring };
 }
 
 {
-    my $a = Chipmunk::Body->new( 1.0, 2.0 );
-    my $b = Chipmunk::Body->new( 2.0, 3.0 );
+    my $body_a = Chipmunk::Body->new( 1.0, 2.0 );
+    my $body_b = Chipmunk::Body->new( 2.0, 3.0 );
     my ( $anchr1, $anchr2 ) = ( [ 4.0, 5.0 ], [ 6.0, 7.0 ] );
-    my ( $restLength, $stiffness, $damping ) = ( 1.0, 2.0, 3.0 );
+    my ( $rest_length, $stiffness, $damping ) = ( 1.0, 2.0, 3.0 );
     my $spring
-        = Chipmunk::DampedSpring->new( $a, $b, $anchr1, $anchr2, $restLength,
-        $stiffness, $damping );
+        = Chipmunk::DampedSpring->new( $body_a, $body_b, $anchr1, $anchr2,
+        $rest_length, $stiffness, $damping );
     $space->add_constraint($spring);
     push @constraints, { type => 'dampedspring', constraint => $spring };
 }
@@ -114,20 +114,20 @@ my @constraints;
 
 {
     my ( $mass, $inertia ) = ( 1.1, 2.2 );
-    my $a = Chipmunk::Body->new( $mass, $inertia );
-    my $b = Chipmunk::Body->new( $mass, $inertia );
-    my $rate = 3.3;
-    my $motor = Chipmunk::SimpleMotor->new( $a, $b, $rate );
+    my $body_a = Chipmunk::Body->new( $mass, $inertia );
+    my $body_b = Chipmunk::Body->new( $mass, $inertia );
+    my $rate   = 3.3;
+    my $motor = Chipmunk::SimpleMotor->new( $body_a, $body_b, $rate );
     $space->add_constraint($motor);
     push @constraints, { type => 'simplemotor', constraint => $motor };
 }
 
 {
     my ( $mass, $inertia ) = ( 1.1, 2.2 );
-    my $a = Chipmunk::Body->new( $mass, $inertia );
-    my $b = Chipmunk::Body->new( $mass, $inertia );
-    my $rate = 3.3;
-    my $motor = Chipmunk::SimpleMotor->new( $a, $b, $rate );
+    my $body_a = Chipmunk::Body->new( $mass, $inertia );
+    my $body_b = Chipmunk::Body->new( $mass, $inertia );
+    my $rate   = 3.3;
+    my $motor = Chipmunk::SimpleMotor->new( $body_a, $body_b, $rate );
     $space->add_constraint($motor);
     push @constraints, { type => 'simplemotor', constraint => $motor };
 }

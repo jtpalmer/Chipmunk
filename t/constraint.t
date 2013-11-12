@@ -123,16 +123,6 @@ my @constraints;
 }
 
 {
-    my ( $mass, $inertia ) = ( 1.1, 2.2 );
-    my $body_a = Chipmunk::Body->new( $mass, $inertia );
-    my $body_b = Chipmunk::Body->new( $mass, $inertia );
-    my $rate   = 3.3;
-    my $motor = Chipmunk::SimpleMotor->new( $body_a, $body_b, $rate );
-    $space->add_constraint($motor);
-    push @constraints, { type => 'simplemotor', constraint => $motor };
-}
-
-{
     my ( $mass, $inertia ) = ( 1.0, 2.0 );
     my $body_a = Chipmunk::Body->new( $mass, $inertia );
     my $body_b = Chipmunk::Body->new( $mass, $inertia );

@@ -2,6 +2,7 @@ use strict;
 use warnings;
 use Test::More;
 use Chipmunk::Space;
+
 #use Chipmunk::Body;
 use Chipmunk::CircleShape;
 
@@ -67,27 +68,27 @@ use Chipmunk::CircleShape;
     #       contains_body, contains_constraint, convert_body_to_static,
     #       convert_body_to_dynamic, add_post_step_callback,
 
-#    {
-#        my $point = [ 0, 0 ];
-#        my $body = Chipmunk::Body->new( 1, 1 );
-#        my $shape = Chipmunk::CircleShape->new( $body, 10, $point );
-#        my $layers = 1;
-#        $shape->set_layers($layers);
-#        my $group = 1;
-#        $shape->set_group($group);
-#
-#        my $data = 42;
-#
-#        $space->point_query(
-#            $point, $layers, $group,
-#            sub {
-#                my ( $shape, $_data ) = @_;
-#
-#                is( $_data, $data );
-#            },
-#            $data
-#        );
-#    }
+    #    {
+    #        my $point = [ 0, 0 ];
+    #        my $body = Chipmunk::Body->new( 1, 1 );
+    #        my $shape = Chipmunk::CircleShape->new( $body, 10, $point );
+    #        my $layers = 1;
+    #        $shape->set_layers($layers);
+    #        my $group = 1;
+    #        $shape->set_group($group);
+    #
+    #        my $data = 42;
+    #
+    #        $space->point_query(
+    #            $point, $layers, $group,
+    #            sub {
+    #                my ( $shape, $_data ) = @_;
+    #
+    #                is( $_data, $data );
+    #            },
+    #            $data
+    #        );
+    #    }
 
     # TODO: point_query_first, nearest_point_query,
     #       nearest_point_query_nearest, segment_query,

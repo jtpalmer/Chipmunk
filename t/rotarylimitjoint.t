@@ -6,12 +6,13 @@ use Chipmunk::Body;
 
 {
     my ( $mass, $inertia ) = ( 1.1, 2.2 );
-    my $a = Chipmunk::Body->new( $mass, $inertia );
-    my $b = Chipmunk::Body->new( $mass, $inertia );
+    my $body_a = Chipmunk::Body->new( $mass, $inertia );
+    my $body_b = Chipmunk::Body->new( $mass, $inertia );
 
     my ( $min, $max ) = ( 3.3, 4.4 );
 
-    my $joint = Chipmunk::RotaryLimitJoint->new( $a, $b, $min, $max );
+    my $joint
+        = Chipmunk::RotaryLimitJoint->new( $body_a, $body_b, $min, $max );
 
     isa_ok( $joint, 'Chipmunk::RotaryLimitJoint', 'new' );
 

@@ -6,16 +6,16 @@ use Chipmunk::Body;
 
 {
     my ( $mass, $inertia ) = ( 1.0, 2.0 );
-    my $a = Chipmunk::Body->new( $mass, $inertia );
-    my $b = Chipmunk::Body->new( $mass, $inertia );
+    my $body_a = Chipmunk::Body->new( $mass, $inertia );
+    my $body_b = Chipmunk::Body->new( $mass, $inertia );
 
     my $anchr1 = [ 3.3, 4.4 ];
     my $anchr2 = [ 5.5, 6.6 ];
 
     my ( $min, $max ) = ( 0.7, 18.8 );
 
-    my $joint
-        = Chipmunk::SlideJoint->new( $a, $b, $anchr1, $anchr2, $min, $max );
+    my $joint = Chipmunk::SlideJoint->new( $body_a, $body_b, $anchr1, $anchr2,
+        $min, $max );
 
     isa_ok( $joint, 'Chipmunk::SlideJoint', 'new' );
 

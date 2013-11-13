@@ -6,19 +6,20 @@ use Chipmunk::Body;
 
 {
     my ( $mass, $inertia ) = ( 1.1, 2.2 );
-    my $a = Chipmunk::Body->new( $mass, $inertia );
-    my $b = Chipmunk::Body->new( $mass, $inertia );
+    my $body_a = Chipmunk::Body->new( $mass, $inertia );
+    my $body_b = Chipmunk::Body->new( $mass, $inertia );
 
     my ( $angle_a, $angle_b ) = ( 5.5, 6.1 );
-    $a->set_angle($angle_a);
-    $b->set_angle($angle_b);
+    $body_a->set_angle($angle_a);
+    $body_b->set_angle($angle_b);
 
     my ( $phase, $ratchet ) = ( 3.3, 4.4 );
-    my $joint = Chipmunk::RatchetJoint->new( $a, $b, $phase, $ratchet );
+    my $joint
+        = Chipmunk::RatchetJoint->new( $body_a, $body_b, $phase, $ratchet );
 
     isa_ok( $joint, 'Chipmunk::RatchetJoint', 'new' );
 
-    my $angle = $b->get_angle() - $a->get_angle();
+    my $angle = $body_b->get_angle() - $body_a->get_angle();
     cmp_ok( abs $joint->get_angle() - $angle, '<', 1e-5, 'get_angle' );
 
     $angle = 1;

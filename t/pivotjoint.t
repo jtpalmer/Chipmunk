@@ -6,25 +6,26 @@ use Chipmunk::Body;
 
 {
     my ( $mass, $inertia ) = ( 1.0, 2.0 );
-    my $a = Chipmunk::Body->new( $mass, $inertia );
-    my $b = Chipmunk::Body->new( $mass, $inertia );
+    my $body_a = Chipmunk::Body->new( $mass, $inertia );
+    my $body_b = Chipmunk::Body->new( $mass, $inertia );
 
     my $pivot = [ 3.3, 4.4 ];
 
-    my $joint = Chipmunk::PivotJoint->new( $a, $b, $pivot );
+    my $joint = Chipmunk::PivotJoint->new( $body_a, $body_b, $pivot );
 
     isa_ok( $joint, 'Chipmunk::PivotJoint', 'new (3 args)' );
 }
 
 {
     my ( $mass, $inertia ) = ( 1.0, 2.0 );
-    my $a = Chipmunk::Body->new( $mass, $inertia );
-    my $b = Chipmunk::Body->new( $mass, $inertia );
+    my $body_a = Chipmunk::Body->new( $mass, $inertia );
+    my $body_b = Chipmunk::Body->new( $mass, $inertia );
 
     my $anchr1 = [ 3.3, 4.4 ];
     my $anchr2 = [ 5.5, 6.6 ];
 
-    my $joint = Chipmunk::PivotJoint->new( $a, $b, $anchr1, $anchr2 );
+    my $joint
+        = Chipmunk::PivotJoint->new( $body_a, $body_b, $anchr1, $anchr2 );
 
     isa_ok( $joint, 'Chipmunk::PivotJoint', 'new (4 args)' );
 

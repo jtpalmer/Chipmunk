@@ -82,7 +82,7 @@ Physics.
 
 =head2 add_static_shape
 
-DEPRECATED
+B<DEPRECATED>
 
 Shapes attached to static bodies are automatically treated as static.
 There isn’t really a good reason to explicitly add static shapes
@@ -98,7 +98,7 @@ anymore.
 
 =head2 remove_static_shape
 
-DEPRECATED
+B<DEPRECATED>
 
     $space->remove_static_shape($shape);
 

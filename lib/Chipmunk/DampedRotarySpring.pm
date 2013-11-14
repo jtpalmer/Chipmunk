@@ -18,8 +18,8 @@ __END__
 
 =head1 SYNOPSIS
 
-    my $spring
-        = Chipmunk::DampedRotarySpring->new( $a, $b, $rest_angle,
+    $spring
+        = Chipmunk::DampedRotarySpring->new( $body_a, $body_b, $rest_angle,
         $stiffness, $damping );
     $space->add_constraint($spring);
 
@@ -35,14 +35,14 @@ and C<$damping> work basically the same as on a damped spring.
 
 =over 4
 
-=item Arguments: L<$a|Chipmunk::Body>, L<$b|Chipmunk::Body>, $rest_angle, $stiffness, $damping
+=item Arguments: L<$body_a|Chipmunk::Body>, L<$body_b|Chipmunk::Body>, $rest_angle, $stiffness, $damping
 
 =item Return Value: $spring
 
 =back
 
-    my $spring
-        = Chipmunk::DampedRotarySpring->new( $a, $b, $rest_angle,
+    $spring
+        = Chipmunk::DampedRotarySpring->new( $body_a, $body_b, $rest_angle,
         $stiffness, $damping );
 
 =head1 SEE ALSO

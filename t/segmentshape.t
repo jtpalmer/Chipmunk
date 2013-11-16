@@ -16,7 +16,14 @@ use Chipmunk::SegmentShape;
 
     isa_ok( $segment, 'Chipmunk::SegmentShape', 'new' );
 
-    # TODO: set_neighbors
+    eval {
+        my ( $neighbor_a, $neighbor_b ) = ( [ 3.1, 4.1 ], [ 5.1, 6.1 ] );
+        $segment->set_neighbors( $neighbor_a, $neighbor_b );
+        pass('set_neighbors');
+        1;
+    } or do {
+        fail('set_neighbors');
+    };
 
     cmp_ok( abs $segment->get_a()->[0] - $point_a->[0], '<', 1e-5,
         'get_a x' );

@@ -21,6 +21,8 @@ __END__
 
 =head1 DESCRIPTION
 
+Fastest and simplest collision shape.
+
 =head1 METHODS
 
 =head2 new
@@ -32,6 +34,9 @@ __END__
 =item Return Value: $circle
 
 =back
+
+L<$body> is the body to attach the circle to, L<$offset> is the offset
+from the body’s center of gravity in body local coordinates.
 
     $circle = Chipmunk::CircleShape->new( $body, $radius, $offset );
 

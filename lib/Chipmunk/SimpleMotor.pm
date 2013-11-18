@@ -17,7 +17,7 @@ __END__
 
 =head1 SYNOPSIS
 
-    my $motor = Chipmunk::SimpleMotor->new( $body_a, $body_b, $rate );
+    $motor = Chipmunk::SimpleMotor->new( $body_a, $body_b, $rate );
     $space->add_constraint($motor);
 
 =head1 DESCRIPTION
@@ -39,7 +39,7 @@ able to apply a nearly infinite torque to keep the bodies moving.
 
 =back
 
-    my $motor = Chipmunk::SimpleMotor->new( $body_a, $body_b, $rate );
+    $motor = Chipmunk::SimpleMotor->new( $body_a, $body_b, $rate );
 
 =head2 get_rate
 
@@ -51,7 +51,7 @@ able to apply a nearly infinite torque to keep the bodies moving.
 
 =back
 
-    my $rate = $motor->get_rate();
+    $rate = $motor->get_rate();
 
 =head2 set_rate
 

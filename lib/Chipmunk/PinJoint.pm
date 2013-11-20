@@ -17,39 +17,92 @@ __END__
 
 =head1 SYNOPSIS
 
-    my ( $mass, $inertia ) = ( 1.1, 2.2 );
-    my $a = Chipmunk::Body->new( $mass, $inertia );
-    my $b = Chipmunk::Body->new( $mass, $inertia );
-
-    my $anchr1 = [ 3.3, 4.4 ];
-    my $anchr2 = [ 5.5, 6.6 ];
-
-    my $joint = Chipmunk::PinJoint->new( $a, $b, $anchr1, $anchr2 );
+    $anchr1 = [ $x1, $y1 ];
+    $anchr2 = [ $x2, $y2 ];
+    $joint = Chipmunk::PinJoint->new( $body_a, $body_b, $anchr1, $anchr2 );
+    $space->add_constraint($joint);
 
 =head1 DESCRIPTION
 
-C<$a> and C<$b> are the two bodies to connect, and C<$anchr1> and
-C<$anchr2> are the anchor points on those bodies. The distance between
-the two anchor points is measured when the joint is created. If you want
-to set a specific distance, use the setter function to override it.
+C<$body_a> and C<$body_b> are the two bodies to connect, and C<$anchr1>
+and C<$anchr2> are the anchor points on those bodies. The distance
+between the two anchor points is measured when the joint is created. If
+you want to set a specific distance, use the setter function to override
+it.
 
 =head1 METHODS
 
 =head2 new
 
-    my $joint = Chipmunk::PinJoint->new( $a, $b, $anchr1, $anchr2 );
+=over 4
+
+=item Arguments: L<$body_a|Chipmunk::Body>, L<$body_b|Chipmunk::Body>, L<$anchr1|Chipmunk::Vect>, L<$anchr2|Chipmunk::Vect>
+
+=item Return Value: $joint
+
+=back
+
+    $joint = Chipmunk::PinJoint->new( $body_a, $body_b, $anchr1, $anchr2 );
 
 =head2 get_anchr1
 
+=over 4
+
+=item Arguments: none
+
+=item Return Value: L<$anchr1|Chipmunk::Vect>
+
+=back
+
 =head2 set_anchr1
+
+=over 4
+
+=item Arguments: L<$anchr1|Chipmunk::Vect>
+
+=item Return Value: not defined
+
+=back
 
 =head2 get_anchr2
 
+=over 4
+
+=item Arguments: none
+
+=item Return Value: L<$anchr2|Chipmunk::Vect>
+
+=back
+
 =head2 set_anchr2
+
+=over 4
+
+=item Arguments: L<$anchr2|Chipmunk::Vect>
+
+=item Return Value: not defined
+
+=back
 
 =head2 get_dist
 
+=over 4
+
+=item Arguments: none
+
+=item Return Value: $dist
+
+=back
+
 =head2 set_dist
+
+=over 4
+
+=item Arguments: $dist
+
+=item Return Value: not defined
+
+=back
 
 =head1 SEE ALSO
 

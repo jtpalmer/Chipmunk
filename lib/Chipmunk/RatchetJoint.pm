@@ -20,24 +20,80 @@ __END__
 =head1 DESCRIPTION
 
 Works like a socket wrench. C<$ratchet> is the distance between
-“clicks”, C<$phase> is the initial offset to use when deciding where the
+"clicks", C<$phase> is the initial offset to use when deciding where the
 ratchet angles are.
 
 =head1 METHODS
 
 =head2 new
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_angle
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 set_angle
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_phase
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 set_phase
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_ratchet
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 set_ratchet
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head1 SEE ALSO
 

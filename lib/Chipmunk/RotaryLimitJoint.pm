@@ -18,6 +18,9 @@ __END__
 
 =head1 SYNOPSIS
 
+    $joint = Chipmunk::RotaryLimitJoint->new( $body_a, $body_b, $min, $max );
+    $space->add_constraint($joint);
+
 =head1 DESCRIPTION
 
 Constrains the relative rotations of two bodies. C<$min> and C<$max> are
@@ -28,13 +31,53 @@ to for the range to be greater than a full revolution.
 
 =head2 new
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_min
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 set_min
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_max
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 set_max
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head1 SEE ALSO
 

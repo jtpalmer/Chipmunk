@@ -57,11 +57,11 @@ __END__
 
     use Chipmunk::Vect qw(:all);
 
-    my $v1 = [ 1.1, 2.2 ];
-    my $v2 = [ 3.3, 4.4 ];
+    $v1 = [ 1.1, 2.2 ];
+    $v2 = [ 3.3, 4.4 ];
 
-    my $sum  = cpvadd( $v1, $v2 );
-    my $diff = cpvsub( $v1, $v2 );
+    $sum  = cpvadd( $v1, $v2 );
+    $diff = cpvsub( $v1, $v2 );
 
 =head1 DESCRIPTION
 
@@ -71,57 +71,273 @@ Vector functions.
 
 =head2 cpvslerp
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpvslerpconst
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpvstr
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpveql
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpvadd
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpvsub
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpvneg
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpvmult
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpvdot
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpvcross
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpvperp
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpvrperp
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpvproject
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpvforangle
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpvtoangle
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpvrotate
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpvunrotate
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpvlengthsq
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpvlength
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpvlerp
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpvnormalize
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpvnormalize_safe
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpvclamp
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpvlerpconst
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpvdist
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpvdistsq
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpvnear
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =cut
 

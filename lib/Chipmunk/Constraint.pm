@@ -5,6 +5,8 @@ package Chipmunk::Constraint;
 use strict;
 use warnings;
 use Alien::Chipmunk;
+use Chipmunk::Body;
+use Chipmunk::Space;
 
 require XSLoader;
 XSLoader::load( 'Chipmunk::Constraint', $Chipmunk::Constraint::VERSION );

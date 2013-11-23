@@ -142,7 +142,6 @@ SV *cpPli_mat2x2_to_sv(cpMat2x2 var)
     av_push(output, newSVnv(var.d));
 
     arg = newRV_inc((SV *)output);
-    load_module((U32)0, newSVpv("Chipmunk::Mat2x2", 0), NULL, NULL);
     sv_bless(arg, gv_stashpv("Chipmunk::Mat2x2", (I32)0));
 
     return arg;
@@ -186,7 +185,6 @@ SV *cpPli_bb_to_sv(cpBB var)
     av_push(output, newSVnv(var.t));
 
     arg = newRV_inc((SV *)output);
-    load_module((U32)0, newSVpv("Chipmunk::BB", 0), NULL, NULL);
     sv_bless(arg, gv_stashpv("Chipmunk::BB", (I32)0));
 
     return arg;

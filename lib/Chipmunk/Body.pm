@@ -5,6 +5,7 @@ package Chipmunk::Body;
 use strict;
 use warnings;
 use Alien::Chipmunk;
+use Chipmunk::Space;
 
 require XSLoader;
 XSLoader::load( 'Chipmunk::Body', $Chipmunk::Body::VERSION );

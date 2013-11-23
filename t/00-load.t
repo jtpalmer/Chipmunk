@@ -25,7 +25,6 @@ BEGIN {
         Chipmunk::SimpleMotor
         Chipmunk::SlideJoint
         Chipmunk::Space
-        Chipmunk::SpatialIndex
         Chipmunk::Vect
     );
 

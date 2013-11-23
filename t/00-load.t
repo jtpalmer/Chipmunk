@@ -15,6 +15,7 @@ BEGIN {
         Chipmunk::GearJoint
         Chipmunk::GrooveJoint
         Chipmunk::Mat2x2
+        Chipmunk::Math
         Chipmunk::PinJoint
         Chipmunk::PivotJoint
         Chipmunk::PolyShape

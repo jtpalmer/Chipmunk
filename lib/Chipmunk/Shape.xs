@@ -10,12 +10,9 @@ PROTOTYPES: ENABLE
 void
 cpshape_DESTROY(shape)
         cpShape *shape
-    PREINIT:
-        cpBody *body;
     CODE:
-        body = cpShapeGetBody(shape);
+        cpPli_body_refcnt_dec(cpShapeGetBody(shape));
         cpPli_shape_free(shape);
-        cpPli_body_refcnt_dec(body);
 
 cpBB
 cpshape_cache_bb(shape)

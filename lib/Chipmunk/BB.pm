@@ -79,6 +79,10 @@ Chipmunk's axis-aligned 2D bounding box type. (left, bottom, right, top)
 
 =back
 
+    if ( $bb1->contains($bb2) ) {
+        print "bb1 contains bb2\n";
+    }
+
 =head2 contains_vect
 
 =over 4
@@ -88,6 +92,10 @@ Chipmunk's axis-aligned 2D bounding box type. (left, bottom, right, top)
 =item Return value: $contains
 
 =back
+
+    if ( $bb1->contains_vect($v) ) {
+        print "bb1 contains vector v\n";
+    }
 
 =head2 merge
 
@@ -99,6 +107,8 @@ Chipmunk's axis-aligned 2D bounding box type. (left, bottom, right, top)
 
 =back
 
+    $bb3 = $bb1->merge($bb2);
+
 =head2 expand
 
 =over 4
@@ -108,6 +118,8 @@ Chipmunk's axis-aligned 2D bounding box type. (left, bottom, right, top)
 =item Return value: L<$expanded|/new>
 
 =back
+
+    $bb2 = $bb1->expand($v);
 
 =head2 area
 
@@ -119,6 +131,8 @@ Chipmunk's axis-aligned 2D bounding box type. (left, bottom, right, top)
 
 =back
 
+    $area = $bb->area();
+
 =head2 merged_area
 
 =over 4
@@ -129,25 +143,34 @@ Chipmunk's axis-aligned 2D bounding box type. (left, bottom, right, top)
 
 =back
 
+    $area = $bb1->merged_area($bb2);
+
 =head2 segment_query
 
 =over 4
 
-=item Arguments: L<$a|Chipmunk::Vect>, L<$b|Chipmunk::Vect>
+=item Arguments: L<$v_a|Chipmunk::Vect>, L<$v_b|Chipmunk::Vect>
 
 =item Return value: $length
 
 =back
 
+    $length = $bb->segment_query( $v_a, $v_b );
+
 =head2 intersects_segment
 
 =over 4
 
-=item Arguments: L<$a|Chipmunk::Vect>, L<$b|Chipmunk::Vect>
+=item Arguments: L<$v_a|Chipmunk::Vect>, L<$v_b|Chipmunk::Vect>
 
 =item Return value: $intersects
 
 =back
+
+    if ( $bb->intersects_segment( $v_a, $v_b ) ) {
+        print "bb intersects segment\n";
+    }
+
 
 =head2 clamp_vect
 
@@ -159,6 +182,8 @@ Chipmunk's axis-aligned 2D bounding box type. (left, bottom, right, top)
 
 =back
 
+    $clamped = $bb->clamp_vect($v);
+
 =head2 wrap_vect
 
 =over 4
@@ -168,6 +193,8 @@ Chipmunk's axis-aligned 2D bounding box type. (left, bottom, right, top)
 =item Return value: L<$wrapped|Chipmunk::Vect>
 
 =back
+
+    $wrapped = $bb->wrap_vect($v);
 
 =head1 SEE ALSO
 

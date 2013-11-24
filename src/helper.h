@@ -190,14 +190,167 @@ SV *cpPli_bb_to_sv(cpBB var)
     return arg;
 }
 
+/* Magic helpers */
+
+typedef struct cpPli_magic {
+    void *obj;
+    void *data;
+    int deleteable;
+} cpPli_magic;
+
+cpPli_magic *cpPli_get_magic(SV *rv)
+{
+    SV *ref;
+    MAGIC *magic;
+
+    if (!SvROK(rv)) {
+        croak("Expected reference");
+    }
+
+    ref = SvRV(rv);
+
+    if (!ref || SvTYPE(ref) < SVt_PVMG) {
+        croak("Expected normal scalar");
+    }
+
+    magic = mg_find(ref, '~');
+
+    if (!magic) {
+        croak("Expected magic");
+    }
+
+    return (cpPli_magic *)magic->mg_ptr;
+}
+
+cpPli_magic *cpPli_get_or_create_magic(SV *rv)
+{
+    SV *ref;
+    MAGIC *magic;
+    cpPli_magic tmp;
+
+    if (!SvROK(rv)) {
+        croak("Expected reference");
+    }
+
+    ref = SvRV(rv);
+
+    if (!ref || SvTYPE(ref) < SVt_PVMG) {
+        croak("Expected normal scalar");
+    }
+
+    while (!(magic = mg_find(ref, '~'))) {
+        sv_magic(ref, NULL, '~', (char *)&tmp, sizeof(tmp));
+    }
+
+    return (cpPli_magic *)magic->mg_ptr;
+}
+
+void cpPli_attach_object(SV *obj, void *ptr)
+{
+    SV *ref;
+    cpPli_magic *mg;
+
+    ref = SvRV(obj);
+
+    if (SvTYPE(ref) >= SVt_PVHV) {
+        mg = cpPli_get_or_create_magic(obj);
+        mg->obj = ptr;
+        mg->data = NULL;
+        mg->deleteable = 0;
+    }
+    else {
+        sv_setiv(ref, PTR2IV(ptr));
+    }
+}
+
+void *cpPli_detach_object(SV *obj)
+{
+    SV *ref;
+    cpPli_magic *mg;
+    void *tmp;
+
+    if (!SvROK(obj)) {
+        croak("Expected reference");
+    }
+
+    ref = SvRV(obj);
+
+    if (SvTYPE(ref) >= SVt_PVHV) {
+        mg = cpPli_get_magic(obj);
+
+        if (mg) {
+            tmp = mg->obj;
+            mg->obj = NULL;
+            return tmp;
+        }
+
+        return NULL;
+    }
+    else {
+        tmp = INT2PTR(void *, SvIV(ref));
+        sv_setiv(ref, 0);
+        return tmp;
+    }
+}
+
+SV *cpPli_make_object(void *obj, const char *classname)
+{
+    SV *ret;
+    HV *hv;
+    HV *stash;
+
+    warn("# making %s", classname);
+
+    hv = newHV();
+    ret = newRV_noinc((SV *)hv);
+    //sv_2mortal(ret);
+
+    cpPli_attach_object(ret, obj);
+
+    stash = gv_stashpv(classname, (I32)0);
+
+    warn("# blessing %s", classname);
+
+    return sv_bless(ret, stash);
+}
+
+bool cpPli_object_is_deleteable(SV *obj)
+{
+    cpPli_magic *mg = cpPli_get_magic(obj);
+
+    return mg ? mg->deleteable : SvRV(obj) ? 1 : 0;
+}
+
+void cpPli_object_set_deleteable(SV *obj, int deleteable)
+{
+    SV *rv;
+    cpPli_magic *mg;
+
+    if (!SvROK(obj)) {
+        croak("Expected reference");
+    }
+
+    rv = SvRV(obj);
+
+    if (deleteable && SvTYPE(rv) < SVt_PVMG) {
+        return;
+    }
+
+    mg = cpPli_get_or_create_magic(obj);
+
+    mg->deleteable = deleteable;
+}
+
 #define CPPLI_SV_TO_OBJ(name, type)                                          \
 type *cpPli_sv_to_##name(SV *arg)                                            \
 {                                                                            \
+    cpPli_magic *mg; \
+    \
     if (!SvOK(arg)) { return NULL; }                                         \
                                                                              \
-    if (sv_isobject(arg) && (SvTYPE(SvRV(arg)) == SVt_PVMG)) {               \
-        return (type *)SvIV(SvRV(arg));                                      \
-    }                                                                        \
+        warn("# getting magic: " #name); \
+        mg = cpPli_get_magic(arg); \
+        return (type *)mg->obj; \
                                                                              \
     return NULL;                                                             \
 }
@@ -216,15 +369,29 @@ SV *cpPli_##name##_to_sv(SV *arg, type *obj, const char *classname)          \
     var = (SV *)type##GetUserData(obj);                                      \
                                                                              \
     if (!var) {                                                              \
-        sv_setref_pv(arg, classname, (void *)obj);                           \
-        ref = newRV_noinc(SvRV(arg));                                        \
+        ref = cpPli_make_object((void *)obj, classname);                     \
+        warn("# setting user data for " #name); \
         type##SetUserData(obj, (cpDataPointer)ref);                          \
+        SvSetSV(arg, newRV_noinc(SvRV(ref)));                                \
     }                                                                        \
     else {                                                                   \
         SvSetSV(arg, newRV_noinc(SvRV(var)));                                \
     }                                                                        \
                                                                              \
     return arg;                                                              \
+}
+
+SV *cpPli_body_create_selfref(cpBody *obj, const char *classname)
+{
+    SV *sv = cpPli_make_object(obj, classname);
+    cpBodySetUserData(obj, (void *)sv);
+
+    return sv;
+}
+
+SV *cpPli_body_get_selfref(cpBody *obj)
+{
+    return (SV *)cpBodyGetUserData(obj);
 }
 
 #define CPPLI_OBJ_REFCNT_INC(name, type)                                     \
@@ -266,6 +433,8 @@ CPPLI_OBJ_FUNCS(body, cpBody)
 CPPLI_OBJ_FUNCS(constraint, cpConstraint)
 CPPLI_OBJ_FUNCS(shape, cpShape)
 CPPLI_OBJ_FUNCS(space, cpSpace)
+
+/* Callback helpers */
 
 typedef struct cpPli_func_data {
     SV *func;
@@ -427,3 +596,4 @@ void cpPli_point_query_func(cpShape *shape, cpPli_func_data *combined)
 /* NOTE: no data, returns float. */
 
 #endif /* CHIPMUNK_PERL_HELPER_H */
+

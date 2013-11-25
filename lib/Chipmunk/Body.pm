@@ -58,41 +58,49 @@ L<Chipmunk::Shape> that point to the body.
 
 =over 4
 
-=item Arguments:
+=item Arguments: none
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+    $body->activate();
 
 =head2 activate_static
 
 =over 4
 
-=item Arguments:
+=item Arguments: L<$filter|Chipmunk::Shape>?
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+    $body->activate_static();
 
 =head2 sleep
 
 =over 4
 
-=item Arguments:
+=item Arguments: none
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+    $body->sleep();
 
 =head2 sleep_with_group
 
 =over 4
 
-=item Arguments:
+=item Arguments: L<$group|Chipmunk::Body>
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+    $body->sleep_with_group($group);
 
 =head2 is_sleeping
 
@@ -100,9 +108,13 @@ L<Chipmunk::Shape> that point to the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: $sleeping
 
 =back
+
+    if ( $body->is_sleeping() ) {
+        print "body is sleeping\n";
+    }
 
 =head2 is_static
 

@@ -238,19 +238,23 @@ Set the mass of the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: L<$vel|Chipmunk::Vect>
 
 =back
+
+    $vel = $body->get_vel();
 
 =head2 set_vel
 
 =over 4
 
-=item Arguments:
+=item Arguments: L<$vel|Chipmunk::Vect>
 
 =item Return Value: not defined
 
 =back
+
+    $body->set_vel($vel);
 
 =head2 get_force
 
@@ -258,19 +262,23 @@ Set the mass of the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: L<$force|Chipmunk::Vect>
 
 =back
+
+    $force = $body->get_force();
 
 =head2 set_force
 
 =over 4
 
-=item Arguments:
+=item Arguments: L<$force|Chipmunk::Vect>
 
 =item Return Value: not defined
 
 =back
+
+    $body->set_force($force);
 
 =head2 get_angle
 
@@ -278,19 +286,23 @@ Set the mass of the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: $angle
 
 =back
+
+    $angle = $body->get_angle();
 
 =head2 set_angle
 
 =over 4
 
-=item Arguments:
+=item Arguments: $angle
 
 =item Return Value: not defined
 
 =back
+
+    $body->set_angle($angle);
 
 =head2 get_ang_vel
 
@@ -298,19 +310,23 @@ Set the mass of the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: $vel
 
 =back
+
+    $vel = $body->get_ang_vel();
 
 =head2 set_ang_vel
 
 =over 4
 
-=item Arguments:
+=item Arguments: $vel
 
 =item Return Value: not defined
 
 =back
+
+    $body->set_ang_vel($vel);
 
 =head2 get_torque
 

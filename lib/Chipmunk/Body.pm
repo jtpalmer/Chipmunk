@@ -108,7 +108,7 @@ L<Chipmunk::Shape> that point to the body.
 
 =item Arguments: none
 
-=item Return Value: $sleeping
+=item Return Value: $is_sleeping
 
 =back
 
@@ -122,9 +122,13 @@ L<Chipmunk::Shape> that point to the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: $is_static
 
 =back
+
+    if ( $body->is_static() ) {
+        print "body is static\n";
+    }
 
 =head2 is_rogue
 
@@ -132,9 +136,13 @@ L<Chipmunk::Shape> that point to the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: $is_rogue
 
 =back
+
+    if ( $body->is_rogue() ) {
+        print "body is rogue\n";
+    }
 
 =head2 get_space
 
@@ -142,9 +150,11 @@ L<Chipmunk::Shape> that point to the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: L<$space|Chipmunk::Space>
 
 =back
+
+    $space = $body->get_space();
 
 =head2 get_mass
 
@@ -152,7 +162,7 @@ L<Chipmunk::Shape> that point to the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: $mass
 
 =back
 
@@ -164,7 +174,7 @@ Get the mass of the body.
 
 =over 4
 
-=item Arguments:
+=item Arguments: $mass
 
 =item Return Value: not defined
 
@@ -180,19 +190,23 @@ Set the mass of the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: $i
 
 =back
+
+    $i = $body->get_moment();
 
 =head2 set_moment
 
 =over 4
 
-=item Arguments:
+=item Arguments: $i
 
 =item Return Value: not defined
 
 =back
+
+    $body->set_moment($i);
 
 =head2 get_pos
 
@@ -200,19 +214,23 @@ Set the mass of the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: L<$pos|Chipmunk::Vect>
 
 =back
+
+    $pos = $body->get_pos();
 
 =head2 set_pos
 
 =over 4
 
-=item Arguments:
+=item Arguments: L<$pos|Chipmunk::Vect>
 
 =item Return Value: not defined
 
 =back
+
+    $body->set_pos($pos);
 
 =head2 get_vel
 

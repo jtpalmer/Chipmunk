@@ -334,19 +334,23 @@ Set the mass of the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: $torque
 
 =back
+
+    $torque = $body->get_torque();
 
 =head2 set_torque
 
 =over 4
 
-=item Arguments:
+=item Arguments: $torque
 
 =item Return Value: not defined
 
 =back
+
+    $body->set_torque($torque);
 
 =head2 get_rot
 
@@ -354,9 +358,11 @@ Set the mass of the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: L<$rot|Chipmunk::Vect>
 
 =back
+
+    $rot = $body->get_rot();
 
 =head2 get_vel_limit
 
@@ -364,19 +370,23 @@ Set the mass of the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: $vel_limit
 
 =back
+
+    $vel_limit = $body->get_vel_limit();
 
 =head2 set_vel_limit
 
 =over 4
 
-=item Arguments:
+=item Arguments: $vel_limit
 
 =item Return Value: not defined
 
 =back
+
+    $body->set_vel_limit($vel_limit);
 
 =head2 get_ang_vel_limit
 
@@ -384,19 +394,23 @@ Set the mass of the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: $ang_vel_limit
 
 =back
+
+    $ang_vel_limit = $body->get_ang_vel_limit();
 
 =head2 set_ang_vel_limit
 
 =over 4
 
-=item Arguments:
+=item Arguments: $ang_vel_limit
 
 =item Return Value: not defined
 
 =back
+
+    $body->set_ang_vel_limit($ang_vel_limit);
 
 =head2 get_user_data
 

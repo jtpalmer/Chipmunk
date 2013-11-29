@@ -418,69 +418,108 @@ Set the mass of the body.
 
 =item Arguments: none
 
-=item Return Value:
+=item Return Value: $user_data
 
 =back
+
+    $user_data = $body->get_user_data();
 
 =head2 set_user_data
 
 =over 4
 
-=item Arguments:
+=item Arguments: $user_data
 
 =item Return Value: not defined
 
 =back
+
+    $body->set_user_data($user_data);
 
 =head2 update_velocity
 
 =over 4
 
-=item Arguments:
-
-=item Return Value:
-
-=back
-
-=head2 local_to_world
-
-=over 4
-
-=item Arguments:
-
-=item Return Value:
-
-=back
-
-=head2 world_to_local
-
-=over 4
-
-=item Arguments:
-
-=item Return Value:
-
-=back
-
-=head2 reset_forces
-
-=over 4
-
-=item Arguments:
+=item Arguments: L<$gravity|Chipmunk::Vect>, $damping, $dt
 
 =item Return Value: not defined
 
 =back
 
+    $body->update_velocity( $gravity, $damping, $dt );
+
+=head2 update_position
+
+=over 4
+
+=item Arguments: $dt
+
+=item Return Value: not defined
+
+=back
+
+    $body->update_position($dt);
+
+=head2 local_to_world
+
+=over 4
+
+=item Arguments: L<$local_coords|Chipmunk::Vect>
+
+=item Return Value: L<$world_coords|Chipmunk::Vect>
+
+=back
+
+Convert from body local coordinates to world space coordinates.
+
+    $world_coords = $body->local_to_world($local_coords);
+
+=head2 world_to_local
+
+=over 4
+
+=item Arguments: L<$world_coords|Chipmunk::Vect>
+
+=item Return Value: L<$local_coords|Chipmunk::Vect>
+
+=back
+
+Convert from world space coordinates to body local coordinates.
+
+    $local_coords = $body->world_to_local($world_coords);
+
+=head2 reset_forces
+
+=over 4
+
+=item Arguments: none
+
+=item Return Value: not defined
+
+=back
+
+Zero both the forces and torques currently applied to the body.
+
+    $body->reset_forces();
+
 =head2 apply_force
 
 =over 4
 
-=item Arguments:
+=item Arguments: L<$f|Chipmunk::Vect>, L<$r|Chipmunk::Vect>
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+Add the force C<$f> to C<$body> at a relative offset C<$r> from the
+center of gravity.
+
+Takes a forces in absolute coordinates and applies it at a relative
+offset in absolute coordinates. (The offset is relative to the center
+of gravity, but is I<not> rotated with the body.)
+
+    $body->apply_force( $d, $r );
 
 =head2 apply_impulse
 
@@ -488,29 +527,42 @@ Set the mass of the body.
 
 =item Arguments:
 
-=item Return Value:
+=item Return Value: L<$j|Chipmunk::Vect>, L<$r|Chipmunk::Vect>
 
 =back
+
+Add the impulse C<$j> to C<$body> at a relative offset C<$r> from the
+center of gravity.
+
+Takes an impulse in absolute coordinates and applies it at a relative
+offset in absolute coordinates. (The offset is relative to the center of
+gravity, but is I<not> rotated with the body.)
+
+    $body->apply_impulse( $j, $r );
 
 =head2 get_vel_at_world_point
 
 =over 4
 
-=item Arguments:
+=item Arguments: L<$point|Chipmunk::Vect>
 
-=item Return Value:
+=item Return Value: L<$vel|Chipmunk::Vect>
 
 =back
+
+    $vel = $body->get_vel_at_world_point($point);
 
 =head2 get_vel_at_local_point
 
 =over 4
 
-=item Arguments:
+=item Arguments: L<$point|Chipmunk::Vect>
 
-=item Return Value:
+=item Return Value: L<$vel|Chipmunk::Vect>
 
 =back
+
+    $vel = $body->get_vel_at_local_point($point);
 
 =head2 kinetic_energy
 

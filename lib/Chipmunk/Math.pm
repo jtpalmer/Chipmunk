@@ -103,43 +103,189 @@ __END__
 
 =head1 DESCRIPTION
 
+Common math functions.
+
 =head1 METHODS
 
 =head2 cpfmax
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpfmin
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpfabs
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpfclamp
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpfclamp01
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 cpflerp
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 cpflerpconst
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 moment_for_circle
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 area_for_circle
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 moment_for_segment
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 area_for_segment
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 moment_for_poly
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 area_for_poly
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 centroid_for_poly
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 recenter_poly
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 moment_for_box
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 moment_for_box2
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 convex_hull
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head1 SEE ALSO
 

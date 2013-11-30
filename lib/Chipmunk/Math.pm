@@ -141,11 +141,15 @@ Common math functions.
 
 =over 4
 
-=item Arguments:
+=item Arguments: $f, $min, $max
 
-=item Return Value:
+=item Return Value: $clamped
 
 =back
+
+Clamp <$f> to be between C<$min> and C<$max>.
+
+    $clamped = cpfclamp( $f, $min, $max );
 
 =head2 cpfclamp01
 
@@ -161,21 +165,29 @@ Common math functions.
 
 =over 4
 
-=item Arguments:
+=item Arguments: $f1, $f2, $t
 
-=item Return Value:
+=item Return Value: $interpolated
 
 =back
+
+Linearly interpolate between C<$f1> and C<$f2>.
+
+    $interpolated = cpflerp( $f1, $f2, $t );
 
 =head2 cpflerpconst
 
 =over 4
 
-=item Arguments:
+=item Arguments: $f1, $f2, $d
 
-=item Return Value:
+=item Return Value: $iterpolated
 
 =back
+
+Linearly interpolate from C<$f1> towards C<$f2> by no more than C<$d>.
+
+    $interpolated = cpflerpconst( $f1, $f2, $d );
 
 =head2 moment_for_circle
 

@@ -65,6 +65,8 @@ Chipmunk's axis-aligned 2D bounding box type. (left, bottom, right, top)
 
 =back
 
+Returns true if the bounding boxes intersect.
+
     if ( $bb1->intersects($bb2) ) {
         print "Bounding boxes intersect\n";
     }
@@ -78,6 +80,8 @@ Chipmunk's axis-aligned 2D bounding box type. (left, bottom, right, top)
 =item Return value: $contains
 
 =back
+
+Returns true if the bounding box completely contains C<$other>.
 
     if ( $bb1->contains($bb2) ) {
         print "bb1 contains bb2\n";
@@ -93,8 +97,10 @@ Chipmunk's axis-aligned 2D bounding box type. (left, bottom, right, top)
 
 =back
 
-    if ( $bb1->contains_vect($v) ) {
-        print "bb1 contains vector v\n";
+Returns true if the bounding box contains <$v>.
+
+    if ( $bb->contains_vect($v) ) {
+        print "bb contains vector v\n";
     }
 
 =head2 merge
@@ -107,6 +113,9 @@ Chipmunk's axis-aligned 2D bounding box type. (left, bottom, right, top)
 
 =back
 
+Returns the minimal bounding box that contains both the original
+bounding box and C<$other>.
+
     $bb3 = $bb1->merge($bb2);
 
 =head2 expand
@@ -118,6 +127,9 @@ Chipmunk's axis-aligned 2D bounding box type. (left, bottom, right, top)
 =item Return value: L<$expanded|/new>
 
 =back
+
+Returns the minimal bounding box that contains both the original
+bounding box and C<$v>.
 
     $bb2 = $bb1->expand($v);
 

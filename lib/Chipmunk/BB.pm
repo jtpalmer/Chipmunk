@@ -97,7 +97,7 @@ Returns true if the bounding box completely contains C<$other>.
 
 =back
 
-Returns true if the bounding box contains <$v>.
+Returns true if the bounding box contains C<$v>.
 
     if ( $bb->contains_vect($v) ) {
         print "bb contains vector v\n";
@@ -143,6 +143,8 @@ bounding box and C<$v>.
 
 =back
 
+Return the area of the bounding box.
+
     $area = $bb->area();
 
 =head2 merged_area
@@ -155,6 +157,9 @@ bounding box and C<$v>.
 
 =back
 
+Merges the bounding box with C<$other> then returns the area of the
+merged bounding box.
+
     $area = $bb1->merged_area($bb2);
 
 =head2 segment_query
@@ -163,11 +168,14 @@ bounding box and C<$v>.
 
 =item Arguments: L<$v_a|Chipmunk::Vect>, L<$v_b|Chipmunk::Vect>
 
-=item Return value: $length
+=item Return value: $fraction
 
 =back
 
-    $length = $bb->segment_query( $v_a, $v_b );
+Returns the fraction along the segment query the bounding box is hit.
+Returns L<INFINITY|Chipmunk::Math/INFINITY> if it doesn't hit.
+
+    $fraction = $bb->segment_query( $v_a, $v_b );
 
 =head2 intersects_segment
 
@@ -178,6 +186,9 @@ bounding box and C<$v>.
 =item Return value: $intersects
 
 =back
+
+Returns true if the segment defined by endpoints C<$v_a> and C<$v_b>
+intersect the bounding box.
 
     if ( $bb->intersects_segment( $v_a, $v_b ) ) {
         print "bb intersects segment\n";
@@ -194,6 +205,8 @@ bounding box and C<$v>.
 
 =back
 
+Returns a copy of C<$v> clamped to the bounding box.
+
     $clamped = $bb->clamp_vect($v);
 
 =head2 wrap_vect
@@ -205,6 +218,8 @@ bounding box and C<$v>.
 =item Return value: L<$wrapped|Chipmunk::Vect>
 
 =back
+
+Returns a copy of C<$v> wrapped to the bounding box.
 
     $wrapped = $bb->wrap_vect($v);
 

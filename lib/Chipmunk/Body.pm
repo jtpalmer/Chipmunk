@@ -28,6 +28,37 @@ and position and velocity of it's center of gravity. They don't have an
 shape on their own. They are given a shape by creating collision shapes
 L<Chipmunk::Shape> that point to the body.
 
+=head2 Rogue and Static Bodies
+
+Normally when you create a rigid body, you add it to a space so the
+space will start simulating it. This means it will update it's position
+and velocity, apply forces to it, be affected by gravity, etc. A body
+that isn't added to a space (and not simulated) is called a rogue body.
+The most important use for rogue bodies are as static bodies, but you
+can also use them to implement directly controlled objects such as
+moving platforms.
+
+Static bodies are rogue bodies, but with a special flag set on them to
+let Chipmunk know that they never move unless you tell it. Static bodies
+have two purposes. Originally they were added for the sleeping feature.
+Because static bodies don't move, Chipmunk knows that it's safe to let
+objects that are touching or jointed to them fall asleep. Objects
+touching or jointed to regular rogue bodies are never allowed to sleep.
+The second purpose for static bodies is that Chipmunk knows shapes
+attached to them never need to have their collision detection data
+updated. Chipmunk also doesn't need to bother checking for collisions
+between static objects. Generally all of your level geometry will be
+attached to a static body except for things like moving platforms or
+doors.
+
+In previous versions of Chipmunk before 5.3 you would create an infinite
+mass rogue body to attach static shapes to using
+L<Chipmunk::Space/add_static_shape>. You don't need to do any of that
+anymore, and shouldn't if you want to use the sleeping feature. Each
+space has a dedicated static body that you can use to attach your static
+shapes to. Chipmunk also automatically adds shapes attached to static
+bodies as static shapes.
+
 =head1 METHODS
 
 =head2 new

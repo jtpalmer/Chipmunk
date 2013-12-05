@@ -225,6 +225,9 @@ Set the mass of the body.
 
 =back
 
+Get the moment of inertia (MoI or sometimes just moment) of the body.
+The moment is like the rotational mass of a body.
+
     $i = $body->get_moment();
 
 =head2 set_moment
@@ -236,6 +239,8 @@ Set the mass of the body.
 =item Return Value: not defined
 
 =back
+
+Set the moment of inertia.
 
     $body->set_moment($i);
 
@@ -249,6 +254,8 @@ Set the mass of the body.
 
 =back
 
+Get the position of the center of gravity of the body.
+
     $pos = $body->get_pos();
 
 =head2 set_pos
@@ -260,6 +267,13 @@ Set the mass of the body.
 =item Return Value: not defined
 
 =back
+
+Set the position of the center of gravity of the body.
+
+When changing the position you may also want to call
+L<Chipmunk::Space/reindex_shapes_for_body> to update the collision
+detection information for the attached shapes if plan to make any
+queries against the space.
 
     $body->set_pos($pos);
 
@@ -273,6 +287,8 @@ Set the mass of the body.
 
 =back
 
+Get the linear velocity of the center of gravity of the body.
+
     $vel = $body->get_vel();
 
 =head2 set_vel
@@ -284,6 +300,8 @@ Set the mass of the body.
 =item Return Value: not defined
 
 =back
+
+Set the linear velocity of the center of gravity of the body.
 
     $body->set_vel($vel);
 
@@ -297,6 +315,8 @@ Set the mass of the body.
 
 =back
 
+Get the force applied to the center of gravity of the body.
+
     $force = $body->get_force();
 
 =head2 set_force
@@ -308,6 +328,8 @@ Set the mass of the body.
 =item Return Value: not defined
 
 =back
+
+Set the force applied to the center of gravity of the body.
 
     $body->set_force($force);
 

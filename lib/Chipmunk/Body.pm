@@ -185,6 +185,8 @@ bodies as static shapes.
 
 =back
 
+Get the L<Chipmunk::Space> that C<body> has been added to.
+
     $space = $body->get_space();
 
 =head2 get_mass
@@ -343,6 +345,8 @@ Set the force applied to the center of gravity of the body.
 
 =back
 
+Get the rotation of the body in radians.
+
     $angle = $body->get_angle();
 
 =head2 set_angle
@@ -354,6 +358,13 @@ Set the force applied to the center of gravity of the body.
 =item Return Value: not defined
 
 =back
+
+Set the rotation of the body in radians.
+
+When changing the rotation you may also want to call
+L<Chipmunk::Space/reindex_shapes_for_body> to update the collision
+detection information for the attached shapes if plan to make any
+queries against the space.
 
     $body->set_angle($angle);
 
@@ -367,6 +378,8 @@ Set the force applied to the center of gravity of the body.
 
 =back
 
+Get the angular velocity of the body in radians per second.
+
     $vel = $body->get_ang_vel();
 
 =head2 set_ang_vel
@@ -378,6 +391,8 @@ Set the force applied to the center of gravity of the body.
 =item Return Value: not defined
 
 =back
+
+Set the angular velocity of the body in radians per second.
 
     $body->set_ang_vel($vel);
 
@@ -391,6 +406,8 @@ Set the force applied to the center of gravity of the body.
 
 =back
 
+Get the torque applied to the body.
+
     $torque = $body->get_torque();
 
 =head2 set_torque
@@ -402,6 +419,8 @@ Set the force applied to the center of gravity of the body.
 =item Return Value: not defined
 
 =back
+
+Set the torque applied to the body.
 
     $body->set_torque($torque);
 
@@ -415,6 +434,10 @@ Set the force applied to the center of gravity of the body.
 
 =back
 
+Get the rotation vector for the body. Can be used with
+L<Chipmunk::Vect/cpvrotate> or L<Chipmunk::Vect/cpvunrotate> to perform
+fast rotations.
+
     $rot = $body->get_rot();
 
 =head2 get_vel_limit
@@ -426,6 +449,9 @@ Set the force applied to the center of gravity of the body.
 =item Return Value: $vel_limit
 
 =back
+
+Get the velocity limit of the body. Defaults to INFINITY unless you set
+it specifically. Can be used to limit falling speeds, etc.
 
     $vel_limit = $body->get_vel_limit();
 
@@ -439,6 +465,8 @@ Set the force applied to the center of gravity of the body.
 
 =back
 
+Set the velocity limit of the body.
+
     $body->set_vel_limit($vel_limit);
 
 =head2 get_ang_vel_limit
@@ -450,6 +478,9 @@ Set the force applied to the center of gravity of the body.
 =item Return Value: $ang_vel_limit
 
 =back
+
+Get the angular velocity limit of the body in radians per second.
+Defaults to INFINITY unless you set it specifically.
 
     $ang_vel_limit = $body->get_ang_vel_limit();
 
@@ -463,6 +494,8 @@ Set the force applied to the center of gravity of the body.
 
 =back
 
+Set the angular velocity limit of the body in radians per second.
+
     $body->set_ang_vel_limit($ang_vel_limit);
 
 =head2 get_user_data
@@ -475,6 +508,8 @@ Set the force applied to the center of gravity of the body.
 
 =back
 
+Get the user data.
+
     $user_data = $body->get_user_data();
 
 =head2 set_user_data
@@ -486,6 +521,8 @@ Set the force applied to the center of gravity of the body.
 =item Return Value: not defined
 
 =back
+
+Set the user data.
 
     $body->set_user_data($user_data);
 

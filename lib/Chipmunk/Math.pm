@@ -203,15 +203,17 @@ Linearly interpolate from C<$f1> towards C<$f2> by no more than C<$d>.
 
 =over 4
 
-=item Arguments:
+=item Arguments: $m, $r1, $r2, L<$offset|Chipmunk::Vect>
 
-=item Return Value:
+=item Return Value: $moment
 
 =back
 
 Calculate the moment of inertia for a hollow circle, C<r1> and C<r2> are
 the inner and outer diameters in no particular order. (A solid circle
 has an inner diameter of 0)
+
+    $moment = moment_for_circle( $m, $r1, $r2, $offset );
 
 =head2 area_for_circle
 
@@ -227,14 +229,16 @@ has an inner diameter of 0)
 
 =over 4
 
-=item Arguments:
+=item Arguments: $m, L<$v_a|Chipmunk::Vect>, L<$v_b|Chipmunk::Vect>
 
-=item Return Value:
+=item Return Value: $moment
 
 =back
 
-Calculate the moment of inertia for a line segment. The endpoints C<a>
-and C<b> are relative to the body.
+Calculate the moment of inertia for a line segment. The endpoints
+C<$v_a> and C<$v_b> are relative to the body.
+
+    $moment = moment_for_segment( $m, $v_a, $v_b );
 
 =head2 area_for_segment
 
@@ -250,15 +254,18 @@ and C<b> are relative to the body.
 
 =over 4
 
-=item Arguments:
+=item Arguments: $m, L<\@verts|Chipmunk::Vect>, L<$offset?|Chipmunk::Vect>
 
-=item Return Value:
+=item Return Value: $moment
 
 =back
 
 Calculate the moment of inertia for a solid polygon shape assuming it's
 center of gravity is at it's centroid. The offset is added to each
 vertex.
+
+    $moment = moment_for_poly( $m, $verts );
+    $moment = moment_for_poly( $m, $verts, $offset );
 
 =head2 area_for_poly
 
@@ -294,23 +301,27 @@ vertex.
 
 =over 4
 
-=item Arguments:
+=item Arguments: $m, $width, $height
 
-=item Return Value:
+=item Return Value: $moment
 
 =back
 
 Calculate the moment of inertia for a solid box centered on the body.
 
+    $moment = moment_for_box( $m, $width, $height );
+
 =head2 moment_for_box2
 
 =over 4
 
-=item Arguments:
+=item Arguments: $m, L<$box|Chipmunk::BB>
 
-=item Return Value:
+=item Return Value: $moment
 
 =back
+
+    $moment = moment_for_box2( $m, $bb );
 
 =head2 convex_hull
 

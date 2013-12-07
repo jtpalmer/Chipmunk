@@ -199,6 +199,10 @@ Linearly interpolate from C<$f1> towards C<$f2> by no more than C<$d>.
 
 =back
 
+Calculate the moment of inertia for a hollow circle, C<r1> and C<r2> are
+the inner and outer diameters in no particular order. (A solid circle
+has an inner diameter of 0)
+
 =head2 area_for_circle
 
 =over 4
@@ -219,6 +223,9 @@ Linearly interpolate from C<$f1> towards C<$f2> by no more than C<$d>.
 
 =back
 
+Calculate the moment of inertia for a line segment. The endpoints C<a>
+and C<b> are relative to the body.
+
 =head2 area_for_segment
 
 =over 4
@@ -238,6 +245,10 @@ Linearly interpolate from C<$f1> towards C<$f2> by no more than C<$d>.
 =item Return Value:
 
 =back
+
+Calculate the moment of inertia for a solid polygon shape assuming it's
+center of gravity is at it's centroid. The offset is added to each
+vertex.
 
 =head2 area_for_poly
 
@@ -278,6 +289,8 @@ Linearly interpolate from C<$f1> towards C<$f2> by no more than C<$d>.
 =item Return Value:
 
 =back
+
+Calculate the moment of inertia for a solid box centered on the body.
 
 =head2 moment_for_box2
 

@@ -111,31 +111,37 @@ Common math functions.
 
 =over 4
 
-=item Arguments:
+=item Arguments: $a, $b
 
-=item Return Value:
+=item Return Value: $max
 
 =back
+
+    $max = cpfmax( $a, $b );
 
 =head2 cpfmin
 
 =over 4
 
-=item Arguments:
+=item Arguments: $a, $b
 
-=item Return Value:
+=item Return Value: $min
 
 =back
+
+    $min = cpfmin( $a, $b );
 
 =head2 cpfabs
 
 =over 4
 
-=item Arguments:
+=item Arguments: $f
 
-=item Return Value:
+=item Return Value: $abs
 
 =back
+
+    $abs = cpfabs($f);
 
 =head2 cpfclamp
 
@@ -147,7 +153,7 @@ Common math functions.
 
 =back
 
-Clamp <$f> to be between C<$min> and C<$max>.
+Clamp C<$f> to be between C<$min> and C<$max>.
 
     $clamped = cpfclamp( $f, $min, $max );
 
@@ -155,11 +161,15 @@ Clamp <$f> to be between C<$min> and C<$max>.
 
 =over 4
 
-=item Arguments:
+=item Arguments: $f
 
-=item Return Value:
+=item Return Value: $clamped
 
 =back
+
+Clamp C<$f> to be between zero and one.
+
+    $clamped = cpfclamp($f);
 
 =head2 cpflerp
 

@@ -219,11 +219,15 @@ has an inner diameter of 0)
 
 =over 4
 
-=item Arguments:
+=item Arguments: $r1, $r2
 
-=item Return Value:
+=item Return Value: $area
 
 =back
+
+Area of a hollow circle.
+
+    $area = area_for_circle( $r1, $r2 );
 
 =head2 moment_for_segment
 
@@ -244,11 +248,15 @@ C<$v_a> and C<$v_b> are relative to the body.
 
 =over 4
 
-=item Arguments:
+=item Arguments: L<$v_a|Chipmunk::Vect>, L<$v_b|Chipmunk::Vect>, $r
 
-=item Return Value:
+=item Return Value: $area
 
 =back
+
+Area of a beveled segment. I<(Will always be zero if radius is zero)>
+
+    $area = area_for_segment( $v_a, $v_b, $r );
 
 =head2 moment_for_poly
 
@@ -271,11 +279,16 @@ vertex.
 
 =over 4
 
-=item Arguments:
+=item Arguments: L<\@verts|Chipmunk::Vect>
 
-=item Return Value:
+=item Return Value: $area
 
 =back
+
+Signed area of a polygon shape. Returns a negative number for polygons
+with a backwards winding.
+
+    $area = area_for_poly($verts);
 
 =head2 centroid_for_poly
 

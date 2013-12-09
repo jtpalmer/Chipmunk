@@ -70,10 +70,6 @@ Physics.
 
 =head2 get_static_body
 
-=head2 set_static_body
-
-=head2 get_static_body
-
 =head2 get_current_time_step
 
 =head2 is_locked

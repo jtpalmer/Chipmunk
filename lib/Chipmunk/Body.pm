@@ -95,6 +95,9 @@ bodies as static shapes.
 
 =back
 
+Reset the idle timer on a body. If it was sleeping, wake it and any
+other bodies it was touching.
+
     $body->activate();
 
 =head2 activate_static
@@ -107,6 +110,10 @@ bodies as static shapes.
 
 =back
 
+Similar in function to L</activate>. Activates all bodies touching body.
+If filter is not C<undef>, then only bodies touching through filter will
+be awoken.
+
     $body->activate_static();
 
 =head2 sleep
@@ -118,6 +125,9 @@ bodies as static shapes.
 =item Return Value: not defined
 
 =back
+
+Forces the body to fall asleep immediately even if it's in midair.
+Cannot be called from a callback.
 
     $body->sleep();
 
@@ -140,6 +150,8 @@ bodies as static shapes.
 =item Arguments: none
 
 =item Return Value: $is_sleeping
+
+Returns true if the body is sleeping.
 
 =back
 

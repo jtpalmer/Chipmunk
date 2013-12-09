@@ -85,7 +85,7 @@ Physics.
 B<DEPRECATED>
 
 Shapes attached to static bodies are automatically treated as static.
-There isn’t really a good reason to explicitly add static shapes
+There isn't really a good reason to explicitly add static shapes
 anymore.
 
     $space->add_static_shape($shape);
@@ -116,9 +116,9 @@ See L</"add_static_shape">
 
 =head2 convert_body_to_static
 
-Convert a body to a static one. It’s mass and moment will be set to
-infinity and it’s velocity to 0.  The old mass, moment and velocity are
-not saved. This will effectively freeze a body and it’s shapes into
+Convert a body to a static one. It's mass and moment will be set to
+infinity and it's velocity to 0.  The old mass, moment and velocity are
+not saved. This will effectively freeze a body and it's shapes into
 place. This cannot be called on an active body, so you may need to call
 L</"remove_body"> first. Also, because it modifies collision detection
 data structures, you must use a post step callback if you want to use it

@@ -172,5 +172,9 @@ callback or iterator.
 
 =head2 step
 
+=head1 SEE ALSO
+
+L<Chipmunk::Body>, L<Chipmunk::Shape>, L<Chipmunk::Constraint>
+
 =cut
 

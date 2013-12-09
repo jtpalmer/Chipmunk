@@ -74,6 +74,12 @@ Physics.
 
 =head2 is_locked
 
+=head2 set_default_collision_handler
+
+=head2 add_collision_handler
+
+=head2 remove_collision_handler
+
 =head2 add_shape
 
 =head2 add_static_shape
@@ -133,6 +139,28 @@ callback or iterator.
     my $dynamic = $space->convert_body_to_dynamic($body);
 
 =head2 add_post_step_callback
+
+=head2 point_query
+
+=head2 point_query_first
+
+=head2 nearest_point_query
+
+=head2 segment_query
+
+=head2 segment_query_first
+
+=head2 bb_query
+
+=head2 shape_query
+
+=head2 active_shapes_touching_shape
+
+=head2 each_body
+
+=head2 each_shape
+
+=head2 each_constraint
 
 =head2 reindex_static
 

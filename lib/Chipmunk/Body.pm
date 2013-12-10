@@ -141,6 +141,15 @@ Cannot be called from a callback.
 
 =back
 
+When objects in Chipmunk sleep, they sleep as a group of all objects
+that are touching or jointed together. When an object is woken up, all
+of the objects in it's group are woken up. C<sleep_with_group> allows
+you group sleeping objects together. It acts identically to L</sleep> if
+you pass C<undef> as C<$group> by starting a new group. If you pass a
+sleeping body for C<$group>, body will be awoken when C<$group> is
+awoken. You can use this to initialize levels and start stacks of
+objects in a pre-sleeping state.
+
     $body->sleep_with_group($group);
 
 =head2 is_sleeping

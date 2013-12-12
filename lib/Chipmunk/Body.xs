@@ -361,7 +361,7 @@ cpbody_kinetic_energy(body)
     OUTPUT:
         RETVAL
 
-# TODO: cpbody_shape_iterator
+# TODO: cpbody_each_shape
 #void cpBodyEachShape(cpBody *body, cpBodyShapeIteratorFunc func, void *data);
 
 # TODO: cpbody_each_constraint

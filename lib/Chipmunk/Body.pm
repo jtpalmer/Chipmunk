@@ -685,15 +685,29 @@ gravity, but is I<not> rotated with the body.)
 
 =back
 
-=head2 shape_iterator
+=head2 each_shape
 
 =over 4
 
-=item Arguments:
+=item Arguments: &func, $data?
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+Call C<&func> once for each shape that is attached to body and added to
+a space. C<$data> is passed along as a context value. It is safe to
+remove shapes using these callbacks.
+
+    $body->each_shape(
+        sub {
+            my ( $shape, $data ) = @_;
+
+            # ...
+        },
+        $data
+    );
+
 
 =head2 each_constraint
 

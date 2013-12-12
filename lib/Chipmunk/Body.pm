@@ -708,16 +708,28 @@ remove shapes using these callbacks.
         $data
     );
 
-
 =head2 each_constraint
 
 =over 4
 
-=item Arguments:
+=item Arguments: &func, $data?
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+Call C<&func> once for each constraint that is attached to body and
+added to a space. C<$data> is passed along as a context value. It is
+safe to remove constraints using thes callbacks.
+
+    $body->each_constraint(
+        sub {
+            my ( $constraint, $data ) = @_;
+
+            # ...
+        },
+        $data
+    );
 
 =head2 each_arbiter
 

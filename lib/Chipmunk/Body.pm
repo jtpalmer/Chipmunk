@@ -744,7 +744,8 @@ safe to remove constraints using thes callbacks.
 
 =head1 SEE ALSO
 
-L<Chipmunk::Shape>, L<Chipmunk::Space>
+L<Chipmunk::Space>, L<Chipmunk::Shape>, L<Chipmunk::Constraint>,
+L<Chipmunk::Arbiter>
 
 =cut
 

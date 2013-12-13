@@ -16,6 +16,7 @@ __END__
 =head1 SYNOPSIS
 
     $body = Chipmunk::Body->new( $mass, $inertia );
+    $shape->set_body($body);
     $space->add_body($body);
     $body->set_pos( [ $x, $y ] );
 

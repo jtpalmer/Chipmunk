@@ -736,11 +736,30 @@ safe to remove constraints using thes callbacks.
 
 =over 4
 
-=item Arguments:
+=item Arguments: &func, $data?
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+Calls C<&func> once for each collision pair that body is involved in.
+Calling L<Chipmunk::Arbiter/get_bodies> or
+L<Chipmunk::Arbiter/get_shapes> will return the body or shape for body
+as the first argument. You can use this to check all sorts of collision
+information for a body like if it's touching the ground, another
+particular object, how much collision force is being applied to an
+object, etc. Sensor shapes and arbiters that have been rejected by a
+collision handler callback or L<Chipmunk::Arbiter/ignore> are not
+tracked by the contact graph.
+
+    $body->each_arbiter(
+        sub {
+            my ( $arbiter, $data ) = @_;
+
+            # ...
+        },
+        $data
+    );
 
 =head1 SEE ALSO
 

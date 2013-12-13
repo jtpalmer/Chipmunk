@@ -36,7 +36,7 @@ Fastest and simplest collision shape.
 =back
 
 L<$body> is the body to attach the circle to, L<$offset> is the offset
-from the body’s center of gravity in body local coordinates.
+from the body's center of gravity in body local coordinates.
 
     $circle = Chipmunk::CircleShape->new( $body, $radius, $offset );
 

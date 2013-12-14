@@ -179,6 +179,10 @@ Returns true if the body is sleeping.
 
 =back
 
+Returns true if the body is a static body. Either from
+L<Chipmunk::Space/get_static_body> or a body created with
+L</new_static>.
+
     if ( $body->is_static() ) {
         print "body is static\n";
     }
@@ -192,6 +196,8 @@ Returns true if the body is sleeping.
 =item Return Value: $is_rogue
 
 =back
+
+Returns true if the body has never been added to a space.
 
     if ( $body->is_rogue() ) {
         print "body is rogue\n";

@@ -60,6 +60,29 @@ space has a dedicated static body that you can use to attach your static
 shapes to. Chipmunk also automatically adds shapes attached to static
 bodies as static shapes.
 
+=head1 NOTES
+
+=over 4
+
+=item *
+
+Use forces to modify the rigid bodies if possible. This will be the most
+stable.
+
+=item *
+
+Modifying a body's velocity shouldn't necessarily be avoided, but
+applying large changes every frame can cause strange results in the
+simulation. Experiment freely, but be warned.
+
+=item *
+
+Don't modify a body's position every step unless you really know what
+you are doing. Otherwise you're likely to get the position/velocity
+badly out of sync.
+
+=back
+
 =head1 METHODS
 
 =head2 new

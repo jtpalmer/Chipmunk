@@ -24,16 +24,16 @@ There are currently 3 collision shape types:
 
 =over 4
 
-=item
+=item *
 
 Circles: Fastest and simplest collision shape.
 
-=item
+=item *
 
 Line segments: Meant mainly as a static shape. Can be beveled in order
 to give them a thickness.
 
-=item
+=item *
 
 Convex polygons: Slowest, but most flexible collision shape.
 

@@ -15,6 +15,9 @@ __END__
 
 =head1 SYNOPSIS
 
+    $space = $shape->get_space();
+    $body = $shape->get_body();
+
 =head1 DESCRIPTION
 
 There are currently 3 collision shape types:

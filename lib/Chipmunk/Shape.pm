@@ -48,49 +48,217 @@ different friction, elasticity or callback values.
 
 =head2 cache_bb
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 Synchronizes the shape with the body its attached to.
 
 =head2 update
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 Sets the position and rotation of the shape.
 
 =head2 point_query
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_space
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 get_body
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 set_body
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 get_bb
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_sensor
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 set_sensor
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_elasticity
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 set_elasticity
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_friction
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 set_friction
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_surface_velocity
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 set_surface_velocity
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_collision_type
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 set_collision_type
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_group
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 set_group
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_layers
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 set_layers
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head1 SEE ALSO
 

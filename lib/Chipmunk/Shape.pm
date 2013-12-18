@@ -94,21 +94,30 @@ Sets the position and rotation of the shape.
 
 =over 4
 
-=item Arguments:
+=item Arguments: none
 
-=item Return Value:
+=item Return Value: L<$body|Chipmunk::Body>
 
 =back
+
+Get the rigid body the shape is attached to.
+
+    $body = $shape->get_body();
 
 =head2 set_body
 
 =over 4
 
-=item Arguments:
+=item Arguments: L<$body|Chipmunk::Body>
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+Set the rigid body the shape is attached to. Can only be set when the
+shape is not added to a space.
+
+    $shape->set_body($body);
 
 =head2 get_bb
 

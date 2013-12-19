@@ -123,11 +123,16 @@ shape is not added to a space.
 
 =over 4
 
-=item Arguments:
+=item Arguments: none
 
-=item Return Value:
+=item Return Value: L<$bb|Chipmunk::BB>
 
 =back
+
+Get the bounding box of the shape. Only guaranteed to be valid after
+L</cache_bb> or L<Chipmunk::Space/step> is called. Moving a body that a
+shape is connected to does not update it's bounding box. For shapes used
+for queries that aren't attached to bodies, you can also use L</update>.
 
 =head2 get_sensor
 

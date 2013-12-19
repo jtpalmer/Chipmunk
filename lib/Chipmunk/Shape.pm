@@ -138,21 +138,27 @@ for queries that aren't attached to bodies, you can also use L</update>.
 
 =over 4
 
-=item Arguments:
+=item Arguments: none
 
-=item Return Value:
+=item Return Value: $is_sensor
 
 =back
+
+A boolean value if this shape is a sensor or not. Sensors only call
+collision callbacks, and never generate real collisions.
 
 =head2 set_sensor
 
 =over 4
 
-=item Arguments:
+=item Arguments: $is_sensor
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+A boolean value if this shape is a sensor or not. Sensors only call
+collision callbacks, and never generate real collisions.
 
 =head2 get_elasticity
 

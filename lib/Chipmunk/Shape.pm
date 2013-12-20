@@ -164,21 +164,33 @@ collision callbacks, and never generate real collisions.
 
 =over 4
 
-=item Arguments:
+=item Arguments: none
 
-=item Return Value:
+=item Return Value: $elasticity
 
 =back
+
+Get the elasticity of the shape. A value of 0.0 gives no bounce, while a
+value of 1.0 will give a "perfect" bounce. However due to inaccuracies
+in the simulation using 1.0 or greater is not recommended however. The
+elasticity for a collision is found by multiplying the elasticity of the
+individual shapes together.
 
 =head2 set_elasticity
 
 =over 4
 
-=item Arguments:
+=item Arguments: $elasticity
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+Set the elasticity of the shape. A value of 0.0 gives no bounce, while a
+value of 1.0 will give a "perfect" bounce. However due to inaccuracies
+in the simulation using 1.0 or greater is not recommended however. The
+elasticity for a collision is found by multiplying the elasticity of the
+individual shapes together.
 
 =head2 get_friction
 

@@ -228,21 +228,28 @@ L<Tables of friction coefficients|http://www.roymech.co.uk/Useful_Tables/Tribolo
 
 =over 4
 
-=item Arguments:
+=item Arguments: none
 
-=item Return Value:
+=item Return Value: $vel
 
 =back
+
+Get the surface velocity of the object. This value is only used when
+calculating friction, not resolving the collision.
 
 =head2 set_surface_velocity
 
 =over 4
 
-=item Arguments:
+=item Arguments: $vel
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+Set the surface velocity of the object. Useful for creating conveyor
+belts or players that move around. This value is only used when
+calculating friction, not resolving the collision.
 
 =head2 get_collision_type
 

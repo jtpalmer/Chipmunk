@@ -196,21 +196,33 @@ individual shapes together.
 
 =over 4
 
-=item Arguments:
+=item Arguments: none
 
-=item Return Value:
+=item Return Value: $friction
 
 =back
+
+Get the friction coefficient. Chipmunk uses the Coulomb friction model,
+a value of 0.0 is frictionless. The friction for a collision is found by
+multiplying the friction of the individual shapes together.
+
+L<Tables of friction coefficients|http://www.roymech.co.uk/Useful_Tables/Tribology/co_of_frict.htm>
 
 =head2 set_friction
 
 =over 4
 
-=item Arguments:
+=item Arguments: $friction
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+Set the friction coefficient. Chipmunk uses the Coulomb friction model,
+a value of 0.0 is frictionless. The friction for a collision is found by
+multiplying the friction of the individual shapes together.
+
+L<Tables of friction coefficients|http://www.roymech.co.uk/Useful_Tables/Tribology/co_of_frict.htm>
 
 =head2 get_surface_velocity
 

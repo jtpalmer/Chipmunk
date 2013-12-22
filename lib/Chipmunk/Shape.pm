@@ -255,21 +255,27 @@ calculating friction, not resolving the collision.
 
 =over 4
 
-=item Arguments:
+=item Arguments: none
 
-=item Return Value:
+=item Return Value: $type
 
 =back
+
+You can assign types to Chipmunk collision shapes that trigger callbacks
+when objects of certain types touch.
 
 =head2 set_collision_type
 
 =over 4
 
-=item Arguments:
+=item Arguments: $type
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+You can assign types to Chipmunk collision shapes that trigger callbacks
+when objects of certain types touch.
 
 =head2 get_group
 

@@ -281,21 +281,29 @@ when objects of certain types touch.
 
 =over 4
 
-=item Arguments:
+=item Arguments: none
 
-=item Return Value:
+=item Return Value: $group
 
 =back
+
+Get the group of the object. Shapes in the same non-zero group do not
+generate collisions. Useful when creating an object out of many shapes
+that you don't want to self collide.
 
 =head2 set_group
 
 =over 4
 
-=item Arguments:
+=item Arguments: $group
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+Set the group of the object. Shapes in the same non-zero group do not
+generate collisions. Useful when creating an object out of many shapes
+that you don't want to self collide.
 
 =head2 get_layers
 

@@ -309,21 +309,33 @@ that you don't want to self collide.
 
 =over 4
 
-=item Arguments:
+=item Arguments: none
 
-=item Return Value:
+=item Return Value: $layers
 
 =back
+
+Get the layers bitmask of the object. Shapes only collide if they are in
+the same bit-planes. i.e. (a->layers & b->layers) != 0 By default, a
+shape occupies all bit-planes.
+L<Wikipedia|http://en.wikipedia.org/wiki/Mask_(computing)#top> has a
+nice article on bitmasks if you are unfamiliar with how to use them.
 
 =head2 set_layers
 
 =over 4
 
-=item Arguments:
+=item Arguments: $layers
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
+
+Set the layers bitmask of the object. Shapes only collide if they are in
+the same bit-planes. i.e. (a->layers & b->layers) != 0 By default, a
+shape occupies all bit-planes.
+L<Wikipedia|http://en.wikipedia.org/wiki/Mask_(computing)#top> has a
+nice article on bitmasks if you are unfamiliar with how to use them.
 
 =head1 SEE ALSO
 

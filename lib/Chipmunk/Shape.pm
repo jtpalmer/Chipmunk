@@ -84,11 +84,13 @@ Sets the position and rotation of the shape.
 
 =over 4
 
-=item Arguments:
+=item Arguments: none
 
-=item Return Value:
+=item Return Value: L<$space|Chipmunk::Space>
 
 =back
+
+Get the L<Chipmunk::Space> that the shape has been added to.
 
 =head2 get_body
 

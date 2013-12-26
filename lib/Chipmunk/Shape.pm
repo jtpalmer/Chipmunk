@@ -50,9 +50,9 @@ different friction, elasticity or callback values.
 
 =over 4
 
-=item Arguments:
+=item Arguments: none
 
-=item Return Value:
+=item Return Value: L$<$bb|Chipmunk::BB>
 
 =back
 
@@ -62,9 +62,9 @@ Synchronizes the shape with the body its attached to.
 
 =over 4
 
-=item Arguments:
+=item Arguments: L<$pos|Chipmunk::Vect>, L<$rot|Chipmunk::Vect>
 
-=item Return Value:
+=item Return Value: L$<$bb|Chipmunk::BB>
 
 =back
 

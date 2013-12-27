@@ -50,6 +50,8 @@ from the body's center of gravity in body local coordinates.
 
 =back
 
+Get circle offset.
+
     $offset = $circle->get_offset();
 
 =head2 get_radius
@@ -61,6 +63,8 @@ from the body's center of gravity in body local coordinates.
 =item Return Value: $radius
 
 =back
+
+Get circle radius.
 
     $radius = $circle->get_radius();
 

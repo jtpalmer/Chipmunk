@@ -31,9 +31,9 @@ thickness.
 
 =over 4
 
-=item Arguments:
+=item Arguments: L<$body|Chipmunk::Body>, L<$point_a|Chipmunk::Vect>, L<$point_b|Chipmunk::Vect>, $radius
 
-=item Return Value:
+=item Return Value: $segment
 
 =back
 
@@ -45,9 +45,9 @@ segment.
 
 =over 4
 
-=item Arguments:
+=item Arguments: L<$prev|Chipmunk::Vect>, L<$next|Chipmunk::Vect>
 
-=item Return Value:
+=item Return Value: not defined
 
 =back
 

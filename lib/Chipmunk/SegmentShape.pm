@@ -41,6 +41,9 @@ L<$body> is the body to attach the segment to, L<$point_a> and
 L<$point_b> are the endpoints, and L<$radius> is the thickness of the
 segment.
 
+    $segment
+        = Chipmunk::SegmentShape->new( $body, $point_a, $point_b, $radius );
+
 =head2 set_neighbors
 
 =over 4
@@ -55,6 +58,8 @@ When you have a number of segment shapes that are all joined together,
 things can still collide with the "cracks" between the segments. By
 setting the neighbor segment endpoints you can tell Chipmunk to avoid
 colliding with the inner parts of the crack.
+
+    $segment->set_neighbors( [ $x_a, $y_a ], [ $x_b, $y_b ] );
 
 =head2 get_a
 

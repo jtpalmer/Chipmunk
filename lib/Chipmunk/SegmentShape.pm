@@ -29,11 +29,27 @@ thickness.
 
 =head2 new
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 L<$body> is the body to attach the segment to, L<$point_a> and
 L<$point_b> are the endpoints, and L<$radius> is the thickness of the
 segment.
 
 =head2 set_neighbors
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 When you have a number of segment shapes that are all joined together,
 things can still collide with the "cracks" between the segments. By
@@ -42,11 +58,43 @@ colliding with the inner parts of the crack.
 
 =head2 get_a
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_b
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head2 get_normal
 
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
+
 =head2 get_radius
+
+=over 4
+
+=item Arguments:
+
+=item Return Value:
+
+=back
 
 =head1 SEE ALSO
 

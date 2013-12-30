@@ -31,15 +31,21 @@ Slowest, but most flexible collision shape.
 
 =over 4
 
-=item Arguments: L<$body|Chipmunk::Body>, L<\@verts|Chipmunk::Vect>
+=item Arguments: L<$body|Chipmunk::Body>, L<\@verts|Chipmunk::Vect>, $offset?
 
 =item Return Value: $poly
 
 =back
 
+L<$body> is the body to attach the poly to, L<$verts> is an array of
+L<Chipmunk::Vect>s defining a convex hull with a clockwise winding,
+L<$offset> is the offset from the body's center of gravity in body local
+coordinates. An assertion will be thrown the vertexes are not convex or
+do not have a clockwise winding.
+
     $body = Chipmunk::Body->new( $mass, $inertia );
     $verts = [ [ 0, 0 ], [ 0, 1 ], [ 1, 0 ] ];
-    $poly = Chipmunk::PolyShape->new( $body, $verts );
+    $poly = Chipmunk::PolyShape->new( $body, $verts, $offset );
 
 =head2 get_num_verts
 

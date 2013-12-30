@@ -46,6 +46,8 @@ Physics.
 
 =back
 
+Iterations allow you to control the accuracy of the solver. Defaults to 10.
+
 =head2 set_iterations
 
 =over 4
@@ -55,6 +57,8 @@ Physics.
 =item Return Value:
 
 =back
+
+Iterations allow you to control the accuracy of the solver. Defaults to 10.
 
 =head2 get_gravity
 

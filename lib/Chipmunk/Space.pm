@@ -70,6 +70,9 @@ Iterations allow you to control the accuracy of the solver. Defaults to 10.
 
 =back
 
+Global gravity applied to the space. Defaults to cpvzero. Can be
+overridden on a per body basis by writing custom integration functions.
+
 =head2 set_gravity
 
 =over 4
@@ -79,6 +82,9 @@ Iterations allow you to control the accuracy of the solver. Defaults to 10.
 =item Return Value:
 
 =back
+
+Global gravity applied to the space. Defaults to cpvzero. Can be
+overridden on a per body basis by writing custom integration functions.
 
 =head2 get_damping
 

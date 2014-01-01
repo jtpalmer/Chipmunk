@@ -96,6 +96,10 @@ overridden on a per body basis by writing custom integration functions.
 
 =back
 
+Amount of simple damping to apply to the space. A value of 0.9 means
+that each body will lose 10% of it's velocity per second. Defaults to 1.
+Like gravity can be overridden on a per body basis.
+
 =head2 set_damping
 
 =over 4
@@ -105,6 +109,10 @@ overridden on a per body basis by writing custom integration functions.
 =item Return Value:
 
 =back
+
+Amount of simple damping to apply to the space. A value of 0.9 means
+that each body will lose 10% of it's velocity per second. Defaults to 1.
+Like gravity can be overridden on a per body basis.
 
 =head2 get_idle_speed_threshold
 

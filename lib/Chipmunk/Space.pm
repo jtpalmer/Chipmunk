@@ -124,6 +124,9 @@ Like gravity can be overridden on a per body basis.
 
 =back
 
+Speed threshold for a body to be considered idle. The default value of
+0 means to let the space guess a good threshold based on gravity.
+
 =head2 set_idle_speed_threshold
 
 =over 4
@@ -133,6 +136,9 @@ Like gravity can be overridden on a per body basis.
 =item Return Value:
 
 =back
+
+Speed threshold for a body to be considered idle. The default value of
+0 means to let the space guess a good threshold based on gravity.
 
 =head2 get_sleep_time_threshold
 

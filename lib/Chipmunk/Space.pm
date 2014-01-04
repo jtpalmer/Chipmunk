@@ -176,6 +176,10 @@ default value of INFINITY disables the sleeping feature.
 
 =back
 
+Amount of overlap between shapes that is allowed. It's encouraged to set
+this as high as you can without noticable overlapping as it improves the
+stability. It defaults to 0.1.
+
 =head2 set_collision_slop
 
 =over 4
@@ -185,6 +189,10 @@ default value of INFINITY disables the sleeping feature.
 =item Return Value:
 
 =back
+
+Amount of overlap between shapes that is allowed. It's encouraged to set
+this as high as you can without noticable overlapping as it improves the
+stability. It defaults to 0.1.
 
 =head2 get_collision_bias
 

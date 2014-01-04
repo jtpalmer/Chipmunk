@@ -150,6 +150,9 @@ Speed threshold for a body to be considered idle. The default value of
 
 =back
 
+Time a group of bodies must remain idle in order to fall asleep. The
+default value of INFINITY disables the sleeping feature.
+
 =head2 set_sleep_time_threshold
 
 =over 4
@@ -159,6 +162,9 @@ Speed threshold for a body to be considered idle. The default value of
 =item Return Value:
 
 =back
+
+Time a group of bodies must remain idle in order to fall asleep. The
+default value of INFINITY disables the sleeping feature.
 
 =head2 get_collision_slop
 

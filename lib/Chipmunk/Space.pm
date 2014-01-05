@@ -204,6 +204,18 @@ stability. It defaults to 0.1.
 
 =back
 
+Chipmunk allows fast moving objects to overlap, then fixes the overlap
+over time. Overlapping objects are unavoidable even if swept collisions
+are supported, and this is an efficient and stable way to deal with
+overlapping objects. The bias value controls what percentage of overlap
+remains unfixed after a second and defaults to ~0.2%. Valid values are
+in the range from 0 to 1, but using 0 is not recommended for stability
+reasons. The default value is calculated as cpfpow(1.0f - 0.1f, 60.0f)
+meaning that Chipmunk attempts to correct 10% of error ever 1/60th of a
+second.
+
+B<NOTE>: Very very few games will need to change this value.
+
 =head2 set_collision_bias
 
 =over 4
@@ -213,6 +225,18 @@ stability. It defaults to 0.1.
 =item Return Value:
 
 =back
+
+Chipmunk allows fast moving objects to overlap, then fixes the overlap
+over time. Overlapping objects are unavoidable even if swept collisions
+are supported, and this is an efficient and stable way to deal with
+overlapping objects. The bias value controls what percentage of overlap
+remains unfixed after a second and defaults to ~0.2%. Valid values are
+in the range from 0 to 1, but using 0 is not recommended for stability
+reasons. The default value is calculated as cpfpow(1.0f - 0.1f, 60.0f)
+meaning that Chipmunk attempts to correct 10% of error ever 1/60th of a
+second.
+
+B<NOTE>: Very very few games will need to change this value.
 
 =head2 get_collision_persistence
 

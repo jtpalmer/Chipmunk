@@ -248,6 +248,10 @@ B<NOTE>: Very very few games will need to change this value.
 
 =back
 
+The number of frames the space keeps collision solutions around for.
+Helps prevent jittering contacts from getting worse. This defaults to 3
+and very very very few games will need to change this value.
+
 =head2 set_collision_persistence
 
 =over 4
@@ -257,6 +261,10 @@ B<NOTE>: Very very few games will need to change this value.
 =item Return Value:
 
 =back
+
+The number of frames the space keeps collision solutions around for.
+Helps prevent jittering contacts from getting worse. This defaults to 3
+and very very very few games will need to change this value.
 
 =head2 get_enable_contact_graph
 

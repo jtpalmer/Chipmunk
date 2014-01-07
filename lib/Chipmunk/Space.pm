@@ -326,6 +326,9 @@ and very very very few games will need to change this value.
 
 =back
 
+Retrieves the current (if you are in a callback from L</step>) or most
+recent (outside of a L</step> call) timestep.
+
 =head2 is_locked
 
 =over 4

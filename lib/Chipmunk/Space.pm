@@ -339,6 +339,10 @@ recent (outside of a L</step> call) timestep.
 
 =back
 
+Returns true when in a callback meaning that you cannot add/remove
+objects from the space. Can be used to choose to create a post-step
+callback instead.
+
 =head2 set_default_collision_handler
 
 =over 4

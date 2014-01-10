@@ -296,6 +296,9 @@ and very very very few games will need to change this value.
 
 =back
 
+A user definable data pointer. It’s useful to point this at the
+gamestate object or scene management object that owns the space.
+
 =head2 set_user_data
 
 =over 4
@@ -305,6 +308,9 @@ and very very very few games will need to change this value.
 =item Return Value:
 
 =back
+
+A user definable data pointer. It’s useful to point this at the
+gamestate object or scene management object that owns the space.
 
 =head2 get_static_body
 

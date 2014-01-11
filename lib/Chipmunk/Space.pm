@@ -675,6 +675,9 @@ callback or iterator.
 
 =back
 
+Reindex all static shapes. Generally updating only the shapes that
+changed is faster.
+
 =head2 reindex_shape
 
 =over 4
@@ -685,6 +688,8 @@ callback or iterator.
 
 =back
 
+Reindex a specific shape.
+
 =head2 reindex_shapes_for_body
 
 =over 4
@@ -694,6 +699,8 @@ callback or iterator.
 =item Return Value:
 
 =back
+
+Reindex all the shapes for a certain body.
 
 =head2 use_spatial_hash
 

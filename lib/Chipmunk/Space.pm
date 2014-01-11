@@ -322,6 +322,10 @@ gamestate object or scene management object that owns the space.
 
 =back
 
+A dedicated static body for the space. You don't have to use it, but
+because it's memory is managed automatically with the space it's very
+convenient.
+
 =head2 get_current_time_step
 
 =over 4

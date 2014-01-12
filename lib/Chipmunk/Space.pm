@@ -645,6 +645,10 @@ callback or iterator.
 
 =back
 
+Call C<&func> for each body in the space also passing along your data
+pointer. Sleeping bodies are included, but static and rogue bodies are
+not as they aren’t added to the space.
+
 =head2 each_shape
 
 =over 4

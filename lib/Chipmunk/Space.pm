@@ -659,6 +659,9 @@ not as they aren’t added to the space.
 
 =back
 
+Call C<&func> for each shape in the space also passing along your data
+pointer. Sleeping and static shapes are included.
+
 =head2 each_constraint
 
 =over 4

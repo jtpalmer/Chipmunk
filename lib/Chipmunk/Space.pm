@@ -672,6 +672,9 @@ pointer. Sleeping and static shapes are included.
 
 =back
 
+Call C<&func> for each constraint in the space also passing along your
+data pointer.
+
 =head2 reindex_static
 
 =over 4

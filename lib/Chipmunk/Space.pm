@@ -732,6 +732,14 @@ Reindex all the shapes for a certain body.
 
 =back
 
+Update the space for the given time step. Using a fixed time step is
+highly recommended. Doing so can greatly increase the quality of the
+simulation. The easiest way to do constant timesteps is to simple step
+forward by 1/60th of a second (or whatever your target framerate is) for
+each frame regardless of how long it took to render. This works fine
+for many games, but a better way to do it is to separate your physics
+timestep and rendering
+
 =head1 SEE ALSO
 
 L<Chipmunk::Body>, L<Chipmunk::Shape>, L<Chipmunk::Constraint>

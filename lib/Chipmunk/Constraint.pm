@@ -22,6 +22,31 @@ each other. (how they constrain each other) Constraints can be simple
 joints that allow bodies to pivot around each other like the bones in
 your body, or they can be more abstract like the gear joint or motors.
 
+=head2 What constraints are and what they are not
+
+Constraints in Chipmunk are all velocity based constraints. This means
+that they act primarily by synchronizing the velocity of two bodies. A
+pivot joint holds two anchor points on two separate bodies together by
+defining equations that say that the velocity of the anchor points must
+be the same and calculating impulses to apply to the bodies to try and
+keep it that way. A constraint takes a velocity as it's primary input
+and produces a velocity change as it's output. Some constraints,
+(joints in particular) apply velocity changes to correct differences
+in positions. More about this in the next section.
+
+A spring connected between two bodies is not a constraint. It's very
+constraint-like as it creates forces that affect the velocities of the
+two bodies, but a spring takes distances as input and produces forces
+as it's output. If a spring is not a constraint, then why do I have
+two varieties of spring constraints you ask? The reason is because
+they are damped springs. The damping associated with the spring is a
+true constraint that creates velocity changes based on the relative
+velocities of the two bodies it links. As it is convenient to put a
+damper and a spring together most of the time, I figured I might as well
+just apply the spring force as part of the constraint instead of having
+a damper constraint and having the user calculate and apply their own
+spring forces separately.
+
 =head1 METHODS
 
 =head2 activate_bodies

@@ -83,6 +83,8 @@ spring forces separately.
 
 =back
 
+Get the first body the constraint is attached to.
+
     $body_a = $constraint->get_a();
 
 =head2 get_b
@@ -94,6 +96,8 @@ spring forces separately.
 =item Return Value: L<$body|Chipmunk::Body>
 
 =back
+
+Get the second body the constraint is attached to.
 
     $body_b = $constraint->get_b();
 

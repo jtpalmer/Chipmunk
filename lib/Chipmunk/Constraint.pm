@@ -111,6 +111,9 @@ Get the second body the constraint is attached to.
 
 =back
 
+Get the maximum force that the constraint can use to act on the
+two bodies. Defaults to INFINITY.
+
     $max_force = $constraint->get_max_force();
 
 =head2 set_max_force
@@ -122,6 +125,9 @@ Get the second body the constraint is attached to.
 =item Return Value: not defined
 
 =back
+
+Set the maximum force that the constraint can use to act on the
+two bodies. Defaults to INFINITY.
 
 =head2 get_error_bias
 

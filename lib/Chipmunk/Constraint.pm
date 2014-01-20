@@ -139,6 +139,11 @@ two bodies. Defaults to INFINITY.
 
 =back
 
+Get the percentage of joint error that remains unfixed after a second.
+This works exactly the same as the collision bias property of a space,
+but applies to fixing error (stretching) of joints instead of
+overlapping collisions.
+
 =head2 set_error_bias
 
 =over 4
@@ -148,6 +153,11 @@ two bodies. Defaults to INFINITY.
 =item Return Value: not defined
 
 =back
+
+Set the percentage of joint error that remains unfixed after a second.
+This works exactly the same as the collision bias property of a space,
+but applies to fixing error (stretching) of joints instead of
+overlapping collisions.
 
 =head2 get_max_bias
 

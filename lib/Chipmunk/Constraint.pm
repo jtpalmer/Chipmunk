@@ -169,6 +169,9 @@ overlapping collisions.
 
 =back
 
+Get the maximum speed at which the constraint can apply error
+correction. Defaults to INFINITY.
+
 =head2 set_max_bias
 
 =over 4
@@ -178,6 +181,9 @@ overlapping collisions.
 =item Return Value: not defined
 
 =back
+
+Set the maximum speed at which the constraint can apply error
+correction. Defaults to INFINITY.
 
 =head2 get_user_data
 

@@ -71,6 +71,9 @@ spring forces separately.
 
 =back
 
+Get the L<Space|Chipmunk::Space> that the constraint has been added
+to.
+
     $space = $constraint->get_space();
 
 =head2 get_a

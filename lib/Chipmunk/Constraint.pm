@@ -198,6 +198,9 @@ correction. Defaults to INFINITY.
 
 =back
 
+Get user data pointer. Use this pointer to get a reference to the game
+object that owns this constraint from callbacks.
+
 =head2 set_user_data
 
 =over 4
@@ -207,6 +210,9 @@ correction. Defaults to INFINITY.
 =item Return Value: not defined
 
 =back
+
+Set user data pointer. Use this pointer to get a reference to the game
+object that owns this constraint from callbacks.
 
 =head2 get_impulse
 

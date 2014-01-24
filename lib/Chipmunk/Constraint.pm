@@ -224,6 +224,11 @@ object that owns this constraint from callbacks.
 
 =back
 
+The most recent impulse that this constraint applied. To convert this to
+a force, divide by the timestep passed to L<step|Chipmunk::Space/step>.
+You can use this to implement breakable joints to check if the force
+they attempted to apply exceeded a certain threshold.
+
 =head1 SEE ALSO
 
 L<Chipmunk::DampedRotarySpring>, L<Chipmunk::DampedSpring>,

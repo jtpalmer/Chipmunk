@@ -60,6 +60,8 @@ calculation multiplies the elasticity of the two shapes together.
 
 =back
 
+Set the elasticity.
+
 =head2 get_friction
 
 =over 4
@@ -69,6 +71,11 @@ calculation multiplies the elasticity of the two shapes together.
 =item Return Value: $friction
 
 =back
+
+The calculated friction for this collision pair. Setting the value in
+a L<pre_solve|Chipmunk::Space/set_default_collision_handler> callback
+will override the value calculated by the space.  The default
+calculation multiplies the friction of the two shapes together.
 
 =head2 set_friction
 

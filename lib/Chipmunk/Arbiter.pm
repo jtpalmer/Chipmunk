@@ -212,6 +212,8 @@ backwards compatibility reasons.
 
 =back
 
+Get the number of contacts tracked by this arbiter.
+
 =head2 get_normal
 
 =over 4
@@ -221,6 +223,8 @@ backwards compatibility reasons.
 =item Return Value:
 
 =back
+
+Get the collision normal of this arbiter.
 
 =head2 get_point
 

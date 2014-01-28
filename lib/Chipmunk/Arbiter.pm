@@ -236,6 +236,8 @@ Get the collision normal of this arbiter.
 
 =back
 
+Get the collision point of this arbiter.
+
 =head2 get_depth
 
 =over 4
@@ -245,6 +247,8 @@ Get the collision normal of this arbiter.
 =item Return Value:
 
 =back
+
+Get the penetration depth of the collision point of this arbiter.
 
 =head1 SEE ALSO
 

@@ -72,9 +72,7 @@ Set the elasticity.
 
 =back
 
-The calculated friction for this collision pair. Setting the value in
-a L<pre_solve|Chipmunk::Space/set_default_collision_handler> callback
-will override the value calculated by the space.  The default
+The calculated friction for this collision pair.  The default
 calculation multiplies the friction of the two shapes together.
 
 =head2 set_friction
@@ -86,6 +84,10 @@ calculation multiplies the friction of the two shapes together.
 =item Return Value: not defined
 
 =back
+
+Set the friction for this collision pair.  Setting the value in a
+L<pre_solve|Chipmunk::Space/set_default_collision_handler> callback
+will override the value calculated by the space.
 
 =head2 get_surface_velocity
 

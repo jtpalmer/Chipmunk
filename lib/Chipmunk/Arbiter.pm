@@ -99,9 +99,7 @@ will override the value calculated by the space.
 
 =back
 
-The calculated surface velocity for this collision pair. Setting the
-value in a L<pre_solve|Chipmunk::Space/set_default_collision_handler>
-callback will override the value calculated by the space. the default
+Get the calculated surface velocity for this collision pair. The default
 calculation subtracts the surface velocity of the second shape from the
 first and then projects that onto the tangent of the collision. This is
 so that only friction is affected by default calculation. Using a custom
@@ -123,6 +121,11 @@ backwards compatibility reasons.
 =item Return Value: not defined
 
 =back
+
+Set the calculated surface velocity for this collision pair. Setting
+the value in a
+L<pre_solve|Chipmunk::Space/set_default_collision_handler> callback
+will override the value calculated by the space.
 
 =head2 get_user_data
 

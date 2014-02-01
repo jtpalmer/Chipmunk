@@ -207,6 +207,12 @@ will override the value calculated by the space.
 
 =back
 
+Returns true if this is the first step the two shapes started touching.
+This can be useful for sound effects for instance. If it's the first
+frame for a certain collision, check the energy of the collision in a
+L<post_step> callbock and use that to determine the volume of a sound
+effect to play.
+
 =head2 get_count
 
 =over 4

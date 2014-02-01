@@ -157,6 +157,8 @@ will override the value calculated by the space.
 
 =back
 
+Returns the impulse that was applied this step to resolve the collision.
+
 =head2 total_impulse_with_friction
 
 =over 4

@@ -179,6 +179,9 @@ Returns the impulse that was applied this step to resolve the collision.
 
 =back
 
+Calculate the amount of energy lost in a collision including static, but
+not dynamic friction
+
 =head2 ignore
 
 =over 4

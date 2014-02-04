@@ -202,6 +202,9 @@ not dynamic friction
 
 =back
 
+Get the shapes in the order that they were defined in the collision
+handler associated with this arbiter.
+
 =head2 is_first_contact
 
 =over 4

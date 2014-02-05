@@ -192,6 +192,8 @@ not dynamic friction
 
 =back
 
+Reject the collision.
+
 =head2 get_shapes
 
 =over 4

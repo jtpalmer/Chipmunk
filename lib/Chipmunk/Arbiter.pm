@@ -169,6 +169,9 @@ Returns the impulse that was applied this step to resolve the collision.
 
 =back
 
+Returns the impulse, with friction, that was applied this step to
+resolve the collision.
+
 =head2 total_ke
 
 =over 4

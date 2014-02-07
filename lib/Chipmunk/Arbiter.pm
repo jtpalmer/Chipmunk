@@ -137,6 +137,8 @@ will override the value calculated by the space.
 
 =back
 
+Get user data.
+
 =head2 set_user_data
 
 =over 4
@@ -146,6 +148,8 @@ will override the value calculated by the space.
 =item Return Value: not defined
 
 =back
+
+Set user data.
 
 =head2 total_impulse
 

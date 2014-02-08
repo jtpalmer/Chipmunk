@@ -615,6 +615,11 @@ callback or iterator.
 
 =back
 
+Query C<$space> to find all shapes near C<$bb> filtering out matches
+with the given C<$layers> and C<$group>. C<&func> is called for each
+shape whose bounding box overlaps bb along with the data argument
+passed to C<bb_query>. Sensor shapes are included.
+
 =head2 shape_query
 
 =over 4
